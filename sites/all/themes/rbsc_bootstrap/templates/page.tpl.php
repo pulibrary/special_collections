@@ -74,12 +74,12 @@
  */
 ?>
 
-
+    <div id="wrap">
 
             <div class="thinbar">
             <div class="container">
                 <a href="http://www.princeton.edu">
-                    <img src="img/pul_logo_small.png" class="pulogo" border="0">
+                    <img src="/sites/all/themes/rbsc_bootstrap/img/pul_logo_small.png?mzxbh6" class="pulogo" border="0">
                 </a>
                 <ul class="nav navbar-nav navbar-right" role="navigation">
                   <li class="dropdown">
@@ -105,98 +105,222 @@
             </div>
       </div>
 
-
-
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-  <div class="container">
-    <div class="navbar-header">
-      <?php if ($logo): ?>
-      <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-      <?php endif; ?>
-
-      <?php if (!empty($site_name)): ?>
-      <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
-      <?php endif; ?>
-
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-      <div class="navbar-collapse collapse">
-        <nav role="navigation">
-          <?php if (!empty($primary_nav)): ?>
-            <?php print render($primary_nav); ?>
-          <?php endif; ?>
-          <?php if (!empty($secondary_nav)): ?>
-            <?php print render($secondary_nav); ?>
-          <?php endif; ?>
-          <?php if (!empty($page['navigation'])): ?>
-            <?php print render($page['navigation']); ?>
-          <?php endif; ?>
-        </nav>
+     <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <?php if ($logo): ?>
+                    <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+                      <img height="100px" width="100px" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                    </a>
+            <?php endif; ?>
+              
+            <?php if (!empty($site_name)): ?>
+              <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+            <?php endif; ?>
+            
+            
+            <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
+              <div class="navbar-collapse collapse">
+                <nav role="navigation">
+                  <?php if (!empty($primary_nav)): ?>
+                    <?php print render($primary_nav); ?>
+                  <?php endif; ?>
+                  <?php if (!empty($secondary_nav)): ?>
+                    <?php print render($secondary_nav); ?>
+                  <?php endif; ?>
+                  <?php if (!empty($page['navigation'])): ?>
+                    <?php print render($page['navigation']); ?>
+                  <?php endif; ?>
+                </nav>
+              </div>
+            <?php endif; ?>
+            <!-- Fixed Logo -->
+          </div>
+          
+          <!--Top Nav-->
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Explore <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Exhibitions</li>
+                  <li><a href="#">Current</a></li>
+                  <li><a href="#">Upcoming</a></li>
+                  <li><a href="#">Online & Permanent</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Digital Collections</a></li>
+                  <li><a href="#">Programs & Events</a></li>
+                  <li><a href="#">Publications</a></li>
+                  <li><a href="#">For Kids</a></li>
+                  <li><a href="#">Departmental Blogs</a></li>
+                </ul>
+              </li>
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown"><span class="menu-text">Collections</span> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Harvey S. Firestone Library</li>
+                  <li><a href="#">Cotsen Children's Library</a></li>
+                  <li><a href="#">Graphic Arts Collection</a></li>
+                  <li><a href="#">Historic Maps Collection</a></li>
+                  <li class="active"><a href="#">Manuscripts Division</a></li>
+                  <li><a href="#">Numismatics Collection</a></li>
+                  <li><a href="#">Rare Books Division</a></li>
+                  <li><a href="#">Scheide Library</a></li>
+                  <li><a href="#">Western Americana Collection</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Seeley G. Mudd Manuscript Library</li>
+                  <li><a href="#">University Archives</a></li>
+                  <li><a href="#">Public Policy Papers</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Conducting Research <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header">Resources and Databases</li>
+                  <li><a href="#">Finding Aids</a></li>
+                  <li><a href="#">Main Catalog</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Guides and Tutorials</li>
+                  <li><a href="#">Research Tutorial</a></li>
+                  <li><a href="#">Subject Guides</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Services</li>
+                  <li><a href="#">Photoduplication</a></li>
+                  <li><a href="#">Classroom Instruction</a></li>
+                  <li><a href="#">Reference and Research Assistance</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Visit Us <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Before You Visit</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Registration</li>
+                  <li><a href="#">Special Collections Research Account</a></li>
+                  <li><a href="#">Requesting Materials</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Locations</li>
+                  <li><a href="#">Harvey S. Firestone Library</a></li>
+                  <li><a href="#">Seeley G. Mudd Library</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Travel Information</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            </div><!-- /input-group -->
+            
+          </div><!--/.nav-collapse -->
+          
+        </div>
       </div>
-    <?php endif; ?>
-  </div>
 </header>
 
-<div class="main-container container">
-
-  <header role="banner" id="page-header">
-    <?php if (!empty($site_slogan)): ?>
-      <p class="lead"><?php print $site_slogan; ?></p>
-    <?php endif; ?>
-
-    <?php print render($page['header']); ?>
-  </header> <!-- /#page-header -->
-
-  <div class="row">
-
-    <?php if (!empty($page['sidebar_first'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_first']); ?>
-      </aside>  <!-- /#sidebar-first -->
-    <?php endif; ?>
-
-    <section<?php print $content_column_class; ?>>
-      <?php if (!empty($page['highlighted'])): ?>
-        <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+<?php /* ?>
+  
+  <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
+    <div class="container">
+      <div class="navbar-header">
+        <?php if ($logo): ?>
+        <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+        </a>
+        <?php endif; ?>
+  
+        <?php if (!empty($site_name)): ?>
+        <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+        <?php endif; ?>
+  
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+  
+      <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
+        <div class="navbar-collapse collapse">
+          <nav role="navigation">
+            <?php if (!empty($primary_nav)): ?>
+              <?php print render($primary_nav); ?>
+            <?php endif; ?>
+            <?php if (!empty($secondary_nav)): ?>
+              <?php print render($secondary_nav); ?>
+            <?php endif; ?>
+            <?php if (!empty($page['navigation'])): ?>
+              <?php print render($page['navigation']); ?>
+            <?php endif; ?>
+          </nav>
+        </div>
       <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
+    </div>
+  </header>
+  <?php */?>
+  <div class="main-container container">
+  
+    <header role="banner" id="page-header">
+      <?php if (!empty($site_slogan)): ?>
+        <p class="lead"><?php print $site_slogan; ?></p>
       <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
-        <?php print render($tabs); ?>
+  
+      <?php print render($page['header']); ?>
+    </header> <!-- /#page-header -->
+  
+    <div class="row">
+  
+      <?php if (!empty($page['sidebar_first'])): ?>
+        <aside class="col-sm-3" role="complementary">
+          <?php print render($page['sidebar_first']); ?>
+        </aside>  <!-- /#sidebar-first -->
       <?php endif; ?>
-      <?php if (!empty($page['help'])): ?>
-        <?php print render($page['help']); ?>
+  
+      <section<?php print $content_column_class; ?>>
+        <?php if (!empty($page['highlighted'])): ?>
+          <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
+        <?php endif; ?>
+        <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+        <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <?php if (!empty($title)): ?>
+          <h1 class="page-header"><?php print $title; ?></h1>
+        <?php endif; ?>
+        <?php print render($title_suffix); ?>
+        <?php print $messages; ?>
+        <?php if (!empty($tabs)): ?>
+          <?php print render($tabs); ?>
+        <?php endif; ?>
+        <?php if (!empty($page['help'])): ?>
+          <?php print render($page['help']); ?>
+        <?php endif; ?>
+        <?php if (!empty($action_links)): ?>
+          <ul class="action-links"><?php print render($action_links); ?></ul>
+        <?php endif; ?>
+        <?php print render($page['content']); ?>
+      </section>
+  
+      <?php if (!empty($page['sidebar_second'])): ?>
+        <aside class="col-sm-3" role="complementary">
+          <?php print render($page['sidebar_second']); ?>
+        </aside>  <!-- /#sidebar-second -->
       <?php endif; ?>
-      <?php if (!empty($action_links)): ?>
-        <ul class="action-links"><?php print render($action_links); ?></ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-    </section>
-
-    <?php if (!empty($page['sidebar_second'])): ?>
-      <aside class="col-sm-3" role="complementary">
-        <?php print render($page['sidebar_second']); ?>
-      </aside>  <!-- /#sidebar-second -->
-    <?php endif; ?>
-
+  
+    </div>
   </div>
-</div>
+</div><!-- end wrap -->
+    
 <footer class="footer container">
   <?php print render($page['footer']); ?>
 </footer>
