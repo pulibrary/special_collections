@@ -77,36 +77,44 @@
     <div id="wrap">
 
             <div class="thinbar">
-            <div class="container">
-                <a href="http://www.princeton.edu">
-                    <img src="/sites/all/themes/rbsc_bootstrap/img/pul_logo_small.png?mzxbh6" class="pulogo" border="0">
-                </a>
-                <ul class="nav navbar-nav navbar-right" role="navigation">
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accounts <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li><a href="#">Separated link</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">Another action</a></li>
-                      <li><a href="#">Something else here</a></li>
-                      <li><a href="#">Separated link</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Site Feedback</a></li>
-                </ul>
+              <div class="container">
+                  <a href="http://www.princeton.edu">
+                      <img src="/<?php print path_to_theme(); ?>/img/pul_logo_small.png" class="pulogo" border="0">
+                  </a>
+                  <ul class="nav navbar-nav navbar-right" role="navigation">
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accounts <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">Site Feedback</a></li>
+                  </ul>
+                  <?php if (!empty($secondary_nav)): ?>
+                    <div class="navbar-collapse collapse">
+                      <nav role="navigation">                   
+                          <?php print render($secondary_nav); ?>
+                      </nav>
+                    </div>
+                  <?php endif; ?>               
+                  
+              </div>
             </div>
-      </div>
 
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-     <div class="navbar navbar-default navbar-fixed-top">
+     
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -123,16 +131,19 @@
             <?php if (!empty($site_name)): ?>
               <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
             <?php endif; ?>
+          </div>
             
-            
-            <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
+            <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
               <div class="navbar-collapse collapse">
                 <nav role="navigation">
                   <?php if (!empty($primary_nav)): ?>
                     <?php print render($primary_nav); ?>
-                  <?php endif; ?>
-                  <?php if (!empty($secondary_nav)): ?>
-                    <?php print render($secondary_nav); ?>
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                      </span>
+                    </div><!-- /input-group -->     
                   <?php endif; ?>
                   <?php if (!empty($page['navigation'])): ?>
                     <?php print render($page['navigation']); ?>
@@ -141,90 +152,11 @@
               </div>
             <?php endif; ?>
             <!-- Fixed Logo -->
-          </div>
-          
-          <!--Top Nav-->
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Explore <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">Exhibitions</li>
-                  <li><a href="#">Current</a></li>
-                  <li><a href="#">Upcoming</a></li>
-                  <li><a href="#">Online & Permanent</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Digital Collections</a></li>
-                  <li><a href="#">Programs & Events</a></li>
-                  <li><a href="#">Publications</a></li>
-                  <li><a href="#">For Kids</a></li>
-                  <li><a href="#">Departmental Blogs</a></li>
-                </ul>
-              </li>
-              <li class="dropdown active">
-                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown"><span class="menu-text">Collections</span> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">Harvey S. Firestone Library</li>
-                  <li><a href="#">Cotsen Children's Library</a></li>
-                  <li><a href="#">Graphic Arts Collection</a></li>
-                  <li><a href="#">Historic Maps Collection</a></li>
-                  <li class="active"><a href="#">Manuscripts Division</a></li>
-                  <li><a href="#">Numismatics Collection</a></li>
-                  <li><a href="#">Rare Books Division</a></li>
-                  <li><a href="#">Scheide Library</a></li>
-                  <li><a href="#">Western Americana Collection</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Seeley G. Mudd Manuscript Library</li>
-                  <li><a href="#">University Archives</a></li>
-                  <li><a href="#">Public Policy Papers</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Conducting Research <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="dropdown-header">Resources and Databases</li>
-                  <li><a href="#">Finding Aids</a></li>
-                  <li><a href="#">Main Catalog</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Guides and Tutorials</li>
-                  <li><a href="#">Research Tutorial</a></li>
-                  <li><a href="#">Subject Guides</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Services</li>
-                  <li><a href="#">Photoduplication</a></li>
-                  <li><a href="#">Classroom Instruction</a></li>
-                  <li><a href="#">Reference and Research Assistance</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle bigdrop" data-toggle="dropdown">Visit Us <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Before You Visit</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Registration</li>
-                  <li><a href="#">Special Collections Research Account</a></li>
-                  <li><a href="#">Requesting Materials</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Locations</li>
-                  <li><a href="#">Harvey S. Firestone Library</a></li>
-                  <li><a href="#">Seeley G. Mudd Library</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Travel Information</a></li>
-                </ul>
-              </li>
-            </ul>
-            
-            <div class="input-group">
-              <input type="text" class="form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-              </span>
-            </div><!-- /input-group -->
             
           </div><!--/.nav-collapse -->
           
         </div>
-      </div>
+     
 </header>
 
 <?php /* ?>
