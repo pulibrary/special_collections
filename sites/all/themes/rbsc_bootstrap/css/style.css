@@ -358,6 +358,12 @@ address {
   padding: 10px;
 }
 
+.desc div{
+
+  background: transparent;
+
+}
+
 .hours {
   color: white;
   border-radius: 6px;

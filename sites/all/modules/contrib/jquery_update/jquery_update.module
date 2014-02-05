@@ -78,6 +78,11 @@ function jquery_update_library_alter(&$javascript, $module) {
 
   // Replace jQuery with the latest version.
   $version = variable_get('jquery_update_jquery_version', '1.5');
+  
+    if (arg(0) == 'admin') {  // THIS IS NEW
+      $version = '1.5';       // THIS IS NEW
+    }                         // THIS IS NEW
+    
   jquery_update_jquery_replace($javascript, $cdn, $path, $min, $version);
 
   // Replace jQuery UI with CDN or local files. If from a CDN include all of jQuery UI.
