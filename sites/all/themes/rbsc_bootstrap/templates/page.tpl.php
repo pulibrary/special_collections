@@ -79,7 +79,7 @@
             <div class="thinbar">
               <div class="container">
                   <a href="http://www.princeton.edu">
-                      <img src="<?php print path_to_theme(); ?>/img/pul_logo_small.png" class="pulogo" border="0">
+                      <img src="<?php print path_to_theme(); ?>/img/pu_logo_small.png" class="pulogo" border="0">
                   </a>
                   <ul class="nav navbar-nav navbar-right" role="navigation">
                     <li class="dropdown">
