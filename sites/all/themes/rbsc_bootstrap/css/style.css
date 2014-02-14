@@ -714,19 +714,19 @@ background-color: #fff;
 }
 
 .node-feed-item .submitted{
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 200;
   letter-spacing: 0px;
-  line-height: 11px;
+  line-height: 14px;
   font-style: italic;
   color:#333333;
 }
 
 .node-feed-item .content{
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: 0px;
-  line-height: 14px;
+  line-height: 16px;
 }
 
 /*
