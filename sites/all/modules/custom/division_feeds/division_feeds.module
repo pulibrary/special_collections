@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the division_feeds feature.
+ */
+
+include_once 'division_feeds.features.inc';
