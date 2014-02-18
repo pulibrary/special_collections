@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the division_layouts feature.
+ */
+
+include_once 'division_layouts.features.inc';

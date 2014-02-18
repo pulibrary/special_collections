@@ -1,7 +1,7 @@
 name = division_feeds
 description = Division Feeda
 core = 7.x
-package = RBSC_Division_Feeds
+package = RBSC
 version = 7.x-1.0-dev
 project = division_feeds
 dependencies[] = ctools
