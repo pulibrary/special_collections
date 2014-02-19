@@ -22,7 +22,7 @@ function division_layouts_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Blog Item';
+  $handler->display->display_options['title'] = '<span class="glyphicon glyphicon-bullhorn"></span> New and Notable';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -151,7 +151,7 @@ function division_layouts_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Collection Strengths';
+  $handler->display->display_options['title'] = '<span class="glyphicon glyphicon-eye-open"></span> Collection Strengths';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -181,6 +181,20 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
   $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
   $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  /* Field: Content: image */
+  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_class'] = 'pull-left';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
+    'image_style' => 'square_thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -188,18 +202,18 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
   $handler->display->display_options['fields']['title_1']['label'] = '';
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
-  /* Field: Content: image */
-  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['relationship'] = 'field_collection_strength_target_id';
-  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => 'content',
+  $handler->display->display_options['fields']['title_1']['element_wrapper_type'] = 'h4';
+  $handler->display->display_options['fields']['title_1']['element_wrapper_class'] = '.media-heading';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '400',
   );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -391,24 +405,41 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['relationships']['field_division_location_target_id']['id'] = 'field_division_location_target_id';
   $handler->display->display_options['relationships']['field_division_location_target_id']['table'] = 'field_data_field_division_location';
   $handler->display->display_options['relationships']['field_division_location_target_id']['field'] = 'field_division_location_target_id';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Image */
   $handler->display->display_options['fields']['field_location_image']['id'] = 'field_location_image';
   $handler->display->display_options['fields']['field_location_image']['table'] = 'field_data_field_location_image';
   $handler->display->display_options['fields']['field_location_image']['field'] = 'field_location_image';
   $handler->display->display_options['fields']['field_location_image']['relationship'] = 'field_division_location_target_id';
   $handler->display->display_options['fields']['field_location_image']['label'] = '';
+  $handler->display->display_options['fields']['field_location_image']['element_class'] = 'img-thumbnail';
   $handler->display->display_options['fields']['field_location_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_location_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_location_image']['settings'] = array(
-    'image_style' => 'thumbnail',
+    'image_style' => 'medium',
     'image_link' => '',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_division_location_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Address */
+  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
+  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
+  $handler->display->display_options['fields']['field_address']['relationship'] = 'field_division_location_target_id';
+  $handler->display->display_options['fields']['field_address']['label'] = '';
+  $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_address']['settings'] = array(
+    'use_widget_handlers' => 1,
+    'format_handlers' => array(
+      'address' => 'address',
+    ),
   );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';

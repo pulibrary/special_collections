@@ -75,7 +75,7 @@ function division_layouts_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Manuscripts Division';
   $display->uuid = '40b20fe5-af0d-4624-b465-f0dbb291ee56';
   $display->content = array();
   $display->panels = array();
