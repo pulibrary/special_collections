@@ -73,6 +73,10 @@ p {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
+nav {
+ margin-top:-7px; 
+}
+
 #wrap > .container {
   padding: 85px 15px 0;
 }
@@ -708,9 +712,9 @@ background-color: #fff;
 
 .node-feed-item h2{
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 2px;
-  line-height: 14px;
+  line-height: 18px;
 }
 
 .node-feed-item .submitted{
@@ -722,11 +726,82 @@ background-color: #fff;
   color:#333333;
 }
 
-.node-feed-item .content{
-  font-size: 14px;
-  font-weight: 400;
+.node-feed-item .content p{
+  font-size: 20px;
+  font-style: normal;
   letter-spacing: 0px;
+  line-height: 34px;
+  font-family: 'Georgia Pro', georgia, serif;
+  color: #222;
+  margin: 24px 130px 24px 130px;
+}
+
+/* Blogroll */
+
+.panel-col-last .view-id-blog_item .views-row-even{
+  background-color: #fff;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 10px; 
+}
+
+.panel-col-last .view-id-blog_item .views-row-odd{
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 10px; 
+}
+
+.panel-col-last .view-id-blog_item p{
+  font-size: 11px;
   line-height: 16px;
+  margin: 0px;
+}
+
+.panel-col-last .submitted {
+  font-size: 11px;
+  font-weight: 200;
+  letter-spacing: 0px;
+  line-height: 14px;
+  font-style: italic;
+  color:#333333;
+  margin-bottom: -5px;
+
+}
+
+.even {
+  background-color: transparent;
+}
+
+.odd {
+  background-color: transparent;
+}
+
+.pane-title {
+  font-size: 18px;  
+}
+
+/* media grid and list */
+
+.media img{
+  display: block;
+  margin-right: 10px;
+}
+
+.media-body {
+ display: block; 
+}
+
+.media-heading {
+  display: block;
+  font-size: 16px;
+}
+
+/* Division Location */
+
+.panel-col-first .img-thumbnail {
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 /*
