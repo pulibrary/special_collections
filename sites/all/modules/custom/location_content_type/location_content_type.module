@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Location_Content_Type feature.
+ */
+
+include_once 'location_content_type.features.inc';
