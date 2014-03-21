@@ -51,3 +51,28 @@ function division_layouts_image_default_styles() {
 
   return $styles;
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function division_layouts_node_info() {
+  $items = array(
+    'policy' => array(
+      'name' => t('Policy'),
+      'base' => 'node_content',
+      'description' => t('Guidelines...'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'services' => array(
+      'name' => t('Service'),
+      'base' => 'node_content',
+      'description' => t('Things we do for patrons.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
