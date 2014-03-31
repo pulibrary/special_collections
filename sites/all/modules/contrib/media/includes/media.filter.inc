@@ -273,7 +273,7 @@ function media_token_to_markup($match, $wysiwyg = FALSE) {
 
     // Ensure a valid view mode is being requested.
     if (!isset($tag_info['view_mode'])) {
-      $tag_info['view_mode'] = media_variable_get('wysiwyg_default_view_mode');
+      $tag_info['view_mode'] = variable_get('media__wysiwyg_default_view_mode', 'full');
     }
     elseif ($tag_info['view_mode'] != 'default') {
       $file_entity_info = entity_get_info('file');
@@ -309,19 +309,16 @@ function media_token_to_markup($match, $wysiwyg = FALSE) {
       $tag_info['attributes']['class'] = explode(" ", $tag_info['attributes']['class']);
     }
 
-    // Track the fid of this file in the {media_filter_usage} table.
-    media_filter_track_usage($file->fid);
-
     // Grab the potentially overrided fields from the file.
     $fields = media_filter_field_parser($tag_info);
 
     $attributes = is_array($tag_info['attributes']) ? $tag_info['attributes'] : array();
-    $attribute_whitelist = media_variable_get('wysiwyg_allowed_attributes');
+    $attribute_whitelist = variable_get('media__wysiwyg_allowed_attributes', array('height', 'width', 'hspace', 'vspace', 'border', 'align', 'style', 'class', 'id', 'usemap', 'data-picture-group', 'data-picture-align'));
     $settings['attributes'] = array_intersect_key($attributes, array_flip($attribute_whitelist));
     $settings['fields'] = $fields;
 
     if (!empty($tag_info['attributes']) && is_array($tag_info['attributes'])) {
-      $attribute_whitelist = media_variable_get('wysiwyg_allowed_attributes');
+      $attribute_whitelist = variable_get('media__wysiwyg_allowed_attributes', array('height', 'width', 'hspace', 'vspace', 'border', 'align', 'style', 'class', 'id', 'usemap', 'data-picture-group', 'data-picture-align'));
       $settings['attributes'] = array_intersect_key($tag_info['attributes'], array_flip($attribute_whitelist));
       $settings['fields'] = $fields;
 
@@ -586,7 +583,7 @@ function media_format_form($form, $form_state, $file) {
   }
 
   // Allow for overrides to the display format.
-  $default_view_mode = is_array($query_fields) && isset($query_fields['format']) ? $query_fields['format'] : media_variable_get('wysiwyg_default_view_mode');
+  $default_view_mode = is_array($query_fields) && isset($query_fields['format']) ? $query_fields['format'] : variable_get('media__wysiwyg_default_view_mode', 'full');
   if (!isset($formats[$default_view_mode])) {
     $default_view_mode = key($formats);
   }
@@ -626,7 +623,7 @@ function media_format_form($form, $form_state, $file) {
     '#default_value' => $default_view_mode,
     '#description' => t('Choose the type of display you would like for this
       file. Please be aware that files may display differently than they do when
-      they are insterted into an editor.')
+      they are inserted into an editor.')
   );
 
   // Add fields from the file, so that we can override them if neccesary.
@@ -687,70 +684,6 @@ function media_get_file_without_label($file, $view_mode, $settings = array()) {
   }
 
   return $element;
-}
-
-/**
- * Clears caches that may be affected by the media filter.
- *
- * The media filter calls file_load(). This means that if a file object
- * is updated, the check_markup() and field caches could return stale content.
- * There are several possible approaches to deal with this:
- *  - Disable filter caching in media_filter_info(), this was found to cause a
- *    30% performance hit from profiling four node teasers, due to both the
- *    media filter itself, and other filters that can't be cached.
- *  - Clear the filter and field caches whenever any media node is updated, this
- *    would ensure cache coherency but would reduce the effectiveness of those
- *    caches on high traffic sites with lots of media content updates.
- *  - The approach taken here: Record the fid of all media objects that are
- *    referenced by the media filter. Only clear the filter and field caches
- *    when one of these is updated, as opposed to all media objects.
- *  - @todo: consider an EntityFieldQuery to limit cache clearing to only those
- *    entities that use a text format with the media filter, possibly checking
- *    the contents of those fields to further limit this to fields referencing
- *    the media object being updated. This would need to be implemented
- *    carefully to avoid scalability issues with large result sets, and may
- *    not be worth the effort.
- *
- * @param int $fid
- *   Optional media fid being updated. If not given, the cache will be cleared
- *   as long as any file is referenced.
- */
-function media_filter_invalidate_caches($fid = FALSE) {
-  // If fid is passed, confirm that it has previously been referenced by the
-  // media filter. If not, clear the cache if the {media_filter_usage} has any
-  // valid records.
-  if (($fid && db_query('SELECT fid FROM {media_filter_usage} WHERE fid = :fid', array(':fid' => $fid))->fetchField()) || (!$fid && media_filter_usage_has_records())) {
-    // @todo: support entity cache, either via a hook, or using module_exists().
-    cache_clear_all('*', 'cache_filter', TRUE);
-    cache_clear_all('*', 'cache_field', TRUE);
-  }
-}
-
-/**
- * Determines if the {media_filter_usage} table has any entries.
- */
-function media_filter_usage_has_records() {
-  return (bool) db_query_range('SELECT 1 FROM {media_filter_usage} WHERE fid > :fid', 0, 1, array(':fid' => 0))->fetchField();
-}
-
-/**
- * Tracks usage of media fids by the media filter.
- *
- * @param int $fid
- *   The media fid.
- */
-function media_filter_track_usage($fid) {
-  // This function only tracks when fids are found by the media filter.
-  // It would be impractical to check when formatted text is edited to remove
-  // references to fids, however by keeping a timestamp, we can implement
-  // rudimentary garbage collection in hook_flush_caches().
-  // However we only need to track that an fid has ever been referenced,
-  // not every time, so avoid updating this table more than once per month,
-  // per fid.
-  $timestamp = db_query('SELECT timestamp FROM {media_filter_usage} WHERE fid = :fid', array(':fid' => $fid))->fetchField();
-  if (!$timestamp || $timestamp <= REQUEST_TIME - 86400 * 30) {
-    db_merge('media_filter_usage')->key(array('fid' => $fid))->fields(array('fid' => $fid, 'timestamp' => REQUEST_TIME))->execute();
-  }
 }
 
 /**

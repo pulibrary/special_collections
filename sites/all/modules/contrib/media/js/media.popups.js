@@ -344,7 +344,7 @@ Drupal.media.popups.getPopupIframe = function (src, id, options) {
 };
 
 Drupal.media.popups.overlayDisplace = function (dialog) {
-  if (parent.window.Drupal.overlay) {
+  if (parent.window.Drupal.overlay && jQuery.isFunction(parent.window.Drupal.overlay.getDisplacement)) {
     var overlayDisplace = parent.window.Drupal.overlay.getDisplacement('top');
     if (dialog.offset().top < overlayDisplace) {
       dialog.css('top', overlayDisplace);
