@@ -105,6 +105,7 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
     '#required' => TRUE,
     '#size' => 30,
     '#weight' => -50,
+    '#maxlength' => 255,
   );
 
   // Machine-readable type name.
@@ -114,7 +115,7 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
     '#maxlength' => 32,
     //    '#disabled' => $entityform_type->isLocked() && $op != 'clone',
     '#machine_name' => array(
-      'exists' => 'entityform_get_types',
+      'exists' => 'entityform_type_load',
       'source' => array('label'),
     ),
     '#weight' => -49,
@@ -260,6 +261,7 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
     $form['tokens']['token_tree'] = array(
       '#theme' => 'token_tree',
       '#token_types' => array('global_types', 'entityform_type', 'entityform'),
+      '#dialog' => TRUE,
     );
   }
   else {
@@ -267,7 +269,6 @@ function entityform_type_form($form, &$form_state, $entityform_type, $op = 'edit
       '#markup' => '<p>' . t('Enable the <a href="@drupal-token">Token module</a> to view the available token browser.', array('@drupal-token' => 'http://drupal.org/project/token')) . '</p>',
     );
   }
-
   return $form;
 }
 /**
@@ -278,7 +279,7 @@ function entityform_type_prepare_edit(&$entityform_type) {
   if (module_exists('menu') && empty($entityform_type->menu)) {
     $item = array();
     $mlid = db_query_range("SELECT mlid FROM {menu_links} WHERE link_path = :path AND module = 'entityform' ORDER BY mlid ASC", 0, 1, array(
-        ':path' => 'eform/submit/' . $entityform_type->type,
+        ':path' => _entityform_type_get_submit_url($entityform_type->type),
     ))->fetchField();
     if ($mlid) {
       $item = menu_link_load($mlid);
@@ -539,7 +540,7 @@ function _entityform_paths_form_element_validate($element, &$form_state, $comple
       ->condition('alias', $path['alias'])
       ->condition('language', LANGUAGE_NONE);
       if (!empty($original_entityform_type->paths[$path_type])) {
-        $query->condition('pid', $original_entityform_type->paths[$path_type]['pid'], '<>');
+        $query->condition('source', $original_entityform_type->paths[$path_type]['source'], '<>');
       }
       $query->addExpression('1');
       $query->range(0, 1);
