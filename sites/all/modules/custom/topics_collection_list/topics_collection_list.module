@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Topics Collection List feature.
+ */
+
+include_once 'topics_collection_list.features.inc';
