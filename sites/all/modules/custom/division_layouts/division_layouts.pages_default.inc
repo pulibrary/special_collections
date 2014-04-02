@@ -126,6 +126,28 @@ function division_layouts_default_page_manager_handlers() {
     $display->content['new-01c8c6b7-839e-4752-a5d2-d305ddd8ed0d'] = $pane;
     $display->panels['left'][1] = 'new-01c8c6b7-839e-4752-a5d2-d305ddd8ed0d';
     $pane = new stdClass();
+    $pane->pid = 'new-07389d80-23a3-402e-949d-8e405aecf0c6';
+    $pane->panel = 'left';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'policy_list-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'bs-sidenav',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '07389d80-23a3-402e-949d-8e405aecf0c6';
+    $display->content['new-07389d80-23a3-402e-949d-8e405aecf0c6'] = $pane;
+    $display->panels['left'][2] = 'new-07389d80-23a3-402e-949d-8e405aecf0c6';
+    $pane = new stdClass();
     $pane->pid = 'new-f991112d-ff80-4ee1-9b0c-4aa4b7d1f11e';
     $pane->panel = 'middle';
     $pane->type = 'entity_field';

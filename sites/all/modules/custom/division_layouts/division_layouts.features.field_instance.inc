@@ -93,6 +93,45 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-policy-field_policy_form'
+  $field_instances['node-policy-field_policy_form'] = array(
+    'bundle' => 'policy',
+    'default_value' => array(),
+    'deleted' => 0,
+    'description' => 'If this policy requires interaction, you can streamline the process by selecting one of the following forms (you may have to create a custom form):',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_policy_form',
+    'label' => 'Policy Form',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 34,
+    ),
+  );
+
   // Exported field_instance: 'node-policy-field_service'
   $field_instances['node-policy-field_service'] = array(
     'bundle' => 'policy',
@@ -179,7 +218,9 @@ function division_layouts_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('If this policy requires interaction, you can streamline the process by selecting one of the following forms (you may have to create a custom form):');
   t('Location');
+  t('Policy Form');
   t('Service');
 
   return $field_instances;
