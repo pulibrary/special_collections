@@ -126,6 +126,10 @@ background-repeat: repeat-x;
 }
 */
 
+.logged-in .thinbar {
+ display: none;
+}
+
 .thinbar {
     background-color: #000;
     height: 25px;
