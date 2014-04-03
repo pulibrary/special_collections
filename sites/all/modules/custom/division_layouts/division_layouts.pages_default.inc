@@ -137,10 +137,7 @@ function division_layouts_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'bs-sidenav',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();

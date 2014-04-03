@@ -157,6 +157,8 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
+  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -182,6 +184,19 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
   $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
   $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'field_division_target_id';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid_1']['id'] = 'nid_1';
+  $handler->display->display_options['fields']['nid_1']['table'] = 'node';
+  $handler->display->display_options['fields']['nid_1']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid_1']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['nid_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid_1']['alter']['path'] = 'collections/[nid_1]/division/[nid]';
   /* Field: Content: image */
   $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
   $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
@@ -202,9 +217,12 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
   $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['alter']['path'] = 'collections/[nid_1]/division/[nid]';
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_1']['element_wrapper_type'] = 'h4';
   $handler->display->display_options['fields']['title_1']['element_wrapper_class'] = '.media-heading';
+  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -248,6 +266,43 @@ function division_layouts_views_default_views() {
 
   /* Display: Collection Strengths List */
   $handler = $view->new_display('block', 'Collection Strengths List', 'block_1');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: image */
+  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_class'] = 'pull-left';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
+    'image_style' => 'square_thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['alter']['path'] = 'collections/[nid_1]/division/[nid]';
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_1']['element_wrapper_type'] = 'h4';
+  $handler->display->display_options['fields']['title_1']['element_wrapper_class'] = '.media-heading';
+  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '400',
+  );
 
   /* Display: Collection Stregths by Divison */
   $handler = $view->new_display('block', 'Collection Stregths by Divison', 'block_2');
@@ -261,6 +316,43 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
   $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
   $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: image */
+  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_class'] = 'pull-left';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
+    'image_style' => 'square_thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['alter']['path'] = 'collections/[nid_1]/division/[nid]';
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_1']['element_wrapper_type'] = 'h4';
+  $handler->display->display_options['fields']['title_1']['element_wrapper_class'] = '.media-heading';
+  $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'trim_length' => '400',
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -275,6 +367,12 @@ function division_layouts_views_default_views() {
 
   /* Display: Divison Collection Strengths */
   $handler = $view->new_display('panel_pane', 'Divison Collection Strengths', 'panel_pane_1');
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Book: Weight */
+  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['table'] = 'book_menu_links';
+  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  $handler->display->display_options['sorts']['weight']['order'] = 'DESC';
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'panel',
