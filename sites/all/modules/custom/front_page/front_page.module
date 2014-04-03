@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Front Page feature.
+ */
+
+include_once 'front_page.features.inc';
