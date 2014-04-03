@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Exhibitions List feature.
+ */
+
+include_once 'exhibitions_list.features.inc';
