@@ -10,9 +10,8 @@ $plugin = array(
   'title' => t('Bootstrap'),
   'description' => t('Bootstrap settings.'),
 
-  'render region'          => 'panels_bootstrap_layouts_style_region_render',
-  'settings form'          => 'panels_bootstrap_layouts_style_region_settings_form',
-  'settings form validate' => 'panels_bootstrap_layouts_style_region_settings_form_validate',
+  'render region' => 'panels_bootstrap_layouts_style_region_render',
+  'settings form' => 'panels_bootstrap_layouts_style_region_settings_form',
 );
 
 /**
@@ -104,43 +103,6 @@ function panels_bootstrap_layouts_style_region_settings_form($style_settings, $d
   );
 
   return $form;
-}
-
-function panels_bootstrap_layouts_style_region_settings_form_validate($form, $settings, &$form_state) {
-  if ($form_state['type'] == 'region') {
-    $style_settings = $form_state['display']->panel_settings['style_settings'];
-    $pid = $form_state['pid'];
-
-    switch ($pid) {
-      case 'top':
-      case 'bottom':
-        if ($settings['column_size'] + $settings['offset_size'] > 12) {
-          form_set_error('column_size', t('Column size + Offset cannot be more than 12!'));
-        }
-        break;
-
-      case 'left':
-      case 'middle':
-      case 'right':
-        $regions = array('left', 'middle', 'right');
-        // Delete current region.
-        unset($regions[array_search($pid, $regions)]);
-
-        // Calculate grid.
-        $total_column_size = $settings['column_size'];
-        $total_offset_size = $settings['offset_size'];
-
-        foreach ($regions as $region) {
-          $total_column_size += (int)$style_settings[$region]['column_size'];
-          $total_offset_size += (int)$style_settings[$region]['offset_size'];
-        }
-
-        if ($total_column_size + $total_offset_size > 12) {
-          form_set_error('column_size', t('Column type + Offset cannot be more than 12!'));
-        }
-      break;
-    }
-  }
 }
 
 function _panels_bootstrap_layouts_get_default_column_size($layout, $pid) {
