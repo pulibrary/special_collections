@@ -61,11 +61,11 @@ function feedback_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_web_form',
     'foreign keys' => array(
-      'entityform' => array(
+      'entityform_type' => array(
         'columns' => array(
-          'target_id' => 'entityform_id',
+          'target_id' => 'id',
         ),
-        'table' => 'entityform',
+        'table' => 'entityform_type',
       ),
     ),
     'indexes' => array(
@@ -88,7 +88,7 @@ function feedback_field_default_field_bases() {
         ),
         'target_bundles' => array(),
       ),
-      'target_type' => 'entityform',
+      'target_type' => 'entityform_type',
     ),
     'translatable' => 0,
     'type' => 'entityreference',
