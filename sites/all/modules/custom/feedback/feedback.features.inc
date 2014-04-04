@@ -16,7 +16,10 @@ function feedback_default_entityform_type() {
       "draftable" : 0,
       "draft_button_text" : "",
       "draft_save_text" : { "value" : "", "format" : "full_html" },
-      "submission_rules" : { "rules_email_entityform_admin" : "rules_email_entityform_admin" },
+      "submission_rules" : {
+        "rules_email_entityform_submitter" : "rules_email_entityform_submitter",
+        "rules_email_entityform_admin" : "rules_email_entityform_admin"
+      },
       "notification_text" : "",
       "notify_emails" : "",
       "validation_rules" : [],
