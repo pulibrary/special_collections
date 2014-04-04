@@ -126,15 +126,16 @@ function feedback_field_default_field_instances() {
     'bundle' => 'web_form',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'This can be used to create simple web forms.',
+    'description' => 'Please select a web form to use.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
-          'link' => FALSE,
+          'links' => 0,
+          'view_mode' => 'default',
         ),
-        'type' => 'entityreference_label',
+        'type' => 'entityreference_entity_view',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -146,8 +147,8 @@ function feedback_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_web_form',
-    'label' => 'web_form',
-    'required' => 0,
+    'label' => 'Web Form',
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -164,10 +165,10 @@ function feedback_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Email');
+  t('Please select a web form to use.');
   t('Question');
-  t('This can be used to create simple web forms.');
+  t('Web Form');
   t('Your email.');
-  t('web_form');
 
   return $field_instances;
 }
