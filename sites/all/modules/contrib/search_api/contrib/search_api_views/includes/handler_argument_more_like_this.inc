@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Contains SearchApiViewsHandlerArgumentMoreLikeThis.
+ */
+
+/**
  * Views argument handler providing a list of related items for search servers
  * supporting the "search_api_mlt" feature.
  */
@@ -12,6 +17,7 @@ class SearchApiViewsHandlerArgumentMoreLikeThis extends SearchApiViewsHandlerArg
   public function option_definition() {
     $options = parent::option_definition();
     unset($options['break_phrase']);
+    unset($options['not']);
     $options['fields'] = array('default' => array());
     return $options;
   }
@@ -22,6 +28,7 @@ class SearchApiViewsHandlerArgumentMoreLikeThis extends SearchApiViewsHandlerArg
   public function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
     unset($form['break_phrase']);
+    unset($form['not']);
 
     $index = search_api_index_load(substr($this->table, 17));
     if (!empty($index->options['fields'])) {
@@ -58,8 +65,9 @@ class SearchApiViewsHandlerArgumentMoreLikeThis extends SearchApiViewsHandlerArg
     $server = $this->query->getIndex()->server();
     if (!$server->supportsFeature('search_api_mlt')) {
       $class = search_api_get_service_info($server->class);
-      throw new SearchApiException(t('The search service "@class" does not offer "More like this" functionality.',
-          array('@class' => $class['name'])));
+      watchdog('search_api_views', 'The search service "@class" does not offer "More like this" functionality.',
+          array('@class' => $class['name']), WATCHDOG_ERROR);
+      $this->query->abort();
       return;
     }
     $fields = $this->options['fields'] ? $this->options['fields'] : array();

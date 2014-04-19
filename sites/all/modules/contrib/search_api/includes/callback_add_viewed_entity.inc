@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Contains SearchApiAlterAddViewedEntity.
+ */
+
+/**
  * Search API data alteration callback that adds an URL field for all items.
  */
 class SearchApiAlterAddViewedEntity extends SearchApiAbstractAlterCallback {
@@ -11,14 +16,16 @@ class SearchApiAlterAddViewedEntity extends SearchApiAbstractAlterCallback {
    * @see SearchApiAlterCallbackInterface::supportsIndex()
    */
   public function supportsIndex(SearchApiIndex $index) {
-    return (bool) entity_get_info($index->item_type);
+    return (bool) $index->getEntityType();
   }
 
   public function configurationForm() {
-    $info = entity_get_info($this->index->item_type);
     $view_modes = array();
-    foreach ($info['view modes'] as $key => $mode) {
-      $view_modes[$key] = $mode['label'];
+    if ($entity_type = $this->index->getEntityType()) {
+      $info = entity_get_info($entity_type);
+      foreach ($info['view modes'] as $key => $mode) {
+        $view_modes[$key] = $mode['label'];
+      }
     }
     $this->options += array('mode' => reset($view_modes));
     if (count($view_modes) > 1) {
@@ -60,9 +67,9 @@ class SearchApiAlterAddViewedEntity extends SearchApiAbstractAlterCallback {
     $original_user = $GLOBALS['user'];
     $GLOBALS['user'] = drupal_anonymous_user();
 
-    $type = $this->index->item_type;
+    $type = $this->index->getEntityType();
     $mode = empty($this->options['mode']) ? 'full' : $this->options['mode'];
-    foreach ($items as $id => &$item) {
+    foreach ($items as &$item) {
       // Since we can't really know what happens in entity_view() and render(),
       // we use try/catch. This will at least prevent some errors, even though
       // it's no protection against fatal errors and the like.

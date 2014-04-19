@@ -1,17 +1,27 @@
 <?php
 
 /**
- * Search API data alteration callback that filters out items based on their
- * bundle.
+ * @file
+ * Contains SearchApiAlterBundleFilter.
+ */
+
+/**
+ * Represents a data alteration that restricts entity indexes to some bundles.
  */
 class SearchApiAlterBundleFilter extends SearchApiAbstractAlterCallback {
 
+  /**
+   * {@inheritdoc}
+   */
   public function supportsIndex(SearchApiIndex $index) {
-    return ($info = entity_get_info($index->item_type)) && self::hasBundles($info);
+    return $index->getEntityType() && ($info = entity_get_info($index->getEntityType())) && self::hasBundles($info);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function alterItems(array &$items) {
-    $info = entity_get_info($this->index->item_type);
+    $info = entity_get_info($this->index->getEntityType());
     if (self::hasBundles($info) && isset($this->options['bundles'])) {
       $bundles = array_flip($this->options['bundles']);
       $default = (bool) $this->options['default'];
@@ -24,8 +34,11 @@ class SearchApiAlterBundleFilter extends SearchApiAbstractAlterCallback {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function configurationForm() {
-    $info = entity_get_info($this->index->item_type);
+    $info = entity_get_info($this->index->getEntityType());
     if (self::hasBundles($info)) {
       $options = array();
       foreach ($info['bundles'] as $bundle => $bundle_info) {
@@ -62,8 +75,13 @@ class SearchApiAlterBundleFilter extends SearchApiAbstractAlterCallback {
   }
 
   /**
-   * Helper method for figuring out if the entities with the given entity info
-   * can be filtered by bundle.
+   * Determines whether a certain entity type has any bundles.
+   *
+   * @param array $entity_info
+   *   The entity type's entity_get_info() array.
+   *
+   * @return bool
+   *   TRUE if the entity type has bundles, FASLE otherwise.
    */
   protected static function hasBundles(array $entity_info) {
     return !empty($entity_info['entity keys']['bundle']) && !empty($entity_info['bundles']);
