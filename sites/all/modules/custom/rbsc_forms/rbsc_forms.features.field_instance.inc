@@ -221,6 +221,24 @@ function rbsc_forms_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -261,9 +279,43 @@ function rbsc_forms_field_default_field_instances() {
         'weight' => 2,
       ),
       'double_feature' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'double_feature',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'feature',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_double_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'double_feature_-_small__419_x180_',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'feature_-_small__199_x_180_',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -335,6 +387,24 @@ function rbsc_forms_field_default_field_instances() {
         'weight' => 1,
       ),
       'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_feature' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',

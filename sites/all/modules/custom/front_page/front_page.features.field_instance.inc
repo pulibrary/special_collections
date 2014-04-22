@@ -30,6 +30,24 @@ function front_page_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 0,
       ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -82,6 +100,36 @@ function front_page_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 1,
+      ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'feature',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_double_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'double_feature_-_small__419_x180_',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'feature_-_small__199_x_180_',
+        ),
+        'type' => 'image',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -155,6 +203,18 @@ function front_page_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
@@ -205,6 +265,26 @@ function front_page_field_default_field_instances() {
         'settings' => array(
           'image_link' => '',
           'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 3,
+      ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'feature',
+        ),
+        'type' => 'image',
+        'weight' => 3,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'feature_-_small__199_x_180_',
         ),
         'type' => 'image',
         'weight' => 3,
@@ -278,6 +358,18 @@ function front_page_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 2,
       ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -334,6 +426,18 @@ function front_page_field_default_field_instances() {
         'weight' => 1,
       ),
       'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'rbsc_grid_view_large_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'rbsc_grid_view_small_feature' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
