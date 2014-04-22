@@ -1,0 +1,5 @@
+name = Research Account Block
+description = "Reusable Block linking the user to the Research Account creation page."
+package = RBSC
+core = 7.x
+files[] = research_account.module
