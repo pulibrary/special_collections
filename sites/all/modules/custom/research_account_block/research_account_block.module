@@ -106,23 +106,3 @@ function research_account_block_block_view($delta = '') {
     return $block;
   }
 }
-
-
-/**
- * Implements hook_menu().
- */
-
-/*
-function research_account_block_menu() {
-  $items['research_account_block_page'] = array(
-    'page callback' => 'research_account_block_page',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
-  );
-  return $items;
-}
-
-function research_account_block_page() {
-  return "Research Account!";
-}
-*/
