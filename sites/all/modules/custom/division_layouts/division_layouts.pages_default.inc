@@ -145,6 +145,28 @@ function division_layouts_default_page_manager_handlers() {
     $display->content['new-07389d80-23a3-402e-949d-8e405aecf0c6'] = $pane;
     $display->panels['left'][2] = 'new-07389d80-23a3-402e-949d-8e405aecf0c6';
     $pane = new stdClass();
+    $pane->pid = 'new-31e2e58e-8725-4318-9c2e-893ab439830e';
+    $pane->panel = 'left';
+    $pane->type = 'block';
+    $pane->subtype = 'research_account_block-research_account_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Research Account',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '31e2e58e-8725-4318-9c2e-893ab439830e';
+    $display->content['new-31e2e58e-8725-4318-9c2e-893ab439830e'] = $pane;
+    $display->panels['left'][3] = 'new-31e2e58e-8725-4318-9c2e-893ab439830e';
+    $pane = new stdClass();
     $pane->pid = 'new-f991112d-ff80-4ee1-9b0c-4aa4b7d1f11e';
     $pane->panel = 'middle';
     $pane->type = 'entity_field';
