@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the RBSC Basic Node Search Index feature.
+ */
+
+include_once 'rbsc_basic_node_search_index.features.inc';
