@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Collections Importer feature.
+ */
+
+include_once 'collections_importer.features.inc';
