@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Topics Importer feature.
+ */
+
+include_once 'topics_importer.features.inc';
