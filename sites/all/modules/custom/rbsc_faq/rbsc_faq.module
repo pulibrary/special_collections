@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the RBSC FAQ feature.
+ */
+
+include_once 'rbsc_faq.features.inc';
