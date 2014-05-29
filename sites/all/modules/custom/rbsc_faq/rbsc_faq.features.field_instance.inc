@@ -49,7 +49,7 @@ function rbsc_faq_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 33,
+      'weight' => 4,
     ),
   );
 
@@ -95,12 +95,12 @@ function rbsc_faq_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 2,
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_response'
-  $field_instances['node-faq-field_response'] = array(
+  // Exported field_instance: 'node-faq-field_rbsc_faq_answer'
+  $field_instances['node-faq-field_rbsc_faq_answer'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
     'deleted' => 0,
@@ -111,7 +111,7 @@ function rbsc_faq_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -127,9 +127,55 @@ function rbsc_faq_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_response',
+    'field_name' => 'field_rbsc_faq_answer',
     'label' => 'Answer',
     'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-faq-field_rbsc_faq_question'
+  $field_instances['node-faq-field_rbsc_faq_question'] = array(
+    'bundle' => 'faq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_rbsc_faq_question',
+    'label' => 'Question',
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -138,10 +184,10 @@ function rbsc_faq_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'size' => 60,
+        'rows' => 5,
       ),
-      'type' => 'text_textfield',
-      'weight' => 32,
+      'type' => 'text_textarea',
+      'weight' => 5,
     ),
   );
 

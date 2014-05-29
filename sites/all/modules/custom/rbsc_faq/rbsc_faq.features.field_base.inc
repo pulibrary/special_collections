@@ -73,13 +73,13 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_response'
-  $field_bases['field_response'] = array(
+  // Exported field_base: 'field_rbsc_faq_answer'
+  $field_bases['field_rbsc_faq_answer'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_response',
+    'field_name' => 'field_rbsc_faq_answer',
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -95,11 +95,36 @@ function rbsc_faq_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
+    'settings' => array(),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_rbsc_faq_question'
+  $field_bases['field_rbsc_faq_question'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_rbsc_faq_question',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'synonyms_synonyms'
