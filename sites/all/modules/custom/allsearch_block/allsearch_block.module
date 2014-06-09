@@ -233,9 +233,11 @@ function allsearch_block_block_view($delta = '') {
   return $block;
 }
 
+/**
+  * Implements hook_init().
+  *
+  */
+
 function allsearch_block_init() {
   libraries_load('underscore');
 }
-
-
-
