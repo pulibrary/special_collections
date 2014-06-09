@@ -234,7 +234,7 @@ function allsearch_block_block_view($delta = '') {
 }
 
 function allsearch_block_init() {
-  drupal_add_library('underscore', 'underscore');
+  libraries_load('underscore');
 }
 
 
