@@ -14,7 +14,6 @@
 		 	async: true,
  			type: 'GET',
  			dataType: 'json',
-			//contentType: "application/json; charset=utf-8",
  			success: function(data) {
 			var items = [];
 			// add an icon map for format types
@@ -46,8 +45,8 @@
 					$('<div class="more-link"><a '+more_link_track_code+' target="_blank" title="'+refine_hint+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Digital Library Results.</a></div>"').appendTo('#pudl-search-results');
 				}
 			} else {
-                $('#pudl-search-results-spinner').hide();
-				$('.pane-catalog-block-catalog-pudl-results').hide();
+        $('#pudl-search-results-spinner').hide();
+        $('<div class="no-results">No PUDL results.</div>"').appendTo('#pudl-search-results');
 			}
 		},
 		error: function(data) {

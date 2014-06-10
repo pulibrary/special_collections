@@ -35,7 +35,6 @@
 							if(crumb.level == 'collection') {
         							var formatted_crumb = "<div class='all-pulfa-breadcrumb'>"+
 										breadcrumb_label+
-										//'<i class="'+collection_icon+'"></i>&nbsp;'+
 										'<a target="_blank" href="'+crumb.uri+'">'+
 										crumb.text+
 										"</a><div>";
@@ -75,9 +74,8 @@
 					$('<div class="more-link"><a '+more_link_track_code+' target="_blank" title="'+refine_hint+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Results in Finding Aids</a></div>"').appendTo('#pulfa-search-results');
 				}
 			} else {
-                $('#pulfa-search-results-spinner').hide();
-				//$('<div class="no-results">No Finding Aids results.</div>"').appendTo('#pulfa-search-results');
-				$('.pane-catalog-block-catalog-pulfa-results').hide();
+        $('#pulfa-search-results-spinner').hide();
+				$('<div class="no-results">No Finding Aids results.</div>"').appendTo('#pulfa-search-results');
 			}
 		},
 		error: function(data) {
