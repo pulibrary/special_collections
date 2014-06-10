@@ -1,0 +1,7 @@
+name = All Search Block
+description = Inserts a All Search Block
+package = PUL Custom Features
+core = 7.x
+dependencies[] = block
+dependencies[] = libraries
+dependencies[] = underscore
