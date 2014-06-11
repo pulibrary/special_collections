@@ -32,6 +32,13 @@ regions[global]     = 'Global'
 stylesheets[all][] = css/style.css
 
 ;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'js/fittext.js'
+scripts[] = 'js/fittext-local.js'
+
+;;;;;;;;;;;;;;;;;;;;;
 ;; Custom Panels Layouts
 ;;;;;;;;;;;;;;;;;;;;;
 ; You can place multiple layouts under the "layouts" folder.
