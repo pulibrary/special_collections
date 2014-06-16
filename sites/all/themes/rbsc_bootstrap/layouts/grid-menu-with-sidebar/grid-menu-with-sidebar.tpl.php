@@ -27,24 +27,24 @@
   <div id="middle-col" class="col-md-9">
     
     <!-- grid row 1 - images are 419x180px -->
-  	<div class="col-sm-12 col-md-6 img-grid" style="padding:10px;">
+  	<div class="col-sm-12 col-md-6 img-grid">
   	  <?php print $content['feature-left']; ?>
   	</div>
-  	<div class="col-sm-12 col-md-6 img-grid" style="padding:10px;">
+  	<div class="col-sm-12 col-md-6 img-grid">
   	  <?php print $content['feature-right']; ?>
   	</div>
 
   	<!-- grid row 2 - images are 199x180px -->
-  	<div class="col-sm-6 col-md-3 img-grid" style="padding:10px;">
+  	<div class="col-sm-6 col-md-3 img-grid">
   	  <?php print $content['grid-A']; ?>
   	</div>	
-  	<div class="col-sm-6 col-md-3 img-grid" style="padding:10px;">
+  	<div class="col-sm-6 col-md-3 img-grid">
   	  <?php print $content['grid-B']; ?>
   	</div>	
-  	<div class="col-sm-6 col-md-3 img-grid" style="padding:10px;">
+  	<div class="col-sm-6 col-md-3 img-grid">
   	  <?php print $content['grid-C']; ?>
   	</div>	
-  	<div class="col-sm-6 col-md-3 img-grid" style="padding:10px;">
+  	<div class="col-sm-6 col-md-3 img-grid">
   	  <?php print $content['grid-D']; ?>
   	</div>	
 
