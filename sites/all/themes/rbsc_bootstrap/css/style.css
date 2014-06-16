@@ -885,6 +885,22 @@ background-color: #fff;
   margin-bottom: 10px;
 }
 
+.thumbnails li {
+  list-style: none;
+  margin-left: -20px;
+  height: 200px;
+  min-height: 200px;
+  text-align: center;
+}
+
+.thumbnails li img {
+  padding:10px;
+}
+
+.text-center {
+  clear:both;
+}
+
 /*
 .panels-flexible-region-new-grid_box_a .pane-content img {
     position: absolute;
