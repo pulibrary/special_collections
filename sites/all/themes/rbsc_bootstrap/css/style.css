@@ -901,6 +901,16 @@ background-color: #fff;
   clear:both;
 }
 
+.pane-content .field-item p {
+  font-size: 20px;
+  font-style: normal;
+  letter-spacing: 0px;
+  line-height: 34px;
+  font-family: 'Georgia Pro', georgia, serif;
+  color: #222;
+  margin: 20px;
+}
+
 /*
 .panels-flexible-region-new-grid_box_a .pane-content img {
     position: absolute;
