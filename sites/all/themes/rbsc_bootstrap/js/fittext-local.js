@@ -15,6 +15,8 @@ jQuery( document ).ready(function() {
 
 	jQuery( ".thumbnails li" ).removeClass( "span3" ).addClass( "col-xs-6 col-md-3" );
 
+	jQuery( ".external-link a" ).addClass( "btn btn-primary btn-block" );
+
 	jQuery( "form#nav-search" ).on( "submit", function( event ) {
   		event.preventDefault();
   		window.location.href = "/find/all/" + encodeURIComponent(jQuery( "#nav-search-input" ).val());

@@ -901,7 +901,7 @@ background-color: #fff;
   clear:both;
 }
 
-.pane-content .field-item p {
+.classy p {
   font-size: 20px;
   font-style: normal;
   letter-spacing: 0px;
@@ -911,6 +911,19 @@ background-color: #fff;
   margin: 20px;
 }
 
+.external-link {
+  padding:20px;
+}
+
+.exhibition-image img{
+  width: 340px;
+  height: auto;
+}
+
+.exhibition-image div {
+  margin-top: 20px;
+  text-align: center;
+}
 /*
 .panels-flexible-region-new-grid_box_a .pane-content img {
     position: absolute;
