@@ -13,6 +13,8 @@ jQuery( document ).ready(function() {
   		jQuery( this ).css("background-color", randomColor({hue: 'blue'}));
 	});
 
+	jQuery( ".field-type-taxonomy-term-reference .field-item a").wrapInner( "<span class='label label-primary'></span>");;
+
 	jQuery( ".thumbnails li" ).removeClass( "span3" ).addClass( "col-xs-6 col-md-3" );
 
 	jQuery( ".external-link a" ).addClass( "btn btn-primary btn-block" );

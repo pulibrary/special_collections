@@ -924,6 +924,15 @@ background-color: #fff;
   margin-top: 20px;
   text-align: center;
 }
+
+.field-type-taxonomy-term-reference .field-item {
+  display: inline-block !important;
+}
+
+.field-type-taxonomy-term-reference .field-item .odd {
+  padding:0px;
+}
+
 /*
 .panels-flexible-region-new-grid_box_a .pane-content img {
     position: absolute;
