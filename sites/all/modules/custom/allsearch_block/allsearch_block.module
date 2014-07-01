@@ -71,8 +71,7 @@ function allsearch_block_form_validate($form, &$form_state) {
 
 
 function allsearch_block_form_submit($form, &$form_state) {
-  //drupal_set_message(t('Submitting values: @values', array('@values' => var_export($form_state['values'], TRUE))));
-  //print_r(&$form_state);
+  drupal_set_message(t('Submitting values: @values', array('@values' => var_export($form_state['values'], TRUE))));
 }
 
 function allsearch_block_contents() {
@@ -141,6 +140,16 @@ function allsearch_pudl_results_content() {
   );
   return $block_content;
 }
+
+function allsearch_catalog_results_content() {
+  $path = allsearch_block_query_escape($_GET['q']);
+  $sid = allsearch_block_get_sid();
+  $ajax_spinner = "<div id='catalog-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh icon-4x'></i></div>";
+  $block_content = array(
+    '#markup' => "<div data-source='/searchit/find/any?query={$path}&sid={$sid}' id='catalog-search-results'>" . $ajax_spinner . t('') . "</div>",
+  ); 
+  return $block_content;
+}
 /**
  * Implements hook_block_info()
  * 
@@ -155,6 +164,10 @@ function allsearch_block_block_info() {
       'cache' => DRUPAL_CACHE_PER_PAGE, //DRUPAL_CACHE_PER_ROLE, // default
       'visibility' => BLOCK_VISIBILITY_LISTED,
    );
+  $blocks['allsearch_catalog_results'] = array(
+    'info' => t('Books+ Results'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
   $blocks['allsearch_pulfa_results'] = array(
       'info' => t('Finding Aids'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
@@ -221,6 +234,10 @@ function allsearch_block_block_view($delta = '') {
   
     $block['subject'] = t('All Search');
     $block['content'] = allsearch_block_contents($delta);
+  } elseif ($delta == 'allsearch_catalog_results') {
+    $block['subject'] = t('Books+ Results');
+    $block['content'] = allsearch_catalog_results_content($delta);
+    drupal_add_js(drupal_get_path('module', 'allsearch_block') .'/allsearch_catalog_results.js');  
   } elseif ($delta == 'allsearch_pulfa_results') {
     $block['subject'] = t('Library Archives Results');
     $block['content'] = allsearch_pulfa_results_content($delta);
