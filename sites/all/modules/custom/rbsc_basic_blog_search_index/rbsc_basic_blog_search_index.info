@@ -1,0 +1,16 @@
+name = RBSC Basic Blog Search Index
+description = Provides a Basic Blog Search
+core = 7.x
+package = RBSC
+version = 7.x-1.0-dev
+project = rbsc_basic_blog_search_index
+dependencies[] = ctools
+dependencies[] = entity
+dependencies[] = facetapi
+dependencies[] = search_api
+dependencies[] = search_api_solr
+features[ctools][] = facetapi:facetapi_defaults:1
+features[facetapi][] = search_api@blog:block:type
+features[features_api][] = api:2
+features[search_api_index][] = default_node_index
+features[search_api_server][] = rbsc_solr_core
