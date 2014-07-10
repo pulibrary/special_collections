@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Database Importer feature.
+ */
+
+include_once 'database_importer.features.inc';
