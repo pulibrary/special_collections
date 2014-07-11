@@ -714,6 +714,12 @@ background-color: #fff;
   color: #ffffff;
 }
 
+.node-feed h2{
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 18px;
+}
 
 .node-feed-item h2{
   font-size: 14px;
@@ -926,11 +932,92 @@ background-color: #fff;
 }
 
 .field-type-taxonomy-term-reference .field-item {
+
   display: inline-block !important;
 }
 
 .field-type-taxonomy-term-reference .field-item .odd {
   padding:0px;
+}
+
+/* Search Results 
+*/
+
+.all-search-results-list {
+  border-right:1px solid #EEE;
+}
+
+.all-search-results-list li{
+  list-style-type: none;
+  margin-left: -40px;
+  margin-bottom:10px;
+  margin-right: 30px;
+}
+
+.all-search-results-list h3{
+  font-size:14px;
+  line-height: 1.4;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.all-search-results-list li.odd {
+  background-color: whitesmoke;
+}
+
+.all-search-results-list li.even {
+  background-color: transparent;
+  padding: 10px;
+}
+
+.searchword {
+  background-color: yellow;
+}
+
+.links li.node-readmore {
+  display: none;
+}
+
+.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd {
+  background-color: whitesmoke;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 10px;
+}
+
+.view-id-rbsc_basic_node_search h2{
+  font-size:14px;
+  line-height: 1.4;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.view-id-blog_search .views-row-even {
+  margin: 0px;
+  padding: 10px;
+}
+
+.refine-link a {
+font-family: "Droid Serif",sans-serif;
+font-style: italic;
+font-weight: normal;
+font-size: .833em;
+background: none;
+border: none;
+text-shadow: none;
+background-color: #63c0f8;
+background-color: rgb(245,128,38);
+color: #fff;
+padding: 3px 7px;
+text-decoration: none;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+
+}
+
+.refine-link {
+  margin-bottom: 10px;
 }
 
 /*
