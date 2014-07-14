@@ -981,8 +981,7 @@ background-color: #fff;
 .view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd {
   background-color: whitesmoke;
   border-radius: 6px;
-  margin: 0px;
-  padding: 10px;
+
 }
 
 .view-id-rbsc_basic_node_search h2{
@@ -992,9 +991,9 @@ background-color: #fff;
   margin-bottom: 0px;
 }
 
-.view-id-blog_search .views-row-even {
+.node-teaser {
   margin: 0px;
-  padding: 10px;
+  padding: 10px !important;
 }
 
 .refine-link a {
