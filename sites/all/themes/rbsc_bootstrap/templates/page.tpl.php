@@ -255,6 +255,78 @@
   </div>
 </div><!-- end wrap -->
     
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
-</footer>
+
+  <?php // print render($page['footer']); ?>
+  <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 v-rule">
+            <h4 class="block-title">Locations</h4>
+            <ul class="menu">
+              <li><span class="hours"><a href="">Open today from 9:00am to 5:00pm</a></span></li>
+              <li><address><a href="">Harvey S. Firestone Library</a><br>
+            One Washington Road<br>
+            Princeton, New Jersey 08544<br>
+            Phone: <a href="tel:+1-609-258-3184">(609) 258-3184</a><br>
+            <a href="">Staff Directory</a></address></li>
+              <li><address><a href="">Seeley G. Mudd Manuscript Library</a><br>
+                     65 Olden Street<br>
+                      Princeton, New Jersey 08544<br>
+                      Phone: <a href="tel:+1-609-258-6345">(609) 258-6345</a>
+                      <br><a href="">Staff Directory</a>
+                    </address></li>
+            </ul>  
+          </div>
+          <div class="col-md-2 v-rule">
+            <h4 class="block-title">Services</h4>
+              <ul class="menu">
+                <li><a href="">Photoduplication</a></li>
+                <li><a href="">Classroom Instruction</a></li>
+                <li><a href="">Research Assistance</a></li>
+                <li><a href="">Access Rules</a></li>
+              </ul>              
+            </div>
+          
+          <div class="col-md-2 v-rule">
+            <h4 class="block-title">Help</h4>
+              <ul class="menu">
+                <li><a href="">Getting Started</a></li>
+                <li><a href="">Research Tutorial</a></li>
+                <li><a href="">Research Account</a></li>
+                <li><a href="">Wireless Access</a></li>
+                <li><a href="">Off-campus Access</a></li>
+              </ul>             
+            </div>
+          
+          <div class="col-md-2 v-rule">
+            <h4 class="block-title">Information For</h4>
+              <ul class="menu">
+                <li><a href="">Students</a></li>
+                <li><a href="">Faculty</a></li>
+                <li><a href="">Staff</a></li>
+                <li><a href="">Visitors</a></li>
+              </ul>
+          </div>
+          <div class="col-md-3">
+            <h2 class="pul-title">Princeton University Library</h2>
+            <div class="social-media">
+              <a href="https://www.facebook.com/RBSC.Firestone" title="Friend us on Facebook">
+                <img src="/<?php print path_to_theme(); ?>/img/facebook.png" alt="Facebook" border="0">
+              </a>
+              <a href="https://twitter.com/PrincetonRBSC" title="Follow us on Twitter">
+                <img src="/<?php print path_to_theme(); ?>/img/twitter.png" alt="Twitter" border="0">
+              </a>
+              <a href="http://blogs.princeton.edu/rbsc/" title="RBSC Wordpress Blogs">
+                <img src="/<?php print path_to_theme(); ?>/img/wordpress.png" alt="RBSC Wordpress Blogs" border="0">
+              </a>
+              <a href="/about/friends" title="Friends of Princeton University Library">
+                <img src="/<?php print path_to_theme(); ?>/img/friends.png" alt="Friends of Princeton University Library" border="0">
+              </a>
+            </div>
+            <div id="pu-footer-logo"><a href="http://www.princeton.edu"><img src="/<?php print path_to_theme(); ?>/img/pu_logo_trans.png" border="0"></a></div>
+            <div id="university-copyright-footer" class="text-muted">© 2013 The Trustees of Princeton University. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+

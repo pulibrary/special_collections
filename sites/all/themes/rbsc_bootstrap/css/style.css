@@ -372,7 +372,7 @@ address {
   background: transparent;
 
 }
-
+/*
 .hours {
   color: white;
   border-radius: 6px;
@@ -382,6 +382,7 @@ address {
   letter-spacing: 1px;
   margin-top: -10px;
 }
+*/
 
 .odd {
   background-color: #f5f5f5;
