@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Footer2 feature.
+ */
+
+include_once 'footer2.features.inc';

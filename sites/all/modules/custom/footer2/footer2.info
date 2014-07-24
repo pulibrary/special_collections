@@ -1,0 +1,16 @@
+name = Footer2
+description = This will enable part of a RBSC footer on your site!
+core = 7.x
+package = RBSC
+version = 7.x-1.0-beta1
+project = footer2
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[menu_custom][] = menu-footer-services
+features[menu_custom][] = menu-help-footer-
+features[menu_custom][] = menu-information-for-footer-
+features[views_view][] = locations_footer_
+features_exclude[dependencies][ctools] = ctools
