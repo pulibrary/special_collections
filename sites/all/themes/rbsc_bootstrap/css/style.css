@@ -577,8 +577,13 @@ font-weight: normal;
   border-left: 1px solid #fff; 
 }
 
+.hours {
+   margin-bottom:10px;
+}
+
 .hours a {
  color: #F58026; 
+ font-size: 12px;
 }
 
 .events .label-info {
@@ -1025,6 +1030,19 @@ border-radius: 3px;
 
 .refine-link {
   margin-bottom: 10px;
+}
+
+#footer .nav>li>a {
+  padding:0px;
+}
+
+#footer .views-row {
+  margin-top: 5px;
+  margin-bottom:5px;
+}
+
+#footer .view-location-info {
+  font-size:12px;
 }
 
 /*
