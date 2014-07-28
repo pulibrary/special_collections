@@ -743,6 +743,7 @@ background-color: #fff;
   color:#333333;
 }
 
+/*
 .node-feed-item .content p{
   font-size: 20px;
   font-style: normal;
@@ -752,7 +753,7 @@ background-color: #fff;
   color: #222;
   margin: 24px 130px 24px 130px;
 }
-
+*/
 /* Blogroll */
 
 .panel-col-last .view-id-blog_item .views-row-even{
@@ -912,7 +913,7 @@ background-color: #fff;
 .text-center {
   clear:both;
 }
-
+/*
 .classy p {
   font-size: 20px;
   font-style: normal;
@@ -922,7 +923,7 @@ background-color: #fff;
   color: #222;
   margin: 20px;
 }
-
+*/
 .external-link {
   padding:20px;
 }
