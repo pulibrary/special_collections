@@ -1046,6 +1046,14 @@ border-radius: 3px;
   font-size:12px;
 }
 
+a.dropdown-header {
+display: block;
+padding: 3px 20px;
+font-size: 12px;
+line-height: 1.428571429;
+color: #999999 !important;
+}
+
 /*
 .panels-flexible-region-new-grid_box_a .pane-content img {
     position: absolute;
