@@ -839,18 +839,25 @@ background-color: #fff;
 }
 
 
-/* Front Page img grid */
+/* Front Page img grid 
+*  Note! 
+*  To display grid images, remove opacity from:
+*  .panels-flexible-region .pane-content img 
+*  and remove background-color from:
+*  .panels-flexible-region .pane-title
+*/
+
 .panels-flexible-region .pane-content img {
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1;
-    opacity: 0;
+    /* opacity: 0; */ 
 }
 
 .panels-flexible-region .pane-title {
     height:180px;
-    background-color: orange;
+    /* background-color: orange; */
     border-radius: 6px;
 }
 
