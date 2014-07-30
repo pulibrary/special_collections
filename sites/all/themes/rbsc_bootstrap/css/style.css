@@ -1010,7 +1010,11 @@ background-color: #fff;
   display: none;
 }
 
-.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd {
+.allblogs .views-row {
+  padding:10px;
+}
+
+.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd, .allblogs .views-row-odd {
   background-color: whitesmoke;
   border-radius: 6px;
 
