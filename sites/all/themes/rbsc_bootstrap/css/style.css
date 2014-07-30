@@ -847,7 +847,7 @@ background-color: #fff;
 *  .panels-flexible-region .pane-title
 */
 
-.panels-flexible-region .pane-content img {
+.img-grid .pane-content img {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -855,22 +855,40 @@ background-color: #fff;
     /* opacity: 0; */ 
 }
 
-.panels-flexible-region .pane-title {
+.img-grid .pane-title {
     height:180px;
     /* background-color: orange; */
     border-radius: 6px;
 }
 
-.panels-flexible-region .pane-title a {
+.img-grid .pane-title a {
     color:white;
     display: block;
     padding:10px;
     transition: color 0.4s ease;
 }
 
-.panels-flexible-region .pane-title a:hover {
+.img-grid .pane-title a:hover {
     color:ivory;
     text-decoration: none;
+}
+
+.rbsc-description {
+  padding: 20px; 
+}
+
+.rbsc-news {
+  padding-left: 20px !important;
+  border-left:1px solid #e7e7e7; 
+  min-height: 150px;
+}
+
+.sub-grid {
+  border-top:1px solid #e7e7e7; 
+}
+
+.rbsc-front-page-desc {
+  margin-top: 20px;
 }
 
 /* Mudd and Firestone img grids */
