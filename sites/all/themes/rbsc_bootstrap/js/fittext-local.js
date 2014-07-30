@@ -4,6 +4,7 @@
 jQuery( document ).ready(function() {
 
 	jQuery(".img-grid .pane-title").fitText(.6);
+
 	/*
 	jQuery( ".panels-flexible-region .pane-title" ).each(function() {
   		jQuery( this ).css("background-color", randomColor({hue: 'orange', luminosity: 'dark'}));

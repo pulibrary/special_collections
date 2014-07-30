@@ -852,12 +852,13 @@ background-color: #fff;
     left: 0px;
     top: 0px;
     z-index: -1;
+    margin-top: 15px;
     /* opacity: 0; */ 
 }
 
 .img-grid .pane-title {
-    height:180px;
-    /* background-color: orange; */
+    /* height:180px;
+    background-color: orange; */
     border-radius: 6px;
 }
 
@@ -872,7 +873,11 @@ background-color: #fff;
     color:ivory;
     text-decoration: none;
 }
-
+/*
+.panels-flexible-15 {
+  margin-top:-20px;
+}
+*/
 .rbsc-description {
   padding: 20px; 
 }
