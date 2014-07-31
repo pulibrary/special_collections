@@ -44,4 +44,12 @@
   	</div>
 
   </div>
+  <div class="row sub-grid">
+    <div class="col-sm-12 col-md-6 rbsc-front-page-desc">
+      <?php print $content['rbsc-desc']; ?>
+    </div>
+    <div class="col-sm-12 col-md-6 allblogs">
+      <?php print $content['rbsc-news']; ?>
+    </div>
+  </div>
 </div>

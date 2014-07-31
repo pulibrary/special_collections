@@ -847,13 +847,21 @@ background-color: #fff;
 *  .panels-flexible-region .pane-title
 */
 
+.img-grid {
+
+  height:180px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+
+}
+
 .img-grid .pane-content img {
     position: absolute;
     left: 0px;
     top: 0px;
     z-index: -1;
-    margin-top: 15px;
-    /* opacity: 0; */ 
+    /*margin-top: 15px;
+     opacity: 0; */ 
 }
 
 .img-grid .pane-title {
@@ -865,7 +873,7 @@ background-color: #fff;
 .img-grid .pane-title a {
     color:white;
     display: block;
-    padding:10px;
+    /*padding:10px;*/
     transition: color 0.4s ease;
 }
 
@@ -879,7 +887,7 @@ background-color: #fff;
 }
 */
 .rbsc-description {
-  padding: 20px; 
+ /* padding: 20px; */
 }
 
 .rbsc-news {
@@ -890,6 +898,7 @@ background-color: #fff;
 
 .sub-grid {
   border-top:1px solid #e7e7e7; 
+  margin-top:20px;
 }
 
 .rbsc-front-page-desc {
@@ -943,6 +952,12 @@ background-color: #fff;
 .text-center {
   clear:both;
 }
+
+.classy p {
+  margin: 20px;
+  color: #222;
+}
+
 /*
 .classy p {
   font-size: 20px;
