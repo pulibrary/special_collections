@@ -14,6 +14,8 @@ $plugin = array(
     'grid-C' => t('Grid C'),
     'grid-D' => t('Grid D'),
     'grid-E' => t('Grid E'),
-    'grid-F' => t('Grid F')
+    'grid-F' => t('Grid F'),
+    'rbsc-desc' => t('RBSC Description'),
+    'rbsc-news' => t('New and Notable')
   ),
 );
