@@ -1125,7 +1125,23 @@ display: block;
 padding: 10px 15px;
 }
 
+.view-topics .view-content a{
+  margin-top:20px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 18px;
+}
 
+.view-topics .view-content img{
+  margin:20px;
+  line-height: 18px;
+}
+
+.view-topics .view-content p{
+  margin-top:10px;
+  font-size: 14px;
+  line-height: 20px;
+}
 
 /*
 .quick-links {

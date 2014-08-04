@@ -22,7 +22,7 @@ function topics_collection_list_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Collections';
+  $handler->display->display_options['title'] = '[title_1] ';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -40,6 +40,14 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
   $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
   $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -60,6 +68,14 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Division (field_division) */
+  $handler->display->display_options['arguments']['field_division_target_id']['id'] = 'field_division_target_id';
+  $handler->display->display_options['arguments']['field_division_target_id']['table'] = 'field_data_field_division';
+  $handler->display->display_options['arguments']['field_division_target_id']['field'] = 'field_division_target_id';
+  $handler->display->display_options['arguments']['field_division_target_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_division_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_division_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_division_target_id']['summary_options']['items_per_page'] = '25';
   /* Contextual filter: Content: Collection Strength (field_collection_strength) */
   $handler->display->display_options['arguments']['field_collection_strength_target_id']['id'] = 'field_collection_strength_target_id';
   $handler->display->display_options['arguments']['field_collection_strength_target_id']['table'] = 'field_data_field_collection_strength';
@@ -69,14 +85,6 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['arguments']['field_collection_strength_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_collection_strength_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_collection_strength_target_id']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Content: Division (field_division) */
-  $handler->display->display_options['arguments']['field_division_target_id']['id'] = 'field_division_target_id';
-  $handler->display->display_options['arguments']['field_division_target_id']['table'] = 'field_data_field_division';
-  $handler->display->display_options['arguments']['field_division_target_id']['field'] = 'field_division_target_id';
-  $handler->display->display_options['arguments']['field_division_target_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_division_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_division_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_division_target_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -103,6 +111,30 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
   $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
   $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'h2';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Collection Strength (field_collection_strength) */
   $handler->display->display_options['arguments']['field_collection_strength_target_id']['id'] = 'field_collection_strength_target_id';
@@ -140,22 +172,24 @@ function topics_collection_list_views_default_views() {
 
   /* Display: Collection List Filtered by Strength and Division */
   $handler = $view->new_display('panel_pane', 'Collection List Filtered by Strength and Division', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Collections';
   $handler->display->display_options['argument_input'] = array(
-    'field_collection_strength_target_id' => array(
-      'type' => 'panel',
-      'context' => 'entity:node.field-collection-strength',
-      'context_optional' => 1,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Content: Collection Strength (field_collection_strength)',
-    ),
     'field_division_target_id' => array(
       'type' => 'panel',
       'context' => 'entity:node.field_division',
       'context_optional' => 0,
-      'panel' => '2',
+      'panel' => '0',
       'fixed' => '15',
       'label' => 'Content: Division (field_division)',
+    ),
+    'field_collection_strength_target_id' => array(
+      'type' => 'panel',
+      'context' => 'entity:node.field-collection-strength',
+      'context_optional' => 1,
+      'panel' => '1',
+      'fixed' => '',
+      'label' => 'Content: Collection Strength (field_collection_strength)',
     ),
   );
   $export['filtered_collection_list'] = $view;
