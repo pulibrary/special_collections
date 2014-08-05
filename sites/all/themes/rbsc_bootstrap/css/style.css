@@ -1125,12 +1125,6 @@ display: block;
 padding: 10px 15px;
 }
 
-.view-topics .view-content a{
-  margin-top:20px;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 18px;
-}
 
 .view-topics .view-content img{
   margin:20px;
@@ -1144,6 +1138,14 @@ padding: 10px 15px;
 }
 
 /*
+
+.view-topics .view-content a{
+  margin-top:20px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 18px;
+}
+
 .quick-links {
   background-color: #EEE !important;
 }
