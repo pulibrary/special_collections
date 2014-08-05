@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Division Collection Strengths feature.
+ */
+
+include_once 'division_collection_strengths.features.inc';
