@@ -119,6 +119,22 @@ function division_collection_strengths_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Messages */
+  $handler->display->display_options['empty']['messages']['id'] = 'messages';
+  $handler->display->display_options['empty']['messages']['table'] = 'views';
+  $handler->display->display_options['empty']['messages']['field'] = 'messages';
+  $handler->display->display_options['empty']['messages']['label'] = 'Sorry, nothing here.';
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'user',
+      'context' => 'entity:comment.author',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
   $export['division_collection_strengths'] = $view;
 
   return $export;
