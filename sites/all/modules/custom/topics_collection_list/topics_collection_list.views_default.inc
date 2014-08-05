@@ -40,6 +40,10 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
   $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
   $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_research_guides_target_id']['id'] = 'field_research_guides_target_id';
+  $handler->display->display_options['relationships']['field_research_guides_target_id']['table'] = 'field_data_field_research_guides';
+  $handler->display->display_options['relationships']['field_research_guides_target_id']['field'] = 'field_research_guides_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
@@ -174,6 +178,52 @@ function topics_collection_list_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Collection List Filtered by Strength and Division', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Collections';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['id'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['table'] = 'field_data_field_collection_strength';
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['field'] = 'field_collection_strength_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_division_target_id']['id'] = 'field_division_target_id';
+  $handler->display->display_options['relationships']['field_division_target_id']['table'] = 'field_data_field_division';
+  $handler->display->display_options['relationships']['field_division_target_id']['field'] = 'field_division_target_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_research_guides_target_id']['id'] = 'field_research_guides_target_id';
+  $handler->display->display_options['relationships']['field_research_guides_target_id']['table'] = 'field_data_field_research_guides';
+  $handler->display->display_options['relationships']['field_research_guides_target_id']['field'] = 'field_research_guides_target_id';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'h2';
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
+  $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
+  $handler->display->display_options['fields']['field_link']['relationship'] = 'field_research_guides_target_id';
+  $handler->display->display_options['fields']['field_link']['label'] = 'Research Guides';
+  $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_link']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_link']['multi_type'] = 'ul';
   $handler->display->display_options['argument_input'] = array(
     'field_division_target_id' => array(
       'type' => 'panel',
