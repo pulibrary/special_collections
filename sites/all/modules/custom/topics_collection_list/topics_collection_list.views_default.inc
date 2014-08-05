@@ -355,7 +355,6 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
   $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_collection_strength_image']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_wrapper_class'] = 'pull-left';
   $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
