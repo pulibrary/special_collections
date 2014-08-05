@@ -56,6 +56,8 @@ function front_page_default_page_manager_handlers() {
       'grid-D' => NULL,
       'grid-E' => NULL,
       'grid-F' => NULL,
+      'rbsc-desc' => NULL,
+      'rbsc-news' => NULL,
     ),
   );
   $display->cache = array();
@@ -124,7 +126,7 @@ function front_page_default_page_manager_handlers() {
     $pane->panel = 'grid-B';
     $pane->type = 'node';
     $pane->subtype = 'node';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'nid' => '10',
@@ -147,6 +149,34 @@ function front_page_default_page_manager_handlers() {
     $pane->uuid = '362f38e6-121b-4216-a6d3-0dde73950c77';
     $display->content['new-362f38e6-121b-4216-a6d3-0dde73950c77'] = $pane;
     $display->panels['grid-B'][0] = 'new-362f38e6-121b-4216-a6d3-0dde73950c77';
+    $pane = new stdClass();
+    $pane->pid = 'new-05725d41-c971-4659-90b0-1454e24a1fe5';
+    $pane->panel = 'grid-B';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '5823',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'teaser',
+      'link_node_title' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '05725d41-c971-4659-90b0-1454e24a1fe5';
+    $display->content['new-05725d41-c971-4659-90b0-1454e24a1fe5'] = $pane;
+    $display->panels['grid-B'][1] = 'new-05725d41-c971-4659-90b0-1454e24a1fe5';
     $pane = new stdClass();
     $pane->pid = 'new-673dec46-4fc3-4e0c-9da3-f8ae579bfabf';
     $pane->panel = 'grid-C';
@@ -259,6 +289,61 @@ function front_page_default_page_manager_handlers() {
     $pane->uuid = '05584113-9f01-4da4-a96b-0cbef894ec60';
     $display->content['new-05584113-9f01-4da4-a96b-0cbef894ec60'] = $pane;
     $display->panels['grid-F'][0] = 'new-05584113-9f01-4da4-a96b-0cbef894ec60';
+    $pane = new stdClass();
+    $pane->pid = 'new-9c5dc0c3-807f-4009-ba6c-941b168c14a5';
+    $pane->panel = 'rbsc-desc';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<p><strong>The Department of Rare Books and Special Collections</strong>&nbsp;is one of the premier repositories of its kind. Its holdings span five millennia and five continents, and include around 200,000 rare or significant printed works; 30,000 linear feet of textual materials, ranging from cuneiform tablets to contemporary manuscripts; a wealth of prints, drawings, photographs, maps, coins, and other visual materials; the Cotsen Children\'s Library; and the Princeton University Archives. The privately owned Scheide Library is associated with the Department.</p>
+',
+      'format' => 'full_html',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'rbsc-description',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9c5dc0c3-807f-4009-ba6c-941b168c14a5';
+    $display->content['new-9c5dc0c3-807f-4009-ba6c-941b168c14a5'] = $pane;
+    $display->panels['rbsc-desc'][0] = 'new-9c5dc0c3-807f-4009-ba6c-941b168c14a5';
+    $pane = new stdClass();
+    $pane->pid = 'new-2da6d897-e857-4210-99cc-1e46911aa209';
+    $pane->panel = 'rbsc-news';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'blog_item-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'feed_nid' => '',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'rbsc-news',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '2da6d897-e857-4210-99cc-1e46911aa209';
+    $display->content['new-2da6d897-e857-4210-99cc-1e46911aa209'] = $pane;
+    $display->panels['rbsc-news'][0] = 'new-2da6d897-e857-4210-99cc-1e46911aa209';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -312,6 +397,7 @@ function front_page_default_page_manager_handlers() {
         'children' => array(
           0 => 'main-row',
           1 => 1,
+          2 => 2,
         ),
         'parent' => 'canvas',
       ),
@@ -393,6 +479,32 @@ function front_page_default_page_manager_handlers() {
         'parent' => '1',
         'class' => 'col-sm-6 col-md-3 img-grid',
       ),
+      2 => array(
+        'type' => 'row',
+        'contains' => 'region',
+        'children' => array(
+          0 => 'rbsc_description',
+          1 => 'rbsc_new_and_notable',
+        ),
+        'parent' => 'main',
+        'class' => 'sub-grid',
+      ),
+      'rbsc_description' => array(
+        'type' => 'region',
+        'title' => 'RBSC Description',
+        'width' => 50,
+        'width_type' => '%',
+        'parent' => '2',
+        'class' => 'rbsc-description',
+      ),
+      'rbsc_new_and_notable' => array(
+        'type' => 'region',
+        'title' => 'RBSC New and Notable',
+        'width' => 50,
+        'width_type' => '%',
+        'parent' => '2',
+        'class' => 'rbsc-news',
+      ),
     ),
   );
   $display->panel_settings = array(
@@ -410,6 +522,8 @@ function front_page_default_page_manager_handlers() {
       'grid_g_box' => NULL,
       'grid_f_box' => NULL,
       'grid_e_box' => NULL,
+      'rbsc_description' => NULL,
+      'rbsc_new_and_notable' => NULL,
     ),
     'grid_box_c' => array(
       'style' => '-1',
@@ -483,14 +597,14 @@ function front_page_default_page_manager_handlers() {
     $display->content['new-56eb71bd-a6fc-4aef-beb5-ad24d36bd0e4'] = $pane;
     $display->panels['grid_box_b'][0] = 'new-56eb71bd-a6fc-4aef-beb5-ad24d36bd0e4';
     $pane = new stdClass();
-    $pane->pid = 'new-5ab91299-83ee-4c91-b8a4-0db58192cd42';
+    $pane->pid = 'new-34774da3-3af3-46a3-9871-176cc1e64b9f';
     $pane->panel = 'grid_box_c';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '10',
+      'nid' => '5823',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
@@ -507,9 +621,9 @@ function front_page_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '5ab91299-83ee-4c91-b8a4-0db58192cd42';
-    $display->content['new-5ab91299-83ee-4c91-b8a4-0db58192cd42'] = $pane;
-    $display->panels['grid_box_c'][0] = 'new-5ab91299-83ee-4c91-b8a4-0db58192cd42';
+    $pane->uuid = '34774da3-3af3-46a3-9871-176cc1e64b9f';
+    $display->content['new-34774da3-3af3-46a3-9871-176cc1e64b9f'] = $pane;
+    $display->panels['grid_box_c'][0] = 'new-34774da3-3af3-46a3-9871-176cc1e64b9f';
     $pane = new stdClass();
     $pane->pid = 'new-bdcf895c-8639-4df5-9562-1e552e43dc04';
     $pane->panel = 'grid_d_box';
@@ -622,6 +736,61 @@ function front_page_default_page_manager_handlers() {
     $pane->uuid = '403ebb44-7207-455a-9ca6-b50caf18da48';
     $display->content['new-403ebb44-7207-455a-9ca6-b50caf18da48'] = $pane;
     $display->panels['grid_g_box'][0] = 'new-403ebb44-7207-455a-9ca6-b50caf18da48';
+    $pane = new stdClass();
+    $pane->pid = 'new-cc3d7491-91e5-4fc1-a5a1-d93559d49572';
+    $pane->panel = 'rbsc_description';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'RBSC Description',
+      'title' => '',
+      'body' => '<p><strong>The Department of Rare Books and Special Collections</strong>&nbsp;is one of the premier repositories of its kind. Its holdings span five millennia and five continents, and include around 200,000 rare or significant printed works; 30,000 linear feet of textual materials, ranging from cuneiform tablets to contemporary manuscripts; a wealth of prints, drawings, photographs, maps, coins, and other visual materials; the Cotsen Children\'s Library; and the Princeton University Archives. The privately owned Scheide Library is associated with the Department.</p>
+',
+      'format' => 'full_html',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'rbsc-front-page-desc',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'cc3d7491-91e5-4fc1-a5a1-d93559d49572';
+    $display->content['new-cc3d7491-91e5-4fc1-a5a1-d93559d49572'] = $pane;
+    $display->panels['rbsc_description'][0] = 'new-cc3d7491-91e5-4fc1-a5a1-d93559d49572';
+    $pane = new stdClass();
+    $pane->pid = 'new-67421f06-4834-4d29-a305-1ad46495a60e';
+    $pane->panel = 'rbsc_new_and_notable';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'blog_item-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'feed_nid' => '',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'allblogs',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '67421f06-4834-4d29-a305-1ad46495a60e';
+    $display->content['new-67421f06-4834-4d29-a305-1ad46495a60e'] = $pane;
+    $display->panels['rbsc_new_and_notable'][0] = 'new-67421f06-4834-4d29-a305-1ad46495a60e';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

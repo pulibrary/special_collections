@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * rbsc_basic_node_search_index.facetapi_defaults.inc
+ * rbsc_basic_blog_search_index.facetapi_defaults.inc
  */
 
 /**

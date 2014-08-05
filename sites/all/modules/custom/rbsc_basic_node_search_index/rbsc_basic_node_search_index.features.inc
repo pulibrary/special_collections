@@ -54,8 +54,14 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         "changed" : { "type" : "date" },
         "author" : { "type" : "integer", "entity_type" : "user" },
         "comment_count" : { "type" : "integer" },
+        "field_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_blogs" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_faqtags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_rbsc_faq_question" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
-        "body:value" : { "type" : "text" }
+        "body:value" : { "type" : "text" },
+        "body:summary" : { "type" : "text" },
+        "body:format" : { "type" : "string" }
       }
     },
     "enabled" : "1",

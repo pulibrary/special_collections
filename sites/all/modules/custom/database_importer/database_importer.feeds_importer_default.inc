@@ -48,23 +48,28 @@ function database_importer_feeds_importer_default() {
             'unique' => FALSE,
           ),
           2 => array(
-            'source' => 'url',
-            'target' => 'url',
-            'unique' => FALSE,
-          ),
-          3 => array(
             'source' => 'description',
             'target' => 'body',
             'unique' => FALSE,
           ),
-          4 => array(
+          3 => array(
             'source' => 'timestamp',
             'target' => 'created',
             'unique' => FALSE,
           ),
+          4 => array(
+            'source' => 'url',
+            'target' => 'field_database_url:url',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'url',
+            'target' => 'field_database_url:title',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
-        'input_format' => 'plain_text',
+        'input_format' => 'filtered_html',
         'skip_hash_check' => 0,
         'bundle' => 'database',
       ),

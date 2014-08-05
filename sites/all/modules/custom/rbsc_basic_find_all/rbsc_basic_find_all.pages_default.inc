@@ -160,6 +160,25 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $display->content['new-f569005e-1227-43b6-a27a-1c88e437fe67'] = $pane;
     $display->panels['middle'][1] = 'new-f569005e-1227-43b6-a27a-1c88e437fe67';
     $pane = new stdClass();
+    $pane->pid = 'new-e03daa7d-c4ef-4718-a1e1-510f82df1448';
+    $pane->panel = 'right';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'blog_search-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'e03daa7d-c4ef-4718-a1e1-510f82df1448';
+    $display->content['new-e03daa7d-c4ef-4718-a1e1-510f82df1448'] = $pane;
+    $display->panels['right'][0] = 'new-e03daa7d-c4ef-4718-a1e1-510f82df1448';
+    $pane = new stdClass();
     $pane->pid = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
@@ -176,11 +195,11 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '195df564-b077-4925-9bf0-2cd6dc9603bf';
     $display->content['new-195df564-b077-4925-9bf0-2cd6dc9603bf'] = $pane;
-    $display->panels['right'][0] = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
+    $display->panels['right'][1] = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
     $pane = new stdClass();
     $pane->pid = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
     $pane->panel = 'right';
@@ -198,11 +217,11 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = 'd19eecce-dc83-4bc1-85f5-37631e31121e';
     $display->content['new-d19eecce-dc83-4bc1-85f5-37631e31121e'] = $pane;
-    $display->panels['right'][1] = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
+    $display->panels['right'][2] = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
     $pane = new stdClass();
     $pane->pid = 'new-a6c9677f-190b-492c-8361-85dd52325230';
     $pane->panel = 'top';

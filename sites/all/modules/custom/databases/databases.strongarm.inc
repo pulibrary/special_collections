@@ -77,6 +77,9 @@ function databases_strongarm() {
       'rbsc_grid_view_large_feature' => array(
         'custom_settings' => TRUE,
       ),
+      'search_results' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),

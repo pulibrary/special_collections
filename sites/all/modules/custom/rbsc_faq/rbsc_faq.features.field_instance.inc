@@ -13,16 +13,16 @@ function rbsc_faq_field_default_field_instances() {
   // Exported field_instance: 'node-faq-field_faqtags'
   $field_instances['node-faq-field_faqtags'] = array(
     'bundle' => 'faq',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -46,9 +46,12 @@ function rbsc_faq_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'synonyms/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
       'weight' => 4,
     ),
   );
@@ -65,7 +68,7 @@ function rbsc_faq_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -111,7 +114,7 @@ function rbsc_faq_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 1,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -142,6 +145,52 @@ function rbsc_faq_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'node-faq-field_update_note'
+  $field_instances['node-faq-field_update_note'] = array(
+    'bundle' => 'faq',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'During migration of content, some text may need updating.  Put notes for content editors here.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_update_note',
+    'label' => 'Update Note',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 5,
     ),
   );
 
@@ -181,10 +230,12 @@ function rbsc_faq_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Answer');
+  t('During migration of content, some text may need updating.  Put notes for content editors here.');
   t('Please, enter the synonyms which should be related to this term.');
   t('Question');
   t('Synonyms');
   t('Tags');
+  t('Update Note');
 
   return $field_instances;
 }

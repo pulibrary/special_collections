@@ -150,6 +150,9 @@ function front_page_strongarm() {
       'rbsc_grid_view_large_feature' => array(
         'custom_settings' => TRUE,
       ),
+      'search_results' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
@@ -196,6 +199,12 @@ function front_page_strongarm() {
       ),
       'rbsc_grid_view_large_feature' => array(
         'custom_settings' => TRUE,
+      ),
+      'search_results' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
       ),
     ),
     'extra_fields' => array(

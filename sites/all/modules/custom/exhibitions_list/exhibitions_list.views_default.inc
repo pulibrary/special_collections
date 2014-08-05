@@ -132,6 +132,19 @@ function exhibitions_list_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Description', 'panel_pane_2');
   $handler->display->display_options['display_description'] = 'Exhibition Description';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: URL */
+  $handler->display->display_options['fields']['field_exhibition_url']['id'] = 'field_exhibition_url';
+  $handler->display->display_options['fields']['field_exhibition_url']['table'] = 'field_data_field_exhibition_url';
+  $handler->display->display_options['fields']['field_exhibition_url']['field'] = 'field_exhibition_url';
+  $handler->display->display_options['fields']['field_exhibition_url']['label'] = '';
+  $handler->display->display_options['fields']['field_exhibition_url']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_exhibition_url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_exhibition_url']['alter']['text'] = 'VIEW THE EXHIBIT ONLINE';
+  $handler->display->display_options['fields']['field_exhibition_url']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_exhibition_url']['alter']['path'] = '[field_exhibition_url-url]';
+  $handler->display->display_options['fields']['field_exhibition_url']['element_class'] = 'external-link';
+  $handler->display->display_options['fields']['field_exhibition_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_exhibition_url']['click_sort_column'] = 'url';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
