@@ -49,7 +49,7 @@ function research_guides_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_research_guides';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['comment_research_guides'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -70,6 +70,9 @@ function research_guides_strongarm() {
       ),
       'search_results' => array(
         'custom_settings' => FALSE,
+      ),
+      'rg_list_item' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(

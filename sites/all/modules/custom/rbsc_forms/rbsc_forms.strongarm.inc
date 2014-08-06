@@ -104,6 +104,9 @@ function rbsc_forms_strongarm() {
       'search_results' => array(
         'custom_settings' => FALSE,
       ),
+      'rg_list_item' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

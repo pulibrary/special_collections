@@ -129,6 +129,9 @@ function division_layouts_strongarm() {
       'search_results' => array(
         'custom_settings' => FALSE,
       ),
+      'rg_list_item' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -163,6 +166,9 @@ function division_layouts_strongarm() {
         'custom_settings' => TRUE,
       ),
       'search_results' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
     ),

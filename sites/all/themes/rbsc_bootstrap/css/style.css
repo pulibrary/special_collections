@@ -1137,12 +1137,20 @@ padding: 10px 15px;
   line-height: 20px;
 }
 
-.view-filtered-collection-list .views-field-body {
-  margin-bottom:20px;
+.view-research-guides .rg-title {
+  margin-top:20px;
 }
 
-.view-filtered-collection-list .views-field-body-1 {
+.view-research-guides .views-field-body {
   margin-left:20px;
+}
+
+.view-filtered-collection-list .views-field-view {
+  margin-top:20px;
+}
+
+.view-filtered-collection-list .views-row {
+  margin-top:20px;
 }
 
 /*

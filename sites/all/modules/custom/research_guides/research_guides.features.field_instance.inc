@@ -24,6 +24,12 @@ function research_guides_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'rg_list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -72,6 +78,12 @@ function research_guides_field_default_field_instances() {
         'type' => 'taxonomy_term_reference_link',
         'weight' => 1,
       ),
+      'rg_list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -110,6 +122,12 @@ function research_guides_field_default_field_instances() {
         ),
         'type' => 'entityreference_label',
         'weight' => 2,
+      ),
+      'rg_list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -151,6 +169,12 @@ function research_guides_field_default_field_instances() {
         'settings' => array(),
         'type' => 'link_default',
         'weight' => 3,
+      ),
+      'rg_list_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
