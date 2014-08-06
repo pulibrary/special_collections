@@ -1137,6 +1137,14 @@ padding: 10px 15px;
   line-height: 20px;
 }
 
+.view-filtered-collection-list .views-field-body {
+  margin-bottom:20px;
+}
+
+.view-filtered-collection-list .views-field-body-1 {
+  margin-left:20px;
+}
+
 /*
 
 .view-topics .view-content a{

@@ -215,12 +215,33 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
+  $handler->display->display_options['fields']['title_2']['table'] = 'node';
+  $handler->display->display_options['fields']['title_2']['field'] = 'title';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'field_research_guides_target_id';
+  $handler->display->display_options['fields']['title_2']['label'] = '';
+  $handler->display->display_options['fields']['title_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_2']['element_wrapper_type'] = 'strong';
+  $handler->display->display_options['fields']['title_2']['element_wrapper_class'] = 'rg-title';
+  $handler->display->display_options['fields']['title_2']['link_to_node'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body_1']['id'] = 'body_1';
+  $handler->display->display_options['fields']['body_1']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body_1']['field'] = 'body';
+  $handler->display->display_options['fields']['body_1']['relationship'] = 'field_research_guides_target_id';
+  $handler->display->display_options['fields']['body_1']['label'] = '';
+  $handler->display->display_options['fields']['body_1']['element_type'] = 'em';
+  $handler->display->display_options['fields']['body_1']['element_class'] = 'rg-body';
+  $handler->display->display_options['fields']['body_1']['element_label_colon'] = FALSE;
   /* Field: Content: Link */
   $handler->display->display_options['fields']['field_link']['id'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['table'] = 'field_data_field_link';
   $handler->display->display_options['fields']['field_link']['field'] = 'field_link';
   $handler->display->display_options['fields']['field_link']['relationship'] = 'field_research_guides_target_id';
-  $handler->display->display_options['fields']['field_link']['label'] = 'Research Guides';
+  $handler->display->display_options['fields']['field_link']['label'] = '';
+  $handler->display->display_options['fields']['field_link']['element_class'] = 'rg-links';
+  $handler->display->display_options['fields']['field_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_link']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_link']['multi_type'] = 'ul';
