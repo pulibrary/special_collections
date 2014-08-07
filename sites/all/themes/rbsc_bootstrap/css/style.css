@@ -1157,6 +1157,10 @@ padding: 10px 15px;
   list-style: none;
 }
 
+view-research-guides .views-row {
+  padding-top:10px;
+}
+
 
 /*
 
