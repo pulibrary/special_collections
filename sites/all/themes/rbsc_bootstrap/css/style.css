@@ -1157,8 +1157,22 @@ padding: 10px 15px;
   list-style: none;
 }
 
-view-research-guides .views-row {
+.view-research-guides .views-row {
   padding-top:10px;
+}
+
+.view-filtered-collection-list .views-row-even{
+  background-color: #fff;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 10px; 
+}
+
+.view-filtered-collection-list .views-row-odd{
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 10px; 
 }
 
 
