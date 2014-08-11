@@ -66,6 +66,10 @@ font-family: 'Mercury SSm Small Caps A', 'Mercury SSm Small Caps B', georgia, se
 font-style: normal;
 }
 
+.navbar-brand {
+margin-top: -18px;
+}
+
 /*
 p {
   font: normal 18px/30px "Georgia Pro",georgia,serif !important;
@@ -131,7 +135,7 @@ nav {
 }
 
 #wrap > .container {
-  padding: 85px 15px 0;
+  padding: 70px 15px 0;
 }
 .container .credit {
   margin: 20px 0 0 0;
@@ -375,10 +379,6 @@ padding: 5px 20px;
   margin: 0px;
 }
 
-.navbar .input-group {
-  margin-top: 8px;
-  padding-top: 40px;
-}
 
 .dottedfloat {
   clear: both;
@@ -484,6 +484,7 @@ padding-right: 13px;
 }
 
 @media (min-width: 768px) {
+  /*
   .navbar-nav > li > .bigdrop {
     font-family: 'Wire One', sans-serif;
     font-weight: 400;
@@ -493,6 +494,16 @@ padding-right: 13px;
     letter-spacing: 2px;
 
   }
+*/
+  @media (min-width: 768px) {
+  .navbar-nav > li > .bigdrop {
+    font-family: 'Muli', sans-serif;
+    font-size: 1em;
+    letter-spacing: 2px;
+  }
+
+}
+
 }
 
 @media (max-width: 768px) {
@@ -507,6 +518,17 @@ padding-right: 13px;
   border-style: solid;
 }
 */
+
+
+#nav-search-input {
+  font-family: 'Muli', sans-serif;
+  font-size: .8em;
+}
+
+.input-group .form-control {
+width: 350px;
+float: right;
+}
 
 .grid-img-hover {
   border-width:1px;
