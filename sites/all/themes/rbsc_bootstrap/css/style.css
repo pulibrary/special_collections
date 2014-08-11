@@ -3,14 +3,67 @@ body {
   min-height: 2000px;
   padding-top: 70px;
 }
+
+font-family: 'Lora', serif;
+font-family: 'Droid Serif', serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+
 */
 @import url(http://fonts.googleapis.com/css?family=Wire+One);
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:700,700italic,400,400italic);
+
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Droid+Serif:400,700,400italic,700italic|Roboto:400,700|Roboto+Condensed:400,300,700);
+
+@import url(http://fonts.googleapis.com/css?family=Muli:300,400,300italic,400italic);
+
 
 html,
 body {
   height: 100%;
   /* The html and body elements cannot have any padding or margin. */
+}
+
+body {
+  font-family: "Lora",serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6, .breadcrumb, .dropdown-header {
+  font-family: 'Muli', sans-serif;
+}
+
+.dropcap {
+background-image: url("/sites/default/files/dropcap-frame@2x.png");
+}
+
+.dropcap {
+background: url("/sites/default/files/dropcap-frame.png") no-repeat;
+background-size: 104px 104px;
+width: 104px;
+height: 104px;
+text-align: center;
+color: #fff;
+font-size: 111px;
+line-height: 110px;
+margin-right: 15px;
+float: left;
+display: block;
+position: relative;
+top: 6px;
+text-shadow: 0px 0px 10px #000;
+font-family: 'Lora';
+font-weight: 400;
+}
+
+.run-in {
+letter-spacing: 2px;
+margin-right: 3px;
+font-family: 'Mercury SSm Small Caps A', 'Mercury SSm Small Caps B', georgia, serif;
+font-style: normal;
 }
 
 /*
@@ -355,7 +408,7 @@ address {
    margin-top: 20px; 
   }
 }
-
+/*
 .desc {
   font-size: 16px;
   font-style: normal;
@@ -366,6 +419,15 @@ address {
   background: #ccc;
   padding: 10px;
 }
+*/
+
+.desc {
+  font-size: 16px;
+  font-style: normal;
+  line-height: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  }
 
 .desc div{
 
@@ -424,10 +486,12 @@ padding-right: 13px;
 @media (min-width: 768px) {
   .navbar-nav > li > .bigdrop {
     font-family: 'Wire One', sans-serif;
+    font-weight: 400;
     font-size: 2em;
     padding-top: 55px;
     padding-bottom: 55px;
     letter-spacing: 2px;
+
   }
 }
 
@@ -554,7 +618,7 @@ h2.pul-title {
 font-size: 1.2em;
 color: #333333;
 margin-bottom: 0.8em;
-font-family: "Droid Serif",serif;
+font-family: "Droid-Serif",serif;
 font-weight: normal;
 
 }
@@ -584,7 +648,13 @@ font-weight: normal;
 .hours a {
  color: #F58026; 
  font-size: 12px;
+ font-family: "Muli", sans-serif;
 }
+
+.view-locations-footer- {
+  font-family: "Muli", sans-serif;
+}
+
 
 .events .label-info {
   margin-top: -3.0em;
@@ -592,7 +662,7 @@ font-weight: normal;
 }
 
 .events .label-info a {
-  font-family: "Droid Serif",sans-serif;
+  font-family: "Muli",sans-serif;
   font-style: italic;
   font-weight: normal;
   font-size: 1.0em;
@@ -1060,7 +1130,7 @@ background-color: #fff;
 }
 
 .refine-link a {
-font-family: "Droid Serif",sans-serif;
+font-family: "Muli",sans-serif;
 font-style: italic;
 font-weight: normal;
 font-size: .833em;
@@ -1084,7 +1154,9 @@ border-radius: 3px;
 
 #footer .nav>li>a {
   padding:0px;
+  font-family: "Muli", sans-serif;
 }
+
 
 #footer .views-row {
   margin-top: 5px;
@@ -1120,9 +1192,10 @@ border-radius: 4px;
 }
 
 .nav-stacked li>div>div>a {
+font-family: "Muli", sans-serif;
 position: relative;
 display: block;
-padding: 10px 15px;
+padding: 5px 10px;
 }
 
 
@@ -1178,6 +1251,22 @@ padding: 10px 15px;
 .collection-body {
   margin-top: 10px;
 }
+
+.pane-division-collection-strengths-panel-pane-1>h2 {
+  margin-bottom:20px;
+  color: #999;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+.pane-division-quick-links-panel-pane-1>h2 {
+  margin-bottom:10px;
+  color: #999;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+
 
 /*
 
