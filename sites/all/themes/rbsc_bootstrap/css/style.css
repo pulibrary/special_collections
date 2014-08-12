@@ -1,21 +1,8 @@
-/*
-body {
-  min-height: 2000px;
-  padding-top: 70px;
-}
+/* RBSC.princeton.edu style overrides */
 
-font-family: 'Lora', serif;
-font-family: 'Droid Serif', serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Condensed', sans-serif;
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Droid+Serif:400|Muli:300,400,300italic,400italic);
 
-*/
-@import url(http://fonts.googleapis.com/css?family=Wire+One);
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:700,700italic,400,400italic);
-
-@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Droid+Serif:400,700,400italic,700italic|Roboto:400,700|Roboto+Condensed:400,300,700);
-
-@import url(http://fonts.googleapis.com/css?family=Muli:300,400,300italic,400italic);
+/* @import url(http://fonts.googleapis.com/css?family=Muli:300,400,300italic,400italic); */
 
 
 html,
@@ -466,16 +453,6 @@ padding-right: 13px;
 }
 
 
-.test-logo{
-  position: fixed;
-  z-index: 10040;
-  top: 30px;
-  left: 30px;
-  font-family: 'Tulpen One', cursive;
-  font-family: 'Six Caps', sans-serif;
-  font-family: 'Wire One', sans-serif;
-}
-
 .media-hover {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
@@ -498,7 +475,7 @@ padding-right: 13px;
   @media (min-width: 768px) {
   .navbar-nav > li > .bigdrop {
     font-family: 'Muli', sans-serif;
-    font-size: 1em;
+    font-size: 1.25em;
     letter-spacing: 2px;
   }
 
@@ -641,7 +618,7 @@ font-size: 1.2em;
 color: #333333;
 margin-bottom: 0.8em;
 font-family: "Droid-Serif",serif;
-font-weight: normal;
+font-weight: 400;
 
 }
 
@@ -995,6 +972,8 @@ background-color: #fff;
 
 .rbsc-front-page-desc {
   margin-top: 20px;
+  font-size: 1.2em;
+  line-height: 1.75em;
 }
 
 /* Mudd and Firestone img grids */
