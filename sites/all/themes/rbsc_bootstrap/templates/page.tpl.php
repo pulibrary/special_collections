@@ -124,7 +124,7 @@
             </button>
             <?php if ($logo): ?>
                     <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-                      <img height="100px" width="100px" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                      <img height="75px" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
                     </a>
             <?php endif; ?>
               
@@ -135,12 +135,13 @@
             
             <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
               <div class="navbar-collapse collapse">
+                <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
                 <nav role="navigation">
                   <?php if (!empty($primary_nav)): ?>
                     <?php print render($primary_nav); ?>
                     <form id="nav-search">
                       <div class="input-group">
-                        <input type="text" id="nav-search-input" class="form-control">
+                        <input type="text" id="nav-search-input" placeholder="Search all of RBSC" class="form-control">
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </span>
