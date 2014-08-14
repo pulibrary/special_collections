@@ -130,7 +130,7 @@ nav {
 }
 
 #wrap > .container {
-  padding: 70px 15px 0;
+  padding: 80px 15px 0;
 }
 .container .credit {
   margin: 20px 0 0 0;
@@ -164,7 +164,7 @@ code {
 }
 
 .navbar-default {
-  top: 25px;
+  top: 35px;
   /*
   border-top-width:2px;
   border-top-style:dashed;
@@ -178,14 +178,24 @@ background-repeat: repeat-x;
 }
 */
 
+
+
+.pul-logo {
+  margin-top: 10px;
+}
+
+.navbar-nav > li > a {
+  line-height: 30px;
+}
+
 .logged-in .thinbar {
  display: none;
 }
 
 .thinbar {
     background-color: #000;
-    height: 25px;
-    min-height: 25px;
+    height: 35px;
+    min-height: 35px;
     position: fixed;
     top: 0;
     left: 0;
@@ -231,6 +241,8 @@ background-repeat: repeat-x;
 }
 
 .thinbar .nav > li > a {
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
   position: relative;
   display: block;
   padding: 2px 10px;
@@ -258,6 +270,7 @@ background-repeat: repeat-x;
 .thinbar .nav .open > a:hover,
 .thinbar .nav .open > a:focus {
   background-color: #eeeeee;
+  color: #000;
   border-color: #428bca;
 }
 
