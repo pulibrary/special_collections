@@ -1,0 +1,9 @@
+name = RBSC Roles
+description = This feature will add, update, or remove user roles in the RBSC website.
+core = 7.x
+package = RBSC
+version = 7.x-1.0-beta1
+project = rbsc_roles
+dependencies[] = features
+features[features_api][] = api:2
+features[user_role][] = division staff
