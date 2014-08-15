@@ -14,6 +14,8 @@ $plugin = array(
     'grid-A' => t('Grid A'),
     'grid-B' => t('Grid B'),
     'grid-C' => t('Grid C'),
-    'grid-D' => t('Grid D')
+    'grid-D' => t('Grid D'),
+    'loc-desc' => t('Location Description'),
+    'loc-news' => t('Location New and Notable')
   ),
 );

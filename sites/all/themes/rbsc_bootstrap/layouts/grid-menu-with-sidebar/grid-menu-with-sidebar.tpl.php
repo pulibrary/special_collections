@@ -25,29 +25,41 @@
 
   <!-- column 2 -->
   <div id="middle-col" class="col-md-9">
-    
-    <!-- grid row 1 - images are 419x180px -->
-  	<div class="col-sm-12 col-md-6 img-grid">
-  	  <?php print $content['feature-left']; ?>
-  	</div>
-  	<div class="col-sm-12 col-md-6 img-grid">
-  	  <?php print $content['feature-right']; ?>
-  	</div>
+  
+    <div class="row">
+      <!-- grid row 1 - images are 419x180px -->
+    	<div class="col-sm-12 col-md-6 img-grid">
+    	  <?php print $content['feature-left']; ?>
+    	</div>
+    	<div class="col-sm-12 col-md-6 img-grid">
+    	  <?php print $content['feature-right']; ?>
+    	</div>
 
-  	<!-- grid row 2 - images are 199x180px -->
-  	<div class="col-sm-6 col-md-3 img-grid">
-  	  <?php print $content['grid-A']; ?>
-  	</div>	
-  	<div class="col-sm-6 col-md-3 img-grid">
-  	  <?php print $content['grid-B']; ?>
-  	</div>	
-  	<div class="col-sm-6 col-md-3 img-grid">
-  	  <?php print $content['grid-C']; ?>
-  	</div>	
-  	<div class="col-sm-6 col-md-3 img-grid">
-  	  <?php print $content['grid-D']; ?>
-  	</div>	
+    	<!-- grid row 2 - images are 199x180px -->
+    	<div class="col-sm-6 col-md-3 img-grid">
+    	  <?php print $content['grid-A']; ?>
+    	</div>	
+    	<div class="col-sm-6 col-md-3 img-grid">
+    	  <?php print $content['grid-B']; ?>
+    	</div>	
+    	<div class="col-sm-6 col-md-3 img-grid">
+    	  <?php print $content['grid-C']; ?>
+    	</div>	
+    	<div class="col-sm-6 col-md-3 img-grid">
+    	  <?php print $content['grid-D']; ?>
+    	</div>	
+    </div>
+
+    <div class="row sub-grid">
+      <div class="col-sm-12 col-md-6 rbsc-front-page-desc">
+        <?php print $content['loc-desc']; ?>
+      </div>
+      <div class="col-sm-12 col-md-6 allblogs">
+        <?php print $content['loc-news']; ?>
+      </div>
+    </div>
 
   </div>
+
 </div>
 </div>
