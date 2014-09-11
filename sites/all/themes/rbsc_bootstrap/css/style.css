@@ -1296,6 +1296,15 @@ padding: 5px 10px;
   clear:both;
 }
 
+.cover-image {
+  float:left;
+  padding-right:10px;
+}
+
+.image-title-teaser {
+  height: 84px;
+}
+
 /*
 
 .view-topics .view-content a{
