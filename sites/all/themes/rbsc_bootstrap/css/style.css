@@ -1292,6 +1292,10 @@ padding: 5px 10px;
   width:100%;
 }
 
+.panel-separator {
+  clear:both;
+}
+
 /*
 
 .view-topics .view-content a{
