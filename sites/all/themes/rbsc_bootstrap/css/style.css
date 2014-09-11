@@ -1288,7 +1288,9 @@ padding: 5px 10px;
   font-size:12px;
 }
 
-
+.full-width {
+  width:100%;
+}
 
 /*
 
