@@ -1302,7 +1302,11 @@ padding: 5px 10px;
 }
 
 .image-title-teaser {
-  height: 84px;
+  min-height: 84px;
+}
+
+.related-exhibition-title {
+  margin-left:84px;
 }
 
 /*
