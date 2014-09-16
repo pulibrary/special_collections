@@ -1032,8 +1032,8 @@ background-color: #fff;
 .thumbnails li {
   list-style: none;
   margin-left: -20px;
-  height: 200px;
-  min-height: 200px;
+  height: 250px;
+  min-height: 250px;
   text-align: center;
 }
 
