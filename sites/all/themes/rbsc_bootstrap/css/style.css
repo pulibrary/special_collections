@@ -1310,6 +1310,10 @@ padding: 5px 10px;
   display: block;
 }
 
+.Sticky {
+  background-color: lightgoldenrodyellow;
+}
+
 /*
 
 .view-topics .view-content a{
