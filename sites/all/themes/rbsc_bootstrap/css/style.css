@@ -1311,7 +1311,7 @@ padding: 5px 10px;
 }
 
 .Sticky {
-  background-color: lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow !important;
 }
 
 /*
