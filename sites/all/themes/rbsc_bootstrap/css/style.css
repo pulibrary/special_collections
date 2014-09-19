@@ -13,10 +13,20 @@ body {
 
 body {
   font-family: "Lora",serif;
+  /*
   font-size: 14px;
   line-height: 1.428571429;
+  */
   color: #333;
   background-color: #fff;
+}
+
+.region-content {
+  letter-spacing: 0.01rem;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6, .breadcrumb, .dropdown-header {
@@ -921,7 +931,10 @@ background-color: #fff;
 
 .view-policy-list ul{
   list-style-type: none;
-  margin-left: -20px;
+  font-family: 'Muli', sans-serif;
+  font-size:14px;
+
+  /*margin-left: -20px;*/
 }
 
 .field-name-field-cover-image img {
@@ -993,7 +1006,7 @@ background-color: #fff;
 
 .rbsc-front-page-desc {
   margin-top: 20px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.75em;
 }
 
