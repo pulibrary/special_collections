@@ -1361,6 +1361,10 @@ h1.page-header small {
   margin-top:10px;
 }
 
+.breadcrumb li.small {
+  display: none;
+}
+
 /*
 .thumbnail .field-content {
   background: #000;
