@@ -1007,7 +1007,7 @@ background-color: #fff;
 .rbsc-front-page-desc {
   margin-top: 20px;
   font-size: 1.1em;
-  line-height: 1.75em;
+  line-height: 1.75em;  
 }
 
 /* Mudd and Firestone img grids */
@@ -1327,7 +1327,54 @@ padding: 5px 10px;
   background-color: lightgoldenrodyellow !important;
 }
 
+.thumbnail .views-field-title {
+  width: 220px;
+  position: absolute;
+  z-index: 5;
+  display: block;
+  padding: 20px;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  height: auto;
+  background: rgba(73,79,87,0.85);
+  border: 0px;
+
+}
+
+.thumbnail .views-field-title a{
+
+  font-family: "Muli", sans-serif;
+  color: #FFF;
+  font-size: 15px;
+
+}
+
+.thumbnail .views-field-title a span.subtitle {
+  font-family: "Muli", sans-serif;
+  color: #CCC;
+  font-size: 12px;
+  line-height: 12px;
+
+}
+
+.thumbnail {
+  border:0px;
+}
+
 /*
+.thumbnail .field-content {
+  background: #000;
+  opacity: 0.25;
+  zoom: 1;
+  filter: alpha(opacity=25);
+  z-index: 4;
+  display: block;
+  
+}
+
+opacity: 0.6;
 
 .view-topics .view-content a{
   margin-top:20px;
