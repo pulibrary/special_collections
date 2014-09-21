@@ -1357,7 +1357,7 @@ padding: 5px 10px;
 }
 
 h1.page-header small {
-  display: block;
+  display: inline-block;
   margin-top:10px;
 }
 
