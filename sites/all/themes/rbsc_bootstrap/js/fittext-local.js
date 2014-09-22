@@ -30,4 +30,12 @@ jQuery( document ).ready(function() {
   		window.location.href = "/find/all/" + encodeURIComponent(jQuery( "#nav-search-input" ).val());
 	});
 
+	jQuery( ".thumbnail .views-field-title").hover(
+		  function() {
+		    jQuery( this ).find( ".subtitle" ).show();
+		  }, function() {
+		    jQuery( this ).find( ".subtitle" ).hide();
+		  }
+		);
+
 });
