@@ -1390,6 +1390,10 @@ li.active>a {
   background-color: #428bca;
 }
 
+.pane-node-field-cover-image img {
+  margin-top:20px;
+}
+
 /*
 .thumbnail .field-content {
   background: #000;
