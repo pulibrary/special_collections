@@ -1367,9 +1367,15 @@ h1.page-header small {
 
 .region-sidebar-first ul.menu {
   font-family: "Muli", sans-serif;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 14px;
   margin-top: 20px;
+
+}
+
+.region-sidebar-first ul.menu>li>a{
+  border-radius:4px;
+  position: relative;
+  display: block;
 }
 
 aside>.well {
