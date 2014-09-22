@@ -1365,6 +1365,25 @@ h1.page-header small {
   display: none;
 }
 
+.region-sidebar-first ul.menu {
+  font-family: "Muli", sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  margin-top: 20px;
+}
+
+aside>.well {
+  padding: 0px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: 0px solid #e3e3e3;
+}
+
+li.active>a {
+  color: #fff;
+  background-color: #428bca;
+}
+
 /*
 .thumbnail .field-content {
   background: #000;
