@@ -1234,8 +1234,18 @@ padding: 5px 10px;
 
 .view-topics .view-content p{
   margin-top:10px;
+}
+
+.panel-panel .alert {
+  margin-top:10px;
+}
+
+.panel-panel .alert p {
   font-size: 14px;
-  line-height: 20px;
+}
+
+.panel-panel .alert h2 {
+  margin-top: 0px;
 }
 
 .view-research-guides .rg-title {
@@ -1292,6 +1302,24 @@ padding: 5px 10px;
   color: #999;
   text-transform:uppercase;
   font-size:12px;
+}
+
+.quick-links{
+  font-size: 14px;
+}
+
+.media .views-field-body {
+  margin-left: 75px;
+  font-size: 14px;
+}
+
+.view-division-curator, .view-division-location, .item-list {
+  font-size: 14px;
+}
+
+.item-list .views-field-title {
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
 }
 
 .full-width {
@@ -1393,6 +1421,7 @@ li.active>a {
 .pane-node-field-cover-image img {
   margin-top:20px;
 }
+
 
 /*
 .thumbnail .field-content {
