@@ -917,7 +917,7 @@ background-color: #fff;
 }
 
 /* Division Location */
-.panel-3col-stacked {
+.panel-3col-stacked, .panel-2col-stacked  {
   margin-top:20px;
 }
 
