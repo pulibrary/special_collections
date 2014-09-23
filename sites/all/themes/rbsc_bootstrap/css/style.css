@@ -917,7 +917,9 @@ background-color: #fff;
 }
 
 /* Division Location */
-
+.panel-3col-stacked {
+  margin-top:20px;
+}
 
 
 .view-policy-list h3{
