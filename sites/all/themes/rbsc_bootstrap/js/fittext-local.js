@@ -38,4 +38,10 @@ jQuery( document ).ready(function() {
 		  }
 		);
 
+	var blogsource = jQuery( ".blog-source" ).attr( "href" );
+
+	jQuery( ".blog-source" ).attr( "href", blogsource.replace("/feed/", "/"));
+
+	
+
 });
