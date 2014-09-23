@@ -921,6 +921,9 @@ background-color: #fff;
   margin-top:20px;
 }
 
+.panel-col-last {
+  font-size: 14px;
+}
 
 .view-policy-list h3{
   font-size: 16px;
