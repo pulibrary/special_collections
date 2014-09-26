@@ -1133,6 +1133,11 @@ background-color: #fff;
   display: none;
 }
 
+.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd, .allblogs .views-row-odd {
+  background-color: whitesmoke;
+  border-radius: 6px;
+}
+
 .allblogs {
   padding:10px;
 }
@@ -1146,11 +1151,7 @@ background-color: #fff;
   font-size: 16px;
 }
 
-.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd, .views-row-odd {
-  background-color: whitesmoke;
-  border-radius: 6px;
 
-}
 
 .view-id-rbsc_basic_node_search h2{
   font-size:14px;
