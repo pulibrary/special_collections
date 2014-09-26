@@ -36,12 +36,6 @@ jQuery( document ).ready(function() {
 		  }, function() {
 		    jQuery( this ).find( ".subtitle" ).hide();
 		  }
-		);
-
-	var blogsource = jQuery( ".blog-source" ).attr( "href" );
-
-	jQuery( ".blog-source" ).attr( "href", blogsource.replace("/feed/", "/"));
-
-	
+		);	
 
 });
