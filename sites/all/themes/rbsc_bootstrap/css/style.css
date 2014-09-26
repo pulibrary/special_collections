@@ -1100,6 +1100,7 @@ background-color: #fff;
 
 .all-search-results-list {
   border-right:1px solid #EEE;
+  font-size:12px;
 }
 
 .all-search-results-list li{
@@ -1109,7 +1110,7 @@ background-color: #fff;
   margin-right: 30px;
 }
 
-.all-search-results-list h3{
+.all-search-results-list h3, .allblogs h3{
   font-size:14px;
   line-height: 1.4;
   margin-top: 0px;
