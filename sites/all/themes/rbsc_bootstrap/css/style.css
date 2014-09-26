@@ -1126,6 +1126,7 @@ background-color: #fff;
   padding: 10px;
 }
 
+
 .searchword {
   background-color: yellow;
 }
@@ -1174,8 +1175,14 @@ background-color: #fff;
   padding: 10px !important;
 }
 
-.refine-link a {
-font-family: "Muli",sans-serif;
+.refine-link a, .more-link a {
+
+display: inline;
+padding: .2em .6em .3em;
+line-height: 1;
+text-align: center;
+white-space: nowrap;
+vertical-align: baseline;
 font-style: italic;
 font-weight: normal;
 font-size: .833em;
@@ -1185,11 +1192,10 @@ text-shadow: none;
 background-color: #63c0f8;
 background-color: rgb(245,128,38);
 color: #fff;
-padding: 3px 7px;
 text-decoration: none;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+-webkit-border-radius: .25em;
+-moz-border-radius: .25em;
+border-radius: .25em;
 
 }
 
