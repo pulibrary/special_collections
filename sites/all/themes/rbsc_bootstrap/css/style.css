@@ -925,6 +925,10 @@ background-color: #fff;
   font-size: 14px;
 }
 
+.panel-col-last {
+  font-size: 14px;
+}
+
 .view-policy-list h3{
   font-size: 16px;
   margin-left: 10px;
@@ -1131,6 +1135,14 @@ background-color: #fff;
 
 .allblogs .views-row {
   padding:10px;
+}
+
+.allblogs>a>img {
+  float:left;
+}
+
+.teaser-text {
+  margin-left: 75px;
 }
 
 .view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd, .allblogs .views-row-odd {
