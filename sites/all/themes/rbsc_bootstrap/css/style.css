@@ -1103,6 +1103,10 @@ background-color: #fff;
   font-size:12px;
 }
 
+.site-search-results {
+  font-size:12px;
+}
+
 .all-search-results-list li{
   list-style-type: none;
   margin-left: -40px;
@@ -1196,7 +1200,7 @@ text-decoration: none;
 -webkit-border-radius: .25em;
 -moz-border-radius: .25em;
 border-radius: .25em;
-
+letter-spacing: 1px;
 }
 
 .refine-link {
