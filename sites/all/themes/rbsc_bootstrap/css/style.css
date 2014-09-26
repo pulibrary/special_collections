@@ -1146,7 +1146,7 @@ background-color: #fff;
   font-size: 16px;
 }
 
-.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd, .allblogs .views-row-odd {
+.view-id-rbsc_basic_node_search .views-row-odd, .view-id-blog_search .views-row-odd, .views-row-odd {
   background-color: whitesmoke;
   border-radius: 6px;
 
