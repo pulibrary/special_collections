@@ -671,11 +671,11 @@ font-weight: 400;
   border-left: 1px solid #fff; 
 }
 
-.hours {
+.rbschours, .muddhours {
    margin-bottom:10px;
 }
 
-.hours a {
+.rbschours a, .muddhours a{
  color: #F58026; 
  font-size: 12px;
  font-family: "Muli", sans-serif;

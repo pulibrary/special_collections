@@ -51,7 +51,7 @@
   <h4<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
 <?php endif;?>
   <?php print render($title_suffix); ?>
-  <span class="hours"><a href="">Open today from 9:00am to 5:00pm</a></span>
+  <span class="rbschours"><a href="http://library.princeton.edu/hours/rbsc">Open today from <span class="rbscstarthour">?</span> to <span class="rbscendhour">?</span></a></span>
   <div class="content"<?php print $content_attributes; ?>>
     <?php print $content ?>
   </div>
