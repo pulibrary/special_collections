@@ -1449,6 +1449,36 @@ li.active>a {
   margin-top:20px;
 }
 
+/* alpha nav and glossary view */
+
+.attachment {
+  text-align: center;
+  margin: 20px;
+
+}
+
+.views-summary a {
+  margin: 0 4px 0 0;
+  padding: 3px 8px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.views-summary a:hover,
+.views-summary a:focus {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+.views-summary a:active {
+  background: #fff;
+  border-color: #ddd;
+}
+
+
 
 /*
 .thumbnail .field-content {
