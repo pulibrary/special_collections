@@ -699,9 +699,11 @@ font-weight: 400;
   color: white;
 }
 
+
+
 .media-body p {
-  font-size:  0.9em;
-  line-height: 1.1em;
+  /*font-size:  0.9em;
+  line-height: 1.1em;*/
   color: #333;
 }
 
@@ -903,8 +905,21 @@ background-color: #fff;
 /* media grid and list */
 
 .media img{
-  display: block;
+  /*display: block;*/
   margin-right: 10px;
+
+  display: inline-block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .media-body {
@@ -913,7 +928,11 @@ background-color: #fff;
 
 .media-heading {
   display: block;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+.media {
+  margin-bottom:30px;
 }
 
 /* Division Location */
