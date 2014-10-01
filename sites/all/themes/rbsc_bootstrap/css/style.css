@@ -700,16 +700,6 @@ font-weight: 400;
 }
 
 
-
-.media-body p {
-  /*font-size:  0.9em;
-  line-height: 1.1em;*/
-  color: #333;
-}
-
-.media-body small {
-  color: #8c8c8c;
-}
 .navbar-collapse .form-control {
   margin-left: 10px;
 }
@@ -928,11 +918,23 @@ background-color: #fff;
 
 .media-heading {
   display: block;
-  font-size: 18px;
+  font-size: 20px;
+  line-height:26px;
 }
 
 .media {
   margin-bottom:30px;
+}
+
+.media p {
+  /*font-size:  0.9em;
+  line-height: 1.1em;*/
+  color: #333;
+  font-size: 16px;
+}
+
+.media-body small {
+  color: #8c8c8c;
 }
 
 /* Division Location */
