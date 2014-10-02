@@ -1511,7 +1511,8 @@ li.active>a {
   display: inline;
 }
 
-a.facetapi-inactive, {
+a.facetapi-inactive, a:hover .facetapi-inactive{
+  font-family: 'Muli', sans-serif;
   padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: bold;
@@ -1525,9 +1526,6 @@ a.facetapi-inactive, {
   color:white;
 }
 
-a:hover .facetapi-inactive {
-  color:white;
-}
 
 
 /*
