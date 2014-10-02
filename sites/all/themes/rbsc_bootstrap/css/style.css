@@ -1511,7 +1511,7 @@ li.active>a {
   display: inline;
 }
 
-.facetapi-inactive {
+a.facetapi-inactive, {
   padding: .2em .6em .3em;
   font-size: 75%;
   font-weight: bold;
@@ -1522,6 +1522,10 @@ li.active>a {
   vertical-align: baseline;
   border-radius: .25em;
   background-color:#999;
+  color:white;
+}
+
+a:hover .facetapi-inactive {
   color:white;
 }
 
