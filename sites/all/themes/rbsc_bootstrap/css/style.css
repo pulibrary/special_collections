@@ -1535,7 +1535,7 @@ a[href$='.pdf'] {
   text-align: center;
 }
 
-.views-field-field-publisher, .views-field-field-year, .views-field-field-isbn, .views-field-field-place-of-publication {
+.smaller, .views-field-field-publisher, .views-field-field-year, .views-field-field-isbn, .views-field-field-place-of-publication {
   font-size: 75%;
 }
 
