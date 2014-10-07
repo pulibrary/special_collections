@@ -1542,3 +1542,11 @@ a[href$='.pdf'] {
 .document {
   display: inline-block;
 }
+
+.field-name-field-first-name > .field-label {
+  display: none;
+}
+
+.field-name-field-last-name > .field-label {
+  display: none;
+}
