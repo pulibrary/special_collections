@@ -1550,3 +1550,13 @@ a[href$='.pdf'] {
 .field-name-field-last-name > .field-label {
   display: none;
 }
+
+.field-name-field-first-name {
+  display: inline;
+}
+
+.field-name-field-last-name {
+  display: inline;
+  margin-left: .3em;
+}
+
