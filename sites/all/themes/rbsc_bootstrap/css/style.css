@@ -1530,3 +1530,8 @@ a[href$='.pdf'] {
   background: url(../img/page_white_acrobat.png) no-repeat right top;
   padding-right: 22px;
 }
+
+.views-field-field-book-cover > .field-content {
+  text-align: center;
+}
+
