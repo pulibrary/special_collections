@@ -1552,11 +1552,11 @@ a[href$='.pdf'] {
 }
 
 .field-name-field-first-name {
-  display: inline;
+  display: inline-block;
 }
 
 .field-name-field-last-name {
-  display: inline;
+  display: inline-block;
   margin-left: .3em;
 }
 
