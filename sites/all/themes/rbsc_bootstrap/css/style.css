@@ -1560,3 +1560,7 @@ a[href$='.pdf'] {
   margin-left: .3em;
 }
 
+.field-collection-item-field-author {
+  display: inline-block;
+}
+
