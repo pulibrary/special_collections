@@ -22,6 +22,7 @@ function allsearch_block_form($form, &$form_state) {
   $form['query'] = array (
     '#type'  => 'textfield',
     '#title' =>  t('All Search'),
+    '#name' => 'query',
     '#size'  => 80,
     '#required' => TRUE,
     '#default_value' => $default_value
@@ -48,9 +49,13 @@ function allsearch_block_form($form, &$form_state) {
     * will ensure this form always posts through the bare current path
     * 
     */
-   $form['#action'] = url('');
+   //$form_state['rebuild'] = 0;
+   //$form_state['redirect'] = 1;
+   //print_r($form_state);
+   //$form['#action'] = url('');
    $form['#method'] = "post";
-   $form['#submit'] = array('allsearch_block_form_redirect');
+   //$form['#submit'] = array('allsearch_block_form_redirect');
+
    return $form;
 
 }
@@ -60,7 +65,7 @@ function allsearch_block_form_redirect($form, &$form_state) {
 }
 
 function allsearch_block_form_validate($form, &$form_state) {
-  
+  print_r($form_state);
   $term = $form_state['values']['query'];
   if($term == "" || $term == variable_get('all_search_hint')) {
 
@@ -71,6 +76,7 @@ function allsearch_block_form_validate($form, &$form_state) {
 
 
 function allsearch_block_form_submit($form, &$form_state) {
+  drupal_goto('find/all/' . $form_state['values']['query']);
   drupal_set_message(t('Submitting values: @values', array('@values' => var_export($form_state['values'], TRUE))));
 }
 
