@@ -68,10 +68,10 @@
     					html: items.join('')
   				}).appendTo('#pulfa-search-results');
                 var refine_link_track_code = 'onclick="_gaq.push([\'_trackEvent\', \'Expand All Search\', \'Pulfa\', \'Top\']);"'
-				$('<div class="refine-link">'+refine_icon+'<a '+refine_link_track_code+' target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#pulfa-search-results');
+				//$('<div class="refine-link">'+refine_icon+'<a '+refine_link_track_code+' target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#pulfa-search-results');
 				if(data.number > 3) {
                     more_link_track_code = 'onclick="_gaq.push([\'_trackEvent\', \'Expand All Search\', \'Pulfa\', \'Bottom\']);"'
-					$('<div class="more-link"><a '+more_link_track_code+' target="_blank" title="'+refine_hint+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Results in Finding Aids</a></div>"').appendTo('#pulfa-search-results');
+					$('<div class="more-link"><a '+more_link_track_code+' target="_blank" title="'+refine_hint+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Finding Aids Results</a></div>"').appendTo('#pulfa-search-results');
 				}
 			} else {
         $('#pulfa-search-results-spinner').hide();

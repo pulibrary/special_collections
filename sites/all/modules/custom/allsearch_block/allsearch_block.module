@@ -65,14 +65,12 @@ function allsearch_block_form_redirect($form, &$form_state) {
 }
 
 function allsearch_block_form_validate($form, &$form_state) {
-  print_r($form_state);
   $term = $form_state['values']['query'];
   if($term == "" || $term == variable_get('all_search_hint')) {
 
     form_set_error('term', t('What do you want to search for?'));
   } 
 }
-
 
 
 function allsearch_block_form_submit($form, &$form_state) {

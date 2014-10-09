@@ -5,7 +5,7 @@
 	var file_icon = 'icon-file';
 	var refine_hint = 'Explore Princeton University Digital Library content.';
         var refine_icon = '<i class="icon-circle-arrow-right"></i>&nbsp;';
-        var refine_message = "See All Digital Library Content";
+        // var refine_message = "See All Digital Library Content";
 	if(query_url === "" || query_url == undefined) {
 		$('<div class="message">Please supply search terms</div>').appendTo('#pudl-search-results');
 	} else {
@@ -39,10 +39,10 @@
     					html: items.join('')
   				}).appendTo('#pudl-search-results');
                 var refine_link_track_code = 'onclick="_gaq.push([\'_trackEvent\', \'Expand All Search\', \'Pudl\', \'Top\']);"'
-				$('<div class="refine-link">'+refine_icon+'<a '+refine_link_track_code+' target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#pudl-search-results');
+				// $('<div class="refine-link">'+refine_icon+'<a '+refine_link_track_code+' target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#pudl-search-results');
 				if(data.number > 3) {
                     more_link_track_code = 'onclick="_gaq.push([\'_trackEvent\', \'Expand All Search\', \'Pudl\', \'Bottom\']);"'
-					$('<div class="more-link"><a '+more_link_track_code+' target="_blank" title="'+refine_hint+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Digital Library Results.</a></div>"').appendTo('#pudl-search-results');
+					$('<div class="more-link"><a '+more_link_track_code+' target="_blank" title="'+refine_hint+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Digital Library Results</a></div>"').appendTo('#pudl-search-results');
 				}
 			} else {
         $('#pudl-search-results-spinner').hide();

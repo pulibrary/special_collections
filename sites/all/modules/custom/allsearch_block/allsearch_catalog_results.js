@@ -3,7 +3,7 @@
     
   var query_url = $('#catalog-search-results').attr('data-source');
   var refine_tooltip = "See all results or expand your search in Books+.";
-  var refine_message = "See All Results in Books+";
+  // var refine_message = "See All Results in Books+";
   var icon_hint = '<i class="icon-external-link"></i>&nbsp;';
   var request_hint = 'See Available Items at ';
   var availability_hint = "Check for Available Copies";
@@ -134,7 +134,7 @@
               html: items.join('')
           }).appendTo('#catalog-search-results');
                 var refine_link_track_code = 'onclick="_gaq.push([\'_trackEvent\', \'Expand All Search\', \'Books+\', \'Top\']);"';
-                $('<div class="refine-link">'+refine_icon+'<a '+refine_link_track_code+' target="_blank" title="'+refine_tooltip+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#catalog-search-results');
+                //$('<div class="refine-link">'+refine_icon+'<a '+refine_link_track_code+' target="_blank" title="'+refine_tooltip+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#catalog-search-results');
         if(data.number > max_display_results) {
                     more_link_track_code = 'onclick="_gaq.push([\'_trackEvent\', \'Expand All Search\', \'Books+\', \'Bottom\']);"';
           $('<div class="more-link"><a '+more_link_track_code+ ' target="_blank" title="'+refine_tooltip+' '+data.number+' total results." href="'+data.more+'">'+icon_hint+'See all Books+ Results</a></div>"').appendTo('#catalog-search-results');
