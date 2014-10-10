@@ -847,22 +847,25 @@ background-color: #fff;
 }
 */
 /* Blogroll */
+.panel-col-last .view-blog-item {
+  font-size: 14px;
+}
 
-.panel-col-last .view-id-blog_item .views-row-even{
+.panel-col-last .view-blog-item .views-row-even{
   background-color: #fff;
   border-radius: 6px;
   margin: 0px;
   padding: 10px; 
 }
 
-.panel-col-last .view-id-blog_item .views-row-odd{
+.panel-col-last .view-blog-item .views-row-odd{
   background-color: #f5f5f5;
   border-radius: 6px;
   margin: 0px;
   padding: 10px; 
 }
 
-.panel-col-last .view-id-blog_item p{
+.panel-col-last .view-blog-item p{
   font-size: 11px;
   line-height: 16px;
   margin: 0px;
@@ -942,13 +945,6 @@ background-color: #fff;
   margin-top:20px;
 }
 
-.panel-col-last {
-  font-size: 14px;
-}
-
-.panel-col-last {
-  font-size: 14px;
-}
 
 .view-policy-list h3{
   font-size: 16px;
