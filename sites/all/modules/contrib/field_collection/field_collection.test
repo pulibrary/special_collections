@@ -217,6 +217,20 @@ class FieldCollectionBasicTestCase extends DrupalWebTestCase {
     $item = field_collection_item_load($item->item_id);
     $this->assertTrue($item, 'Removed field collection item still exists.');
     $this->assertTrue($item->archived, 'Removed field collection item is archived.');
+
+    // Test removing an old node revision. Make sure that the field collection
+    // is not removed
+    list ($node, $item) = $this->createNodeWithFieldCollection();
+    $node_vid = $node->vid;
+    $node->revision = TRUE;
+    node_save($node);
+    $node_vid2 = $node->vid;
+    $item_vid2 = $node->{$this->field_name}[LANGUAGE_NONE][0]['revision_id'];
+    node_revision_delete($node_vid);
+    $item2 = field_collection_item_revision_load($item_vid2);
+    $item_id2 = isset($item2->item_id) ? $item2->item_id : -1;
+    $this->assertEqual($item_id2, $item->item_id, 'Removing an old node revision does not delete newer field collection revisions');
+
   }
 
   /**

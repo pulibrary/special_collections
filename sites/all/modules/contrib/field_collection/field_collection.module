@@ -56,6 +56,7 @@ function field_collection_entity_info() {
        ),
     ),
     'access callback' => 'field_collection_item_access',
+    'deletion callback' => 'field_collection_item_delete',
     'metadata controller class' => 'FieldCollectionItemMetadataController'
   );
 
@@ -331,6 +332,35 @@ class FieldCollectionItemEntity extends Entity {
   }
 
   /**
+   * Updates the wrapped host entity object.
+   *
+   * @param $entity
+   */
+  public function updateHostEntity($entity) {
+    $this->fetchHostDetails();
+    list($recieved_id) = entity_extract_ids($this->hostEntityType, $entity);
+
+    if ($this->isInUse()) {
+      $current_id = $this->hostEntityId;
+    }
+    else {
+      $current_host = entity_revision_load($this->hostEntityType, $this->hostEntityRevisionId);
+      list($current_id) = entity_extract_ids($this->hostEntityType, $current_host);
+    }
+
+    if ($current_id == $recieved_id) {
+      $this->hostEntity = $entity;
+      $delta = $this->delta();
+      if (isset($entity->{$this->field_name}[$this->langcode][$delta]['entity'])) {
+        $entity->{$this->field_name}[$this->langcode][$delta]['entity'] = $entity;
+      }
+    }
+    else {
+      throw new Exception('The host entity cannot be changed.');
+    }
+  }
+
+  /**
    * Returns the host entity, which embeds this field collection item.
    */
   public function hostEntity() {
@@ -434,7 +464,7 @@ class FieldCollectionItemEntity extends Entity {
    * Determines the language code under which the item is stored.
    */
   public function langcode() {
-    if ($this->delta() != NULL) {
+    if ($this->delta() !== NULL) {
       return $this->langcode;
     }
   }
@@ -536,23 +566,19 @@ class FieldCollectionItemEntity extends Entity {
    * delete the collection item from archived revisions too. Instead, we delete
    * the current default revision and archive the field collection.
    *
-   * If no revisions are left or the host is not revisionable, the whole item
-   * is deleted.
    */
   public function deleteRevision($skip_host_update = FALSE) {
     if (!$this->revision_id) {
       return;
     }
-    $info = entity_get_info($this->hostEntityType());
-    if (empty($info['entity keys']['revision']) || !$this->hostEntity()) {
-      return $this->delete();
-    }
+
     if (!$skip_host_update) {
       // Just remove the item from the host, which cares about deleting the
       // item (depending on whether the update creates a new revision).
       $this->deleteHostEntityReference();
     }
-    elseif (!$this->isDefaultRevision()) {
+
+    if (!$this->isDefaultRevision()) {
       entity_revision_delete('field_collection_item', $this->revision_id);
     }
     // If deleting the default revision, take care!
@@ -797,6 +823,14 @@ function field_collection_item_access($op, FieldCollectionItemEntity $item = NUL
 }
 
 /**
+ * Deletion callback
+ */
+function field_collection_item_delete($id) {
+  $fci = field_collection_item_load($id);
+  $fci->delete();
+}
+
+/**
  * Implements hook_theme().
  */
 function field_collection_theme() {
@@ -994,6 +1028,7 @@ function field_collection_field_update($host_entity_type, $host_entity, $field, 
     else {
       // Delete unused field collection items now.
       foreach (field_collection_item_load_multiple($ids) as $un_item) {
+        $un_item->updateHostEntity($host_entity);
         $un_item->deleteRevision(TRUE);
       }
     }

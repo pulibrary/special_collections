@@ -6,6 +6,20 @@
  */
 
 /**
+ * Implements hook_preprocess_image().
+ * Description: strip height and weight attributes from images to make them responsive
+ */
+
+function rbsc_bootstrap_preprocess_image(&$variables) {
+  $attributes = &$variables['attributes'];
+
+  foreach (array('width', 'height') as $key) {
+    unset($attributes[$key]);
+    unset($variables[$key]);
+  }
+}
+
+/**
  * Implements hook_menu_link().
  * Description: Add divisions (---) or headers (_header-string) to main nav
  */

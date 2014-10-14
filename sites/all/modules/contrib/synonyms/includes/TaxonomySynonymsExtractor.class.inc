@@ -7,11 +7,11 @@
 
 class TaxonomySynonymsExtractor extends AbstractSynonymsExtractor {
 
-  static public function fieldTypesSupported() {
+  public static function fieldTypesSupported() {
     return array('taxonomy_term_reference');
   }
 
-  static public function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
+  public static function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
     $synonyms = array();
 
     $terms = array();
@@ -25,7 +25,7 @@ class TaxonomySynonymsExtractor extends AbstractSynonymsExtractor {
     return $synonyms;
   }
 
-  static public function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
+  public static function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
     // Unfortunately EntityFieldQuery does not currently support INNER JOINing
     // term entity that is referenced via taxonomy_term_reference field type.
     // Thus, we use an ugly solution -- going through all terms that exist in
@@ -56,7 +56,7 @@ class TaxonomySynonymsExtractor extends AbstractSynonymsExtractor {
     $query->fieldCondition($field, 'tid', $tids);
   }
 
-  static public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
+  public static function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
     // Taxonomy term reference supports only referencing of entity types
     // 'taxonomy_term'.. duh.
     if ($synonym_entity_type != 'taxonomy_term') {

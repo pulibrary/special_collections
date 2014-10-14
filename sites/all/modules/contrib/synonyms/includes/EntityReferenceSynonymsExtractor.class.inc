@@ -7,11 +7,11 @@
 
 class EntityReferenceSynonymsExtractor extends AbstractSynonymsExtractor {
 
-  static public function fieldTypesSupported() {
+  public static function fieldTypesSupported() {
     return array('entityreference');
   }
 
-  static public function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
+  public static function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
     $synonyms = array();
 
     // For speading up loading all the entities at once.
@@ -27,7 +27,7 @@ class EntityReferenceSynonymsExtractor extends AbstractSynonymsExtractor {
     return $synonyms;
   }
 
-  static public function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
+  public static function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
     // Unfortunately EntityFieldQuery does not currently support INNER JOINing
     // referenced entities via any field type.
     // Thus, we use an ugly solution -- going through all entities that exist
@@ -55,9 +55,9 @@ class EntityReferenceSynonymsExtractor extends AbstractSynonymsExtractor {
     $query->fieldCondition($field, 'target_id', array_keys($result));
   }
 
-  static public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
-    // Firstly validating that this entity refernce is able to reference to that
-    // type of entity.
+  public static function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
+    // Firstly validating that this entity reference is able to reference to
+    // that type of entity.
     $expected_synonym_entity_type = $field['settings']['target_type'];
     if ($expected_synonym_entity_type != $synonym_entity_type) {
       return array();
@@ -67,5 +67,4 @@ class EntityReferenceSynonymsExtractor extends AbstractSynonymsExtractor {
       'target_id' => $synonym_entity_id,
     ));
   }
-
 }
