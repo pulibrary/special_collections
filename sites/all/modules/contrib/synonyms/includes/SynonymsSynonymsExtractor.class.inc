@@ -7,11 +7,11 @@
 
 class SynonymsSynonymsExtractor extends AbstractSynonymsExtractor {
 
-  static public function fieldTypesSupported() {
+  public static function fieldTypesSupported() {
     return array('text', 'number_integer', 'number_float', 'number_decimal');
   }
 
-  static public function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
+  public static function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
     $synonyms = array();
 
     foreach ($items as $item) {
@@ -21,11 +21,11 @@ class SynonymsSynonymsExtractor extends AbstractSynonymsExtractor {
     return $synonyms;
   }
 
-  static public function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
+  public static function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
     $query->fieldCondition($field, 'value', '%' . $tag . '%', 'LIKE');
   }
 
-  static public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
+  public static function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
     $synonym = entity_label($synonym_entity_type, $synonym_entity);
     switch ($field['type']) {
       case 'text':

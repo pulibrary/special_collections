@@ -17,7 +17,7 @@
  */
 function hook_synonyms_extractor_info() {
   return array(
-    // Please see below the defintion of ApiSynonymsSynonymsExtractor class
+    // Please see below the definition of ApiSynonymsSynonymsExtractor class
     // for your reference.
     'ApiSynonymsSynonymsExtractor',
   );
@@ -28,7 +28,7 @@ function hook_synonyms_extractor_info() {
  *
  * This is a copy of SynonymsSynonymsExtractor class providing an example of
  * how to write your own synonyms extractor class. See the definition of
- * AbstractSynonymsExtractor for reference and incode comments. For more
+ * AbstractSynonymsExtractor for reference and in code comments. For more
  * complicated examples take a look at EntityReferenceSynonymsExtractor class.
  */
 class ApiSynonymsSynonymsExtractor extends AbstractSynonymsExtractor {

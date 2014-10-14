@@ -15,31 +15,31 @@
  */
 ?>
 
-<div class="panel-display grid-menu clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+<div class="panel-display grid-menu clearfix" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>     
   <div class="row">
 
   <!-- grid top row -->
-  	<div class="col-sm-12 col-md-6 img-grid">
+  	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 img-grid">
       <?php print $content['featured']; ?>
   	</div>
-  	<div class="col-sm-6 col-md-3 img-grid">
+  	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 img-grid">
   	  <?php print $content['grid-A']; ?>
   	</div>
-  	<div class="col-sm-6 col-md-3 img-grid">
+  	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 img-grid">
   	  <?php print $content['grid-B']; ?>
   	</div>
 
   <!-- grid bottom row -->
-    <div class="col-sm-6 col-md-3 img-grid">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 img-grid">
   	  <?php print $content['grid-C']; ?>
   	</div>
-  	<div class="col-sm-6 col-md-3 img-grid">
+  	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 img-grid">
   	  <?php print $content['grid-D']; ?>
   	</div>
-  	<div class="col-sm-6 col-md-3 img-grid">
+  	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 img-grid">
   	  <?php print $content['grid-E']; ?>
   	</div>
-  	<div class="col-sm-6 col-md-3 img-grid">
+  	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 img-grid">
   	  <?php print $content['grid-F']; ?>
   	</div>
 
