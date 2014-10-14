@@ -326,62 +326,6 @@ padding: 5px 20px;
 *  .panels-flexible-region .pane-title
 */
 
-/*
-.img-grid {
-
-  height:180px;
-  border-radius: 6px;
-  margin-bottom: 20px;
-
-}
-
-.img-grid .pane-content img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-}
-
-.img-grid .pane-title {
-
-    border-radius: 6px;
-}
-
-.img-grid .pane-title a {
-    color:white;
-    display: block;
-    transition: color 0.4s ease;
-}
-
-.img-grid .pane-title a:hover {
-    color:ivory;
-    text-decoration: none;
-}
-------
-
-.img-grid .pane-content img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-}
-
-.img-grid .pane-title {
-
-    border-radius: 6px;
-}
-
-.img-grid .pane-title a {
-    color:white;
-    padding: 10px;
-    transition: color 0.4s ease;
-}
-
-.img-grid .pane-title a:hover {
-    color:ivory;
-    text-decoration: none;
-}
-*/
       
      .img-grid .node-teaser h2 {
         display:none;
@@ -432,6 +376,15 @@ padding: 5px 20px;
             /*padding-right:30px;*/
           }
 
+          .color-grid-item h2.pane-title {
+            font-size: 2.5em;
+            /*padding-right:30px;*/
+          }
+
+          .color-grid-item-small h2.pane-title {
+            font-size: 2.5em;
+            /*padding-right:30px;*/
+          }
       }
 
 
@@ -454,6 +407,16 @@ padding: 5px 20px;
             font-family: 'Muli', sans-serif;
             font-size: 1.25em;
             letter-spacing: 2px;
+          }
+
+          .color-grid-item h2.pane-title {
+            font-size: 2.5em;
+            /*padding-right:30px;*/
+          }
+
+          .color-grid-item-small h2.pane-title {
+            font-size: 2em;
+            /*padding-right:30px;*/
           }
 
       }
@@ -499,6 +462,15 @@ padding: 5px 20px;
            margin-top: 20px; 
           }
 
+          .color-grid-item h2.pane-title {
+            font-size: 2em;
+            /*padding-right:30px;*/
+          }
+
+          .color-grid-item-small h2.pane-title {
+            font-size: 1em;
+          }
+
       }
 
 
@@ -517,6 +489,16 @@ padding: 5px 20px;
           .bs-sidebar.affix-bottom,
           .bs-sidebar.affix {
             width: 263px;
+          }
+
+          .color-grid-item h2.pane-title {
+            font-size: 2em;
+            /*padding-right:30px;*/
+          }
+
+          .color-grid-item-small h2.pane-title {
+            font-size: 2em;
+            /*padding-right:30px;*/
           }
 
       }
@@ -1582,4 +1564,6 @@ a[href$='.pdf'] {
 .field-collection-item-field-author {
   display: inline-block;
 }
+
+
 

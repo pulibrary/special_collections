@@ -11,7 +11,7 @@ jQuery( document ).ready(function() {
 	});
 	*/
 	
-	jQuery(".grid-menu-with-sidebar .img-grid .pane-title").fitText(.8);
+	// jQuery(".grid-menu-with-sidebar .img-grid .pane-title").fitText(.8);
 
 
 	jQuery( ".grid-menu-with-sidebar .img-grid .pane-title" ).each(function() {
