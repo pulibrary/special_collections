@@ -493,12 +493,12 @@ padding: 5px 20px;
 
           .color-grid-item h2.pane-title {
             font-size: 2em;
-            /*padding-right:30px;*/
+
           }
 
           .color-grid-item-small h2.pane-title {
-            font-size: 2em;
-            /*padding-right:30px;*/
+            font-size: 1em;
+
           }
 
       }
