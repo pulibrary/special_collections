@@ -60,7 +60,7 @@
     <link href="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
     <script src="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.js"></script>
 <![endif]-->
-    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
