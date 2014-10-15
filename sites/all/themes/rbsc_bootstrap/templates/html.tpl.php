@@ -47,22 +47,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $language->language; ?>" version="XHTML+RDFa 1.0" dir="<?php print $language->dir; ?>"<?php print $rdf_namespaces; ?>>
 
 <head profile="<?php print $grddl_profile; ?>">
-
-  <title><?php print $head_title; ?></title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+      <link href="//netdna.bootstrapcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy">
+      <link href="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
+      <script src="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.js"></script>
+  <![endif]-->
+  <title><?php print $head_title; ?></title>
+  
   <?php print $head; ?>
   <?php print $styles; ?>
   <?php print $scripts; ?>
-
-  <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-
-    <link href="//netdna.bootstrapcdn.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy">
-    <link href="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
-    <script src="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.js"></script>
-<![endif]-->
-
+  
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
