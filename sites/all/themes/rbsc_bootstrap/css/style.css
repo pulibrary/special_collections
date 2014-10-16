@@ -1565,5 +1565,7 @@ a[href$='.pdf'] {
   display: inline-block;
 }
 
-
+.generic-staff-title {
+  margin-top: 20px;
+}
 
