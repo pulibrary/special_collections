@@ -1275,14 +1275,26 @@ display: block;
 padding: 5px 10px;
 }
 
+.view-filtered-collection-list .views-bootstrap-tab-plugin-style {
+  margin-top: 20px;
+}
 
 .view-topics .view-content img{
-  margin:20px;
-  line-height: 18px;
+  margin:10px;
+}
+
+.view-topics li.media div.pull-left {
+  width: 140px;
 }
 
 .view-topics .view-content p{
   margin-top:10px;
+}
+
+.view-topics .view-content .topic-page p{
+  margin-top:10px;
+  padding-left: 20px;
+  margin-left: 250px;
 }
 
 .panel-panel .alert {
@@ -1569,3 +1581,12 @@ a[href$='.pdf'] {
   margin-top: 20px;
 }
 
+.finding-aids-hide {
+  display:none;
+}
+/*
+.topic-img-wrapper {
+  display: inline-block;
+  float: left;
+}
+*/
