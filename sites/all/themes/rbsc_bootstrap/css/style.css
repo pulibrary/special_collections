@@ -1340,7 +1340,7 @@ padding: 5px 10px;
   padding: 10px; 
 }
 
-.view-filtered-collection-list .views-row-odd, .view-filtered-collection-list .view-empty{
+.view-filtered-collection-list .views-row-odd, .view-filtered-collection-list .view-empty p{
   background-color: #f5f5f5;
   border-radius: 6px;
   margin: 0px;
