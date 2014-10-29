@@ -631,6 +631,10 @@ float: right;
   margin-top: 20px;
 }
 
+.content .field-name-body {
+  margin-top: 20px;
+}
+
 .grid-img-hover {
   border-width:1px;
   border-style: solid;
