@@ -610,7 +610,12 @@ float: right;
 }
 
 .webform-component--preferred-date-time .form-item {
-  display:inline-block;
+  display:inline-block !important;
+}
+
+.webform-component--preferred-date-time .form-item .radio {
+  margin:0px;
+  padding:10px;
 }
 
 .grid-img-hover {
