@@ -607,14 +607,9 @@ float: right;
 
 .form-item {
   margin-bottom: 20px;
-  display:inline-block;
 }
 
-.webform-container-inline {
-  width:auto;
-}
-
-.webform-component--preferred-date-time input {
+.webform-component--preferred-date-time .form-item {
   display:inline-block;
 }
 
