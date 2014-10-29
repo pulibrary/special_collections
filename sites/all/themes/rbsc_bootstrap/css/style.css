@@ -616,6 +616,7 @@ float: right;
 .webform-component--preferred-date-time .form-item .radio {
   margin:0px;
   padding:10px;
+  width:50px;
 }
 
 .webform-component--preferred-date-time .form-item .radio:first-child {
