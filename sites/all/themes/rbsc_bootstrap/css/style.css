@@ -605,6 +605,18 @@ float: right;
   color: #999;
 }
 
+.form-item {
+  margin-bottom: 20px;
+}
+
+.webform-container-inline {
+  width:auto;
+}
+
+.webform-component--preferred-date-time input {
+  display:inline-block;
+}
+
 .grid-img-hover {
   border-width:1px;
   border-style: solid;
