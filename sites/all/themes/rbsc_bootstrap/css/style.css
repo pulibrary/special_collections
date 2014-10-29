@@ -594,6 +594,17 @@ width: 350px;
 float: right;
 }
 
+.form-control {
+  width:auto;
+}
+
+.form-item .description {
+  font-size: 12px;
+  padding: 3px;
+  margin-bottom: 20px;
+  color: #999;
+}
+
 .grid-img-hover {
   border-width:1px;
   border-style: solid;
