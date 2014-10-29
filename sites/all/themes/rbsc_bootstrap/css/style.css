@@ -623,6 +623,14 @@ float: right;
   margin-left:20px !important;
 }
 
+.webform-component-email label {
+  display: block;
+}
+
+.webform-client-form {
+  margin-top: 20px;
+}
+
 .grid-img-hover {
   border-width:1px;
   border-style: solid;
