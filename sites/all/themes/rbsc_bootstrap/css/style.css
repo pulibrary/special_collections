@@ -609,17 +609,17 @@ float: right;
   margin-bottom: 20px;
 }
 
-.webform-component--preferred-date-time .form-item {
+.visit-date-time .form-item {
   display:inline-block !important;
 }
 
-.webform-component--preferred-date-time .form-item .radio {
+.visit-date-time .form-item .radio {
   margin:0px;
   padding:10px;
   width:50px;
 }
 
-.webform-component--preferred-date-time .form-item .radio:first-child {
+.visit-date-time .form-item .radio:first-child {
   margin-left:20px !important;
 }
 
