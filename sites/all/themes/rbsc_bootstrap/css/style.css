@@ -607,6 +607,7 @@ float: right;
 
 .form-item {
   margin-bottom: 20px;
+  display:inline-block;
 }
 
 .webform-container-inline {
