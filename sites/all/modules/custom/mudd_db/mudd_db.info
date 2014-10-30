@@ -1,0 +1,6 @@
+; $Id$
+name = Mudd Databases
+description = Search Interfaces for Mudd databases using the Form API
+package = RBSC
+core = 7.x
+files[] = mudd_db.module

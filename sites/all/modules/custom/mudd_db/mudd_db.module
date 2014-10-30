@@ -1,0 +1,91 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Creates Search Interfaces for Mudd databases via the Form API.
+ *
+ * For a full list of elements and attributes, see:
+ * http://api.drupal.org/api/drupal/developer--topics--forms_api_reference.html/7
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function mudd_db_menu() {
+  $items['input/examples'] = array(
+    'title' => 'Form API examples',
+    'description' => 'Example of using the Form API.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('alumni_index_1_form'),
+    'access callback' => TRUE,
+  );
+  $items['catalogs-databases/alumni-index-1748-1920'] = array(
+    'title' => 'Princeton University Undergraduate Alumni Index, 1748-1920',
+    'description' => 'Simple example database search interface using a page callback.',
+    'page callback' => 'alumni_index_1_page',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+
+/**
+ * A simple form.
+ */
+function alumni_index_1_form($form, &$form_submit) {
+  // set breadcrumbs
+  $breadcrumb = array(
+    l('Home', '<front>'),
+    l('Catalogs & Databases', 'catalogs-databases'),
+  );
+  drupal_set_breadcrumb($breadcrumb);
+  
+  // build the form
+  $form['#method'] = 'get';
+  $form['#action'] = url('http://winscript.princeton.edu/mudd/Alumni.php');
+  $form['LNAME'] = array(
+    '#title' => t('Last Name'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#description' => t('Enter a surname for the person you are looking for.'),
+  );
+  $form['FNAME'] = array(
+    '#title' => t('First Name'),
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#description' => t('Enter a given name for the person you are looking for.'),
+  );
+  $form['CLASS'] = array(
+    '#title' => t('Class'),
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#description' => t('Enter a class year for the person you are looking for.'),
+  );
+  $form['qname'] = array(
+    '#title' => t('First Name'),
+    '#type' => 'hidden',
+    '#value' => 'ALUMNI',
+    '#required' => FALSE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+  return $form;
+}
+
+
+/**
+ * Page demonstrating embedding a form on a page.
+ */
+function alumni_index_1_page() {
+  $build = array(
+    'header_text' => array(
+      '#type' => 'markup',
+      '#markup' => '<p>' . t('This is the index for all undergraduate alumni from the Classes of 1748 to 1920. There is some non-graduate information for individuals through the Class of 1947. This database will provide the name, class year, and graduation status of alumni, and note if photos or images of the individual exist. It also lists the number of the box in which biographical information can be found within the Undergraduate Alumni Files held at the Mudd Manuscript Library.') . '</p><p>' . t('The Mudd Manuscript Library would like to acknowledge the Friends of the Princeton University Library for their generous support in making this database web-accessible.') . '<p>',
+    ),
+    'example_form' => drupal_get_form('alumni_index_1_form'),
+  );
+  return $build;
+}
