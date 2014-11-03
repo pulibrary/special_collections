@@ -63,7 +63,7 @@
       <link href="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
       <script src="/sites/all/themes/rbsc_bootstrap/js/respond.proxy.js"></script>
   <![endif]-->
-
+  <script src="//api2.libanswers.com/1.0/widgets/850"></script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
