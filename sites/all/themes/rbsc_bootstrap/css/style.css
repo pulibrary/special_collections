@@ -1623,7 +1623,7 @@ a[href$='.pdf'] {
 }
 */
 
-.view-exhibitions-list .view-display-id-panel_pane_6 {
+.view-exhibitions-list #views-bootstrap-media-1 {
   margin-left:50px;
   margin-right:50px;
 }
