@@ -1526,9 +1526,8 @@ li.active>a {
 /* alpha nav and glossary view */
 
 .attachment {
-  text-align: center;
-  margin: 20px;
-
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 .views-summary a {
