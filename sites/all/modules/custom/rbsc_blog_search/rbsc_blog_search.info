@@ -1,0 +1,6 @@
+; $Id$
+name = RBSC Blog Search
+description = Search Blocks for RBSC Blog Search using the Form API
+package = RBSC
+core = 7.x
+files[] = rbsc_blog_search.module

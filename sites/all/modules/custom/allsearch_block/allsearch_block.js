@@ -5,7 +5,7 @@
 				$(this).val('');
      	}
      });
-     
+
      $('#allsearch-block-form').submit(function() {
     	if ($(this).find("input:first").val() == "" || $(this).find("input:first").val() == Drupal.settings.allsearch_block.all_search_hint) {
                 if($('#allsearch-error').length == 0) {
