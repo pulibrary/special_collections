@@ -1069,7 +1069,7 @@ background-color: #fff;
   line-height: 1.75em;  
 }
 
-.rbsc-front-page-desc .pane-custom .pane-content p {
+.rbsc-front-page-desc .pane-custom .pane-content a {
   text-align: right;
   font-size: .75em; 
 }
