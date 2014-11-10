@@ -1069,6 +1069,11 @@ background-color: #fff;
   line-height: 1.75em;  
 }
 
+.rbsc-front-page-desc .pane-custom.pane-content {
+  text-align: right;
+  font-size: .75em; 
+}
+
 /* Mudd and Firestone img grids */
 .grid-menu-with-sidebar .img-grid .pane-content img {
     position: absolute;
