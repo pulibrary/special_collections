@@ -114,6 +114,8 @@ nav {
   padding: 90px 35px 30px 35px;
   background-color: #ffffff;
   margin-top:-5px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 .container .credit {
   margin: 20px 0 0 0;
@@ -1620,10 +1622,16 @@ a[href$='.pdf'] {
   margin-top: 20px;
 }
 
-.finding-aids-hide {
+/* this is used to hide duplicate grouped output and just show one link */
+.item-list>h3>a.full-width{
   display:none;
 }
+
 /*
+.finding-aids-hide {
+  font-size: 14px;
+}
+
 .topic-img-wrapper {
   display: inline-block;
   float: left;
