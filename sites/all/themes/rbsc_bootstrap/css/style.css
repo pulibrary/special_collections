@@ -1647,6 +1647,6 @@ a[href$='.pdf'] {
   border-left: 1px solid #eee;
 }
 
-.view-rbsc-databases .views-field-field-custom-search-form {
+.view-rbsc-databases form {
   margin-top:25px;
 }
