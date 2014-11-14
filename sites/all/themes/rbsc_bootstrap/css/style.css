@@ -1650,3 +1650,7 @@ a[href$='.pdf'] {
 .view-rbsc-databases form {
   margin-top:25px;
 }
+
+.rounded-corners {
+  border-radius: 6px;
+}
