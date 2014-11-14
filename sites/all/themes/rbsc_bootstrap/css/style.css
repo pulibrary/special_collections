@@ -37,11 +37,11 @@ h1, h2, h3, h4, h5, h6, .breadcrumb, .dropdown-header {
   font-family: 'Muli', sans-serif;
 }
 
-.navbar-collapse>h2>a {
+header h2>a {
   color:#333;
 }
 
-.navbar-collapse>h2>a:hover {
+header h2>a:hover {
   text-decoration: none;
 }
 
@@ -167,7 +167,8 @@ code {
 }
 
 .thinbar {
-    background-color: #000;
+    background-color: #494f57;
+    border-top: 2px solid #e87511;
     height: 35px;
     min-height: 35px;
     position: fixed;
@@ -346,13 +347,17 @@ padding: 5px 20px;
         left: 10px;
         top: 10px;
         z-index: 1;
-
+        text-shadow: 2px 2px #333;
         color:white;
         transition: color 0.4s ease;
       }
 
       .img-grid .pane-title a:hover {
-          color:ivory;
+          color:#fa7f00;
+          /* 
+          $orange: #e87511; //Princeton orange
+          $orange-light: #fff7f3; 
+          $orange-dark: #7F3D00;*/
           text-decoration: none;
       }
 

@@ -81,27 +81,7 @@
                   <a href="http://library.princeton.edu">
                       <img src="/<?php print path_to_theme(); ?>/img/pul-logo.png" class="pul-logo" border="0">
                   </a>
-                  <ul class="nav navbar-nav navbar-right" role="navigation">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accounts <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Site Feedback</a></li>
-                  </ul>
+                  
                   <?php if (!empty($secondary_nav)): ?>
                     <div class="navbar-collapse collapse">
                       <nav role="navigation">                   
@@ -134,9 +114,9 @@
           </div>
             
             <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
-              <div class="navbar-collapse collapse">
+              <div>
                 <h2><a href="/">RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</a></h2>
-                <nav role="navigation">
+                <nav class="navbar-collapse collapse" role="navigation">
                   <?php if (!empty($primary_nav)): ?>
                     <?php print render($primary_nav); ?>
                     <form id="nav-search">
