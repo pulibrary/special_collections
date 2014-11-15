@@ -373,6 +373,26 @@ padding: 5px 20px;
         width:455px;
       }
     
+      .img-grid .field-item {
+        background-color: black;
+        border-radius: 6px;
+      }
+
+      .img-grid .field-item img{
+        filter: opacity(.8) grayscale(1);
+        -webkit-filter: opacity(.8) grayscale(1);
+        -moz-filter:opacity(.8) grayscale(1);
+        -ms-filter:opacity(.8) grayscale(1);
+        -o-filter:opacity(.8) grayscale(1);
+      }   
+
+      img.img-responsive.img-hover{
+        filter: opacity(.8) grayscale(0);
+        -webkit-filter: opacity(.8) grayscale(0);
+        -moz-filter:opacity(.8) grayscale(0);
+        -ms-filter:opacity(.8) grayscale(0);
+        -o-filter:opacity(.8) grayscale(0);
+      }       
 
       @media only screen and (min-width : 321px) {
       /* Styles */

@@ -14,10 +14,21 @@ jQuery( document ).ready(function() {
 	// jQuery(".grid-menu-with-sidebar .img-grid .pane-title").fitText(.8);
 
 
+	jQuery(".img-grid .field-item img").hover(
+	  function () {
+	    jQuery(this).addClass('img-hover');
+	    //jQuery(this).css("-webkit-filter", "opacity(.8) grayscale(0)");
+	  }, 
+	  function () {
+	    jQuery(this).removeClass('img-hover');
+	    console.log("mouseout");
+	    //jQuery(this).css("-webkit-filter", "opacity(.8) grayscale(1)");
+	  }
+	  );
+
 	jQuery( ".grid-menu-with-sidebar .img-grid .pane-title" ).each(function() {
   		jQuery( this ).css("background-color", randomColor({hue: 'blue'}));
 	});
-
 
 	jQuery( ".field-type-taxonomy-term-reference .field-item a").wrapInner( "<span class='label label-primary'></span>");;
 
