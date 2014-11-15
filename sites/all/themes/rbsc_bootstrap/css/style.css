@@ -378,6 +378,7 @@ padding: 5px 20px;
         border-radius: 6px;
       }
 
+/*
       .img-grid .field-item img{
         filter: opacity(.8) grayscale(1);
         -webkit-filter: opacity(.8) grayscale(1);
@@ -393,6 +394,7 @@ padding: 5px 20px;
         -ms-filter:opacity(.8) grayscale(0);
         -o-filter:opacity(.8) grayscale(0);
       }       
+*/
 
       @media only screen and (min-width : 321px) {
       /* Styles */

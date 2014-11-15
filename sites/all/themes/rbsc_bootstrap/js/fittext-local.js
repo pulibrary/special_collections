@@ -13,7 +13,7 @@ jQuery( document ).ready(function() {
 	
 	// jQuery(".grid-menu-with-sidebar .img-grid .pane-title").fitText(.8);
 
-
+/*
 	jQuery(".img-grid .field-item img").hover(
 	  function () {
 	    jQuery(this).addClass('img-hover');
@@ -25,7 +25,7 @@ jQuery( document ).ready(function() {
 	    //jQuery(this).css("-webkit-filter", "opacity(.8) grayscale(1)");
 	  }
 	  );
-
+*/
 	jQuery( ".grid-menu-with-sidebar .img-grid .pane-title" ).each(function() {
   		jQuery( this ).css("background-color", randomColor({hue: 'blue'}));
 	});
