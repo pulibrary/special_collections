@@ -54,7 +54,7 @@ jQuery( document ).ready(function() {
 	// update hours
 	if(jQuery('.rbscstarthour').length > 0 || jQuery('.muddstarthour').length > 0){
 
-		jQuery.getJSON( "service/hours.php", function( data ) {
+		jQuery.getJSON( "/service/hours.php", function( data ) {
 		  var d = new Date();
 		  var n = d.getDay();
 
