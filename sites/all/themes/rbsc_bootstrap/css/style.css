@@ -89,7 +89,7 @@ margin-top: -18px;
   height: auto !important;
   height: 100%;
   /* Negative indent footer by its height */
-  margin: 25px auto -206px;
+  margin: 25px auto -190px;
   /* Pad bottom by footer height */
   padding: 0px 0 206px;
 }

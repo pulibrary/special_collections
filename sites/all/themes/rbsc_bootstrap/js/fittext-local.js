@@ -88,6 +88,7 @@ jQuery( document ).ready(function() {
 	          });
 
 			  if(stime.length > 0){
+			  	console.log(stime);
 			  	jQuery( ".rbscstarthour" ).html( stime );
 			    jQuery( ".rbscendhour" ).html( etime );
 			  }else{
