@@ -352,6 +352,18 @@ padding: 5px 20px;
         transition: color 0.4s ease;
       }
 
+      .color-grid-item h2 a{
+        position: absolute;
+        font-size:0.75em;
+        left: 10px;
+        top: 10px;
+        z-index: 1;
+        text-shadow: 2px 2px #333;
+        color:white;
+        transition: color 0.4s ease;
+      }
+
+
       .img-grid .pane-title a:hover {
           color:#fa7f00;
           /* 
@@ -377,6 +389,36 @@ padding: 5px 20px;
         background-color: black;
         border-radius: 6px;
       }
+
+
+/* Mudd and Firestone img grids */
+.grid-menu-with-sidebar .img-grid .pane-content img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border-radius: 6px;
+    /*z-index: -1;
+    opacity: 0;*/
+}
+
+
+
+.grid-menu-with-sidebar .img-grid .pane-title a {
+    color:white;
+    display: block;
+    font-size:1em;
+    transition: color 0.4s ease;
+}
+
+.grid-menu-with-sidebar .img-grid .pane-title a:hover {
+    color:ivory;
+    text-decoration: none;
+}
+
+.grid-menu-with-sidebar .img-thumbnail {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
 /*
       .img-grid .field-item img{
@@ -417,6 +459,25 @@ padding: 5px 20px;
             font-size: 2.5em;
             /*padding-right:30px;*/
           }
+
+          .grid-menu-with-sidebar .img-grid .pane-title {
+              height:200px;
+          }
+
+          .grid-menu-with-sidebar .img-grid .color-grid-item-small {
+                height:200px;
+                /*background-color: orange;*/
+                border-radius: 6px;
+          }
+
+          .grid-menu-with-sidebar .img-grid .pane-title a {
+              color:white;
+              display: block;
+              font-size:.5em;
+              width:200px;
+              transition: color 0.4s ease;
+          }
+
       }
 
 
@@ -449,6 +510,14 @@ padding: 5px 20px;
           .color-grid-item-small h2.pane-title {
             font-size: 2em;
             /*padding-right:30px;*/
+          }
+
+          .grid-menu-with-sidebar .img-grid .pane-title a {
+              color:white;
+              display: block;
+              font-size:1em;
+              width: 150px;
+              transition: color 0.4s ease;
           }
 
       }
@@ -501,8 +570,33 @@ padding: 5px 20px;
 
           .color-grid-item-small h2.pane-title {
             font-size: 1em;
+            width:120px;
           }
 
+          .grid-menu-with-sidebar .img-grid .pane-title {
+                height:100px;
+                /*background-color: orange;*/
+                border-radius: 6px;
+            }
+
+            .grid-menu-with-sidebar .img-grid .color-grid-item-small {
+                height:120px;
+                /*background-color: orange;*/
+                border-radius: 6px;
+            }
+
+          .grid-menu-with-sidebar .img-grid .pane-title a {
+              color:white;
+              display: block;
+              font-size:1em;
+              width: 120px;
+              transition: color 0.4s ease;
+          }
+
+          .grid-menu-with-sidebar .img-grid .color-grid-item a {
+              width: 240px;
+              font-size:0.75em;
+          }
       }
 
 
@@ -532,6 +626,8 @@ padding: 5px 20px;
             font-size: 1em;
 
           }
+
+
 
       }
 
@@ -1106,37 +1202,7 @@ background-color: #fff;
   font-size: .75em; 
 }
 
-/* Mudd and Firestone img grids */
-.grid-menu-with-sidebar .img-grid .pane-content img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    opacity: 0;
-}
 
-.grid-menu-with-sidebar .img-grid .pane-title {
-    height:180px;
-    background-color: orange;
-    border-radius: 6px;
-}
-
-.grid-menu-with-sidebar .img-grid .pane-title a {
-    color:white;
-    display: block;
-    padding:10px;
-    transition: color 0.4s ease;
-}
-
-.grid-menu-with-sidebar .img-grid .pane-title a:hover {
-    color:ivory;
-    text-decoration: none;
-}
-
-.grid-menu-with-sidebar .img-thumbnail {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 
 .thumbnails li {
   list-style: none;
