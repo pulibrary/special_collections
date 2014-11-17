@@ -914,12 +914,12 @@ function field_collection_field_settings_form($field, $instance) {
     '#type' => 'checkbox',
     '#title' => t('Hide blank items'),
     '#default_value' => $field['settings']['hide_blank_items'],
-    '#description' => t("A blank item is always added to any multivalued field's form. If checked, any additional blank items are hidden except of the first item which is always shown."),
+    '#description' => t("A blank item is always added to any unlimited valued field's form. If checked, any additional blank items are hidden except of the first item which is always shown."),
     '#weight' => 10,
     '#states' => array(
-      // Hide the setting if the cardinality is 1.
-      'invisible' => array(
-        ':input[name="field[cardinality]"]' => array('value' => '1'),
+      // Show the setting if the cardinality is -1.
+      'visible' => array(
+        ':input[name="field[cardinality]"]' => array('value' => '-1'),
       ),
     ),
   );
@@ -1444,13 +1444,13 @@ function field_collection_field_widget_form(&$form, &$form_state, $field, $insta
 
       $field_state = field_form_get_state($field_parents, $field_name, $language, $form_state);
 
-      if (!empty($field['settings']['hide_blank_items']) && $delta == $field_state['items_count'] && $delta > 0) {
+      if (field_collection_hide_blank_items($field) && $delta == $field_state['items_count'] && $delta > 0) {
         // Do not add a blank item. Also see
         // field_collection_field_attach_form() for correcting #max_delta.
         $recursion--;
         return FALSE;
       }
-      elseif (!empty($field['settings']['hide_blank_items']) && $field_state['items_count'] == 0) {
+      elseif (field_collection_hide_blank_items($field) && $field_state['items_count'] == 0) {
         // We show one item, so also specify that as item count. So when the
         // add button is pressed the item count will be 2 and we show to items.
         $field_state['items_count'] = 1;
@@ -1516,7 +1516,7 @@ function field_collection_field_attach_form($entity_type, $entity, &$form, &$for
   foreach (field_info_instances($entity_type, $form['#bundle']) as $field_name => $instance) {
     $field = field_info_field($field_name);
 
-    if ($field['type'] == 'field_collection' && $field['settings']['hide_blank_items']
+    if ($field['type'] == 'field_collection' && field_collection_hide_blank_items($field)
         && field_access('edit', $field, $entity_type) && $instance['widget']['type'] == 'field_collection_embed') {
 
       $element_langcode = $form[$field_name]['#language'];
@@ -1982,4 +1982,17 @@ function field_collection_devel_generate($object, $field, $instance, $bundle) {
     'value' => $field_collection->item_id,
     'revision_id' => $field_collection->revision_id,
   );
+}
+
+/**
+ * Determines if the additional blank items should be displayed or not.
+ *
+ * @param array $field
+ *   The field info array.
+ *
+ * @return bool
+ *   TRUE if the additional blank items should be hidden, and FALSE if not.
+ */
+function field_collection_hide_blank_items($field) {
+  return !empty($field['settings']['hide_blank_items']) && $field['cardinality'] == FIELD_CARDINALITY_UNLIMITED;
 }
