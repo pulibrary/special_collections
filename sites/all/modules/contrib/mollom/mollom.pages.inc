@@ -42,7 +42,7 @@ function mollom_captcha_js($type, $form_build_id, $contentId = NULL) {
   else {
     $form_state['mollom'] = array();
     if (isset($contentId)) {
-      $form_state['mollom']['response']['content']['id'] = $contentId;
+      $form_state['values']['mollom']['contentId'] = $contentId;
     }
   }
   $form_state['mollom']['captcha_type'] = $type;
@@ -113,7 +113,7 @@ function mollom_report_form_submit($form, &$form_state) {
 
     // Send feedback to Mollom, if we have session data.
     if ((!empty($data->contentId) || !empty($data->captchaId)) && !empty($form_state['values']['mollom']['feedback'])) {
-      if (_mollom_send_feedback($data, $form_state['values']['mollom']['feedback'])) {
+      if (_mollom_send_feedback($data, $form_state['values']['mollom']['feedback'], 'moderate', 'mollom_report_form_submit')) {
         drupal_set_message(t('The content was successfully reported as inappropriate.'));
       }
     }
@@ -132,6 +132,6 @@ function mollom_report_form_submit($form, &$form_state) {
       }
     }
 
-    $form_state['redirect'] = '<front>';
+   $form_state['redirect'] = '<front>';
   }
 }
