@@ -1752,7 +1752,7 @@ a[href$='.pdf'] {
   border-radius: 6px;
 }
 
-.field-name-field-file-image-caption, .field-name-field-file-image-citation {
+.field-name-field-file-image-caption, .field-name-field-file-image-citation, .field-name-field-citation-with-link {
   font-family: 'Muli', sans-serif;
   font-size: 12px;
   margin-top: 5px;
