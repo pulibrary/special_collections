@@ -1927,3 +1927,7 @@ a[href$='.pdf'] {
 .file-image img {
   margin-bottom: 5px;
 }
+
+.gallery-hours {
+  margin-top:-20px;
+}
