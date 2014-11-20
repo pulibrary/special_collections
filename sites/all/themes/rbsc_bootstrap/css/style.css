@@ -1348,7 +1348,7 @@ background-color: #fff;
   clear:both;
 }
 
-.classy p {
+p.classy {
   margin: 20px;
   color: #222;
 }
@@ -1928,6 +1928,6 @@ a[href$='.pdf'] {
   margin-bottom: 5px;
 }
 
-.gallery-hours {
+p.gallery-hours {
   margin-top:-20px;
 }
