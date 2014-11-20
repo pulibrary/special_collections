@@ -105,29 +105,36 @@
             <?php if ($logo): ?>
                     <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
                       <img height="75px" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                      <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
                     </a>
             <?php endif; ?>
               
             <?php if (!empty($site_name)): ?>
-              <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+              <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+                <?php print $site_name; ?>
+              </a>
             <?php endif; ?>
-          </div>
-            
-            <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
-              <div>
-                <h2><a href="/">RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</a></h2>
-                <nav class="navbar-collapse collapse" role="navigation">
-                  <?php if (!empty($primary_nav)): ?>
-                    <?php print render($primary_nav); ?>
-                    <form id="nav-search">
+            <form id="nav-search">
                       <div class="input-group">
                         <input type="text" id="nav-search-input" placeholder="Search all of RBSC" class="form-control">
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </span>
                       </div><!-- /input-group --> 
-                    </form>    
+                    </form> 
+          </div>
+            
+            <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
+              <div>
+                
+                <nav class="navbar-collapse collapse" role="navigation">
+                  
+                  <?php if (!empty($primary_nav)): ?>
+
+                    <?php print render($primary_nav); ?>
+                       
                   <?php endif; ?>
+                  
                   <?php if (!empty($page['navigation'])): ?>
                     <?php print render($page['navigation']); ?>
                   <?php endif; ?>
