@@ -1348,7 +1348,7 @@ background-color: #fff;
   clear:both;
 }
 
-p.classy {
+.classy p {
   margin: 20px;
   color: #222;
 }
