@@ -31,6 +31,28 @@ jQuery( document ).ready(function() {
 	});
 
 */
+	function exhibitionDisplay(endDate){
+
+		var text = "Previously ";
+		
+		var day = endDate.split("T");
+		var daySplit = day[0].split("-");
+		var dUTC = Date.UTC(daySplit[0],daySplit[1],daySplit[2]);
+		var now = new Date();
+		if (dUTC > now){
+			text = "Now ";
+		}
+		return text;
+	}
+
+	endDate = jQuery( ".date-display-end" ).attr( 'content' );
+	if (endDate){
+		console.log(exhibitionDisplay(endDate));
+		jQuery( ".view-exhibition-view .views-label-title" ).prepend( exhibitionDisplay(endDate) );
+	}
+
+	//var d = Date.UTC(2012,02,30);
+	//2003-04-13T13:00:00-04:00  
 
 	jQuery( ".field-type-taxonomy-term-reference .field-item a").wrapInner( "<span class='label label-primary'></span>");;
 
