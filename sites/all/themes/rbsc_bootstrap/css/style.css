@@ -427,13 +427,13 @@ padding: 5px 20px;
 
 
 .darken{
-  opacity: .75;
-  filter: alpha(opacity=75); 
-  filter: opacity(.75);
-  -webkit-filter: opacity(.75);
-  -moz-filter:opacity(.75);
-  -ms-filter:opacity(.75);
-  -o-filter:opacity(.75);
+  opacity: .8;
+  filter: alpha(opacity=80); 
+  filter: opacity(.8);
+  -webkit-filter: opacity(.8);
+  -moz-filter:opacity(.8);
+  -ms-filter:opacity(.8);
+  -o-filter:opacity(.8);
   border: 0px solid #ffc04c;
 }   
 
