@@ -3,7 +3,7 @@
 
 jQuery( document ).ready(function() {
 
-
+/*
 	jQuery(".darken").hover(
 	  function () {
 	    jQuery(this).addClass('darken-hover');
@@ -12,6 +12,18 @@ jQuery( document ).ready(function() {
 	    jQuery(this).removeClass('darken-hover');
 	  }
 	  );
+*/
+
+	jQuery(".img-grid").hover(
+	  function () {
+	    jQuery(this).find(".darken").addClass('darken-hover');
+	    jQuery(this).find(".pane-title a").css( "color", "#ffc04c" );
+	  }, 
+	  function () {
+	    jQuery(this).find(".darken").removeClass('darken-hover');
+	    jQuery(this).find(".pane-title a").css( "color", "white" );
+	  }
+	);
 
 
 	function exhibitionDisplay(endDate){

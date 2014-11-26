@@ -349,7 +349,7 @@ padding: 5px 20px;
         z-index: 1;
         text-shadow: 2px 2px #333;
         color:white;
-        transition: color 0.4s ease;
+        /* transition: color 0.4s ease; */
       }
 
       .color-grid-item h2 a{
@@ -360,7 +360,7 @@ padding: 5px 20px;
         z-index: 1;
         text-shadow: 2px 2px #333;
         color:white;
-        transition: color 0.4s ease;
+         /* transition: color 0.4s ease; */
       }
 
 
@@ -407,7 +407,7 @@ padding: 5px 20px;
     color:white;
     display: block;
     font-size:1em;
-    transition: color 0.4s ease;
+     /* transition: color 0.4s ease; */
 }
 
 .grid-menu-with-sidebar .img-grid .pane-title a:hover {
@@ -434,6 +434,7 @@ padding: 5px 20px;
   -moz-filter:opacity(.75);
   -ms-filter:opacity(.75);
   -o-filter:opacity(.75);
+  border: 0px solid #ffc04c;
 }   
 
 .darken-hover{
@@ -444,7 +445,17 @@ padding: 5px 20px;
   -moz-filter:opacity(1);
   -ms-filter:opacity(1);
   -o-filter:opacity(1);
+  border: 0px solid #ffc04c;
 }       
+
+.darken-hover h2 a {
+    color:#fa7f00;
+    /* 
+    $orange: #e87511; //Princeton orange
+    $orange-light: #fff7f3; 
+    $orange-dark: #7F3D00;*/
+    text-decoration: none;
+}
 
 
       @media only screen and (min-width : 321px) {
@@ -484,7 +495,7 @@ padding: 5px 20px;
               display: block;
               font-size:.5em;
               width:200px;
-              transition: color 0.4s ease;
+              /*transition: color 0.4s ease;*/
           }
 
 
@@ -574,7 +585,7 @@ padding: 5px 20px;
               display: block;
               font-size:1em;
               width: 150px;
-              transition: color 0.4s ease;
+              /*transition: color 0.4s ease;*/
           }
 
           .navbar-header {
@@ -676,7 +687,7 @@ padding: 5px 20px;
               display: block;
               font-size:1em;
               width: 120px;
-              transition: color 0.4s ease;
+              /*transition: color 0.4s ease;*/
           }
 
           .grid-menu-with-sidebar .img-grid .color-grid-item a {
