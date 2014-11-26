@@ -4,33 +4,16 @@
 jQuery( document ).ready(function() {
 
 
-	/*
-	jQuery(".img-grid .pane-title").fitText(.6);
-	jQuery( ".panels-flexible-region .pane-title" ).each(function() {
-  		jQuery( this ).css("background-color", randomColor({hue: 'orange', luminosity: 'dark'}));
-	});
-	*/
-	
-	// jQuery(".grid-menu-with-sidebar .img-grid .pane-title").fitText(.8);
-
-/*
-	jQuery(".img-grid .field-item img").hover(
+	jQuery(".darken").hover(
 	  function () {
-	    jQuery(this).addClass('img-hover');
-	    //jQuery(this).css("-webkit-filter", "opacity(.8) grayscale(0)");
+	    jQuery(this).addClass('darken-hover');
 	  }, 
 	  function () {
-	    jQuery(this).removeClass('img-hover');
-	    console.log("mouseout");
-	    //jQuery(this).css("-webkit-filter", "opacity(.8) grayscale(1)");
+	    jQuery(this).removeClass('darken-hover');
 	  }
 	  );
 
-	jQuery( ".grid-menu-with-sidebar .img-grid .pane-title" ).each(function() {
-  		jQuery( this ).css("background-color", randomColor({hue: 'blue'}));
-	});
 
-*/
 	function exhibitionDisplay(endDate){
 
 		var text = "Previously ";
