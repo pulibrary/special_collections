@@ -3,16 +3,6 @@
 
 jQuery( document ).ready(function() {
 
-/*
-	jQuery(".darken").hover(
-	  function () {
-	    jQuery(this).addClass('darken-hover');
-	  }, 
-	  function () {
-	    jQuery(this).removeClass('darken-hover');
-	  }
-	  );
-*/
 
 	jQuery(".img-grid").hover(
 	  function () {
