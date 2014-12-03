@@ -1957,3 +1957,12 @@ p.gallery-hours {
 .views-exposed-form .views-exposed-widget .form-submit {
  margin-top: 0px;
 }
+
+.views-exposed-widgets {
+    margin-bottom: 1.5em;
+    margin-top: -0.5em;
+}
+
+.views-widget {
+  display: inline-block;
+}
