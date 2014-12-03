@@ -1949,3 +1949,11 @@ a[href$='.pdf'] {
 p.gallery-hours {
   margin-top:-20px;
 }
+
+.views-exposed-form .form-control {
+  display:inline-block;
+}
+
+.views-exposed-form .views-exposed-widget .form-submit {
+ margin-top: 0px;
+}
