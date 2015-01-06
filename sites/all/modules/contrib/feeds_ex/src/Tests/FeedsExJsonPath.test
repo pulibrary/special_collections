@@ -1,0 +1,141 @@
+<?php
+
+/**
+ * @file
+ * Contains tests for FeedsExJsonPath.
+ */
+
+/**
+ * Unit tests for FeedsExJsonPath.
+ */
+class FeedsExJsonPathUnitTests extends FeedsExUnitTestBase {
+
+  /**
+   * The mocked FeedsSource.
+   *
+   * @var FeedsSource
+   */
+  protected $source;
+
+  public static function getInfo() {
+    return array(
+      'name' => 'JSONPath parser unit tests',
+      'description' => 'Unit tests for FeedsExJsonPath.',
+      'group' => 'Feeds EX',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp();
+    require_once $this->moduleDir . '/src/FeedsExJsonPath.inc';
+    $this->source = $this->getMockFeedsSource();
+    $this->downloadJsonPath();
+  }
+
+  /**
+   * Tests simple parsing.
+   */
+  public function testSimpleParsing() {
+    $parser = FeedsConfigurable::instance('FeedsExJsonPath', 'test_parser');
+    $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.json'));
+
+    $parser->setConfig(array(
+      'context' => array(
+        'value' => '$.items.*',
+      ),
+      'sources' => array(
+        'title' => array(
+          'name' => 'Title',
+          'value' => 'title',
+        ),
+        'description' => array(
+          'name' => 'Title',
+          'value' => 'description',
+        ),
+      ),
+    ));
+
+    $result = $parser->parse($this->source, $fetcher_result);
+
+    $this->assertEqual(count($result->items), 3, format_string('@count items parsed.', array('@count' => count($result->items))));
+
+    foreach ($result->items as $delta => $item) {
+      $this->assertEqual('I am a title' . $delta, $item['title']);
+      $this->assertEqual('I am a description' . $delta, $item['description']);
+    }
+  }
+
+  /**
+   * Tests parsing error handling.
+   */
+  public function testErrorHandling() {
+    // Parse some invalid JSON.
+    json_decode('\\"asdfasfd');
+
+    $parser = FeedsConfigurable::instance('FeedsExJsonPath', 'test_parser');
+    $errors = $this->invokeMethod($parser, 'getErrors');
+    $this->assertEqual(3, $errors[0]['severity']);
+  }
+
+  /**
+   * Tests batch parsing.
+   */
+  public function testBatchParsing() {
+    // Set batch limit.
+    $this->variableSet('feeds_process_limit', 1);
+
+    $parser = FeedsConfigurable::instance('FeedsExJsonPath', 'test_parser');
+    $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.json'));
+
+    $parser->setConfig(array(
+      'context' => array(
+        'value' => '$.items.*',
+      ),
+      'sources' => array(
+        'title' => array(
+          'name' => 'Title',
+          'value' => 'title',
+        ),
+        'description' => array(
+          'name' => 'Title',
+          'value' => 'description',
+        ),
+      ),
+    ));
+
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertEqual('I am a title0', $result->items[0]['title']);
+    $this->assertEqual('I am a description0', $result->items[0]['description']);
+
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertEqual('I am a title1', $result->items[0]['title']);
+    $this->assertEqual('I am a description1', $result->items[0]['description']);
+
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertEqual('I am a title2', $result->items[0]['title']);
+    $this->assertEqual('I am a description2', $result->items[0]['description']);
+
+    // We should be out of items.
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertEqual(count($result->items), 0, format_string('@count items parsed.', array('@count' => count($result->items))));
+  }
+
+  /**
+   * Tests JSONPath validation.
+   *
+   * @todo Do real validation.
+   */
+  public function testValidateExpression() {
+    // Invalid expression.
+    $parser = FeedsConfigurable::instance('FeedsExJsonPath', 'test_parser');
+    $expression = array('!! ');
+    $this->assertEqual(NULL, $this->invokeMethod($parser, 'validateExpression', $expression));
+
+    // Test that value was trimmed.
+    $this->assertEqual($expression[0], '!!', 'Value was trimmed.');
+  }
+
+}

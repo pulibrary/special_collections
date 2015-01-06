@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="CP932"?>
+<items>
+  <item>
+    <title attr="attribute0">I am a title0</title>
+    <description>I am a description0</description>
+  </item>
+  <item>
+    <title attr="attribute1">I am a title1</title>
+    <description>I am a description1</description>
+  </item>
+  <item>
+    <title attr="attribute2">I am a title2</title>
+    <description>I am a description2</description>
+  </item>
+</items>

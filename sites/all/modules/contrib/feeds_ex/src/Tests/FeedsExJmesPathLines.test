@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains FeedsExJmesPathLinesUnitTests.
+ */
+
+/**
+ * Unit tests for FeedsExJmesPathLines.
+ */
+class FeedsExJmesPathLinesUnitTests extends FeedsExJsonPathLinesUnitTests {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'JMESPath JSON lines parser unit tests',
+      'description' => 'Unit tests for FeedsExJmesPathLines.',
+      'group' => 'Feeds EX',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp();
+
+    require_once $this->moduleDir . '/src/FeedsExJmesPath.inc';
+    require_once $this->moduleDir . '/src/FeedsExJmesPathLines.inc';
+
+    $this->source = $this->getMockFeedsSource();
+    $this->parser = FeedsConfigurable::instance('FeedsExJmesPathLines', 'test_parser');
+    $this->parser->setConfig(array(
+      'sources' => array(
+        'title' => array(
+          'name' => 'Title',
+          'value' => 'name',
+        ),
+      ),
+    ));
+    $this->fetcherResult = new FeedsFileFetcherResult($this->moduleDir . '/tests/resources/test.jsonl');
+    // Tests are in FeedsExJsonPathLinesUnitTests.
+  }
+
+}
