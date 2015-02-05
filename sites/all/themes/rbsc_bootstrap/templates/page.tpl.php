@@ -224,7 +224,12 @@
             <?php print render($page['footer_fourth']); ?>
           </div>
           <div class="col-md-3">
-            <h2 class="pul-title">Princeton University Library</h2>
+            <!--<h2 class="pul-title">Princeton University Library</h2>-->
+            <h2 class="pul-title">
+            <a href="http://library.princeton.edu">
+                <img src="/<?php print path_to_theme(); ?>/img/pul-logo-black-on-transparent.png" class="pul-logo" border="0">
+            </a>
+            </h2>
             <div class="social-media">
               <a href="https://www.facebook.com/RBSC.Firestone" title="Friend us on Facebook">
                 <img src="/<?php print path_to_theme(); ?>/img/facebook.png" alt="Facebook" border="0">
@@ -235,12 +240,12 @@
               <a href="http://blogs.princeton.edu/rbsc/" title="RBSC Wordpress Blogs">
                 <img src="/<?php print path_to_theme(); ?>/img/wordpress.png" alt="RBSC Wordpress Blogs" border="0">
               </a>
-              <a href="/about/friends" title="Friends of Princeton University Library">
+              <a href="http://www.fpul.org" title="Friends of Princeton University Library">
                 <img src="/<?php print path_to_theme(); ?>/img/friends.png" alt="Friends of Princeton University Library" border="0">
               </a>
             </div>
             <div id="pu-footer-logo"><a href="http://www.princeton.edu"><img src="/<?php print path_to_theme(); ?>/img/pu_logo_trans.png" border="0"></a></div>
-            <div id="university-copyright-footer" class="text-muted">© 2013 The Trustees of Princeton University. All rights reserved.</div>
+            <div id="university-copyright-footer" class="text-muted">© 2015 The Trustees of Princeton University. All rights reserved.</div>
           </div>
         </div>
       </div>
