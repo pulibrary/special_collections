@@ -1966,3 +1966,7 @@ p.gallery-hours {
 .views-widget {
   display: inline-block;
 }
+
+.thinbar .pul-logo {
+  float:right;
+}
