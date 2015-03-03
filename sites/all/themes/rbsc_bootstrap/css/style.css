@@ -1407,6 +1407,17 @@ background-color: #fff;
 
 /* Search Results 
 */
+#allsearch-block-form .form-item {
+  width: 500px;
+  display: inline-block;
+}
+
+.form-item {
+    margin-bottom: 0px;
+}
+.form-group {
+    margin-bottom: 0px;
+}
 
 .all-search-results-list {
   border-right:1px solid #EEE;
