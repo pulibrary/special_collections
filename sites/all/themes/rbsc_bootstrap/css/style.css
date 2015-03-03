@@ -1412,10 +1412,10 @@ background-color: #fff;
   display: inline-block;
 }
 
-.form-item {
+#allsearch-block-form .form-item {
     margin-bottom: 0px;
 }
-.form-group {
+#allsearch-block-form .form-group {
     margin-bottom: 0px;
 }
 
