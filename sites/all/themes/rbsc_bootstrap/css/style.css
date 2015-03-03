@@ -1418,6 +1418,10 @@ background-color: #fff;
 #allsearch-block-form .form-group {
     margin-bottom: 0px;
 }
+#allsearch-block-form .btn {
+    vertical-align: bottom;
+}
+
 
 .all-search-results-list {
   border-right:1px solid #EEE;
