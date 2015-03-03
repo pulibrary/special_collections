@@ -32,7 +32,6 @@ jQuery( document ).ready(function() {
 
 	endDate = jQuery( ".date-display-end" ).attr( 'content' );
 	if (endDate){
-		console.log(exhibitionDisplay(endDate));
 		jQuery( ".view-exhibition-view .views-label-title" ).prepend( exhibitionDisplay(endDate) );
 	}
 
@@ -97,7 +96,6 @@ jQuery( document ).ready(function() {
 	          });
 
 			  if(stime.length > 0){
-			  	console.log(stime);
 			  	jQuery( ".rbscstarthour" ).html( stime );
 			    jQuery( ".rbscendhour" ).html( etime );
 			  }else{
