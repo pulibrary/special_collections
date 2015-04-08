@@ -91,6 +91,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => 'img-responsive darken',
           'image_link' => 'content',
           'image_style' => 'double_feature',
         ),
@@ -101,6 +102,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'feature',
         ),
@@ -111,6 +113,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'double_feature_-_small__419_x180_',
         ),
@@ -121,6 +124,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'feature_-_small__199_x_180_',
         ),
@@ -131,6 +135,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => 'img-responsive darken',
           'image_link' => 'content',
           'image_style' => 'feature',
         ),
@@ -255,6 +260,7 @@ function front_page_field_default_field_instances() {
         'label' => 'above',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => '',
           'image_style' => '',
         ),
@@ -265,6 +271,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'feature',
         ),
@@ -275,6 +282,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'feature_-_small__199_x_180_',
         ),
@@ -285,6 +293,7 @@ function front_page_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => 'img-responsive darken',
           'image_link' => 'content',
           'image_style' => 'feature',
         ),
@@ -409,7 +418,7 @@ function front_page_field_default_field_instances() {
   $field_instances['node-page-field_page_attach_images'] = array(
     'bundle' => 'page',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Upload images here if you want to insert them easily into the "body" text of the page.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -469,8 +478,18 @@ function front_page_field_default_field_instances() {
           'auto' => 'auto',
           'icon_link' => 0,
           'image' => 0,
+          'image_above_content__838px-wide_' => 0,
+          'image_book_cover_fixed-width__300px_wide_' => 0,
+          'image_double_feature' => 0,
+          'image_double_feature_-_small__419_x180_' => 0,
+          'image_feature' => 0,
+          'image_feature_-_small__199_x_180_' => 0,
+          'image_fixed-width_medium__220px_wide_' => 0,
           'image_large' => 0,
+          'image_media_thumbnail' => 0,
           'image_medium' => 0,
+          'image_square_medium' => 0,
+          'image_square_thumbnail' => 0,
           'image_thumbnail' => 0,
           'link' => 0,
         ),
@@ -490,6 +509,7 @@ function front_page_field_default_field_instances() {
   t('Files');
   t('Files to be attached as inline image.');
   t('Images');
+  t('Upload images here if you want to insert them easily into the "body" text of the page.');
 
   return $field_instances;
 }

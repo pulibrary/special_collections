@@ -60,6 +60,10 @@ function topics_collection_list_default_page_manager_handlers() {
       ),
       'logic' => 'and',
     ),
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'Explore',
+    'panels_breadcrumbs_paths' => 'explore',
+    'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
   $display->layout = 'bootstrap_twocol_stacked';
@@ -160,8 +164,12 @@ function topics_collection_list_default_page_manager_pages() {
     'contexts' => array(),
     'relationships' => array(),
     'panels_breadcrumbs_state' => 1,
-    'panels_breadcrumbs_titles' => '%divisionnid:title',
-    'panels_breadcrumbs_paths' => '%divisionnid:url',
+    'panels_breadcrumbs_titles' => 'Home
+Collections
+%divisionnid:title',
+    'panels_breadcrumbs_paths' => '<front>
+collections
+%divisionnid:url',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();

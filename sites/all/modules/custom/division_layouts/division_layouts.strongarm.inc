@@ -132,6 +132,9 @@ function division_layouts_strongarm() {
       'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -154,7 +157,7 @@ function division_layouts_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'double_feature' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rbsc_grid_view_small_double_feature' => array(
         'custom_settings' => TRUE,
@@ -169,6 +172,9 @@ function division_layouts_strongarm() {
         'custom_settings' => FALSE,
       ),
       'rg_list_item' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -256,14 +262,14 @@ function division_layouts_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_policy';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_policy'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_services';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_services'] = $strongarm;
 
   return $export;

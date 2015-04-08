@@ -5,6 +5,7 @@ package = RBSC
 version = 7.x-1.0-beta2
 project = division_collection_strengths
 dependencies[] = views
+dependencies[] = views_bootstrap
 dependencies[] = views_content
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
