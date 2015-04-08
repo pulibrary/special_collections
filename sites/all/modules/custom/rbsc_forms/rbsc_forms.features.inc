@@ -102,7 +102,7 @@ function rbsc_forms_default_entityform_type() {
 function rbsc_forms_node_info() {
   $items = array(
     'web_form' => array(
-      'name' => t('Web Form'),
+      'name' => t('Entity Form'),
       'base' => 'node_content',
       'description' => t('This content type can be used as a general contact page.'),
       'has_title' => '1',
@@ -110,5 +110,6 @@ function rbsc_forms_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

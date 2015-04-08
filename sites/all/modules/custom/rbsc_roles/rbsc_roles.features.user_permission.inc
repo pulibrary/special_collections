@@ -16,6 +16,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'admin_menu',
   );
@@ -38,6 +39,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -48,6 +50,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'workbench',
   );
@@ -56,7 +59,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create collection content'] = array(
     'name' => 'create collection content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -65,7 +70,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create collection_strength content'] = array(
     'name' => 'create collection_strength content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -74,7 +81,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create division content'] = array(
     'name' => 'create division content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -82,7 +91,11 @@ function rbsc_roles_user_default_permissions() {
   // Exported permission: 'create exhibition content'.
   $permissions['create exhibition content'] = array(
     'name' => 'create exhibition content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'division staff' => 'division staff',
+      'site manager' => 'site manager',
+    ),
     'module' => 'node',
   );
 
@@ -90,7 +103,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create faq content'] = array(
     'name' => 'create faq content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -99,7 +114,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create mainmenu content'] = array(
     'name' => 'create mainmenu content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -110,6 +127,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -118,7 +136,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create policy content'] = array(
     'name' => 'create policy content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -127,7 +147,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create research_guides content'] = array(
     'name' => 'create research_guides content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -136,7 +158,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['create web_form content'] = array(
     'name' => 'create web_form content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -145,7 +169,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any collection content'] = array(
     'name' => 'delete any collection content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -154,7 +180,8 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any collection_strength content'] = array(
     'name' => 'delete any collection_strength content',
     'roles' => array(
-      'division staff' => 'division staff',
+      'administrator' => 'administrator',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -163,7 +190,8 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any division content'] = array(
     'name' => 'delete any division content',
     'roles' => array(
-      'division staff' => 'division staff',
+      'administrator' => 'administrator',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -171,7 +199,10 @@ function rbsc_roles_user_default_permissions() {
   // Exported permission: 'delete any exhibition content'.
   $permissions['delete any exhibition content'] = array(
     'name' => 'delete any exhibition content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'site manager' => 'site manager',
+    ),
     'module' => 'node',
   );
 
@@ -179,7 +210,8 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any faq content'] = array(
     'name' => 'delete any faq content',
     'roles' => array(
-      'division staff' => 'division staff',
+      'administrator' => 'administrator',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -188,7 +220,8 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any mainmenu content'] = array(
     'name' => 'delete any mainmenu content',
     'roles' => array(
-      'division staff' => 'division staff',
+      'administrator' => 'administrator',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -198,7 +231,7 @@ function rbsc_roles_user_default_permissions() {
     'name' => 'delete any page content',
     'roles' => array(
       'administrator' => 'administrator',
-      'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -207,7 +240,8 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any policy content'] = array(
     'name' => 'delete any policy content',
     'roles' => array(
-      'division staff' => 'division staff',
+      'administrator' => 'administrator',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -216,7 +250,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any research_guides content'] = array(
     'name' => 'delete any research_guides content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -225,7 +261,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete any web_form content'] = array(
     'name' => 'delete any web_form content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -234,7 +272,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own collection content'] = array(
     'name' => 'delete own collection content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -243,7 +283,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own collection_strength content'] = array(
     'name' => 'delete own collection_strength content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -252,7 +294,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own division content'] = array(
     'name' => 'delete own division content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -260,7 +304,11 @@ function rbsc_roles_user_default_permissions() {
   // Exported permission: 'delete own exhibition content'.
   $permissions['delete own exhibition content'] = array(
     'name' => 'delete own exhibition content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'division staff' => 'division staff',
+      'site manager' => 'site manager',
+    ),
     'module' => 'node',
   );
 
@@ -268,7 +316,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own faq content'] = array(
     'name' => 'delete own faq content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -277,7 +327,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own mainmenu content'] = array(
     'name' => 'delete own mainmenu content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -288,6 +340,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -296,7 +349,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own policy content'] = array(
     'name' => 'delete own policy content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -305,7 +360,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own research_guides content'] = array(
     'name' => 'delete own research_guides content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -314,7 +371,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['delete own web_form content'] = array(
     'name' => 'delete own web_form content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -323,7 +382,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any collection content'] = array(
     'name' => 'edit any collection content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -332,7 +393,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any collection_strength content'] = array(
     'name' => 'edit any collection_strength content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -341,7 +404,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any division content'] = array(
     'name' => 'edit any division content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -349,7 +414,11 @@ function rbsc_roles_user_default_permissions() {
   // Exported permission: 'edit any exhibition content'.
   $permissions['edit any exhibition content'] = array(
     'name' => 'edit any exhibition content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'division staff' => 'division staff',
+      'site manager' => 'site manager',
+    ),
     'module' => 'node',
   );
 
@@ -357,7 +426,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any faq content'] = array(
     'name' => 'edit any faq content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -366,7 +437,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any mainmenu content'] = array(
     'name' => 'edit any mainmenu content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -377,6 +450,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -385,7 +459,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any policy content'] = array(
     'name' => 'edit any policy content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -394,7 +470,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any research_guides content'] = array(
     'name' => 'edit any research_guides content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -403,7 +481,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit any web_form content'] = array(
     'name' => 'edit any web_form content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -412,7 +492,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own collection content'] = array(
     'name' => 'edit own collection content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -421,7 +503,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own collection_strength content'] = array(
     'name' => 'edit own collection_strength content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -430,7 +514,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own division content'] = array(
     'name' => 'edit own division content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -438,7 +524,11 @@ function rbsc_roles_user_default_permissions() {
   // Exported permission: 'edit own exhibition content'.
   $permissions['edit own exhibition content'] = array(
     'name' => 'edit own exhibition content',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+      'division staff' => 'division staff',
+      'site manager' => 'site manager',
+    ),
     'module' => 'node',
   );
 
@@ -446,7 +536,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own faq content'] = array(
     'name' => 'edit own faq content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -455,7 +547,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own mainmenu content'] = array(
     'name' => 'edit own mainmenu content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -466,6 +560,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -474,7 +569,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own policy content'] = array(
     'name' => 'edit own policy content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -483,7 +580,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own research_guides content'] = array(
     'name' => 'edit own research_guides content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -492,7 +591,9 @@ function rbsc_roles_user_default_permissions() {
   $permissions['edit own web_form content'] = array(
     'name' => 'edit own web_form content',
     'roles' => array(
+      'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -503,6 +604,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );
@@ -513,6 +615,7 @@ function rbsc_roles_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'division staff' => 'division staff',
+      'site manager' => 'site manager',
     ),
     'module' => 'node',
   );

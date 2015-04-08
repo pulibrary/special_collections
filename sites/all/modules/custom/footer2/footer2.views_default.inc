@@ -83,6 +83,27 @@ function footer2_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'location' => 'location',
+  );
+  /* Filter criterion: Content: Code (field_code) */
+  $handler->display->display_options['filters']['field_code_value']['id'] = 'field_code_value';
+  $handler->display->display_options['filters']['field_code_value']['table'] = 'field_data_field_code';
+  $handler->display->display_options['filters']['field_code_value']['field'] = 'field_code_value';
+  $handler->display->display_options['filters']['field_code_value']['operator'] = 'not empty';
   $handler->display->display_options['block_description'] = 'Location (Footer)';
   $export['locations_footer_'] = $view;
 

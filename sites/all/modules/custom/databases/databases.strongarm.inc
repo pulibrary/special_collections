@@ -78,14 +78,42 @@ function databases_strongarm() {
         'custom_settings' => TRUE,
       ),
       'search_results' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'title' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '2',
+        ),
+      ),
       'display' => array(),
     ),
   );

@@ -69,7 +69,7 @@ function division_feeds_feeds_importer_default() {
           ),
         ),
         'input_format' => 'full_html',
-        'author' => 0,
+        'author' => '162',
         'authorize' => 1,
         'skip_hash_check' => 0,
       ),

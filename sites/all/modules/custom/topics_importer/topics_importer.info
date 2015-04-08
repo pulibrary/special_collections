@@ -25,6 +25,7 @@ features[variable][] = comment_form_location_topics_importer
 features[variable][] = comment_preview_topics_importer
 features[variable][] = comment_subject_field_topics_importer
 features[variable][] = comment_topics_importer
+features[variable][] = field_bundle_settings_node__topics_importer
 features[variable][] = menu_options_topics_importer
 features[variable][] = menu_parent_topics_importer
 features[variable][] = node_options_topics_importer

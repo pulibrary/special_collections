@@ -94,7 +94,7 @@ function front_page_default_page_manager_handlers() {
     $display->content['new-8391fab1-3c23-4d6d-888c-99ba5aca8c9f'] = $pane;
     $display->panels['featured'][0] = 'new-8391fab1-3c23-4d6d-888c-99ba5aca8c9f';
     $pane = new stdClass();
-    $pane->pid = 'new-ae94e051-f3d4-41f6-8613-9b7b95916af1';
+    $pane->pid = 'new-d7a175f5-475b-4ec3-a522-3672d95052e3';
     $pane->panel = 'grid-A';
     $pane->type = 'node';
     $pane->subtype = 'node';
@@ -105,7 +105,7 @@ function front_page_default_page_manager_handlers() {
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
-      'build_mode' => 'rbsc_grid_view_large_feature',
+      'build_mode' => 'teaser',
       'link_node_title' => 1,
       'override_title' => 0,
       'override_title_text' => '',
@@ -118,37 +118,9 @@ function front_page_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'ae94e051-f3d4-41f6-8613-9b7b95916af1';
-    $display->content['new-ae94e051-f3d4-41f6-8613-9b7b95916af1'] = $pane;
-    $display->panels['grid-A'][0] = 'new-ae94e051-f3d4-41f6-8613-9b7b95916af1';
-    $pane = new stdClass();
-    $pane->pid = 'new-362f38e6-121b-4216-a6d3-0dde73950c77';
-    $pane->panel = 'grid-B';
-    $pane->type = 'node';
-    $pane->subtype = 'node';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'nid' => '10',
-      'links' => 0,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'rbsc_grid_view_large_feature',
-      'link_node_title' => 1,
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '362f38e6-121b-4216-a6d3-0dde73950c77';
-    $display->content['new-362f38e6-121b-4216-a6d3-0dde73950c77'] = $pane;
-    $display->panels['grid-B'][0] = 'new-362f38e6-121b-4216-a6d3-0dde73950c77';
+    $pane->uuid = 'd7a175f5-475b-4ec3-a522-3672d95052e3';
+    $display->content['new-d7a175f5-475b-4ec3-a522-3672d95052e3'] = $pane;
+    $display->panels['grid-A'][0] = 'new-d7a175f5-475b-4ec3-a522-3672d95052e3';
     $pane = new stdClass();
     $pane->pid = 'new-05725d41-c971-4659-90b0-1454e24a1fe5';
     $pane->panel = 'grid-B';
@@ -172,11 +144,11 @@ function front_page_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '05725d41-c971-4659-90b0-1454e24a1fe5';
     $display->content['new-05725d41-c971-4659-90b0-1454e24a1fe5'] = $pane;
-    $display->panels['grid-B'][1] = 'new-05725d41-c971-4659-90b0-1454e24a1fe5';
+    $display->panels['grid-B'][0] = 'new-05725d41-c971-4659-90b0-1454e24a1fe5';
     $pane = new stdClass();
     $pane->pid = 'new-673dec46-4fc3-4e0c-9da3-f8ae579bfabf';
     $pane->panel = 'grid-C';
@@ -189,7 +161,7 @@ function front_page_default_page_manager_handlers() {
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
-      'build_mode' => 'rbsc_grid_view_large_feature',
+      'build_mode' => 'teaser',
       'link_node_title' => 1,
       'override_title' => 0,
       'override_title_text' => '',
@@ -217,7 +189,7 @@ function front_page_default_page_manager_handlers() {
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
-      'build_mode' => 'rbsc_grid_view_large_feature',
+      'build_mode' => 'teaser',
       'link_node_title' => 1,
       'override_title' => 0,
       'override_title_text' => '',
@@ -245,7 +217,7 @@ function front_page_default_page_manager_handlers() {
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
-      'build_mode' => 'rbsc_grid_view_large_feature',
+      'build_mode' => 'teaser',
       'link_node_title' => 1,
       'override_title' => 0,
       'override_title_text' => '',
@@ -273,7 +245,7 @@ function front_page_default_page_manager_handlers() {
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => '',
-      'build_mode' => 'rbsc_grid_view_large_feature',
+      'build_mode' => 'teaser',
       'link_node_title' => 1,
       'override_title' => 0,
       'override_title_text' => '',
@@ -299,7 +271,7 @@ function front_page_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<p><strong>The Department of Rare Books and Special Collections</strong>&nbsp;is one of the premier repositories of its kind. Its holdings span five millennia and five continents, and include around 200,000 rare or significant printed works; 30,000 linear feet of textual materials, ranging from cuneiform tablets to contemporary manuscripts; a wealth of prints, drawings, photographs, maps, coins, and other visual materials; the Cotsen Children\'s Library; and the Princeton University Archives. The privately owned Scheide Library is associated with the Department.</p>
+      'body' => '<p><strong>The Department of Rare Books and Special Collections</strong>&nbsp;is one of the premier repositories of its kind. Its holdings span five millennia and five continents, and include around 300,000 rare or significant printed works; 30,000 linear feet of textual materials, ranging from cuneiform tablets to contemporary manuscripts; a wealth of prints, drawings, photographs, maps, coins, and other visual materials; the Cotsen Children\'s Library; and the Princeton University Archives. The privately owned Scheide Library is associated with the Department.</p>
 ',
       'format' => 'full_html',
       'substitute' => 1,
@@ -323,7 +295,7 @@ function front_page_default_page_manager_handlers() {
     $pane->panel = 'rbsc-news';
     $pane->type = 'views_panes';
     $pane->subtype = 'blog_item-panel_pane_2';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'arguments' => array(
@@ -344,6 +316,29 @@ function front_page_default_page_manager_handlers() {
     $pane->uuid = '2da6d897-e857-4210-99cc-1e46911aa209';
     $display->content['new-2da6d897-e857-4210-99cc-1e46911aa209'] = $pane;
     $display->panels['rbsc-news'][0] = 'new-2da6d897-e857-4210-99cc-1e46911aa209';
+    $pane = new stdClass();
+    $pane->pid = 'new-5dc91963-c9a6-4ad3-89bb-a183cf4ee9ef';
+    $pane->panel = 'rbsc-news';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'blog_item-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'arguments' => array(
+        'feed_nid' => '',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '5dc91963-c9a6-4ad3-89bb-a183cf4ee9ef';
+    $display->content['new-5dc91963-c9a6-4ad3-89bb-a183cf4ee9ef'] = $pane;
+    $display->panels['rbsc-news'][1] = 'new-5dc91963-c9a6-4ad3-89bb-a183cf4ee9ef';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

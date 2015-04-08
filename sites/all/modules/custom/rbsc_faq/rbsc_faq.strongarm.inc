@@ -35,7 +35,7 @@ function rbsc_faq_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_faq';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['comment_faq'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -90,6 +90,9 @@ function rbsc_faq_strongarm() {
         'custom_settings' => FALSE,
       ),
       'rg_list_item' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
         'custom_settings' => FALSE,
       ),
     ),

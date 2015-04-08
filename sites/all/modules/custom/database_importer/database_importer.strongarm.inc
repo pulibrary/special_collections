@@ -71,6 +71,12 @@ function database_importer_strongarm() {
       'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
+      'double_feature' => array(
+        'custom_settings' => TRUE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

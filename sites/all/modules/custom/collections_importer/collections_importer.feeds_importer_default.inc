@@ -67,6 +67,11 @@ function collections_importer_feeds_importer_default() {
             'target' => 'field_division:etid',
             'unique' => FALSE,
           ),
+          5 => array(
+            'source' => 'drupal_author',
+            'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
         ),
         'input_format' => 'filtered_html',
         'author' => 0,

@@ -120,6 +120,7 @@ function rbsc_forms_field_default_field_instances() {
         'label' => 'above',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => '',
           'image_style' => '',
         ),
@@ -282,6 +283,7 @@ function rbsc_forms_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'double_feature',
         ),
@@ -292,6 +294,7 @@ function rbsc_forms_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'feature',
         ),
@@ -302,6 +305,7 @@ function rbsc_forms_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'double_feature_-_small__419_x180_',
         ),
@@ -312,6 +316,7 @@ function rbsc_forms_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => '',
           'image_link' => 'content',
           'image_style' => 'feature_-_small__199_x_180_',
         ),
@@ -322,6 +327,7 @@ function rbsc_forms_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
+          'class' => 'img-responsive darken',
           'image_link' => 'content',
           'image_style' => 'feature',
         ),

@@ -66,7 +66,7 @@ function division_feeds_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'double_feature' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'rbsc_grid_view_small_double_feature' => array(
         'custom_settings' => TRUE,
@@ -82,6 +82,27 @@ function division_feeds_strongarm() {
       ),
       'rg_list_item' => array(
         'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
