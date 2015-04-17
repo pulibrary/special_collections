@@ -8,7 +8,7 @@ jQuery( document ).ready(function() {
 	  function () {
 	    jQuery(this).find(".darken").addClass('darken-hover');
 	    jQuery(this).find(".pane-title a").css( "color", "#ffc04c" );
-	  }, 
+	  },
 	  function () {
 	    jQuery(this).find(".darken").removeClass('darken-hover');
 	    jQuery(this).find(".pane-title a").css( "color", "white" );
@@ -19,7 +19,7 @@ jQuery( document ).ready(function() {
 	function exhibitionDisplay(endDate){
 
 		var text = "Previously ";
-		
+
 		var day = endDate.split("T");
 		var daySplit = day[0].split("-");
 		var dUTC = Date.UTC(daySplit[0],daySplit[1],daySplit[2]);
@@ -36,7 +36,7 @@ jQuery( document ).ready(function() {
 	}
 
 	//var d = Date.UTC(2012,02,30);
-	//2003-04-13T13:00:00-04:00  
+	//2003-04-13T13:00:00-04:00
 
 	jQuery( ".field-type-taxonomy-term-reference .field-item a").wrapInner( "<span class='label label-primary'></span>");;
 
@@ -69,79 +69,94 @@ jQuery( document ).ready(function() {
 		  var stime = "";
 		  var etime = "";
 
-		  //set Firestone RBSC Hours
-		  if(jQuery('.rbscstarthour').length > 0){
-			  jQuery.each( data.locations.location[ 10 ].hours.day, function( i, day ) {
-		        if ( day.dow == n  ) {
-		          stime = day.start.match(/.{1,2}/g) || [];
-		          etime = day.end.match(/.{1,2}/g) || [];
+					  //set Firestone RBSC Hours
+					  if(jQuery('.rbscstarthour').length > 0){
+							var locname = "Rare Books and Special Collections";
+							jQuery.each( data.locations.location, function( i, l ) {
 
-				  if(stime[0] > 12){
-		          	stime[0] = stime[0]-12;
-		          	stime[1] = stime[1] + "pm";
-		          }else{
-		          	stime[1] = stime[1] + "am"
-		          }
+								if ( l.name == locname  ) {
+									jQuery.each( l.hours.day, function( i, val ) {
+										if ( val.dow == n.toString()  ) {
+											stime = val.start.match(/.{1,2}/g) || [];
+											etime = val.end.match(/.{1,2}/g) || [];
 
-		          if(etime[0] > 12){
-		          	etime[0] = etime[0]-12;
-		          	etime[1] = etime[1] + "pm";
-		          }else{
-		          	etime[1] = etime[1] + "am"
-		          }
+											if(stime[0] > 12){
+												stime[0] = stime[0]-12;
+												stime[1] = stime[1] + "pm";
+											}else{
+												stime[1] = stime[1] + "am";
+											}
 
-		          stime = stime[0] + ":" + stime[1];
-		          etime = etime[0] + ":" + etime[1]
-		        }
-	          });
+											if(etime[0] > 12){
+												etime[0] = etime[0]-12;
+												etime[1] = etime[1] + "pm";
+											}else{
+												etime[1] = etime[1] + "am";
+											}
 
-			  if(stime.length > 0){
-			  	jQuery( ".rbscstarthour" ).html( stime );
-			    jQuery( ".rbscendhour" ).html( etime );
-			  }else{
-	            jQuery( ".rbschours a" ).html( "Closed today." );
-	          }
+											stime = stime[0] + ":" + stime[1];
+											etime = etime[0] + ":" + etime[1];
 
-		  }
+										}
 
-		  //set Mudd Hours
-		  if(jQuery('.muddstarthour').length > 0){
-			jQuery.each( data.locations.location[ 8 ].hours.day, function( i, day ) {
-		      if ( day.dow == n  ) {
-		          stime = day.start.match(/.{1,2}/g) || [];
-		          etime = day.end.match(/.{1,2}/g) || [];
-
-				  if(stime[0] > 12){
-		          	stime[0] = stime[0]-12;
-		          	stime[1] = stime[1] + "pm";
-		          }else{
-		          	stime[1] = stime[1] + "am"
-		          }
-
-		          if(etime[0] > 12){
-		          	etime[0] = etime[0]-12;
-		          	etime[1] = etime[1] + "pm";
-		          }else{
-		          	etime[1] = etime[1] + "am"
-		          }
-
-		          stime = stime[0] + ":" + stime[1];
-		          etime = etime[0] + ":" + etime[1]
-		        }
-
-	          if(stime.length > 0){
-			  	jQuery( ".muddstarthour" ).html( stime );
-			    jQuery( ".muddendhour" ).html( etime );
-			  }else{
-	            jQuery( ".muddhours a" ).html( "Closed today." );
-	          }
-		  });
-
-		}
-
-	  });	
-
-	}
+									});
+								}
+							});
 
 
-});
+						if(stime.length > 0){
+							jQuery( ".rbscstarthour" ).html( stime );
+							jQuery( ".rbscendhour" ).html( etime );
+						}else{
+									jQuery( ".rbschours a" ).html( "Closed today." );
+								}
+
+					  }
+
+					  //set Mudd Hours
+					  if(jQuery('.muddstarthour').length > 0){
+									var locname = "Mudd Manuscript Library";
+									jQuery.each( data.locations.location, function( i, l ) {
+
+										if ( l.name == locname  ) {
+											jQuery.each( l.hours.day, function( i, val ) {
+												if ( val.dow == n.toString()  ) {
+													stime = val.start.match(/.{1,2}/g) || [];
+													etime = val.end.match(/.{1,2}/g) || [];
+
+													if(stime[0] > 12){
+														stime[0] = stime[0]-12;
+														stime[1] = stime[1] + "pm";
+													}else{
+														stime[1] = stime[1] + "am";
+													}
+
+													if(etime[0] > 12){
+														etime[0] = etime[0]-12;
+														etime[1] = etime[1] + "pm";
+													}else{
+														etime[1] = etime[1] + "am";
+													}
+
+													stime = stime[0] + ":" + stime[1];
+													etime = etime[0] + ":" + etime[1];
+
+												}
+											});
+										}
+									});
+
+								if(stime.length > 0){
+									jQuery( ".rbscstarthour" ).html( stime );
+									jQuery( ".rbscendhour" ).html( etime );
+								}else{
+											jQuery( ".rbschours a" ).html( "Closed today." );
+								}
+						}
+
+				  });
+
+				}
+
+
+			});
