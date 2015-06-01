@@ -29,13 +29,30 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
     parent::setUp();
     require_once $this->moduleDir . '/src/FeedsExJmesPath.inc';
     $this->source = $this->getMockFeedsSource();
+    $this->variableDel('feeds_ex_jmespath_compile_dir');
+  }
+
+  /**
+   * Returns a new instance of the parser.
+   *
+   * @return FeedsExJmesPath
+   *   A parser instance.
+   */
+  protected function getParserInstance() {
+    $parser = FeedsConfigurable::instance('FeedsExJmesPath', strtolower($this->randomName()));
+    $parser->setMessenger(new FeedsExTestMessenger());
+    if (!$this->variableGet('feeds_ex_jmespath_compile_dir')) {
+      $path = file_directory_temp() . '/' . drupal_base64_encode(drupal_random_bytes(40)) . '_feeds_ex_jmespath_dir';
+      $this->variableSet('feeds_ex_jmespath_compile_dir', $path);
+    }
+    return $parser;
   }
 
   /**
    * Tests simple parsing.
    */
   public function testSimpleParsing() {
-    $parser = FeedsConfigurable::instance('FeedsExJmesPath', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.json'));
 
     $parser->setConfig(array(
@@ -55,8 +72,7 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
     ));
 
     $result = $parser->parse($this->source, $fetcher_result);
-    $this->assertEqual(count($result->items), 3, format_string('@count items parsed.', array('@count' => count($result->items))));
-
+    $this->assertParserResultItemCount($result, 3);
     foreach ($result->items as $delta => $item) {
       $this->assertEqual('I am a title' . $delta, $item['title']);
       $this->assertEqual('I am a description' . $delta, $item['description']);
@@ -69,7 +85,7 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
    * This implicitly tests FeedsExBase's encoding conversion.
    */
   public function testEUCJPEncoded() {
-    $parser = FeedsConfigurable::instance('FeedsExJmesPath', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test_jp.json'));
 
     $parser->setConfig(array(
@@ -90,7 +106,7 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
     ));
 
     $result = $parser->parse($this->source, $fetcher_result);
-    $this->assertEqual(count($result->items), 3, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertParserResultItemCount($result, 3);
 
     foreach ($result->items as $delta => $item) {
       $this->assertEqual('私はタイトルです' . $delta, $item['title']);
@@ -105,7 +121,7 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
     // Set batch limit.
     $this->variableSet('feeds_process_limit', 1);
 
-    $parser = FeedsConfigurable::instance('FeedsExJmesPath', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.json'));
 
     $parser->setConfig(array(
@@ -124,24 +140,16 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
       ),
     ));
 
-    $result = $parser->parse($this->source, $fetcher_result);
-    $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
-    $this->assertEqual('I am a title0', $result->items[0]['title']);
-    $this->assertEqual('I am a description0', $result->items[0]['description']);
-
-    $result = $parser->parse($this->source, $fetcher_result);
-    $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
-    $this->assertEqual('I am a title1', $result->items[0]['title']);
-    $this->assertEqual('I am a description1', $result->items[0]['description']);
-
-    $result = $parser->parse($this->source, $fetcher_result);
-    $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
-    $this->assertEqual('I am a title2', $result->items[0]['title']);
-    $this->assertEqual('I am a description2', $result->items[0]['description']);
+    foreach (range(0, 2) as $delta) {
+      $result = $parser->parse($this->source, $fetcher_result);
+      $this->assertParserResultItemCount($result, 1);
+      $this->assertEqual('I am a title' . $delta, $result->items[0]['title']);
+      $this->assertEqual('I am a description' . $delta, $result->items[0]['description']);
+    }
 
     // We should be out of items.
     $result = $parser->parse($this->source, $fetcher_result);
-    $this->assertEqual(count($result->items), 0, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertParserResultItemCount($result, 0);
   }
 
   /**
@@ -149,7 +157,7 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
    */
   public function testValidateExpression() {
     // Invalid expression.
-    $parser = FeedsConfigurable::instance('FeedsExJmesPath', 'test_parser');
+    $parser = $this->getParserInstance();
     $expression = array('!! ');
     $this->assertEqual('Syntax error at character 0<br />!!<br />^<br />Invalid expression', $this->invokeMethod($parser, 'validateExpression', $expression));
 
@@ -158,6 +166,42 @@ class FeedsExJmesPathUnitTests extends FeedsExUnitTestBase {
 
     // Empty string.
     $this->assertEqual(NULL, $this->invokeMethod($parser, 'validateExpression', array('')));
+  }
+
+  /**
+   * Tests parsing invalid JSON.
+   */
+  public function testInvalidJson() {
+    $parser = $this->getParserInstance();
+
+    $parser->setConfig(array(
+      'context' => array(
+        'value' => 'items',
+      ),
+      'sources' => array(),
+    ));
+
+    $args = array($this->source, new FeedsFetcherResult('{"items": "not an array"}'));
+    $this->assertException(array($parser, 'parse'), $args, 'RuntimeException', t('The context expression must return an object or array.'));
+
+    // Invalid JSON.
+    $args = array($this->source, new FeedsFetcherResult('invalid json'));
+    $this->assertException(array($parser, 'parse'), $args, 'RuntimeException', t('The JSON is invalid.'));
+
+    $log_messages = $this->source->getLogMessages();
+    $this->assertEqual(count($log_messages), 1);
+    $this->assertEqual($log_messages[0]['message'], 'Syntax error');
+    $this->assertEqual($log_messages[0]['type'], 'feeds_ex');
+    $this->assertEqual($log_messages[0]['severity'], 3);
+  }
+
+  /**
+   * Tests empty feed handling.
+   */
+  public function testEmptyFeed() {
+    $parser = $this->getParserInstance();
+    $parser->parse($this->source, new FeedsFetcherResult(' '));
+    $this->assertEmptyFeedMessage($parser->getMessenger()->getMessages());
   }
 
 }

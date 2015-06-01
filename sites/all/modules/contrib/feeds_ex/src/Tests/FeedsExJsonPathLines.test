@@ -48,7 +48,8 @@ class FeedsExJsonPathLinesUnitTests extends FeedsExUnitTestBase {
     $this->downloadJsonPath();
 
     $this->source = $this->getMockFeedsSource();
-    $this->parser = FeedsConfigurable::instance('FeedsExJsonPathLines', 'test_parser');
+    $this->parser = FeedsConfigurable::instance('FeedsExJsonPathLines', strtolower($this->randomName()));
+    $this->parser->setMessenger(new FeedsExTestMessenger());
     $this->parser->addConfig(array(
       'sources' => array(
         'title' => array(
@@ -65,7 +66,7 @@ class FeedsExJsonPathLinesUnitTests extends FeedsExUnitTestBase {
    */
   public function testSimpleParsing() {
     $result = $this->parser->parse($this->source, $this->fetcherResult);
-    $this->assertEqual(count($result->items), 4, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertParserResultItemCount($result, 4);
 
     foreach (array('Gilbert', 'Alexa', 'May', 'Deloise') as $delta => $name) {
       $this->assertEqual($name, $result->items[$delta]['title']);
@@ -80,9 +81,21 @@ class FeedsExJsonPathLinesUnitTests extends FeedsExUnitTestBase {
 
     foreach (array('Gilbert', 'Alexa', 'May', 'Deloise') as $name) {
       $result = $this->parser->parse($this->source, $this->fetcherResult);
-      $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
+      $this->assertParserResultItemCount($result, 1);
       $this->assertEqual($result->items[0]['title'], $name);
     }
+
+    // We should be out of items.
+    $result = $this->parser->parse($this->source, $this->fetcherResult);
+    $this->assertParserResultItemCount($result, 0);
+  }
+
+  /**
+   * Tests empty feed handling.
+   */
+  public function testEmptyFeed() {
+    $this->parser->parse($this->source, new FeedsFileFetcherResult($this->moduleDir . '/tests/resources/empty.txt'));
+    $this->assertEmptyFeedMessage($this->parser->getMessenger()->getMessages());
   }
 
 }
