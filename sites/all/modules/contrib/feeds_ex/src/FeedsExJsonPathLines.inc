@@ -20,13 +20,6 @@ class FeedsExJsonPathLines extends FeedsExJsonPath {
   /**
    * {@inheritdoc}
    */
-  protected function executeContext(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
-    return $this->iterator;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   protected function hasConfigurableContext() {
     return FALSE;
   }
@@ -36,36 +29,57 @@ class FeedsExJsonPathLines extends FeedsExJsonPath {
    */
   protected function setUp(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
     $this->iterator = new FeedsExLineIterator($fetcher_result->getFilePath());
+
+    if (!$this->iterator->getSize()) {
+      throw new FeedsExEmptyException();
+    }
+
     $this->iterator->setLineLimit($source->importer->getLimit());
 
     $state = $source->state(FEEDS_PARSE);
     if (!$state->total) {
       $state->total = $this->iterator->getSize();
     }
+    $this->iterator->setStartPosition((int) $state->pointer);
+  }
 
-    $state->start = $state->pointer ? $state->pointer : 0;
-    $this->iterator->setStartPosition($state->start);
+  /**
+   * {@inheritdoc}
+   */
+  protected function parseItems(FeedsSource $source, FeedsFetcherResult $fetcher_result, FeedsParserResult $result) {
+    $expressions = $this->prepareExpressions();
+    $variable_map = $this->prepareVariables($expressions);
+
+    foreach ($this->iterator as $row) {
+      $row = $this->getEncoder()->convertEncoding($row);
+      try {
+        $row = FeedsExJsonUtility::decodeJsonArray($row);
+      }
+      catch (RuntimeException $e) {
+        // An array wasn't returned. Skip this item.
+        continue;
+      }
+
+      if ($item = $this->executeSources($row, $expressions, $variable_map)) {
+        $result->items[] = $item;
+      }
+    }
   }
 
   /**
    * {@inheritdoc}
    */
   protected function cleanUp(FeedsSource $source, FeedsParserResult $result) {
-    $state = $source->state(FEEDS_PARSE);
-    $state->pointer = $this->iterator->ftell();
-
+    $source->state(FEEDS_PARSE)->pointer = $this->iterator->ftell();
     unset($this->iterator);
+    parent::cleanUp($source, $result);
   }
 
   /**
    * {@inheritdoc}
    */
   protected function executeSourceExpression($machine_name, $expression, $row) {
-    // Row is a JSON string.
-    if ($encoding = $this->detectEncoding($row)) {
-      $row = $this->convertEncoding($row, $encoding);
-    }
-    $result = jsonPath(drupal_json_decode($row), $expression);
+    $result = jsonPath($row, $expression);
 
     if (is_scalar($result)) {
       return $result;

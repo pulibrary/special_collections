@@ -38,12 +38,11 @@ class FeedsExQueryPathXml extends FeedsExXml {
       $state->total = $query_path->size();
     }
 
-    $state->start = $state->pointer ? $state->pointer : 0;
-    $limit = $state->start + $source->importer->getLimit();
-    $state->pointer = $limit > $state->total ? $state->total : $limit;
+    $start = (int) $state->pointer;
+    $state->pointer = $start + $source->importer->getLimit();
     $state->progress($state->total, $state->pointer);
 
-    return $query_path->slice($state->start, $source->importer->getLimit());
+    return $query_path->slice($start, $source->importer->getLimit());
   }
 
   /**
@@ -56,12 +55,21 @@ class FeedsExQueryPathXml extends FeedsExXml {
       return;
     }
 
-    if (strlen($this->config['sources'][$machine_name]['attribute'])) {
-      return $result->attr($this->config['sources'][$machine_name]['attribute']);
-    }
+    $config = $this->config['sources'][$machine_name];
 
     $return = array();
-    if (!empty($this->config['sources'][$machine_name]['raw'])) {
+
+    if (strlen($config['attribute'])) {
+      foreach ($result as $node) {
+        $return[] = $node->attr($config['attribute']);
+      }
+    }
+    elseif (!empty($config['inner'])) {
+      foreach ($result as $node) {
+        $return[] = $node->innerXML();
+      }
+    }
+    elseif (!empty($config['raw'])) {
       foreach ($result as $node) {
         $return[] = $this->getRawValue($node);
       }
@@ -117,19 +125,20 @@ class FeedsExQueryPathXml extends FeedsExXml {
   /**
    * {@inheritdoc}
    */
-  protected function configFormTableColumn(array &$form_state, $column_name, array $source) {
-    switch ($column_name) {
+  protected function configFormTableColumn(array &$form_state, array $values, $column, $machine_name) {
+    switch ($column) {
       case 'attribute':
         return array(
           '#type' => 'textfield',
           '#title' => t('Attribute name'),
           '#title_display' => 'invisible',
-          '#default_value' => !empty($source['attribute']) ? $source['attribute'] : '',
+          '#default_value' => !empty($values['attribute']) ? $values['attribute'] : '',
           '#size' => 10,
+          '#maxlength' => 1024,
         );
 
       default:
-        return parent::configFormTableColumn($form_state, $column_name, $source);
+        return parent::configFormTableColumn($form_state, $values, $column, $machine_name);
     }
   }
 

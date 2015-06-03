@@ -34,6 +34,11 @@ class FeedsExXml extends FeedsExBase {
   /**
    * {@inheritdoc}
    */
+  protected $encoderClass = 'FeedsExXmlEncoder';
+
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
     $document = $this->prepareDocument($source, $fetcher_result);
     $this->xpath = new FeedsExXpathDomXpath($document);
@@ -62,13 +67,11 @@ class FeedsExXml extends FeedsExBase {
       $state->total = $this->xpath->evaluate('count(' . $this->config['context']['value'] . ')');
     }
 
-    $start = $state->pointer ? $state->pointer : 0;
-    $limit = $start + $source->importer->getLimit();
-    $end = $limit > $state->total ? $state->total : $limit;
-    $state->pointer = $end;
+    $start = (int) $state->pointer;
+    $state->pointer = $start + $source->importer->getLimit();
 
     // A batched XPath expression.
-    $context_query = '(' . $this->config['context']['value'] . ")[position() > $start and position() <= $end]";
+    $context_query = '(' . $this->config['context']['value'] . ")[position() > $start and position() <= {$state->pointer}]";
     return $this->xpath->query($context_query);
   }
 
@@ -86,7 +89,12 @@ class FeedsExXml extends FeedsExBase {
     }
 
     $return = array();
-    if (!empty($this->config['sources'][$machine_name]['raw'])) {
+    if (!empty($this->config['sources'][$machine_name]['inner'])) {
+      foreach ($result as $node) {
+        $return[] = $this->getInnerXml($node);
+      }
+    }
+    elseif (!empty($this->config['sources'][$machine_name]['raw'])) {
       foreach ($result as $node) {
         $return[] = $this->getRaw($node);
       }
@@ -131,20 +139,34 @@ class FeedsExXml extends FeedsExBase {
    * {@inheritdoc}
    */
   protected function configFormTableHeader() {
-    return array('raw' => t('Raw'));
+    return array('raw' => t('Raw'), 'inner' => t('Inner XML'));
   }
 
   /**
    * {@inheritdoc}
    */
-  protected function configFormTableColumn(array &$form_state, $column_name, array $source) {
-    switch ($column_name) {
+  protected function configFormTableColumn(array &$form_state, array $values, $column, $machine_name) {
+    $id = 'feeds-ex-xml-raw-' . check_plain($machine_name);
+
+    switch ($column) {
       case 'raw':
         return array(
           '#type' => 'checkbox',
           '#title' => t('Raw value'),
           '#title_display' => 'invisible',
-          '#default_value' => !empty($source['raw']) ? $source['raw'] : 0,
+          '#default_value' => (int) !empty($values['raw']),
+          '#id' => $id,
+        );
+
+      case 'inner':
+        return array(
+          '#type' => 'checkbox',
+          '#title' => t('Inner XML'),
+          '#title_display' => 'invisible',
+          '#default_value' => (int) !empty($values['inner']),
+          '#states' => array(
+            'visible' => array('#' . $id => array('checked' => TRUE)),
+          ),
         );
     }
   }
@@ -184,28 +206,22 @@ class FeedsExXml extends FeedsExBase {
   /**
    * {@inheritdoc}
    */
+  public function configFormValidate(&$values) {
+    parent::configFormValidate($values);
+
+    // Remove values that are inner but not raw.
+    foreach ($values['sources'] as $machine_name => $source) {
+      if (!empty($source['inner']) && empty($source['raw'])) {
+        unset($values['sources'][$machine_name]['inner']);
+      }
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   protected function convertEncoding($data, $encoding = 'UTF-8') {
-    // Check for an encoding declaration in the XML prolog.
-    $matches = FALSE;
-    if (preg_match('/^<\?xml[^>]+encoding\s*=\s*("|\')(.+?)(\1)/', $data, $matches)) {
-      $encoding = $matches[2];
-    }
-    elseif ($detected = parent::detectEncoding($data)) {
-      $encoding = $detected;
-    }
-
-    // Unsupported encodings are converted here into UTF-8.
-    $php_supported = array('utf-8', 'us-ascii', 'ascii');
-    if (in_array(strtolower($encoding), $php_supported)) {
-      return $data;
-    }
-
-    $data = parent::convertEncoding($data, $encoding);
-    if ($matches) {
-      $data = preg_replace('/^(<\?xml[^>]+encoding\s*=\s*("|\'))(.+?)(\2)/', '$1UTF-8$4', $data);
-    }
-
-    return $data;
+    return FeedsExXmlUtility::convertXmlEncoding($data, $this->config['source_encoding']);
   }
 
   /**
@@ -220,11 +236,7 @@ class FeedsExXml extends FeedsExBase {
    *   The DOM document.
    */
   protected function prepareDocument(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
-    $raw = trim($fetcher_result->getRaw());
-    if (!strlen($raw)) {
-      throw new FeedsExEmptyException();
-    }
-    $raw = $this->convertEncoding($raw);
+    $raw = $this->prepareRaw($fetcher_result);
     // Remove default namespaces. This has to run after the encoding conversion
     // because a limited set of encodings are supported in regular expressions.
     $raw = FeedsExXmlUtility::removeDefaultNamespaces($raw);
@@ -246,6 +258,23 @@ class FeedsExXml extends FeedsExBase {
    */
   protected function getRaw(DOMNode $node) {
     return $node->ownerDocument->saveXML($node);
+  }
+
+  /**
+   * Returns the inner XML of a DOM node.
+   *
+   * @param DOMNode $node
+   *   The node to convert to raw XML.
+   *
+   * @return string
+   *   The inner XML.
+   */
+  protected function getInnerXml(DOMNode $node) {
+    $buffer = '';
+    foreach ($node->childNodes as $child) {
+      $buffer .= $this->getRaw($child);
+    }
+    return $buffer;
   }
 
   /**

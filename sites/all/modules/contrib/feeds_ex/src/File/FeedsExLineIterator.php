@@ -68,16 +68,6 @@ class FeedsExLineIterator extends SplFileObject {
   }
 
   /**
-   * Returns the number of lines read.
-   *
-   * @return int
-   *   The number of lines read.
-   */
-  public function getLinesRead() {
-    return $this->linesRead;
-  }
-
-  /**
    * Sets the starting position.
    *
    * @param int $position

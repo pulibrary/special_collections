@@ -11,11 +11,25 @@
 abstract class FeedsExBase extends FeedsParser {
 
   /**
-   * Whether the current system handles mb_* functions.
+   * The object used to display messages to the user.
    *
-   * @var bool
+   * @var FeedsExMessengerInterface
    */
-  protected $isMultibyte;
+  protected $messenger;
+
+  /**
+   * The class used as the text encoder.
+   *
+   * @var string
+   */
+  protected $encoderClass = 'FeedsExTextEncoder';
+
+  /**
+   * The encoder used to convert encodings.
+   *
+   * @var FeedsExEncoderInterface
+   */
+  protected $encoder;
 
   /**
    * Returns rows to be parsed.
@@ -98,7 +112,6 @@ abstract class FeedsExBase extends FeedsParser {
    * Subclasses can override this to being error handling.
    */
   protected function startErrorHandling() {
-    // No default error handling.
   }
 
   /**
@@ -107,7 +120,6 @@ abstract class FeedsExBase extends FeedsParser {
    * Subclasses can override this to end error handling.
    */
   protected function stopErrorHandling() {
-    // No default error handling.
   }
 
   /**
@@ -136,11 +148,32 @@ abstract class FeedsExBase extends FeedsParser {
   }
 
   /**
-   * {@inheritdoc}
+   * Reuturns the list of table headers.
+   *
+   * @return array
+   *   A list of header names keyed by the form keys.
    */
-  protected function __construct($id) {
-    parent::__construct($id);
-    $this->isMultibyte = $GLOBALS['multibyte'] == UNICODE_MULTIBYTE;
+  protected function configFormTableHeader() {
+    return array();
+  }
+
+  /**
+   * Returns a form element for a specific column.
+   *
+   * @param array &$form_state
+   *   The current form state.
+   * @param array $values
+   *   The individual source item values.
+   * @param string $column
+   *   The name of the column.
+   * @param string $machine_name
+   *   The machine name of the source.
+   *
+   * @return array
+   *   A single form element.
+   */
+  protected function configFormTableColumn(array &$form_state, array $values, $column, $machine_name) {
+    return array();
   }
 
   /**
@@ -149,47 +182,29 @@ abstract class FeedsExBase extends FeedsParser {
   public function parse(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
     $this->loadLibrary();
     $this->startErrorHandling();
-
-    $config = $this->getConfig();
     $result = new FeedsParserResult();
-
     // Set link.
     $fetcher_config = $source->getConfigFor($source->importer->fetcher);
-    $result->link = $fetcher_config['source'];
-
-    $expressions = $this->prepareExpressions();
-    $variable_map = $this->prepareVariables($expressions);
+    $result->link = is_string($fetcher_config['source']) ? $fetcher_config['source'] : '';
 
     try {
       $this->setUp($source, $fetcher_result);
-
-      foreach ($this->executeContext($source, $fetcher_result) as $row) {
-        if ($item = $this->executeSources($row, $expressions, $variable_map)) {
-          $result->items[] = $item;
-        }
-      }
-
+      $this->parseItems($source, $fetcher_result, $result);
       $this->cleanUp($source, $result);
     }
     catch (FeedsExEmptyException $e) {
       // The feed is empty.
       $this->getMessenger()->setMessage(t('The feed is empty.'), 'warning', FALSE);
     }
-    catch (Expcetion $exception) {
+    catch (Exception $exception) {
       // Do nothing. Store for later.
     }
 
-    // Show some warnings.
+    // Display and log errors.
     $errors = $this->getErrors();
-    if ($this->config['display_errors']) {
-      $this->printErrors($errors, WATCHDOG_DEBUG);
-    }
-    else {
-      // Always print fatal errors.
-      $this->printErrors($errors);
-    }
-    // Log any fatal errors.
+    $this->printErrors($errors, $this->config['display_errors'] ? WATCHDOG_DEBUG : WATCHDOG_ERROR);
     $this->logErrors($source, $errors);
+
     $this->stopErrorHandling();
 
     if (isset($exception)) {
@@ -197,6 +212,27 @@ abstract class FeedsExBase extends FeedsParser {
     }
 
     return $result;
+  }
+
+  /**
+   * Performs the actual parsing.
+   *
+   * @param FeedsSource $source
+   *   The feed source.
+   * @param FeedsFetcherResult $fetcher_result
+   *   The fetcher result.
+   * @param FeedsParserResult $result
+   *   The parser result object to populate.
+   */
+  protected function parseItems(FeedsSource $source, FeedsFetcherResult $fetcher_result, FeedsParserResult $result) {
+    $expressions = $this->prepareExpressions();
+    $variable_map = $this->prepareVariables($expressions);
+
+    foreach ($this->executeContext($source, $fetcher_result) as $row) {
+      if ($item = $this->executeSources($row, $expressions, $variable_map)) {
+        $result->items[] = $item;
+      }
+    }
   }
 
   /**
@@ -318,48 +354,22 @@ abstract class FeedsExBase extends FeedsParser {
   }
 
   /**
-   * Detects the encoding of a string.
+   * Prepares the raw string for parsing.
    *
-   * @param string $data
-   *   The string to guess the encoding for.
-   *
-   * @return string|bool
-   *   Returns the encoding, or false if one could not be detected.
-   *
-   * @todo Add other methods of encoding detection.
-   */
-  protected function detectEncoding($data) {
-    if ($this->isMultibyte) {
-      return mb_detect_encoding($data, $this->config['source_encoding'], TRUE);
-    }
-    return FALSE;
-  }
-
-  /**
-   * Converts a string to UTF-8.
-   *
-   * Requires the iconv, GNU recode or mbstring PHP extension.
-   *
-   * @param string $data
-   *   The string to convert.
-   * @param string $encoding
-   *   The encoding to convert to.
+   * @param FeedsFetcherResult $fetcher_result
+   *   The fetcher result.
    *
    * @return string
-   *   The encoded string, or the original string if encoding failed.
-   *
-   * @see drupal_convert_to_utf8()
+   *   The prepared raw string.
    */
-  protected function convertEncoding($data, $encoding) {
-    $php_supported = array('utf-8', 'us-ascii', 'ascii');
-    if (in_array(strtolower($encoding), $php_supported)) {
-      return $data;
+  protected function prepareRaw(FeedsFetcherResult $fetcher_result) {
+    $raw = trim($this->getEncoder()->convertEncoding($fetcher_result->getRaw()));
+
+    if (!strlen($raw)) {
+      throw new FeedsExEmptyException();
     }
-    $converted = drupal_convert_to_utf8($data, $encoding);
-    if ($converted === FALSE) {
-      return $data;
-    }
-    return $converted;
+
+    return $raw;
   }
 
   /**
@@ -408,33 +418,6 @@ abstract class FeedsExBase extends FeedsParser {
   }
 
   /**
-   * Reuturns the list of table headers.
-   *
-   * @return []string
-   *   A list of header names.
-   */
-  protected function configFormTableHeader() {
-    return array();
-  }
-
-  /**
-   * Returns a form element for a specific column.
-   *
-   * @param array &$form_state
-   *   The current form state.
-   * @param string $column_name
-   *   The name of the column.
-   * @param array $source
-   *   The individual source item.
-   *
-   * @return array
-   *   A single form element.
-   */
-  protected function configFormTableColumn(array &$form_state, $column_name, array $source) {
-    return array();
-  }
-
-  /**
    * {@inheritdoc}
    */
   public function configForm(&$form_state) {
@@ -460,6 +443,7 @@ abstract class FeedsExBase extends FeedsParser {
         // We're hiding the title, so add a little hint.
         '#description' => '<span class="form-required">*</span>',
         '#attributes' => array('class' => array('feeds-ex-context-value')),
+        '#maxlength' => 1024,
       );
     }
 
@@ -487,10 +471,11 @@ abstract class FeedsExBase extends FeedsParser {
         '#title_display' => 'invisible',
         '#default_value' => $source['value'],
         '#size' => 50,
+        '#maxlength' => 1024,
       );
 
       foreach ($this->configFormTableHeader() as $column => $name) {
-        $form['sources'][$machine_name][$column] = $this->configFormTableColumn($form_state, $column, $source);
+        $form['sources'][$machine_name][$column] = $this->configFormTableColumn($form_state, $source, $column, $machine_name);
       }
 
       $form['sources'][$machine_name]['debug'] = array(
@@ -543,9 +528,10 @@ abstract class FeedsExBase extends FeedsParser {
       '#description' => t('Value'),
       '#title' => '&nbsp;',
       '#size' => 50,
+      '#maxlength' => 1024,
     );
     foreach ($this->configFormTableHeader() as $column => $name) {
-      $form['add'][$column] = $this->configFormTableColumn($form_state, $column, array());
+      $form['add'][$column] = $this->configFormTableColumn($form_state, array(), $column, '');
     }
     $form['add']['debug'] = array(
       '#type' => 'checkbox',
@@ -558,7 +544,6 @@ abstract class FeedsExBase extends FeedsParser {
       '#size' => 3,
       '#attributes' => array('class' => array('feeds-ex-source-weight')),
     );
-
     $form['display_errors'] = array(
       '#type' => 'checkbox',
       '#title' => t('Display errors'),
@@ -572,16 +557,7 @@ abstract class FeedsExBase extends FeedsParser {
       '#default_value' => $this->config['debug_mode'],
     );
 
-    if ($this->isMultibyte) {
-      $args = array('%encodings' => implode(', ', mb_detect_order()));
-      $form['source_encoding'] = array(
-        '#type' => 'textfield',
-        '#title' => t('Source encoding'),
-        '#description' => t('The possible encodings of the source files. auto: %encodings', $args),
-        '#default_value' => implode(', ', $this->config['source_encoding']),
-        '#autocomplete_path' => '_feeds_ex/encoding_autocomplete',
-      );
-    }
+    $form = $this->getEncoder()->configForm($form, $form_state);
 
     $form['#attached']['drupal_add_tabledrag'][] = array(
       'feeds-ex-source-table',
@@ -590,7 +566,6 @@ abstract class FeedsExBase extends FeedsParser {
       'feeds-ex-source-weight',
     );
     $form['#attached']['css'][] = drupal_get_path('module', 'feeds_ex') . '/feeds_ex.css';
-
     $form['#header'] = $this->getFormHeader();
 
     return $form;
@@ -659,25 +634,8 @@ abstract class FeedsExBase extends FeedsParser {
     // Sort by weight.
     uasort($values['sources'], 'ctools_plugin_sort');
 
-    if (!$this->isMultibyte) {
-      return;
-    }
-    // Normalize encodings. Make them exactly as they are defined in
-    // mb_list_encodings(), but maintain user-defined order.
-    $encodings = array_map('drupal_strtolower', array_map('trim', explode(',', $values['source_encoding'])));
-    $values['source_encoding'] = array();
-    foreach (mb_list_encodings() as $encoding) {
-      // Maintain order.
-      $pos = array_search(drupal_strtolower($encoding), $encodings);
-      if ($pos !== FALSE) {
-        $values['source_encoding'][$pos] = $encoding;
-      }
-    }
-    ksort($values['source_encoding']);
-    // Make sure there's some value set.
-    if (!$values['source_encoding']) {
-      $values['source_encoding'][] = 'auto';
-    }
+    // Let the encoder do its thing.
+    $this->getEncoder()->configFormValidate($values);
   }
 
   /**
@@ -764,25 +722,17 @@ abstract class FeedsExBase extends FeedsParser {
   }
 
   /**
-   * Sets the multibyte handling.
-   *
-   * @param bool $is_multibyte
-   *   Whether this parser should assume multibyte handling exists.
-   *
-   * @internal Used only during testing to force handling.
-   */
-  public function setMultibyte($is_multibyte) {
-    $this->isMultibyte = $is_multibyte;
-  }
-
-  /**
    * Sets the messenger to be used to display messages.
    *
    * @param FeedsExMessengerInterface $messenger
    *   The messenger.
+   *
+   * @return $this
+   *   The parser object.
    */
   public function setMessenger(FeedsExMessengerInterface $messenger) {
     $this->messenger = $messenger;
+    return $this;
   }
 
   /**
@@ -795,8 +745,35 @@ abstract class FeedsExBase extends FeedsParser {
     if (!isset($this->messenger)) {
       $this->messenger = new FeedsExMessenger();
     }
-
     return $this->messenger;
+  }
+
+  /**
+   * Sets the encoder.
+   *
+   * @param FeedsExEncoderInterface $encoder
+   *   The encoder.
+   *
+   * @return $this
+   *   The parser object.
+   */
+  public function setEncoder(FeedsExEncoderInterface $encoder) {
+    $this->encoder = $encoder;
+    return $this;
+  }
+
+  /**
+   * Returns the encoder.
+   *
+   * @return FeedsExEncoderInterface
+   *   The encoder object.
+   */
+  public function getEncoder() {
+    if (!isset($this->encoder)) {
+      $class = $this->encoderClass;
+      $this->encoder = new $class($this->config['source_encoding']);
+    }
+    return $this->encoder;
   }
 
 }

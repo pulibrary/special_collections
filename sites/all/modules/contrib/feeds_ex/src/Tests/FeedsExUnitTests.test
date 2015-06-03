@@ -33,9 +33,13 @@ abstract class FeedsExUnitTestBase extends TUnit {
     require_once $feeds . '/plugins/FeedsProcessor.inc';
     require_once $feeds . '/plugins/FeedsNodeProcessor.inc';
 
+    // This is out test feed source.
+    require_once dirname(__FILE__) . '/FeedsExTestFeedsSource.inc';
+
     drupal_load('module', 'feeds_ex');
     $this->moduleDir = DRUPAL_ROOT . '/' . drupal_get_path('module', 'feeds_ex');
     require_once $this->moduleDir . '/src/Json/Utility.php';
+    require_once $this->moduleDir . '/src/Text/Utility.php';
     require_once $this->moduleDir . '/src/Xml/Utility.php';
     require_once $this->moduleDir . '/src/File/FeedsExLineIterator.php';
     require_once $this->moduleDir . '/src/FeedsExBase.inc';
@@ -61,7 +65,7 @@ abstract class FeedsExUnitTestBase extends TUnit {
     $processor = $this->newInstanceWithoutConstructor($processor);
     $this->setProperty($importer, 'processor', $processor);
 
-    $source = $this->newInstanceWithoutConstructor('FeedsSource');
+    $source = $this->newInstanceWithoutConstructor('FeedsExTestFeedsSource');
     $this->setProperty($source, 'importer', $importer);
 
     return $source;
@@ -115,6 +119,31 @@ abstract class FeedsExUnitTestBase extends TUnit {
     define('FEEDS_EX_LIBRARY_PATH', $library_dir);
   }
 
+  /**
+   * Asserts that the correct number of items have been parsed.
+   *
+   * @param FeedsParserResult $result
+   *   The parser result.
+   * @param int $count
+   *   The number of items that should exist.
+   */
+  protected function assertParserResultItemCount(FeedsParserResult $result, $count) {
+    $this->assertEqual(count($result->items), $count, format_string('@count items parsed.', array('@count' => count($result->items))));
+  }
+
+  /**
+   * Asserts that the empty message is correct.
+   *
+   * @param array $messages
+   *   The list of error messages.
+   */
+  protected function assertEmptyFeedMessage(array $messages) {
+    $this->assertEqual(1, count($messages), 'The expected number of messages.');
+    $this->assertEqual($messages[0]['message'], 'The feed is empty.', 'Message text is correct.');
+    $this->assertEqual($messages[0]['type'], 'warning', 'Message type is warning.');
+    $this->assertFalse($messages[0]['repeat'], 'Repeat is set to false.');
+  }
+
 }
 
 /**
@@ -131,6 +160,7 @@ class FeedsExRemoveDefaultNamespaces extends DrupalUnitTestCase {
 
   public function setUp() {
     parent::setUp();
+    require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'feeds_ex') . '/src/Text/Utility.php';
     require_once DRUPAL_ROOT . '/' . drupal_get_path('module', 'feeds_ex') . '/src/Xml/Utility.php';
   }
 
