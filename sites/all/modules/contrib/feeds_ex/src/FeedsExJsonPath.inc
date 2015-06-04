@@ -14,25 +14,19 @@ class FeedsExJsonPath extends FeedsExBase {
    * {@inheritdoc}
    */
   protected function executeContext(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
-    $raw = trim($fetcher_result->getRaw());
-
-    if (!strlen($raw)) {
-      throw new FeedsExEmptyException();
-    }
-
-    if ($encoding = $this->detectEncoding($raw)) {
-      $raw = $this->convertEncoding($raw, $encoding);
-    }
-
-    $parsed = drupal_json_decode($raw);
+    $raw = $this->prepareRaw($fetcher_result);
+    $parsed = FeedsExJsonUtility::decodeJsonArray($raw);
     $parsed = jsonPath($parsed, $this->config['context']['value']);
+    if (!is_array($parsed)) {
+      throw new RuntimeException(t('The context expression must return an object or array.'));
+    }
 
     $state = $source->state(FEEDS_PARSE);
     if (!$state->total) {
       $state->total = count($parsed);
     }
 
-    $start = $state->pointer ? $state->pointer : 0;
+    $start = (int) $state->pointer;
     $state->pointer = $start + $source->importer->getLimit();
     return array_slice($parsed, $start, $source->importer->getLimit());
   }
@@ -65,6 +59,14 @@ class FeedsExJsonPath extends FeedsExBase {
    */
   protected function validateExpression(&$expression) {
     $expression = trim($expression);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function startErrorHandling() {
+    // Clear the json errors from previous parsing.
+    json_decode('');
   }
 
   /**

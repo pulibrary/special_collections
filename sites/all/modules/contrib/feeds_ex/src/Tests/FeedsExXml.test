@@ -37,7 +37,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
    * Tests simple parsing.
    */
   public function testSimpleParsing() {
-    $parser = FeedsConfigurable::instance('FeedsExXml', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.xml'));
 
     $parser->setConfig(array(
@@ -57,8 +57,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
     ));
 
     $result = $parser->parse($this->source, $fetcher_result);
-
-    $this->assertEqual(count($result->items), 3, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertParserResultItemCount($result, 3);
 
     foreach ($result->items as $delta => $item) {
       $this->assertEqual('I am a title' . $delta, $item['title']);
@@ -67,10 +66,77 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
   }
 
   /**
+   * Tests raw parsing.
+   */
+  public function testRaw() {
+    $parser = $this->getParserInstance();
+    $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.xml'));
+
+    $parser->setConfig(array(
+      'context' => array(
+        'value' => '/items/item',
+      ),
+      'sources' => array(
+        'title' => array(
+          'name' => 'Title',
+          'value' => 'title',
+        ),
+        'description' => array(
+          'name' => 'Title',
+          'value' => 'description',
+          'raw' => TRUE,
+        ),
+      ),
+    ));
+
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertParserResultItemCount($result, 3);
+
+    foreach ($result->items as $delta => $item) {
+      $this->assertEqual('I am a title' . $delta, $item['title']);
+      $this->assertEqual('<description><text>I am a description' . $delta . '</text></description>', $item['description']);
+    }
+  }
+
+  /**
+   * Tests simple parsing.
+   */
+  public function testInner() {
+    $parser = $this->getParserInstance();
+    $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.xml'));
+
+    $parser->setConfig(array(
+      'context' => array(
+        'value' => '/items/item',
+      ),
+      'sources' => array(
+        'title' => array(
+          'name' => 'Title',
+          'value' => 'title',
+        ),
+        'description' => array(
+          'name' => 'Title',
+          'value' => 'description',
+          'raw' => TRUE,
+          'inner' => TRUE,
+        ),
+      ),
+    ));
+
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertParserResultItemCount($result, 3);
+
+    foreach ($result->items as $delta => $item) {
+      $this->assertEqual('I am a title' . $delta, $item['title']);
+      $this->assertEqual('<text>I am a description' . $delta . '</text>', $item['description']);
+    }
+  }
+
+  /**
    * Tests parsing a CP866 (Russian) encoded file.
    */
   public function testCP866Encoded() {
-    $parser = FeedsConfigurable::instance('FeedsExXml', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test_ru.xml'));
 
     $parser->setConfig(array(
@@ -90,8 +156,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
     ));
 
     $result = $parser->parse($this->source, $fetcher_result);
-
-    $this->assertEqual(count($result->items), 3, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertParserResultItemCount($result, 3);
 
     foreach ($result->items as $delta => $item) {
       $this->assertEqual('Я название' . $delta, $item['title']);
@@ -105,7 +170,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
    * This implicitly tests FeedsExBase's encoding conversion.
    */
   public function testEUCJPEncodedNoDeclaration() {
-    $parser = FeedsConfigurable::instance('FeedsExXml', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test_jp.xml'));
 
     $parser->setConfig(array(
@@ -126,8 +191,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
     ));
 
     $result = $parser->parse($this->source, $fetcher_result);
-
-    $this->assertEqual(count($result->items), 3, format_string('@count items parsed.', array('@count' => count($result->items))));
+    $this->assertParserResultItemCount($result, 3);
 
     foreach ($result->items as $delta => $item) {
       $this->assertEqual('私はタイトルです' . $delta, $item['title']);
@@ -139,7 +203,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
    * Tests batching.
    */
   public function testBatching() {
-    $parser = FeedsConfigurable::instance('FeedsExXml', 'test_parser');
+    $parser = $this->getParserInstance();
     $fetcher_result = new FeedsFetcherResult(file_get_contents($this->moduleDir . '/tests/resources/test.xml'));
 
     $parser->setConfig(array(
@@ -162,10 +226,14 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
 
     foreach (range(0, 2) as $delta) {
       $result = $parser->parse($this->source, $fetcher_result);
-      $this->assertEqual(count($result->items), 1, format_string('@count items parsed.', array('@count' => count($result->items))));
+      $this->assertParserResultItemCount($result, 1);
       $this->assertEqual('I am a title' . $delta, $result->items[0]['title']);
       $this->assertEqual('I am a description' . $delta, $result->items[0]['description']);
     }
+
+    // Should be empty.
+    $result = $parser->parse($this->source, $fetcher_result);
+    $this->assertParserResultItemCount($result, 0);
   }
 
   /**
@@ -178,7 +246,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
       ),
     ));
 
-    $parser = FeedsConfigurable::instance('FeedsExXml', 'test_parser');
+    $parser = $this->getParserInstance();
     $parser->setConfig(array('context' => array('value' => '/beep')));
 
     $result = $parser->parse($this->source, new FeedsFetcherResult('<?xml version="1.0" encoding="UTF-8"?><item></item>'));
@@ -190,7 +258,7 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
    */
   public function testValidateExpression() {
     // Invalid expression.
-    $parser = FeedsConfigurable::instance('FeedsExXml', 'test_parser');
+    $parser = $this->getParserInstance();
     $expression = array('!!');
     $this->assertEqual('Invalid expression', $this->invokeMethod($parser, 'validateExpression', $expression));
 
@@ -202,6 +270,31 @@ class FeedsExXmlUnitTests extends FeedsExUnitTestBase {
 
     // Empty.
     $this->assertEqual(NULL, $this->invokeMethod($parser, 'validateExpression', array('')));
+  }
+
+  /**
+   * Tests empty feed handling.
+   */
+  public function testEmptyFeed() {
+    $parser = $this->getParserInstance();
+    $parser->parse($this->source, new FeedsFetcherResult(' '));
+    $messages = $parser->getMessenger()->getMessages();
+    $this->assertEqual(1, count($messages), 'The expected number of messages.');
+    $this->assertEqual($messages[0]['message'], 'The feed is empty.', 'Message text is correct.');
+    $this->assertEqual($messages[0]['type'], 'warning', 'Message type is warning.');
+    $this->assertFalse($messages[0]['repeat'], 'Repeat is set to false.');
+  }
+
+  /**
+   * Returns a new instance of the parser.
+   *
+   * @return FeedsExXml
+   *   A parser instance.
+   */
+  protected function getParserInstance() {
+    $parser = FeedsConfigurable::instance('FeedsExXml', strtolower($this->randomName()));
+    $parser->setMessenger(new FeedsExTestMessenger());
+    return $parser;
   }
 
 }
