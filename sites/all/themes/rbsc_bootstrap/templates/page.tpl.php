@@ -81,20 +81,20 @@
                   <a href="http://library.princeton.edu">
                       <img src="/<?php print path_to_theme(); ?>/img/pul-logo.png" class="pul-logo" border="0">
                   </a>
-                  
+
                   <?php if (!empty($secondary_nav)): ?>
                     <div class="navbar-collapse collapse">
-                      <nav role="navigation">                   
+                      <nav role="navigation">
                           <?php print render($secondary_nav); ?>
                       </nav>
                     </div>
-                  <?php endif; ?>               
-                  
+                  <?php endif; ?>
+
               </div>
             </div>
 
 <header id="navbar" role="banner" class="<?php print $navbar_classes; ?>">
-     
+
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -105,10 +105,13 @@
             <?php if ($logo): ?>
                     <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
                       <img height="75px" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-                      <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+                      <div class="dept-name">
+                        <span>THE DEPARTMENT OF</span>
+                        <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+                      </div>
                     </a>
             <?php endif; ?>
-              
+
             <?php if (!empty($site_name)): ?>
               <a class="name navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
                 <?php print $site_name; ?>
@@ -120,21 +123,21 @@
                         <span class="input-group-btn">
                           <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </span>
-                      </div><!-- /input-group --> 
-                    </form> 
+                      </div><!-- /input-group -->
+                    </form>
           </div>
-            
+
             <?php if (!empty($primary_nav) || !empty($page['navigation'])): ?>
               <div>
-                
+
                 <nav class="navbar-collapse collapse" role="navigation">
-                  
+
                   <?php if (!empty($primary_nav)): ?>
 
                     <?php print render($primary_nav); ?>
-                       
+
                   <?php endif; ?>
-                  
+
                   <?php if (!empty($page['navigation'])): ?>
                     <?php print render($page['navigation']); ?>
                   <?php endif; ?>
@@ -142,23 +145,23 @@
               </div>
             <?php endif; ?>
             <!-- Fixed Logo -->
-            
-          </div><!--/.nav-collapse -->
-          
 
-     
+          </div><!--/.nav-collapse -->
+
+
+
 </header>
 
   <div class="main-container container">
-  
+
     <header role="banner" id="page-header">
       <?php if (!empty($site_slogan)): ?>
         <p class="lead"><?php print $site_slogan; ?></p>
       <?php endif; ?>
-  
+
       <?php print render($page['header']); ?>
     </header> <!-- /#page-header -->
-  
+
     <div class="row">
       <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
       <?php print render($title_prefix); ?>
@@ -172,14 +175,14 @@
           <?php print render($page['sidebar_first']); ?>
         </aside>  <!-- /#sidebar-first -->
       <?php endif; ?>
-  
+
       <section<?php print $content_column_class; ?>>
         <?php if (!empty($page['highlighted'])): ?>
           <div class="highlighted jumbotron"><?php print render($page['highlighted']); ?></div>
         <?php endif; ?>
-        
+
         <a id="main-content"></a>
-        
+
         <?php if (!empty($tabs)): ?>
           <?php print render($tabs); ?>
         <?php endif; ?>
@@ -191,17 +194,17 @@
         <?php endif; ?>
         <?php print render($page['content']); ?>
       </section>
-  
+
       <?php if (!empty($page['sidebar_second'])): ?>
         <aside class="col-sm-3" role="complementary">
           <?php print render($page['sidebar_second']); ?>
         </aside>  <!-- /#sidebar-second -->
       <?php endif; ?>
-  
+
     </div>
   </div>
 </div><!-- end wrap -->
-    
+
 
   <?php // print render($page['footer']); ?>
   <div id="footer">
@@ -212,14 +215,14 @@
           </div>
           <div class="col-md-2 v-rule">
             <?php print render($page['footer_second']); ?>
-           
+
             </div>
-          
+
           <div class="col-md-2 v-rule">
             <?php print render($page['footer_third']); ?>
-            
+
             </div>
-          
+
           <div class="col-md-2 v-rule">
             <?php print render($page['footer_fourth']); ?>
           </div>
@@ -249,5 +252,3 @@
           </div>
         </div>
       </div>
-
-
