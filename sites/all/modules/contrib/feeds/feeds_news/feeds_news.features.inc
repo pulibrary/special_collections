@@ -5,31 +5,32 @@
  */
 
 /**
- * Implements hook_ctools_plugin_api().
+ * Implementation of hook_ctools_plugin_api().
  */
-function feeds_news_ctools_plugin_api($module = NULL, $api = NULL) {
+function feeds_news_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
   if ($module == "feeds" && $api == "feeds_importer_default") {
-    return array("version" => "1");
-  }
-  if ($module == "strongarm" && $api == "strongarm") {
-    return array("version" => "1");
+    return array("version" => 1);
   }
 }
 
 /**
- * Implements hook_views_api().
+ * Implementation of hook_views_api().
  */
-function feeds_news_views_api($module = NULL, $api = NULL) {
-  return array("api" => "3.0");
+function feeds_news_views_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "views" && $api == "views_default") {
+    return array("version" => 3.0);
+  }
 }
 
 /**
- * Implements hook_node_info().
+ * Implementation of hook_node_info().
  */
 function feeds_news_node_info() {
   $items = array(
     'feed' => array(
-      'name' => t('Blog'),
+      'name' => t('Feed'),
       'base' => 'node_content',
       'description' => t('Subscribe to RSS or Atom feeds. Creates nodes of the content type "Feed item" from feed content.'),
       'has_title' => '1',
@@ -37,7 +38,7 @@ function feeds_news_node_info() {
       'help' => '',
     ),
     'feed_item' => array(
-      'name' => t('Blog Post'),
+      'name' => t('Feed item'),
       'base' => 'node_content',
       'description' => t('This content type is being used for automatically aggregated content from feeds.'),
       'has_title' => '1',
@@ -45,6 +46,5 @@ function feeds_news_node_info() {
       'help' => '',
     ),
   );
-  drupal_alter('node_info', $items);
   return $items;
 }
