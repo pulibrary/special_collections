@@ -77,26 +77,30 @@ jQuery( document ).ready(function() {
 								if ( l.name == locname  ) {
 									jQuery.each( l.hours.day, function( i, val ) {
 										if ( val.dow == n.toString()  ) {
-											stime = val.start.match(/.{1,2}/g) || [];
-											etime = val.end.match(/.{1,2}/g) || [];
+											if(!val.start){
+                        stime = [];
+                        etime = [];
+                      }else{
+												stime = val.start.match(/.{1,2}/g) || [];
+												etime = val.end.match(/.{1,2}/g) || [];
 
-											if(stime[0] > 12){
-												stime[0] = stime[0]-12;
-												stime[1] = stime[1] + "pm";
-											}else{
-												stime[1] = stime[1] + "am";
+												if(stime[0] > 12){
+													stime[0] = stime[0]-12;
+													stime[1] = stime[1] + "pm";
+												}else{
+													stime[1] = stime[1] + "am";
+												}
+
+												if(etime[0] > 12){
+													etime[0] = etime[0]-12;
+													etime[1] = etime[1] + "pm";
+												}else{
+													etime[1] = etime[1] + "am";
+												}
+
+												stime = stime[0] + ":" + stime[1];
+												etime = etime[0] + ":" + etime[1];
 											}
-
-											if(etime[0] > 12){
-												etime[0] = etime[0]-12;
-												etime[1] = etime[1] + "pm";
-											}else{
-												etime[1] = etime[1] + "am";
-											}
-
-											stime = stime[0] + ":" + stime[1];
-											etime = etime[0] + ":" + etime[1];
-
 										}
 
 									});
@@ -121,26 +125,32 @@ jQuery( document ).ready(function() {
 										if ( l.name == locname  ) {
 											jQuery.each( l.hours.day, function( i, val ) {
 												if ( val.dow == n.toString()  ) {
-													stime = val.start.match(/.{1,2}/g) || [];
-													etime = val.end.match(/.{1,2}/g) || [];
 
-													if(stime[0] > 12){
-														stime[0] = stime[0]-12;
-														stime[1] = stime[1] + "pm";
+													if(!val.start){
+														stime = [];
+														etime = [];
 													}else{
-														stime[1] = stime[1] + "am";
+
+														stime = val.start.match(/.{1,2}/g) || [];
+														etime = val.end.match(/.{1,2}/g) || [];
+
+														if(stime[0] > 12){
+															stime[0] = stime[0]-12;
+															stime[1] = stime[1] + "pm";
+														}else{
+															stime[1] = stime[1] + "am";
+														}
+
+														if(etime[0] > 12){
+															etime[0] = etime[0]-12;
+															etime[1] = etime[1] + "pm";
+														}else{
+															etime[1] = etime[1] + "am";
+														}
+
+														stime = stime[0] + ":" + stime[1];
+														etime = etime[0] + ":" + etime[1];
 													}
-
-													if(etime[0] > 12){
-														etime[0] = etime[0]-12;
-														etime[1] = etime[1] + "pm";
-													}else{
-														etime[1] = etime[1] + "am";
-													}
-
-													stime = stime[0] + ":" + stime[1];
-													etime = etime[0] + ":" + etime[1];
-
 												}
 											});
 										}
