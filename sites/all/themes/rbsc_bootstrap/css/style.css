@@ -743,7 +743,7 @@ padding: 5px 20px;
 
             line-height: 0.6em;
             margin-top: 0;
-            
+
           }
 
       }
@@ -1997,4 +1997,10 @@ p.gallery-hours {
 
 .dept-name {
   display: inline-block;
+}
+
+.pane-node-book-children ul {
+  list-style-type: none;
+  font-family: 'Muli',sans-serif;
+  font-size: 14px;
 }
