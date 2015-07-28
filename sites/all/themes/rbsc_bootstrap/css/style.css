@@ -2004,3 +2004,7 @@ p.gallery-hours {
   font-family: 'Muli',sans-serif;
   font-size: 14px;
 }
+
+.book-navigation a {
+  padding: 20px;
+}
