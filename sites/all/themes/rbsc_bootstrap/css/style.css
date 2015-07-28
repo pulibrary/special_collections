@@ -1999,7 +1999,7 @@ p.gallery-hours {
   display: inline-block;
 }
 
-.pane-node-book-children ul {
+#book-nav ul {
   list-style-type: none;
   font-family: 'Muli',sans-serif;
   font-size: 14px;
