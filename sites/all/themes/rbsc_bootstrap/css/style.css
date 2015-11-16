@@ -1565,7 +1565,7 @@ color: #999999 !important;
 }
 
 /* nav-pills override */
-.nav-pills li.active>div>div>a, .nav-pills li.active>div>div>a:hover, .nav-pills li.active>div>div>a:focus {
+.nav-pills li a.active, .nav-pills li.active>div>div>a, .nav-pills li.active>div>div>a:hover, .nav-pills li.active>div>div>a:focus {
 color: #fff;
 background-color: #428bca;
 }
