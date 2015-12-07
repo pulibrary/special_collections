@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the RBSC Content Types feature.
+ */
+
+include_once 'rbsc_content_types.features.inc';

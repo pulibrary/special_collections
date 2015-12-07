@@ -17,7 +17,7 @@ function location_layouts_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 7;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Locations Page',
     'no_blocks' => 0,
@@ -39,16 +39,6 @@ function location_layouts_default_page_manager_handlers() {
     ),
     'access' => array(
       'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'location' => 'location',
-            ),
-          ),
-          'context' => 'argument_entity_id:node_1',
-          'not' => FALSE,
-        ),
         1 => array(
           'name' => 'path_visibility',
           'settings' => array(
@@ -62,8 +52,8 @@ function location_layouts_default_page_manager_handlers() {
       'logic' => 'and',
     ),
     'panels_breadcrumbs_state' => 1,
-    'panels_breadcrumbs_titles' => 'Visit Us',
-    'panels_breadcrumbs_paths' => 'visit-us',
+    'panels_breadcrumbs_titles' => '',
+    'panels_breadcrumbs_paths' => '',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
@@ -160,7 +150,7 @@ function location_layouts_default_page_manager_handlers() {
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = 'Seeley G. Mudd Manuscript Library';
   $display->uuid = 'bc8ef57d-2eae-4bd6-a269-81d444e00642';
   $display->content = array();
   $display->panels = array();
@@ -289,39 +279,8 @@ function location_layouts_default_page_manager_handlers() {
     $display->content['new-f4f37cf4-e3f1-4e1c-948e-0f9edbd12f22'] = $pane;
     $display->panels['grid-B'][0] = 'new-f4f37cf4-e3f1-4e1c-948e-0f9edbd12f22';
     $pane = new stdClass();
-    $pane->pid = 'new-607c8a23-4b59-490e-bf2b-8942e911894d';
-    $pane->panel = 'grid-C';
-    $pane->type = 'node';
-    $pane->subtype = 'node';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'nid' => '14',
-      'links' => 0,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'teaser',
-      'link_node_title' => 1,
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'color-grid-item-small',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '607c8a23-4b59-490e-bf2b-8942e911894d';
-    $display->content['new-607c8a23-4b59-490e-bf2b-8942e911894d'] = $pane;
-    $display->panels['grid-C'][0] = 'new-607c8a23-4b59-490e-bf2b-8942e911894d';
-    $pane = new stdClass();
     $pane->pid = 'new-0c125b31-0ad3-444a-ae4e-af937903307c';
-    $pane->panel = 'grid-D';
+    $pane->panel = 'grid-C';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
@@ -349,7 +308,38 @@ function location_layouts_default_page_manager_handlers() {
     $pane->locks = array();
     $pane->uuid = '0c125b31-0ad3-444a-ae4e-af937903307c';
     $display->content['new-0c125b31-0ad3-444a-ae4e-af937903307c'] = $pane;
-    $display->panels['grid-D'][0] = 'new-0c125b31-0ad3-444a-ae4e-af937903307c';
+    $display->panels['grid-C'][0] = 'new-0c125b31-0ad3-444a-ae4e-af937903307c';
+    $pane = new stdClass();
+    $pane->pid = 'new-607c8a23-4b59-490e-bf2b-8942e911894d';
+    $pane->panel = 'grid-D';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '14',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'teaser',
+      'link_node_title' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'color-grid-item-small',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '607c8a23-4b59-490e-bf2b-8942e911894d';
+    $display->content['new-607c8a23-4b59-490e-bf2b-8942e911894d'] = $pane;
+    $display->panels['grid-D'][0] = 'new-607c8a23-4b59-490e-bf2b-8942e911894d';
     $pane = new stdClass();
     $pane->pid = 'new-d233c601-7593-4bce-af45-d3d42dbd8c2b';
     $pane->panel = 'loc-desc';

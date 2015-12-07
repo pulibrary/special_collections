@@ -10,40 +10,7 @@
 function rbsc_forms_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'comment-comment_node_web_form-comment_body'
-  $field_instances['comment-comment_node_web_form-comment_body'] = array(
-    'bundle' => 'comment_node_web_form',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'comment',
-    'field_name' => 'comment_body',
-    'label' => 'Comment',
-    'required' => TRUE,
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance: 'entityform-ask_a_question-field_email'
+  // Exported field_instance: 'entityform-ask_a_question-field_email'.
   $field_instances['entityform-ask_a_question-field_email'] = array(
     'bundle' => 'ask_a_question',
     'default_value' => NULL,
@@ -76,7 +43,7 @@ function rbsc_forms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-ask_a_question-field_question'
+  // Exported field_instance: 'entityform-ask_a_question-field_question'.
   $field_instances['entityform-ask_a_question-field_question'] = array(
     'bundle' => 'ask_a_question',
     'default_value' => NULL,
@@ -110,7 +77,8 @@ function rbsc_forms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-rights_and_permissions-field_submitter_images'
+  // Exported field_instance:
+  // 'entityform-rights_and_permissions-field_submitter_images'.
   $field_instances['entityform-rights_and_permissions-field_submitter_images'] = array(
     'bundle' => 'rights_and_permissions',
     'deleted' => 0,
@@ -168,7 +136,8 @@ function rbsc_forms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-rights_and_permissions-field_submitter_name'
+  // Exported field_instance:
+  // 'entityform-rights_and_permissions-field_submitter_name'.
   $field_instances['entityform-rights_and_permissions-field_submitter_name'] = array(
     'bundle' => 'rights_and_permissions',
     'default_value' => NULL,
@@ -202,7 +171,7 @@ function rbsc_forms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-web_form-body'
+  // Exported field_instance: 'node-web_form-body'.
   $field_instances['node-web_form-body'] = array(
     'bundle' => 'web_form',
     'default_value' => NULL,
@@ -267,7 +236,7 @@ function rbsc_forms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-web_form-field_cover_image'
+  // Exported field_instance: 'node-web_form-field_cover_image'.
   $field_instances['node-web_form-field_cover_image'] = array(
     'bundle' => 'web_form',
     'deleted' => 0,
@@ -375,7 +344,7 @@ function rbsc_forms_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-web_form-field_web_form'
+  // Exported field_instance: 'node-web_form-field_web_form'.
   $field_instances['node-web_form-field_web_form'] = array(
     'bundle' => 'web_form',
     'default_value' => NULL,
@@ -442,7 +411,6 @@ function rbsc_forms_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
-  t('Comment');
   t('Cover Image');
   t('Email');
   t('Please select a web form to use.');

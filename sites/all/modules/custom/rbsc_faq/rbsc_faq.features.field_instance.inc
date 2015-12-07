@@ -10,7 +10,7 @@
 function rbsc_faq_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-faq-field_faqtags'
+  // Exported field_instance: 'node-faq-field_faqtags'.
   $field_instances['node-faq-field_faqtags'] = array(
     'bundle' => 'faq',
     'default_value' => array(),
@@ -56,7 +56,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_libanswers_faq_id'
+  // Exported field_instance: 'node-faq-field_libanswers_faq_id'.
   $field_instances['node-faq-field_libanswers_faq_id'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -65,15 +65,9 @@ function rbsc_faq_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 5,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -108,7 +102,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_libanswers_group_id'
+  // Exported field_instance: 'node-faq-field_libanswers_group_id'.
   $field_instances['node-faq-field_libanswers_group_id'] = array(
     'bundle' => 'faq',
     'default_value' => array(
@@ -121,15 +115,9 @@ function rbsc_faq_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 6,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -164,7 +152,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_rbsc_faq_answer'
+  // Exported field_instance: 'node-faq-field_rbsc_faq_answer'.
   $field_instances['node-faq-field_rbsc_faq_answer'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -210,7 +198,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_rbsc_faq_question'
+  // Exported field_instance: 'node-faq-field_rbsc_faq_question'.
   $field_instances['node-faq-field_rbsc_faq_question'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -256,7 +244,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_sort_weight'
+  // Exported field_instance: 'node-faq-field_sort_weight'.
   $field_instances['node-faq-field_sort_weight'] = array(
     'bundle' => 'faq',
     'default_value' => array(
@@ -271,7 +259,7 @@ function rbsc_faq_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 9,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -306,7 +294,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_total_hits'
+  // Exported field_instance: 'node-faq-field_total_hits'.
   $field_instances['node-faq-field_total_hits'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -315,15 +303,9 @@ function rbsc_faq_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 7,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -358,7 +340,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_update_note'
+  // Exported field_instance: 'node-faq-field_update_note'.
   $field_instances['node-faq-field_update_note'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -367,9 +349,8 @@ function rbsc_faq_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 3,
       ),
       'double_feature' => array(
@@ -404,7 +385,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_votes_yes'
+  // Exported field_instance: 'node-faq-field_votes_yes'.
   $field_instances['node-faq-field_votes_yes'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -413,15 +394,9 @@ function rbsc_faq_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 8,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -456,7 +431,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-faq-field_votest_no'
+  // Exported field_instance: 'node-faq-field_votest_no'.
   $field_instances['node-faq-field_votest_no'] = array(
     'bundle' => 'faq',
     'default_value' => NULL,
@@ -465,15 +440,9 @@ function rbsc_faq_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 9,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'double_feature' => array(
         'label' => 'above',
@@ -508,7 +477,7 @@ function rbsc_faq_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-faq_topics-synonyms_synonyms'
+  // Exported field_instance: 'taxonomy_term-faq_topics-synonyms_synonyms'.
   $field_instances['taxonomy_term-faq_topics-synonyms_synonyms'] = array(
     'bundle' => 'faq_topics',
     'default_value' => NULL,

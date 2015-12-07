@@ -17,7 +17,7 @@ function exhibitions_list_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 1;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Exhibition',
     'no_blocks' => 1,
@@ -249,7 +249,7 @@ function exhibitions_list_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 2;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'External Exhibition',
     'no_blocks' => 1,
@@ -425,7 +425,7 @@ exhibitions',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 4;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Exhibitions',
     'no_blocks' => 0,

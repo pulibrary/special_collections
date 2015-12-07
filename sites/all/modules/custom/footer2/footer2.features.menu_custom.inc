@@ -37,6 +37,5 @@ function footer2_menu_default_menu_custom() {
   t('Services (Footer)');
   t('These are RBSC Services that are listed in the footer.');
 
-
   return $menus;
 }
