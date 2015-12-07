@@ -28,7 +28,6 @@ features[field_base][] = field_question
 features[field_base][] = field_submitter_images
 features[field_base][] = field_submitter_name
 features[field_base][] = field_web_form
-features[field_instance][] = comment-comment_node_web_form-comment_body
 features[field_instance][] = entityform-ask_a_question-field_email
 features[field_instance][] = entityform-ask_a_question-field_question
 features[field_instance][] = entityform-rights_and_permissions-field_submitter_images

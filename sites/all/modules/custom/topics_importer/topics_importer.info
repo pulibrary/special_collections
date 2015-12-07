@@ -8,6 +8,7 @@ dependencies[] = ctools
 dependencies[] = features
 dependencies[] = feeds
 dependencies[] = feeds_tamper
+dependencies[] = feeds_xpathparser
 dependencies[] = image
 dependencies[] = strongarm
 features[ctools][] = feeds:feeds_importer_default:1

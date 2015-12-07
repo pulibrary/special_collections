@@ -24,6 +24,8 @@ function topics_importer_feeds_importer_default() {
         'use_pubsubhubbub' => FALSE,
         'designated_hub' => '',
         'request_timeout' => NULL,
+        'auto_scheme' => 'http',
+        'accept_invalid_cert' => FALSE,
       ),
     ),
     'parser' => array(
@@ -82,7 +84,7 @@ function topics_importer_feeds_importer_default() {
           ),
           3 => array(
             'source' => 'xpathparser:3',
-            'target' => 'field_collection_strength_image',
+            'target' => 'field_collection_strength_image:uri',
             'unique' => FALSE,
           ),
           4 => array(
@@ -95,6 +97,7 @@ function topics_importer_feeds_importer_default() {
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
         'bundle' => 'collection_strength',
+        'update_non_existent' => 'skip',
       ),
     ),
     'content_type' => 'topics_importer',

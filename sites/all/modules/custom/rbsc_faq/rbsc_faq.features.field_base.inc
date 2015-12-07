@@ -10,7 +10,7 @@
 function rbsc_faq_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_faqtags'
+  // Exported field_base: 'field_faqtags'.
   $field_bases['field_faqtags'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -36,7 +36,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_libanswers_faq_id'
+  // Exported field_base: 'field_libanswers_faq_id'.
   $field_bases['field_libanswers_faq_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -51,7 +51,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_libanswers_group_id'
+  // Exported field_base: 'field_libanswers_group_id'.
   $field_bases['field_libanswers_group_id'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -66,7 +66,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_rbsc_faq_answer'
+  // Exported field_base: 'field_rbsc_faq_answer'.
   $field_bases['field_rbsc_faq_answer'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -85,7 +85,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_rbsc_faq_question'
+  // Exported field_base: 'field_rbsc_faq_question'.
   $field_bases['field_rbsc_faq_question'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -104,7 +104,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_sort_weight'
+  // Exported field_base: 'field_sort_weight'.
   $field_bases['field_sort_weight'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -119,7 +119,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_total_hits'
+  // Exported field_base: 'field_total_hits'.
   $field_bases['field_total_hits'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -134,7 +134,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_update_note'
+  // Exported field_base: 'field_update_note'.
   $field_bases['field_update_note'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -153,7 +153,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_votes_yes'
+  // Exported field_base: 'field_votes_yes'.
   $field_bases['field_votes_yes'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -168,7 +168,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_votest_no'
+  // Exported field_base: 'field_votest_no'.
   $field_bases['field_votest_no'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -183,7 +183,7 @@ function rbsc_faq_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'synonyms_synonyms'
+  // Exported field_base: 'synonyms_synonyms'.
   $field_bases['synonyms_synonyms'] = array(
     'active' => 1,
     'cardinality' => -1,

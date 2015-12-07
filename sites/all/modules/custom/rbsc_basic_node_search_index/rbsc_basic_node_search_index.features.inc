@@ -133,7 +133,6 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         "body:summary" : { "type" : "text" },
         "body:value" : { "type" : "text" },
         "changed" : { "type" : "date" },
-        "comment_count" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "field_author" : {
           "type" : "list\\u003Cinteger\\u003E",

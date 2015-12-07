@@ -10,7 +10,7 @@
 function rbsc_forms_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'comment_body'
+  // Exported field_base: 'comment_body'.
   $field_bases['comment_body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function rbsc_forms_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_email'
+  // Exported field_base: 'field_email'.
   $field_bases['field_email'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -46,7 +46,7 @@ function rbsc_forms_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_question'
+  // Exported field_base: 'field_question'.
   $field_bases['field_question'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -65,7 +65,7 @@ function rbsc_forms_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_submitter_images'
+  // Exported field_base: 'field_submitter_images'.
   $field_bases['field_submitter_images'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -87,7 +87,7 @@ function rbsc_forms_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_submitter_name'
+  // Exported field_base: 'field_submitter_name'.
   $field_bases['field_submitter_name'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -108,7 +108,7 @@ function rbsc_forms_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_web_form'
+  // Exported field_base: 'field_web_form'.
   $field_bases['field_web_form'] = array(
     'active' => 1,
     'cardinality' => 1,
