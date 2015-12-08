@@ -15,7 +15,7 @@ var reload = browserSync.reload;
 var del = require('del');
 
 // Load linters
-var scsslint = require('gulp-scss-lint');
+var scsslint = require('gulp-sass-lint');
 
 // Load runSequence to run multiple tasks in a series (synchronously)
 // Gulp 4 will have this native, we need to use an external module for now
@@ -66,10 +66,8 @@ gulp.task('styles', function(){
  */
 gulp.task('lint:scss', function() {
   return gulp.src(config.styles.files)
-    .pipe(scsslint({
-      config: 'scss-lint.yml'
-      // endless: true
-    }));
+    .pipe(scsslint())
+    .pipe(scsslint.format())
 });
 
 /**
