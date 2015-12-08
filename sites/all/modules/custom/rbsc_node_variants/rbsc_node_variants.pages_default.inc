@@ -3381,6 +3381,8 @@ services-policies
       'right' => NULL,
       'bottom' => NULL,
       'left' => NULL,
+      'first' => NULL,
+      'second' => NULL,
     ),
     'left' => array(
       'style' => 'naked',
@@ -3396,7 +3398,7 @@ services-policies
     $pane->panel = 'first';
     $pane->type = 'block';
     $pane->subtype = 'menu-menu-conducting-research';
-    $pane->shown = FALSE;
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 0,
@@ -3512,6 +3514,8 @@ research-account-registration',
       'right' => NULL,
       'bottom' => NULL,
       'left' => NULL,
+      'first' => NULL,
+      'second' => NULL,
     ),
     'left' => array(
       'style' => 'naked',
@@ -3523,8 +3527,31 @@ research-account-registration',
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-6d511269-234f-4569-81fe-f7b61a35b17c';
+    $pane->pid = 'new-97bdf040-c9ee-4e22-8626-6fa6723e6a58';
     $pane->panel = 'first';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-conducting-research';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '97bdf040-c9ee-4e22-8626-6fa6723e6a58';
+    $display->content['new-97bdf040-c9ee-4e22-8626-6fa6723e6a58'] = $pane;
+    $display->panels['first'][0] = 'new-97bdf040-c9ee-4e22-8626-6fa6723e6a58';
+    $pane = new stdClass();
+    $pane->pid = 'new-6d511269-234f-4569-81fe-f7b61a35b17c';
+    $pane->panel = 'second';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_cover_image';
     $pane->shown = TRUE;
@@ -3554,10 +3581,10 @@ research-account-registration',
     $pane->locks = array();
     $pane->uuid = '6d511269-234f-4569-81fe-f7b61a35b17c';
     $display->content['new-6d511269-234f-4569-81fe-f7b61a35b17c'] = $pane;
-    $display->panels['first'][0] = 'new-6d511269-234f-4569-81fe-f7b61a35b17c';
+    $display->panels['second'][0] = 'new-6d511269-234f-4569-81fe-f7b61a35b17c';
     $pane = new stdClass();
     $pane->pid = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
-    $pane->panel = 'first';
+    $pane->panel = 'second';
     $pane->type = 'node_body';
     $pane->subtype = 'node_body';
     $pane->shown = TRUE;
@@ -3580,7 +3607,7 @@ research-account-registration',
     $pane->locks = array();
     $pane->uuid = 'acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
     $display->content['new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1'] = $pane;
-    $display->panels['first'][1] = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
+    $display->panels['second'][1] = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
