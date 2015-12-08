@@ -85,9 +85,9 @@ gulp.task('lint:scss', function() {
 gulp.task('scripts', function(){
   gulp.src(config.scripts.files)
     .pipe(p.sourcemaps.init())
-    .pipe(p.concat('scripts.js'))
+    .pipe(p.concat('pul-base.scripts.js'))
     .pipe(p.uglify({preserveComments: 'some'}))
-    .pipe(p.rename('scripts.min.js'))
+    .pipe(p.rename('pul-base.scripts.min.js'))
     .pipe(p.sourcemaps.write('.'))
     .pipe(gulp.dest(config.scripts.dest))
     .pipe(reload({stream:true}));

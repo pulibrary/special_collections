@@ -1,7 +1,7 @@
 # Default application configuration that all configurations inherit from.
 
 scss_files: "**/*.scss"
-exclude: ["source/assets/styles/refactor/**", "source/assets/styles/vendor/**"]
+exclude: ["assets/source/styles/refactor/**", "assets/source/styles/vendor/**"]
 
 plugin_directories: ['.scss-linters']
 

@@ -1,53 +1,37 @@
 {
-  "root": "./public",
+  "root": "./assets/public",
   "assets": {
-    "base": "source/assets/",
-    "dest": "./"
+    "base": "assets/source",
+    "dest": "assets/public"
   },
   "scripts": {
-    "base"  : "source/assets/scripts/",
-    "vendor": "source/assets/scripts/vendor/**/*.js",
+    "base"  : "assets/source/scripts/",
+    "vendor": "assets/source/scripts/vendor/**/*.js",
     "files" : [
-      "source/assets/scripts/**/*.js",
-      "!source/assets/scripts/vendor/*"
+      "assets/source/scripts/**/*.js",
+      "!assets/source/scripts/vendor/*"
     ],
-    "dest"  : "./scripts/"
-  },
-  "components": {
-    "base": "source/assets/components/"
+    "dest"  : "assets/public/scripts"
   },
   "styles": {
-    "base" : "source/assets/styles/",
+    "base" : "assets/source/styles/",
     "files": [
-      "source/assets/styles/**/*.scss"
+      "assets/source/styles/**/*.scss"
     ],
-    "dest" : "./styles/"
+    "dest" : "assets/public/styles/"
   },
   "fonts": {
-    "base" : "source/assets/fonts/",
+    "base" : "assets/source/fonts/",
     "files": [
-      "source/assets/fonts/**/*"
+      "assets/source/fonts/**/*"
     ],
-    "dest" : "./fonts/"
+    "dest" : "assets/public/fonts/"
   },
   "images": {
-    "base" : "source/assets/images/",
+    "base" : "assets/source/images/",
     "files": [
-      "source/assets/images/**/*"
+      "assets/source/images/**/*"
     ],
-    "dest" : "./images/"
-  },
-  "patternlab": {
-    "styleguide": {
-      "files": [
-        "core/styleguide/**"
-      ],
-      "dest": "./styleguide/"
-    },
-    "files": [
-      "source/_patterns/**/*.mustache",
-      "source/_patterns/**/*.json",
-      "source/_data/*.json"
-    ]
+    "dest" : "assets/public/images/"
   }
 }
