@@ -1,16 +1,46 @@
 {
-  "name": "rbsc",
+  "name": "pul_patternlab",
   "version": "1.0.0",
+  "description": "",
+  "main": "gulp.js",
   "scripts": {
-    "sass:dev": "./node_modules/.bin/gulp",
-    "sass:prod": "./node_modules/.bin/gulp sass:prod"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pulibrary/pul_patternlab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pulibrary/pul_patternlab/issues"
+  },
+  "homepage": "https://github.com/pulibrary/pul_patternlab#readme",
   "devDependencies": {
+    "bourbon": "^4.2.6",
+    "breakpoint-sass": "^2.6.1",
+    "browser-sync": "^2.10.0",
+    "del": "^2.1.0",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-sass": "^2.0.4",
-    "gulp-sourcemaps": "^1.5.2",
-    "gulp-watch": "^4.3.3"
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "gulp-scss-lint": "^0.3.8",
+    "gulp-shell": "^0.5.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
+    "node-normalize-scss": "^1.0.3",
+    "normalize-scss": "^4.0.3",
+    "run-sequence": "^1.1.5",
+    "susy": "^2.2.6"
+  },
+  "scripts": {
+    "postinstall": "find node_modules/ -name '*.info' -type f -delete"
   }
 }

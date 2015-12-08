@@ -1,6 +1,6 @@
-name = rbsc
+name = RBSC
 description = Please provide a description for your theme.
-base theme = omega
+base theme = pul_base
 screenshot = screenshot.png
 engine = phptemplate
 core = 7.x
@@ -8,13 +8,12 @@ core = 7.x
 ; ========================================
 ; Stylesheets
 ; ========================================
-stylesheets[all][] = css/rbsc.reset.css
-stylesheets[all][] = css/rbsc.styles.css
+stylesheets[all][] = assets/public/styles/rbsc.styles.min.css
 
 ; ========================================
 ; Scripts
 ; ========================================
-scripts[] = js/rbsc.behaviors.js
+scripts[] = assets/public/scripts/rbsc.scripts.js
 
 ; ========================================
 ; Regions
