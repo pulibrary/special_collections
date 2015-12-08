@@ -1,0 +1,21 @@
+// floating image on left with content wrapping on right
+.media {
+  margin: 10px;
+}
+
+.media,
+.copy {
+  overflow: hidden;
+  zoom: 1;
+}
+
+.media .copy p {
+  margin: 0;
+}
+
+.media img,
+.media .library-news-link {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+}

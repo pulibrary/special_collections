@@ -1,0 +1,42 @@
+.four_five_three_stacked-region--first {
+  .is-Open {
+    display: none;
+  }
+}
+
+.front {
+  @include breakpoint($rwd-tables) {
+    .library-hours {
+      td.views-field-field-open-hours {
+        text-align: left;
+      }
+    }
+  }
+
+  .library-hours {
+    table {
+      margin-bottom: 1em;
+    }
+
+    tr.even {
+      background: none;
+    }
+
+    tr.odd > td {
+      background: $gray-lightest;
+    }
+
+    td.views-field-title {
+      white-space: nowrap;
+      width: 60%;
+    }
+
+    td.views-field-field-open-hours {
+      text-align: right;
+    }
+  }
+}
+
+.pane-library-hours-panel-pane-2 .view-library-hours .views-field-field-open-hours {
+  text-align: right;
+}
