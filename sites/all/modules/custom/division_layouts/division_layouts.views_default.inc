@@ -793,7 +793,7 @@ function division_layouts_views_default_views() {
   /* Display: Divison Collection Strengths */
   $handler = $view->new_display('panel_pane', 'Divison Collection Strengths', 'panel_pane_1');
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Book: Weight */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'book_menu_links';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';

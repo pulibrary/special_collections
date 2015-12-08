@@ -5,6 +5,7 @@ package = RBSC
 version = 7.x-1.2-dev
 project = division_layouts
 dependencies[] = ctools
+dependencies[] = databases
 dependencies[] = division_feeds
 dependencies[] = front_page
 dependencies[] = image

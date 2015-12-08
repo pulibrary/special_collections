@@ -52,7 +52,7 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_threecol_stacked';
+  $display->layout = 'pul-base-four-four-four-stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -95,7 +95,7 @@ function rbsc_basic_find_all_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-33fca980-0474-4bf8-9f2b-a7fba113e19b';
-    $pane->panel = 'left';
+    $pane->panel = 'first';
     $pane->type = 'block';
     $pane->subtype = 'allsearch_block-allsearch_catalog_results';
     $pane->shown = TRUE;
@@ -114,10 +114,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '33fca980-0474-4bf8-9f2b-a7fba113e19b';
     $display->content['new-33fca980-0474-4bf8-9f2b-a7fba113e19b'] = $pane;
-    $display->panels['left'][0] = 'new-33fca980-0474-4bf8-9f2b-a7fba113e19b';
+    $display->panels['first'][0] = 'new-33fca980-0474-4bf8-9f2b-a7fba113e19b';
     $pane = new stdClass();
     $pane->pid = 'new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
-    $pane->panel = 'middle';
+    $pane->panel = 'second';
     $pane->type = 'block';
     $pane->subtype = 'allsearch_block-allsearch_pulfa_results';
     $pane->shown = TRUE;
@@ -136,10 +136,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
     $display->content['new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44'] = $pane;
-    $display->panels['middle'][0] = 'new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
+    $display->panels['second'][0] = 'new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
     $pane = new stdClass();
     $pane->pid = 'new-f569005e-1227-43b6-a27a-1c88e437fe67';
-    $pane->panel = 'middle';
+    $pane->panel = 'second';
     $pane->type = 'block';
     $pane->subtype = 'allsearch_block-allsearch_pudl_results';
     $pane->shown = TRUE;
@@ -158,10 +158,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'f569005e-1227-43b6-a27a-1c88e437fe67';
     $display->content['new-f569005e-1227-43b6-a27a-1c88e437fe67'] = $pane;
-    $display->panels['middle'][1] = 'new-f569005e-1227-43b6-a27a-1c88e437fe67';
+    $display->panels['second'][1] = 'new-f569005e-1227-43b6-a27a-1c88e437fe67';
     $pane = new stdClass();
     $pane->pid = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
-    $pane->panel = 'right';
+    $pane->panel = 'third';
     $pane->type = 'views_panes';
     $pane->subtype = 'rbsc_basic_node_search-panel_pane_1';
     $pane->shown = TRUE;
@@ -180,10 +180,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '195df564-b077-4925-9bf0-2cd6dc9603bf';
     $display->content['new-195df564-b077-4925-9bf0-2cd6dc9603bf'] = $pane;
-    $display->panels['right'][0] = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
+    $display->panels['third'][0] = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
     $pane = new stdClass();
     $pane->pid = 'new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
-    $pane->panel = 'right';
+    $pane->panel = 'third';
     $pane->type = 'views_panes';
     $pane->subtype = 'blog_search-panel_pane_2';
     $pane->shown = TRUE;
@@ -199,10 +199,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'd58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
     $display->content['new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b'] = $pane;
-    $display->panels['right'][1] = 'new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
+    $display->panels['third'][1] = 'new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
     $pane = new stdClass();
     $pane->pid = 'new-8b216e91-9307-464f-a5dd-0cc0d8d565cb';
-    $pane->panel = 'right';
+    $pane->panel = 'third';
     $pane->type = 'views_panes';
     $pane->subtype = 'topics_search-panel_pane_1';
     $pane->shown = FALSE;
@@ -218,10 +218,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '8b216e91-9307-464f-a5dd-0cc0d8d565cb';
     $display->content['new-8b216e91-9307-464f-a5dd-0cc0d8d565cb'] = $pane;
-    $display->panels['right'][2] = 'new-8b216e91-9307-464f-a5dd-0cc0d8d565cb';
+    $display->panels['third'][2] = 'new-8b216e91-9307-464f-a5dd-0cc0d8d565cb';
     $pane = new stdClass();
     $pane->pid = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
-    $pane->panel = 'right';
+    $pane->panel = 'third';
     $pane->type = 'block';
     $pane->subtype = 'facetapi-zIH8EsYFkvWKeMtTZTGLEm1GrYlAarmk';
     $pane->shown = FALSE;
@@ -240,7 +240,7 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'd19eecce-dc83-4bc1-85f5-37631e31121e';
     $display->content['new-d19eecce-dc83-4bc1-85f5-37631e31121e'] = $pane;
-    $display->panels['right'][3] = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
+    $display->panels['third'][3] = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
     $pane = new stdClass();
     $pane->pid = 'new-a6c9677f-190b-492c-8361-85dd52325230';
     $pane->panel = 'top';
