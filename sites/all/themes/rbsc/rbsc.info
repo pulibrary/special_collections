@@ -1,5 +1,5 @@
 name = RBSC
-description = Please provide a description for your theme.
+description = RBSC Sub-theme running on PUL Base.
 base theme = pul_base
 screenshot = screenshot.png
 engine = phptemplate
