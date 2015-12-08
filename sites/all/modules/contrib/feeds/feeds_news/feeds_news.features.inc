@@ -11,6 +11,9 @@ function feeds_news_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "feeds" && $api == "feeds_importer_default") {
     return array("version" => "1");
   }
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
 }
 
 /**
@@ -26,7 +29,7 @@ function feeds_news_views_api($module = NULL, $api = NULL) {
 function feeds_news_node_info() {
   $items = array(
     'feed' => array(
-      'name' => t('Feed'),
+      'name' => t('Blog'),
       'base' => 'node_content',
       'description' => t('Subscribe to RSS or Atom feeds. Creates nodes of the content type "Feed item" from feed content.'),
       'has_title' => '1',
@@ -34,7 +37,7 @@ function feeds_news_node_info() {
       'help' => '',
     ),
     'feed_item' => array(
-      'name' => t('Feed item'),
+      'name' => t('Blog Post'),
       'base' => 'node_content',
       'description' => t('This content type is being used for automatically aggregated content from feeds.'),
       'has_title' => '1',
@@ -42,5 +45,6 @@ function feeds_news_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
