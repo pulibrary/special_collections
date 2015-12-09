@@ -1,21 +1,37 @@
 .menu-grid .six_six_stacked-region--top {
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px solid $gray-lightest;
   padding: 0.5em 0 1.5em;
 }
 
 .menu-grid .six_six_stacked-region--top .panel-pane {
-  @include span(3);
+  @include span(6);
+
+  @include breakpoint($tab) {
+    @include span(3);
+  }
 
   margin-top: 1.5em;
   position: relative;
 
   &:first-child {
-    @include span(first 6 of 12);
+    @include full;
+
+    @include breakpoint($tab) {
+      @include span(first 6 of 12);
+    }
   }
 
-  &:nth-child(3),
-  &:nth-child(7) {
-    @include span(last 3);
+  @include breakpoint($maxtab) {
+    &:nth-child(2n+3) {
+      @include span(last 6);
+    }
+  }
+
+  @include breakpoint($tab) {
+    &:nth-child(3),
+    &:nth-child(7) {
+      @include span(last 3);
+    }
   }
 }
 
