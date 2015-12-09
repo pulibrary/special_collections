@@ -1,0 +1,24 @@
+@media all and (max-width: 800px) {
+  .logged-in .toolbar {
+    display: none; }
+  html body.toolbar,
+  html body.admin-menu {
+    margin-top: 0;
+    padding-top: 0; } }
+
+.summary-count {
+  display: none; }
+
+.subject-landing-page .views-row .field--name-field-dboverride-database article header {
+  display: none; }
+
+span.icon-article-express--small-after {
+  font-size: 0.75em; }
+
+span.icon-article-express--small-after:before {
+  content: " "; }
+
+h1.icon-article-express--small-after:after {
+  font-size: 0.75em; }
+
+/*# sourceMappingURL=shame.css.map */
