@@ -357,6 +357,9 @@ th {
 .node__content img {
   margin: 0; }
 
+body {
+  font-family: "Lora", serif; }
+
 h1,
 h2,
 h3,
@@ -365,11 +368,15 @@ h5,
 h6 {
   font-family: "Muli", sans-serif; }
 
+.menu-grid .six_six_stacked-region--top {
+  border-bottom: 1px solid #e0ddd3;
+  padding: 0.5em 0 1.5em; }
+
 .menu-grid .six_six_stacked-region--top .panel-pane {
   width: 23.40426%;
   float: left;
   margin-right: 2.12766%;
-  margin-top: 1.7em;
+  margin-top: 1.5em;
   position: relative; }
   .menu-grid .six_six_stacked-region--top .panel-pane:first-child {
     width: 48.93617%;
@@ -413,5 +420,11 @@ h6 {
     opacity: 0.6;
     transition: all 0.1s linear;
     width: 100%; }
+
+.six_six_stacked-region--second .media {
+  border-radius: 6px;
+  padding: 0.75em; }
+  .six_six_stacked-region--second .media:nth-child(odd) {
+    background: #f5f4f1; }
 
 /*# sourceMappingURL=rbsc.styles.css.map */

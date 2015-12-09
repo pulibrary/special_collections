@@ -3839,15 +3839,13 @@ and also iPads specifically.
   .page-research-databases-search .pul_base_nine_three-region--first ul li {
     margin-bottom: 0; }
 
-.media {
-  margin: 10px; }
-
 .media,
 .copy {
   overflow: hidden;
   zoom: 1; }
 
-.media .copy p {
+.media .copy p,
+.media .copy h4 {
   margin: 0; }
 
 .media img,
