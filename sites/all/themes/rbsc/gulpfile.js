@@ -53,8 +53,8 @@ gulp.task('styles', function(){
     .pipe(p.autoprefixer({
       browsers: ['last 2 versions']
     }))
-    .pipe(p.cssmin())
-    .pipe(p.rename({suffix: '.min'}))
+    // .pipe(p.cssmin())
+    // .pipe(p.rename({suffix: '.min'}))
     .pipe(p.sourcemaps.write('.'))
     .pipe(gulp.dest(config.styles.dest))
     .pipe(reload({stream:true}));
@@ -84,8 +84,8 @@ gulp.task('scripts', function(){
   gulp.src(config.scripts.files)
     .pipe(p.sourcemaps.init())
     .pipe(p.concat('rbsc.scripts.js'))
-    .pipe(p.uglify({preserveComments: 'some'}))
-    .pipe(p.rename('rbsc.scripts.min.js'))
+    // .pipe(p.uglify({preserveComments: 'some'}))
+    // .pipe(p.rename('rbsc.scripts.min.js'))
     .pipe(p.sourcemaps.write('.'))
     .pipe(gulp.dest(config.scripts.dest))
     .pipe(reload({stream:true}));
@@ -172,7 +172,7 @@ gulp.task('styleguide', function(){
  * Clear all caches for drupal 7 sites
  */
 gulp.task('clearcache', function() {
-  return shell.task([
+  return p.shell.task([
    'drush cc all'
   ]);
 });
