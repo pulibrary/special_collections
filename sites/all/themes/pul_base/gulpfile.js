@@ -15,7 +15,7 @@ var reload = browserSync.reload;
 var del = require('del');
 
 // Load linters
-var scsslint = require('gulp-scss-lint');
+var scsslint = require('gulp-sass-lint');
 
 // Load runSequence to run multiple tasks in a series (synchronously)
 // Gulp 4 will have this native, we need to use an external module for now
@@ -53,8 +53,8 @@ gulp.task('styles', function(){
     .pipe(p.autoprefixer({
       browsers: ['last 2 versions']
     }))
-    .pipe(p.cssmin())
-    .pipe(p.rename({suffix: '.min'}))
+    // .pipe(p.cssmin())
+    // .pipe(p.rename({suffix: '.min'}))
     .pipe(p.sourcemaps.write('.'))
     .pipe(gulp.dest(config.styles.dest))
     .pipe(reload({stream:true}));
@@ -66,10 +66,8 @@ gulp.task('styles', function(){
  */
 gulp.task('lint:scss', function() {
   return gulp.src(config.styles.files)
-    .pipe(scsslint({
-      config: 'scss-lint.yml'
-      // endless: true
-    }));
+    .pipe(scsslint())
+    .pipe(scsslint.format())
 });
 
 /**
@@ -86,8 +84,8 @@ gulp.task('scripts', function(){
   gulp.src(config.scripts.files)
     .pipe(p.sourcemaps.init())
     .pipe(p.concat('pul-base.scripts.js'))
-    .pipe(p.uglify({preserveComments: 'some'}))
-    .pipe(p.rename('pul-base.scripts.min.js'))
+    // .pipe(p.uglify({preserveComments: 'some'}))
+    // .pipe(p.rename('pul-base.scripts.min.js'))
     .pipe(p.sourcemaps.write('.'))
     .pipe(gulp.dest(config.scripts.dest))
     .pipe(reload({stream:true}));
@@ -170,6 +168,51 @@ gulp.task('styleguide', function(){
 });
 
 /**
+ * Gulp task: clearcache
+ * Clear all caches for drupal 7 sites
+ */
+gulp.task('clearcache', function() {
+  return shell.task([
+   'drush cc all'
+  ]);
+});
+
+/**
+ * Gulp task: reload
+ * Refresh the page after clearing cache for drupal 7 sites
+ */
+gulp.task('reload', ['clearcache'], function () {
+  browserSync.reload();
+});
+
+/**
+ * Gulp task: watch4drupal
+ * Watch scss files for changes & recompile
+ * Clear cache when Drupal related files are changed
+ */
+gulp.task('watch4drupal', function () {
+  gulp.watch(['assets/source/styles/*.scss', 'assets/source/styles/**/*.scss'], ['styles']);
+  gulp.watch('**/*.{php,inc,info}',['reload']);
+});
+
+/**
+ * Launch BrowserSync for drupal 7 sites
+ */
+ gulp.task('browser-sync4drupal', ['styles'], function() {
+ browserSync.init({
+   // Change as required
+   proxy: "rbsc-local.princeton.edu",
+   socket: {
+       // For local development only use the default Browsersync local URL.
+       domain: 'localhost:3000'
+       // For external development (e.g on a mobile or tablet) use an external URL.
+       // You will need to update this to whatever BS tells you is the external URL when you run Gulp.
+       //domain: '192.168.0.13:3000'
+   }
+ });
+});
+
+/**
  * Gulp task: default
  * Builds Pattern Lab, triggers BrowserSync, builds all assets, and starts the
  * watcher
@@ -178,9 +221,8 @@ gulp.task('default', function(callback){
   runSequence(
     'clean',
     ['lint:scss'],
-    // ['patternlab', 'styleguide'],
     ['styles', 'scripts'],
     ['fonts', 'images'],
-    // ['browser-sync', 'watch'],
+    ['browser-sync4drupal', 'watch4drupal'],
     callback);
 });

@@ -71,24 +71,24 @@ $ph-styles: (
   padding: 0
 );
 
-@mixin placeholder-theme($styles) {
-  @each $pseudo in $pseudo-phprefix {
+// @mixin placeholder-theme($styles) {
+//   @each $pseudo in $pseudo-phprefix {
 
-    @at-root #{&}#{$pseudo} {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
+//     @at-root #{&}#{$pseudo} {
+//       @each $key, $value in $styles {
+//         #{$key}: #{$value};
+//       }
+//     }
 
-  }
-}
+//   }
+// }
 
-@mixin placeholder {
-  @each $pseudo in $pseudo-phprefix {
+// @mixin placeholder {
+//   @each $pseudo in $pseudo-phprefix {
 
-    @at-root #{&}#{$pseudo} {
-      @content
-    }
+//     @at-root #{&}#{$pseudo} {
+//       @content
+//     }
 
-  }
-}
+//   }
+// }
