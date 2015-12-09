@@ -13,7 +13,7 @@ stylesheets[all][] = assets/public/styles/rbsc.styles.css
 ; ========================================
 ; Scripts
 ; ========================================
-scripts[] = assets/public/scripts/rbsc.scripts.min.js
+scripts[] = assets/public/scripts/rbsc.scripts.js
 
 ; ========================================
 ; Regions
