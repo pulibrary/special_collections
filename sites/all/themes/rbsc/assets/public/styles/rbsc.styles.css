@@ -513,10 +513,12 @@ h6 {
 .menu-grid .landingpage-region--second > .panel-pane .field__item img {
   max-height: 130px; }
 
-.six_six_stacked-region--second .media {
+.six_six_stacked-region--second .media,
+.landingpage-region--fourth .media {
   border-radius: 6px;
   padding: 0.75em; }
-  .six_six_stacked-region--second .media:nth-child(odd) {
+  .six_six_stacked-region--second .media:nth-child(odd),
+  .landingpage-region--fourth .media:nth-child(odd) {
     background: #f5f4f1; }
 
 /*# sourceMappingURL=rbsc.styles.css.map */
