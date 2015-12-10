@@ -6,12 +6,22 @@
 .menu-grid .six_six_stacked-region--top .panel-pane {
   @include span(6);
 
-  @include breakpoint($tab) {
-    @include span(3);
+  margin-top: 0.1em;
+  position: relative;
+
+  @include breakpoint($bp-small-2) {
+    margin-top: 0.5em;
   }
 
-  margin-top: 1.5em;
-  position: relative;
+  @include breakpoint($tab) {
+    @include span(3);
+
+    margin-top: 0.7em;
+  }
+
+  @include breakpoint($tab) {
+    margin-top: 1em;
+  }
 
   &:first-child {
     @include full;
@@ -21,7 +31,7 @@
     }
   }
 
-  @include breakpoint($maxtab) {
+  @include breakpoint($max-tab) {
     &:nth-child(2n+3) {
       @include span(last 6);
     }
@@ -36,10 +46,28 @@
 }
 
 .menu-grid .landingpage-region--second > .panel-pane {
-  // @include span(6);
+  &:nth-child(even) {
+    @include span(first 6);
+  }
 
-  margin-top: 1.5em;
+  &:nth-child(odd) {
+    @include span(last 6);
+  }
+
+  margin-top: 0.1em;
   position: relative;
+
+  @include breakpoint($bp-small-2) {
+    margin-top: 0.5em;
+  }
+
+  @include breakpoint($tab) {
+    margin-top: 0.7em;
+  }
+
+  @include breakpoint($tab) {
+    margin-top: 1em;
+  }
 
   &:first-child {
     @include full;
@@ -50,7 +78,7 @@
   }
 
   &:nth-child(2) {
-    @include breakpoint($maxtab) {
+    @include breakpoint($max-tab) {
       @include full;
     }
 
@@ -79,21 +107,47 @@
   }
 }
 
-.menu-grid .landingpage-region--second > .panel-pane {
-  margin-top: 0.75em;
-  position: relative;
-}
-
 .menu-grid .six_six_stacked-region--top .panel-pane,
 .menu-grid .landingpage-region--second > .panel-pane {
   h2 {
-    font-size: 2.5em;
+    font-size: 1.75em;
     left: 10px;
     margin: 0;
+    padding-right: 0.2em;
     position: absolute;
     text-shadow: 2px 2px #333;
     top: 10px;
     z-index: 1;
+  }
+
+  @include breakpoint($bp-small-2) {
+    h2 {
+      font-size: 2em;
+    }
+  }
+
+  @include breakpoint($tab) {
+    h2 {
+      font-size: 1.65em;
+    }
+  }
+
+  @include breakpoint($bp-med-2) {
+    h2 {
+      font-size: 2em;
+    }
+  }
+
+  @include breakpoint($tab-desk) {
+    h2 {
+      font-size: 2.2em;
+    }
+  }
+
+  @include breakpoint($desk) {
+    h2 {
+      font-size: 2.4em;
+    }
   }
 
   h2 a {
@@ -112,9 +166,13 @@
       background: $black;
       border-radius: $global-border-radius;
       display: inline-block;
+      max-height: 130px;
       padding: 0;
-      max-height: 180px;
       width: 100%;
+
+      @include breakpoint($tab) {
+        max-height: 180px;
+      }
     }
 
     a:hover img {
@@ -124,9 +182,14 @@
     img {
       border-radius: $global-border-radius;
       display: block;
+      max-height: 130px;
       opacity: 0.6;
       transition: all 0.1s linear;
       width: 100%;
+
+      @include breakpoint($tab) {
+        max-height: 180px;
+      }
     }
   }
 }
@@ -141,5 +204,9 @@
 
 .menu-grid .landingpage-region--second > .panel-pane .field__item a,
 .menu-grid .landingpage-region--second > .panel-pane .field__item img {
-  max-height: 130px;
+  max-height: 110px;
+
+  @include breakpoint($tab) {
+    max-height: 130px;
+  }
 }

@@ -33,7 +33,25 @@ $red-light: #d89088;
 $font-sans: "Muli", sans-serif;
 $font-serif: "Lora", serif;
 
-$tab: 768px;
-$maxtab: max-width 768px;
+$bp-small: 24em;
+$bp-small-2: 29.75em;
+$bp-small-3: 39.8em;
+$bp-med: 46.8em;
+$bp-med-2: 48em;
+$bp-large: 50em;
+$bp-large-2: 66em;
+$bp-xl: 73em;
+$bp-xxl: 89em;
+$bp-xxxl: 93em;
+
+$max-tab: max-width 44em;
+$max-tab-desk: max-width 54em;
+
+$tab: 44em;
+$tab-desk: 54em;
+$desk: 70em;
+$max-width: 72em;
+
+$rwd-tables: max-width 1000px;
 
 $global-border-radius: 6px;
