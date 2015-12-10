@@ -208,7 +208,10 @@ gulp.task('reload', ['clearcache'], function () {
  * Clear cache when Drupal related files are changed
  */
 gulp.task('watch4drupal', function () {
-  gulp.watch(['assets/source/styles/*.scss', 'assets/source/styles/**/*.scss'], ['styles']);
+  gulp.watch(config.styles.files, ['styles', 'lint:scss']);
+  gulp.watch(config.scripts.files, ['scripts']);
+  gulp.watch(config.images.files, ['images']);
+  gulp.watch(config.fonts.files, ['fonts']);
   gulp.watch('**/*.{php,inc,info}',['reload']);
 });
 

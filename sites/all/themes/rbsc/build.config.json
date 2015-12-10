@@ -16,7 +16,8 @@
   "styles": {
     "base" : "assets/source/styles/",
     "files": [
-      "assets/source/styles/**/*.scss"
+      "assets/source/styles/**/*.scss",
+      "!assets/source/styles/_shame.scss"
     ],
     "dest" : "assets/public/styles/"
   },
