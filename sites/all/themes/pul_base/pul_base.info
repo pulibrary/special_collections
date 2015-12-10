@@ -10,12 +10,12 @@ core = 7.x
 ; ========================================
 stylesheets[all][] = pul_base_icons/style.css
 stylesheets[all][] = pul_base_icons/ie7/ie7.css
-stylesheets[all][] = assets/public/styles/pul-base.styles.css
+stylesheets[all][] = assets/public/styles/pul-base.styles.min.css
 
 ; ========================================
 ; Scripts
 ; ========================================
-scripts[] = assets/public/scripts/pul-base.scripts.js
+scripts[] = assets/public/scripts/pul-base.scripts.min.js
 scripts[] = pul_base_icons/ie7/ie7.js
 
 ; ========================================
