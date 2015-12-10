@@ -356,7 +356,7 @@ th {
 .wrapper--branding {
   background-color: #494f57;
   border-top: 5px solid #e87411;
-  min-height: 50px; }
+  min-height: 75px; }
   .wrapper--branding .site-name {
     display: none; }
 
@@ -407,5 +407,8 @@ th {
   height: 1px;
   width: 1px;
   overflow: hidden; }
+
+.l-region--branding .block--allsearch-block-allsearch-search {
+  float: right; }
 
 /*# sourceMappingURL=rbsc.styles.css.map */

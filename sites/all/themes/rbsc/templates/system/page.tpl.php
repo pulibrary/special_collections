@@ -75,9 +75,9 @@
     <a href="#main-content" class="skip2main"><?php print t('Skip to main content'); ?></a>
     <div class="wrapper wrapper--branding">
       <section class="l-region l-region--branding">
-        <?php if ($logo): ?>
-          <h2><a href="<?php print $front_page; ?>" title="<?php print t('The Deparment of Rare Books and Special Collections - Home'); ?>"  class="site-logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /><span class="site-name"><?php print $site_name; ?></span></a></h2>
-        <?php endif; ?>
+
+        <h2><a href="<?php print $front_page; ?>" title="<?php print t('The Deparment of Rare Books and Special Collections - Home'); ?>"  class="site-logo"><img src="/sites/all/themes/rbsc/assets/public/images/rbsc_logo_white.png" alt="<?php print t('Home'); ?>" /><span class="site-name"><?php print $site_name; ?></span></a></h2>
+
         <?php print render($page['branding']); ?>
       </section>
     </div>
