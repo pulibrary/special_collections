@@ -1,6 +1,6 @@
 // floating image on left with content wrapping on right
 .media {
-  margin: 10px;
+  // margin: 0;
 }
 
 .media,
@@ -9,7 +9,8 @@
   zoom: 1;
 }
 
-.media .copy p {
+.media .copy p,
+.media .copy h4 {
   margin: 0;
 }
 
