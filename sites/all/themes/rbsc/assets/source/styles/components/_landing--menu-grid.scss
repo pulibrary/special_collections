@@ -35,7 +35,57 @@
   }
 }
 
-.menu-grid .six_six_stacked-region--top .panel-pane {
+.menu-grid .landingpage-region--second > .panel-pane {
+  // @include span(6);
+
+  margin-top: 1.5em;
+  position: relative;
+
+  &:first-child {
+    @include full;
+
+    @include breakpoint($tab) {
+      @include span(first 6 of 12);
+    }
+  }
+
+  &:nth-child(2) {
+    @include breakpoint($maxtab) {
+      @include full;
+    }
+
+    @include breakpoint($tab) {
+      @include span(last 6 of 12);
+    }
+  }
+
+  &:nth-child(3) {
+    @include breakpoint($tab) {
+      @include span(first 3 of 12);
+    }
+  }
+
+  &:nth-child(4),
+  &:nth-child(5) {
+    @include breakpoint($tab) {
+      @include span(3);
+    }
+  }
+
+  &:nth-child(6) {
+    @include breakpoint($tab) {
+      @include span(last 3 of 12);
+    }
+  }
+}
+
+.menu-grid .landingpage-region--second > .panel-pane {
+  margin-top: 0.75em;
+  position: relative;
+}
+
+.menu-grid .six_six_stacked-region--top .panel-pane,
+.menu-grid .landingpage-region--second > .panel-pane {
   h2 {
     font-size: 2.5em;
     left: 10px;
@@ -81,384 +131,15 @@
   }
 }
 
-//       .color-grid-item h2 a{
-//         position: absolute;
-//         font-size:0.75em;
-//         left: 10px;
-//         top: 10px;
-//         z-index: 1;
-//         text-shadow: 2px 2px #333;
-//         color:white;
-//          /* transition: color 0.4s ease; */
-//       }
-
-
-// /* Mudd and Firestone img grids */
-// .grid-menu-with-sidebar .img-grid .pane-content img {
-//     position: absolute;
-//     left: 0px;
-//     top: 0px;
-//     border-radius: 6px;
-//     /*z-index: -1;
-//     opacity: 0;*/
-// }
-
-
-
-// .grid-menu-with-sidebar .img-grid .pane-title a {
-//     color:white;
-//     display: block;
-//     font-size:1em;
-//      /* transition: color 0.4s ease; */
-// }
-
-// .grid-menu-with-sidebar .img-grid .pane-title a:hover {
-//     color:ivory;
-//     text-decoration: none;
-// }
-
-// .grid-menu-with-sidebar .img-thumbnail {
-//   margin-top: 20px;
-//   margin-bottom: 10px;
-// }
-
-// .color-grid-item, .color-grid-item-small {
-//   background-color: black;
-//   border-radius: 6px;
-// }
-
-//       @media only screen and (min-width : 321px) {
-//       /* Styles */
-
-//           .col-sm-12.img-grid img {
-//             width:737px;
-//           }
-
-//           .img-grid h2.pane-title {
-//             font-size: 1em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .color-grid-item h2.pane-title {
-//             font-size: 2.5em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .color-grid-item-small h2.pane-title {
-//             font-size: 2.5em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .grid-menu-with-sidebar .img-grid .pane-title {
-//               height:200px;
-//           }
-
-//           .grid-menu-with-sidebar .img-grid .color-grid-item-small {
-//                 height:200px;
-//                 /*background-color: orange;*/
-//                 border-radius: 6px;
-//           }
-
-//           .grid-menu-with-sidebar .img-grid .pane-title a {
-//               color:white;
-//               display: block;
-//               font-size:.5em;
-//               width:200px;
-//               /*transition: color 0.4s ease;*/
-//           }
-
-
-
-//           .navbar-brand h2 {
-//             font-size: 14px;
-//             margin:0px;
-//             display: inline-block;
-//           }
-
-//           .navbar-brand img {
-//             display:none;
-//           }
-
-//           .dept-name span {
-//             font-size: .6em;
-//             margin-left: 0;
-//             display: block;
-//             font-family: Muli;
-//             line-height: .6em;
-//           }
-
-//           form#nav-search {
-//               display: inline-block;
-//               margin: 0px 15px 0px 20px;
-//               width:90%;
-//           }
-
-//           #wrap > .container {
-//               background-color: #FFF;
-//               margin-top: 0px;
-//               border-bottom-right-radius: 6px;
-//               border-bottom-left-radius: 6px;
-//               padding: 50px 35px 30px;
-//           }
-
-//       }
-
-//       @media screen and (min-width: 520px){
-//             .navbar-brand img{
-//               display:inline-block;
-//               margin-top: -18px;
-//               height:50px;
-//               vertical-align: top;
-//             }
-
-
-//           .navbar-brand h2 {
-//             font-size: 20px;
-//             margin-left: .4em;
-//           }
-
-//           .dept-name span {
-
-//             font-size: .8em;
-//             margin-left: .4em;
-//             line-height: 1.2em;
-//             margin-top: -0.3em;
-//           }
-
-//       }
-
-//       @media screen and (min-width: 768px){
-
-//         .dept-name span {
-
-//           font-size: .8em;
-//           margin-left: .4em;
-
-//           margin-top: -0.5em;
-//         }
-
-//           #wrap > .container {
-//             padding: 90px 35px 30px 35px;
-//             background-color: #ffffff;
-//             margin-top:-5px;
-//             border-bottom-right-radius: 6px;
-//             border-bottom-left-radius: 6px;
-//           }
-
-//           .img-grid h2.pane-title {
-//             font-size: 1.5em;
-//             /*padding-right:30px;*/
-//           }
-
-//          .col-sm-6.img-grid img {
-//             width:345px;
-//           }
-
-//           .col-sm-12.img-grid img {
-//             width:737px;
-//           }
-
-//           .navbar-nav > li > .bigdrop {
-//             font-family: 'Muli', sans-serif;
-//             font-size: 1.25em;
-//             letter-spacing: 2px;
-//           }
-
-//           .color-grid-item h2.pane-title {
-//             font-size: 2.5em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .color-grid-item-small h2.pane-title {
-//             font-size: 2em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .grid-menu-with-sidebar .img-grid .pane-title a {
-//               color:white;
-//               display: block;
-//               font-size:1em;
-//               width: 150px;
-//               /*transition: color 0.4s ease;*/
-//           }
-
-//           .navbar-header {
-//             width:100%;
-//           }
-
-//           .navbar-brand h2 {
-//              display:inline-block;
-//              color:#333;
-//              margin-left: 5px;
-//             }
-
-//           .navbar-brand h2 {
-//             font-size: 20px;
-//           }
-
-//           .navbar-brand img {
-//             height:50px;
-//           }
-
-//           header ul.menu {
-//             margin: -10px 0px 0px 25px;
-//             /* margin: -30px 0px 0px 40px; */
-//           }
-
-
-//           form#nav-search {
-//               display: inline-block;
-//               margin: 10px 15px 0px 15px;
-//               width:240px;
-//           }
-
-//       }
-
-//       @media only screen and (min-width : 992px) {
-//       /* Styles */
-
-//           .img-grid h2.pane-title {
-//             font-size: 1.75em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .col-lg-6.img-grid img {
-//             height:133px;
-//           }
-
-//           .bs-sidebar .nav > .active > ul {
-//             display: block;
-//           }
-//           /* Widen the fixed sidebar */
-//           .bs-sidebar.affix,
-//           .bs-sidebar.affix-bottom {
-//             width: 213px;
-//           }
-//           .bs-sidebar.affix {
-//             position: fixed; /* Undo the static from mobile first approach */
-//             top: 100px;
-//           }
-//           .bs-sidebar.affix-bottom {
-//             position: absolute; /* Undo the static from mobile first approach */
-//           }
-//           .bs-sidebar.affix-bottom .bs-sidenav,
-//           .bs-sidebar.affix .bs-sidenav {
-//             margin-top: 0;
-//             margin-bottom: 0;
-//           }
-
-//           .leftcol {
-//           width: 25%;
-//           /*margin-top: -20px;*/
-//           }
-//           #right-col{
-//            margin-top: 20px;
-//           }
-
-//           .color-grid-item h2.pane-title {
-//             font-size: 2em;
-//             /*padding-right:30px;*/
-//           }
-
-//           .color-grid-item-small h2.pane-title {
-//             font-size: 1em;
-//             width:120px;
-//           }
-
-//           .grid-menu-with-sidebar .img-grid .pane-title {
-//                 height:100px;
-//                 /*background-color: orange;*/
-//                 border-radius: 6px;
-//             }
-
-//             .grid-menu-with-sidebar .img-grid .color-grid-item-small {
-//                 height:120px;
-//                 /*background-color: orange;*/
-//                 border-radius: 6px;
-//             }
-
-//           .grid-menu-with-sidebar .img-grid .pane-title a {
-//               color:white;
-//               display: block;
-//               font-size:1em;
-//               width: 120px;
-//               /*transition: color 0.4s ease;*/
-//           }
-
-//           .grid-menu-with-sidebar .img-grid .color-grid-item a {
-//               width: 240px;
-//               font-size:0.75em;
-//           }
-
-//           .navbar-brand h2 {
-//             font-size: 30px;
-//             margin-top: 6px;
-//           }
-
-//           .navbar-brand img {
-//             height:75px;
-//           }
-
-//           header ul.menu {
-//             margin: -20px 0px 0px 40px;
-//           }
-
-//           form#nav-search {
-//             margin-top:16px;
-//             float:right;
-//           }
-
-//           .dept-name span {
-
-//             line-height: 0.6em;
-//             margin-top: 0;
-
-//           }
-
-//       }
-
-
-//       @media screen and (min-width:1200px){
-//         /* Styles */
-//           .col-lg-6.img-grid img {
-//             height:166px;
-//           }
-
-//           .img-grid h2.pane-title {
-//             font-size: 2em;
-//             /*padding-right:30px;*/
-//           }
-
-//           /* Widen the fixed sidebar again */
-//           .bs-sidebar.affix-bottom,
-//           .bs-sidebar.affix {
-//             width: 263px;
-//           }
-
-//           .color-grid-item h2.pane-title {
-//             font-size: 2em;
-
-//           }
-
-//           .color-grid-item-small h2.pane-title {
-//             font-size: 1em;
-
-//           }
-// /*
-//           form#nav-search {
-//             width: 300px;
-//             float: right;
-//             margin-top: -30px;
-//             margin-right: 90px;
-//           }
-
-//           form#nav-search {
-//             width: 150px;
-//             margin-top: -25px;
-//             min-height: 75px;
-//             float: left;
-//             display: inline-block;
-//             margin-left: 40px;
-//           }
-// */
-//       }
+.menu-grid .landingpage-region--second > .panel-pane h2 {
+  font-size: 1.75em;
+}
+
+.menu-grid .landingpage-region--second > .panel-pane:nth-child(n+3) h2 {
+  font-size: 1.2em;
+}
+
+.menu-grid .landingpage-region--second > .panel-pane .field__item a,
+.menu-grid .landingpage-region--second > .panel-pane .field__item img {
+  max-height: 130px;
+}

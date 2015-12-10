@@ -357,6 +357,17 @@ th {
 .node__content img {
   margin: 0; }
 
+.views-field-field-location-image img {
+  border: 1px solid #e0ddd3;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0.7em 0 1em;
+  padding: 0.25em;
+  width: 100%; }
+
+html {
+  font-size: 16px; }
+
 body {
   font-family: "Lora", serif; }
 
@@ -405,7 +416,54 @@ h6 {
       float: right;
       margin-right: 0; } }
 
-.menu-grid .six_six_stacked-region--top .panel-pane h2 {
+.menu-grid .landingpage-region--second > .panel-pane {
+  margin-top: 1.5em;
+  position: relative; }
+  .menu-grid .landingpage-region--second > .panel-pane:first-child {
+    clear: both;
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    @media (min-width: 768px) {
+      .menu-grid .landingpage-region--second > .panel-pane:first-child {
+        width: 48.93617%;
+        float: left;
+        margin-right: 2.12766%; } }
+  @media (max-width: 768px) {
+    .menu-grid .landingpage-region--second > .panel-pane:nth-child(2) {
+      clear: both;
+      width: 100%;
+      float: left;
+      margin-left: 0;
+      margin-right: 0; } }
+  @media (min-width: 768px) {
+    .menu-grid .landingpage-region--second > .panel-pane:nth-child(2) {
+      width: 48.93617%;
+      float: right;
+      margin-right: 0; } }
+  @media (min-width: 768px) {
+    .menu-grid .landingpage-region--second > .panel-pane:nth-child(3) {
+      width: 23.40426%;
+      float: left;
+      margin-right: 2.12766%; } }
+  @media (min-width: 768px) {
+    .menu-grid .landingpage-region--second > .panel-pane:nth-child(4), .menu-grid .landingpage-region--second > .panel-pane:nth-child(5) {
+      width: 23.40426%;
+      float: left;
+      margin-right: 2.12766%; } }
+  @media (min-width: 768px) {
+    .menu-grid .landingpage-region--second > .panel-pane:nth-child(6) {
+      width: 23.40426%;
+      float: right;
+      margin-right: 0; } }
+
+.menu-grid .landingpage-region--second > .panel-pane {
+  margin-top: 0.75em;
+  position: relative; }
+
+.menu-grid .six_six_stacked-region--top .panel-pane h2,
+.menu-grid .landingpage-region--second > .panel-pane h2 {
   font-size: 2.5em;
   left: 10px;
   margin: 0;
@@ -414,30 +472,46 @@ h6 {
   top: 10px;
   z-index: 1; }
 
-.menu-grid .six_six_stacked-region--top .panel-pane h2 a {
+.menu-grid .six_six_stacked-region--top .panel-pane h2 a,
+.menu-grid .landingpage-region--second > .panel-pane h2 a {
   color: #fff; }
 
-.menu-grid .six_six_stacked-region--top .panel-pane:hover a {
+.menu-grid .six_six_stacked-region--top .panel-pane:hover a,
+.menu-grid .landingpage-region--second > .panel-pane:hover a {
   color: #fdc559;
   text-decoration: none; }
 
-.menu-grid .six_six_stacked-region--top .panel-pane .field__item {
+.menu-grid .six_six_stacked-region--top .panel-pane .field__item,
+.menu-grid .landingpage-region--second > .panel-pane .field__item {
   border-radius: 6px; }
-  .menu-grid .six_six_stacked-region--top .panel-pane .field__item a {
+  .menu-grid .six_six_stacked-region--top .panel-pane .field__item a,
+  .menu-grid .landingpage-region--second > .panel-pane .field__item a {
     background: #2b2b2b;
     border-radius: 6px;
     display: inline-block;
     padding: 0;
     max-height: 180px;
     width: 100%; }
-  .menu-grid .six_six_stacked-region--top .panel-pane .field__item a:hover img {
+  .menu-grid .six_six_stacked-region--top .panel-pane .field__item a:hover img,
+  .menu-grid .landingpage-region--second > .panel-pane .field__item a:hover img {
     opacity: 1; }
-  .menu-grid .six_six_stacked-region--top .panel-pane .field__item img {
+  .menu-grid .six_six_stacked-region--top .panel-pane .field__item img,
+  .menu-grid .landingpage-region--second > .panel-pane .field__item img {
     border-radius: 6px;
     display: block;
     opacity: 0.6;
     transition: all 0.1s linear;
     width: 100%; }
+
+.menu-grid .landingpage-region--second > .panel-pane h2 {
+  font-size: 1.75em; }
+
+.menu-grid .landingpage-region--second > .panel-pane:nth-child(n+3) h2 {
+  font-size: 1.2em; }
+
+.menu-grid .landingpage-region--second > .panel-pane .field__item a,
+.menu-grid .landingpage-region--second > .panel-pane .field__item img {
+  max-height: 130px; }
 
 .six_six_stacked-region--second .media {
   border-radius: 6px;

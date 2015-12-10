@@ -788,23 +788,19 @@ th {
 
 @media (min-width: 44em) {
   .landingpage-region--first {
-    width: 74.13793%;
+    width: 22.41379%;
     float: left;
     margin-right: 3.44828%; }
   .landingpage-region--second {
-    width: 22.41379%;
+    width: 74.13793%;
     float: right;
     margin-right: 0; }
   .landingpage-region--third {
-    width: 31.03448%;
+    width: 48.27586%;
     float: left;
     margin-right: 3.44828%; }
   .landingpage-region--fourth {
-    width: 39.65517%;
-    float: left;
-    margin-right: 3.44828%; }
-  .landingpage-region--fifth {
-    width: 22.41379%;
+    width: 48.27586%;
     float: right;
     margin-right: 0; } }
 

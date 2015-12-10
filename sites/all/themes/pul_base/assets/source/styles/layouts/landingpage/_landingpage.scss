@@ -10,22 +10,18 @@
 
 @include breakpoint($tab) {
   .landingpage-region--first {
-    @include span(first 9);
+    @include span(first 3);
   }
 
   .landingpage-region--second {
-    @include span(last 3);
+    @include span(last 9);
   }
 
   .landingpage-region--third {
-    @include span(first 4);
+    @include span(first 6);
   }
 
   .landingpage-region--fourth {
-    @include span(5 at 5);
-  }
-
-  .landingpage-region--fifth {
-    @include span(last 3);
+    @include span(last 6);
   }
 }
