@@ -8,12 +8,12 @@ core = 7.x
 ; ========================================
 ; Stylesheets
 ; ========================================
-stylesheets[all][] = assets/public/styles/rbsc.styles.css
+stylesheets[all][] = assets/public/styles/rbsc.styles.min.css
 
 ; ========================================
 ; Scripts
 ; ========================================
-scripts[] = assets/public/scripts/rbsc.scripts.js
+scripts[] = assets/public/scripts/rbsc.scripts.min.js
 
 ; ========================================
 ; Regions
