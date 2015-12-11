@@ -1,43 +1,46 @@
 .wrapper--highlighted {
   background-color: #f5f4f1;
-  border-color: #E7E7E7;
+  border-color: #e7e7e7;
   padding-bottom: 1em;
 }
 
 .l-region--highlighted h2 {
-  margin-top: .15em;
+  margin-top: 0.15em;
+
   a:hover {
-      text-decoration: none;
+    text-decoration: none;
   }
+
 }
 
 .dept-name {
-    display: inline-block;
-    margin-left: .4em;
-    margin-top: .75em;
+  display: inline-block;
+  margin-left: 0.4em;
+  margin-top: 0.75em;
+
+  span {
+    color: #333;
+    display: block;
+    font-family: $font-sans;
+    font-size: 0.6em;
+    line-height: 0.6em;
+    padding-top: 0.2em;
+  }
+
 }
 
 .navbar-brand {
-    background-color: transparent;
-    color:#000;
-    text-decoration: none;
-    font-size: 1.5em;
-    display:inline-block;
+  background-color: transparent;
+  color: #000;
+  display: inline-block;
+  font-size: 1.5em;
+  text-decoration: none;
 }
+
 .navbar-brand > * {
-  vertical-align:top;
+  vertical-align: top;
 }
-
-.dept-name span {
-  font-size: .6em;
-  display: block;
-  font-family: $font-sans;
-  line-height: .6em;
-  padding-top: .2em;
-  color: #333;
-}
-
 
 .navbar-brand img {
-  height:4em;
+  height: 4em;
 }
