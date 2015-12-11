@@ -1,5 +1,5 @@
 {
-  "root": "./assets/public",
+  "root": "assets/public",
   "assets": {
     "base": "assets/source",
     "dest": "assets/public"

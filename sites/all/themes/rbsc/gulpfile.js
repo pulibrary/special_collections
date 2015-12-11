@@ -2,7 +2,7 @@
 var gulp = require('gulp');
 
 // Load in config JSON
-var config = require('./sites/all/themes/rbsc/build.config.json');
+var config = require('./build.config.json');
 
 // Load all plugins into the p variable
 var p = require('gulp-load-plugins')();
