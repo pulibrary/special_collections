@@ -2,11 +2,19 @@
   margin: 0;
 }
 
-.views-field-field-location-image img {
+.views-field-field-location-image img,
+.current-exhibition.media img {
   border: 1px solid $gray-light;
   border-radius: 4px;
   display: inline-block;
-  margin: 0.7em 0 1em;
   padding: 0.25em;
+}
+
+.views-field-field-location-image img {
+  margin: 0.7em 0 1em;
   width: 100%;
+}
+
+.current-exhibition.media img {
+  margin-right: 1.5em;
 }

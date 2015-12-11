@@ -22,13 +22,13 @@
 // @include visually-hidden;
 
 @mixin visually-hidden {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
   border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
-  width: 1px;
   overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 // Hide visually and hide from screen reader
@@ -41,21 +41,20 @@
 
 // PUL Icons
 @mixin pul-icon {
-  font-family: "pul_base_theme";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
   display: inline-block;
+  font-family: "pul_base_theme";
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
 }
 
 // Word wrap
 @mixin word-wrap {
-  word-break: break-word;
   hyphens: auto;
+  word-break: break-word;
 }
 
 // Placeholder
