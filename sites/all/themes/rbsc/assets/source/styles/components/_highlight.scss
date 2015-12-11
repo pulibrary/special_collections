@@ -4,8 +4,8 @@
 }
 
 img.bookmark {
-  height: 100px;
   display: inline-block;
+  height: 100px;
 }
 
 .l-region--highlighted h2 {
@@ -13,23 +13,6 @@ img.bookmark {
 
   a:hover {
     text-decoration: none !important;
-  }
-
-  // SVG logo
-  .svg {
-    .rbsc-logo img {
-      display: none;
-    }
-
-    .rbsc-logo {
-      background: url("/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg") center center no-repeat;
-      background-size: contain;
-      display: block;
-
-      @include breakpoint($tab) {
-        margin-left: 0;
-      }
-    }
   }
 
 }
@@ -55,10 +38,27 @@ img.bookmark {
   color: #000;
   display: inline-block;
   font-size: 1.75em;
-  text-decoration: none;
   margin-bottom: -0.6em;
+  text-decoration: none;
 }
 
 .l-region--highlighted > * {
   vertical-align: top;
+}
+
+// SVG logo
+.svg {
+  .rbsc-logo img {
+    display: none;
+  }
+
+  .rbsc-logo {
+    background: url("/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg") center center no-repeat;
+    background-size: contain;
+    display: block;
+
+    @include breakpoint($tab) {
+      margin-left: 0;
+    }
+  }
 }
