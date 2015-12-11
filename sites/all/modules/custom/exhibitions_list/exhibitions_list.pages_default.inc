@@ -466,7 +466,7 @@ exhibitions',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'six-six-stacked';
+  $display->layout = 'single';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -475,6 +475,7 @@ exhibitions',
       'right' => NULL,
       'bottom' => NULL,
       'left' => NULL,
+      'middle' => NULL,
     ),
     'left' => array(
       'style' => 'naked',
@@ -487,7 +488,7 @@ exhibitions',
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
-    $pane->panel = 'first';
+    $pane->panel = 'bottom';
     $pane->type = 'views_panes';
     $pane->subtype = 'exhibitions_list-panel_pane_1';
     $pane->shown = TRUE;
@@ -495,19 +496,42 @@ exhibitions',
     $pane->configuration = array(
       'override_title' => 0,
       'override_title_text' => 'Past Exhibitions',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'naked',
+      'style' => 'default',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'gallery',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
     $display->content['new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c'] = $pane;
-    $display->panels['first'][0] = 'new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
+    $display->panels['bottom'][0] = 'new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
+    $pane = new stdClass();
+    $pane->pid = 'new-53041147-6bbc-4e91-b885-a4b118f37526';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'exhibitions_list-panel_pane_6';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '53041147-6bbc-4e91-b885-a4b118f37526';
+    $display->content['new-53041147-6bbc-4e91-b885-a4b118f37526'] = $pane;
+    $display->panels['middle'][0] = 'new-53041147-6bbc-4e91-b885-a4b118f37526';
     $pane = new stdClass();
     $pane->pid = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
     $pane->panel = 'top';
@@ -534,51 +558,6 @@ exhibitions',
     $pane->uuid = 'acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
     $display->content['new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1'] = $pane;
     $display->panels['top'][0] = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
-    $pane = new stdClass();
-    $pane->pid = 'new-53041147-6bbc-4e91-b885-a4b118f37526';
-    $pane->panel = 'top';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'exhibitions_list-panel_pane_6';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '53041147-6bbc-4e91-b885-a4b118f37526';
-    $display->content['new-53041147-6bbc-4e91-b885-a4b118f37526'] = $pane;
-    $display->panels['top'][1] = 'new-53041147-6bbc-4e91-b885-a4b118f37526';
-    $pane = new stdClass();
-    $pane->pid = 'new-46b36c29-bd46-4a76-a1ca-d4aad196821d';
-    $pane->panel = 'top';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => '<hr />
-<h2 class="pane-title">Past Exhibitions</h2>',
-      'format' => 'full_html',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '46b36c29-bd46-4a76-a1ca-d4aad196821d';
-    $display->content['new-46b36c29-bd46-4a76-a1ca-d4aad196821d'] = $pane;
-    $display->panels['top'][2] = 'new-46b36c29-bd46-4a76-a1ca-d4aad196821d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
