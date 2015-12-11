@@ -55,7 +55,9 @@ img.bookmark {
   .rbsc-logo {
     background: url("/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg") center center no-repeat;
     background-size: contain;
-    display: block;
+    display: inline-block;
+    height: 100px;
+    width: 50px;
 
     @include breakpoint($tab) {
       margin-left: 0;
