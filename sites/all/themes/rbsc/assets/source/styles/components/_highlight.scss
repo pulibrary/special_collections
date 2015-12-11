@@ -1,14 +1,35 @@
 .wrapper--highlighted {
   background-color: #f5f4f1;
   border-color: #e7e7e7;
-  padding-bottom: 1em;
+}
+
+img.bookmark {
+  height: 100px;
+  display: inline-block;
 }
 
 .l-region--highlighted h2 {
   margin-top: 0.15em;
 
   a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
+  }
+
+  // SVG logo
+  .svg {
+    .rbsc-logo img {
+      display: none;
+    }
+
+    .rbsc-logo {
+      background: url("/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg") center center no-repeat;
+      background-size: contain;
+      display: block;
+
+      @include breakpoint($tab) {
+        margin-left: 0;
+      }
+    }
   }
 
 }
@@ -19,7 +40,7 @@
   margin-top: 0.75em;
 
   span {
-    color: #333;
+    color: #666;
     display: block;
     font-family: $font-sans;
     font-size: 0.6em;
@@ -33,14 +54,11 @@
   background-color: transparent;
   color: #000;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.75em;
   text-decoration: none;
+  margin-bottom: -0.6em;
 }
 
-.navbar-brand > * {
+.l-region--highlighted > * {
   vertical-align: top;
-}
-
-.navbar-brand img {
-  height: 4em;
 }
