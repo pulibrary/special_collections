@@ -2552,9 +2552,13 @@ topics',
       ),
       'logic' => 'and',
     ),
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'Collections and Divisions',
+    'panels_breadcrumbs_paths' => 'collections',
+    'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'six-six-stacked';
+  $display->layout = 'single';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2563,6 +2567,9 @@ topics',
       'right' => NULL,
       'bottom' => NULL,
       'left' => NULL,
+      'first' => NULL,
+      'second' => NULL,
+      'middle' => NULL,
     ),
     'left' => array(
       'style' => 'naked',
@@ -2574,28 +2581,8 @@ topics',
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
-    $pane->panel = 'second';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'exhibitions_list-panel_pane_1';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
-    $display->content['new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c'] = $pane;
-    $display->panels['second'][0] = 'new-04a60b21-7959-42d7-ab7e-1ed73a2caf2c';
-    $pane = new stdClass();
     $pane->pid = 'new-8dde3aa4-1623-470b-8392-2869aa010f3c';
-    $pane->panel = 'second';
+    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'exhibitions_list-panel_pane_2';
     $pane->shown = TRUE;
@@ -2608,13 +2595,16 @@ topics',
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'gallery',
+    );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '8dde3aa4-1623-470b-8392-2869aa010f3c';
     $display->content['new-8dde3aa4-1623-470b-8392-2869aa010f3c'] = $pane;
-    $display->panels['second'][1] = 'new-8dde3aa4-1623-470b-8392-2869aa010f3c';
+    $display->panels['middle'][0] = 'new-8dde3aa4-1623-470b-8392-2869aa010f3c';
     $pane = new stdClass();
     $pane->pid = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
     $pane->panel = 'top';
