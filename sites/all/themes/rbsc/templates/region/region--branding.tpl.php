@@ -30,6 +30,6 @@
  */
 ?>
 <?php if ($content): ?>
-  <h2><a href="<?php print $front_page; ?>" title="<?php print t('The Deparment of Rare Books and Special Collections - Home'); ?>"  class="site-logo"><img src="/sites/all/themes/rbsc/assets/public/images/rbsc_logo_white.png" alt="<?php print t('Home'); ?>" /><span class="site-name"><?php print $site_name; ?></span></a></h2><?php print $content; ?>
-
+  <h2><a href="<?php print $front_page; ?>" title="<?php print t('Princeton University Library - Home'); ?>"  class="site-logo"><img src="/sites/all/themes/pul_base/assets/public/images/logo.svg" alt="<?php print t('Home'); ?>" /><span class="site-name"><?php print $site_name; ?></span></a></h2>
+  <?php print $content; ?>
 <?php endif; ?>

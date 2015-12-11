@@ -2,7 +2,7 @@
 .wrapper--branding {
   background-color: $gray-darkest;
   border-top: 5px solid $orange;
-  min-height: 100px;
+  min-height: 50px;
 
   .site-name {
     display: none;
@@ -59,7 +59,7 @@
   }
 
   .site-logo {
-    background: url("/sites/all/themes/rbsc/assets/public/images/rbsc_logo_white.svg") center center no-repeat;
+    background: url("/sites/all/themes/pul_base/assets/public/images/logo.svg") center center no-repeat;
     background-size: contain;
     display: block;
 

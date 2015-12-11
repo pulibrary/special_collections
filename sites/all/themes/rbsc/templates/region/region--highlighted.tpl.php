@@ -29,9 +29,16 @@
  * @see template_process()
  */
 ?>
-<?php if ($content): ?>
+
   <div<?php print $attributes; ?>>
-    <?php print $content; ?>
-    <h1>RARE BOOKS IS HERE</h1>
+  <h2><a href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"  class="navbar-brand">
+    <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg" alt="<?php print t('Home'); ?>" />
+    <div class="dept-name">
+      <span>THE DEPARTMENT OF</span>
+      <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+    </div>
+  </a></h2>
+    <?php if ($content): ?>
+      <?php print $content; ?>
+    <?php endif; ?>
   </div>
-<?php endif; ?>
