@@ -81,7 +81,15 @@
 
     <?php print render($page['header']); ?>
     <div class="wrapper wrapper--highlighted">
-      <?php print render($page['highlighted']); ?>
+      <div class="l-region l-region--highlighted">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"  class="navbar-brand">
+          <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg" alt="<?php print t('Home'); ?>" />
+          <div class="dept-name">
+            <span>THE DEPARTMENT OF</span>
+            <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+          </div>
+        </a>
+      </div>
     </div>
     <div class="wrapper wrapper--navigation">
       <?php print render($page['navigation']); ?>
