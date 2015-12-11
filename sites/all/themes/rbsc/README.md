@@ -2,17 +2,26 @@
 
 For Drupal projects; however, styles can be derived from Sass files.
 
-
+## Getting Started with location development
 1. First enable the drupal browsersync module
 2. Then
 ```
 cd to/rbsc/
 npm install
 ```
-3. To run the global  
+3. To run interactively for local development do:  
 ```
 cd to/rbsc
 gulp
+```
+
+## Deployment
+1. Make sure the deployment server has an up to date verion of nodejs >= 4.2.1 and npm >= 2.14.7.
+2. Make sure deployment server has global gulp executable. 
+3. To deploy the theme's images/styles/styles do: 
+```
+cd to/rbsc
+gulp deploy
 ```
 
 
