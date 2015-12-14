@@ -207,10 +207,10 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['title'] = 'DH Projects & Online Collections';
   $handler->display->display_options['display_description'] = 'Digital Projects filtered by Topic';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_cover_image';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = '';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = 'media';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -849,10 +849,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['title'] = 'Digital Highlights';
   $handler->display->display_options['display_description'] = 'Online Collections filtered by Topic';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_cover_image';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = '';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -997,7 +994,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_tab_plugin_style';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
     'title' => 'title',
@@ -1499,10 +1496,6 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Sort criterion: Broken/missing handler */
-  $handler->display->display_options['sorts']['weight']['id'] = 'weight';
-  $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
-  $handler->display->display_options['sorts']['weight']['field'] = 'weight';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -1535,8 +1528,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Database Link';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1611,8 +1603,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['title'] = 'Database Description';
   $handler->display->display_options['display_description'] = 'Description and optional Search Form';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1688,10 +1679,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'RBSC Core Databases';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_cover_image';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = 'body';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1759,10 +1747,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'RBSC Subject-specific Databases';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_cover_image';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = 'body';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -2371,10 +2356,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_cover_image';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = 'body';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';

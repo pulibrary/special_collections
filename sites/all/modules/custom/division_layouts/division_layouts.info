@@ -14,7 +14,6 @@ dependencies[] = page_manager
 dependencies[] = rbsc_faq
 dependencies[] = text
 dependencies[] = views
-dependencies[] = views_bootstrap
 dependencies[] = views_content
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = strongarm:strongarm:1
