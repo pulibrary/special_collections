@@ -84,7 +84,7 @@
       <div class="l-region l-region--highlighted">
         <a href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"  class="rbsc-logo">
           <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
-          <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"> 
+          <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>">
             <div class="dept-name">
             <span>THE DEPARTMENT OF</span>
             <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
@@ -95,6 +95,7 @@
     <div class="wrapper wrapper--navigation">
       <?php print render($page['navigation']); ?>
     </div>
+    <script src="//api2.libanswers.com/1.0/widgets/850"></script>
   </header>
 
   <section class="l-region l-region--main" id="main-content">

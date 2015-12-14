@@ -396,7 +396,7 @@ services-policies
     ),
   );
   $display = new panels_display();
-  $display->layout = 'six-six';
+  $display->layout = 'three-six-three-stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -417,6 +417,7 @@ services-policies
       'bottom' => NULL,
       'first' => NULL,
       'second' => NULL,
+      'middle' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
@@ -431,8 +432,31 @@ services-policies
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
+    $pane->pid = 'new-b88fc62e-0d31-4235-bc38-aba7399746d0';
     $pane->panel = 'first';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-conducting-research';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b88fc62e-0d31-4235-bc38-aba7399746d0';
+    $display->content['new-b88fc62e-0d31-4235-bc38-aba7399746d0'] = $pane;
+    $display->panels['first'][0] = 'new-b88fc62e-0d31-4235-bc38-aba7399746d0';
+    $pane = new stdClass();
+    $pane->pid = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
+    $pane->panel = 'middle';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
@@ -457,7 +481,7 @@ services-policies
     $pane->locks = array();
     $pane->uuid = 'b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
     $display->content['new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2'] = $pane;
-    $display->panels['first'][0] = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
+    $display->panels['middle'][0] = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
     $pane = new stdClass();
     $pane->pid = 'new-318d8c85-216d-4c51-b052-11717d17ea41';
     $pane->panel = 'second';
