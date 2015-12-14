@@ -331,7 +331,7 @@ exhibitions',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'six-six';
+  $display->layout = 'three-nine';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -351,6 +351,8 @@ exhibitions',
         'offset_type' => 'col-sm-offset',
         'offset_size' => '0',
       ),
+      'first' => NULL,
+      'second' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
