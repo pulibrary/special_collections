@@ -86,12 +86,6 @@ function division_layouts_default_page_manager_handlers() {
         'offset_type' => 'col-lg-offset',
         'offset_size' => '0',
       ),
-      'middle' => array(
-        'column_type' => 'col-lg',
-        'column_size' => '6',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
       'right' => array(
         'column_type' => 'col-lg',
         'column_size' => '3',
@@ -101,12 +95,13 @@ function division_layouts_default_page_manager_handlers() {
       'bottom' => NULL,
       'first' => NULL,
       'second' => NULL,
+      'middle' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
     ),
     'middle' => array(
-      'style' => 'bootstrap_region',
+      'style' => '-1',
     ),
     'right' => array(
       'style' => 'bootstrap_region',
