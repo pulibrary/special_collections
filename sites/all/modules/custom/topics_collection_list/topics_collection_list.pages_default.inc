@@ -125,7 +125,10 @@ function topics_collection_list_default_page_manager_pages() {
   $page->admin_title = 'Division Topic';
   $page->admin_description = '';
   $page->path = 'divisions/%divisionnid/topics/%col_strengthnid/';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array(
     'divisionnid' => array(

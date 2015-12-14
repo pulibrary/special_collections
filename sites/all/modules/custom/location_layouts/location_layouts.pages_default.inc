@@ -342,6 +342,7 @@ function location_layouts_default_page_manager_handlers() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'default',
     );
     $pane->css = array();
     $pane->extras = array();
