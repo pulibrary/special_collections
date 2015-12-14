@@ -322,14 +322,14 @@ function location_layouts_default_page_manager_handlers() {
     $display->content['new-e76cc13d-78e1-400b-99f2-717417d55fbd'] = $pane;
     $display->panels['second'][3] = 'new-e76cc13d-78e1-400b-99f2-717417d55fbd';
     $pane = new stdClass();
-    $pane->pid = 'new-d67aa10c-646f-4528-bb8a-9d8fc168309e';
+    $pane->pid = 'new-409e3e26-f602-4ff7-af5d-fa05ad2d3205';
     $pane->panel = 'second';
     $pane->type = 'node';
     $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '6301',
+      'nid' => '6298',
       'links' => 0,
       'leave_node_title' => 0,
       'identifier' => 'menugrid',
@@ -342,15 +342,14 @@ function location_layouts_default_page_manager_handlers() {
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
-      'style' => 'default',
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 4;
     $pane->locks = array();
-    $pane->uuid = 'd67aa10c-646f-4528-bb8a-9d8fc168309e';
-    $display->content['new-d67aa10c-646f-4528-bb8a-9d8fc168309e'] = $pane;
-    $display->panels['second'][4] = 'new-d67aa10c-646f-4528-bb8a-9d8fc168309e';
+    $pane->uuid = '409e3e26-f602-4ff7-af5d-fa05ad2d3205';
+    $display->content['new-409e3e26-f602-4ff7-af5d-fa05ad2d3205'] = $pane;
+    $display->panels['second'][4] = 'new-409e3e26-f602-4ff7-af5d-fa05ad2d3205';
     $pane = new stdClass();
     $pane->pid = 'new-b0d8bcce-369a-4107-9786-622854957316';
     $pane->panel = 'second';
