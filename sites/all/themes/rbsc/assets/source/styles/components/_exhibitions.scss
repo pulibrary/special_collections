@@ -16,10 +16,6 @@
   }
 }
 
-.external-link {
-  text-align: center;
-}
-
 .external-link a {
   background-color: $blue-dark;
   border: 0;
@@ -38,4 +34,5 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  width: 100%;
 }
