@@ -1885,6 +1885,8 @@ collections
       'right' => NULL,
       'bottom' => NULL,
       'left' => NULL,
+      'first' => NULL,
+      'second' => NULL,
     ),
     'left' => array(
       'style' => 'naked',
@@ -1895,6 +1897,29 @@ collections
   $display->uuid = '66a1854e-806f-4ad3-9511-4b86d3b36110';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-ba0cce70-9694-4bfa-8db6-3c69d438662d';
+    $pane->panel = 'first';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-conducting-research';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'ba0cce70-9694-4bfa-8db6-3c69d438662d';
+    $display->content['new-ba0cce70-9694-4bfa-8db6-3c69d438662d'] = $pane;
+    $display->panels['first'][0] = 'new-ba0cce70-9694-4bfa-8db6-3c69d438662d';
     $pane = new stdClass();
     $pane->pid = 'new-6d511269-234f-4569-81fe-f7b61a35b17c';
     $pane->panel = 'second';
@@ -3391,8 +3416,9 @@ services-policies
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
+      'override_title' => 1,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -3481,7 +3507,7 @@ services-policies
             'visibility_setting' => '1',
             'paths' => 'starting-your-research
 services-policies
-research-account-registration',
+research-account-access',
           ),
           'context' => 'empty',
           'not' => FALSE,
