@@ -229,6 +229,18 @@ gulp.task('watch4drupal', function () {
 });
 
 /**
+ * Compile all static assets
+ */
+gulp.task('deploy', function(callback){
+  runSequence(
+    'clean',
+    ['lint:scss'],
+    ['styles', 'scripts'],
+    ['fonts', 'images'],
+    callback);
+});
+
+/**
  * Gulp task: default
  * Builds Pattern Lab, triggers BrowserSync, builds all assets, and starts the
  * watcher
