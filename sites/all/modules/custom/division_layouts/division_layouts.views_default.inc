@@ -443,6 +443,7 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['fields']['field_feed_item_description']['label'] = '';
   $handler->display->display_options['fields']['field_feed_item_description']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_feed_item_description']['alter']['text'] = '<div class="media-body"><h4 class="media-heading">[title]</h4> [field_feed_item_description]</div>';
+  $handler->display->display_options['fields']['field_feed_item_description']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['field_feed_item_description']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_feed_item_description']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_feed_item_description']['type'] = 'text_summary_or_trimmed';
