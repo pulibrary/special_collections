@@ -10,13 +10,19 @@
 }
 
 .media .copy p,
-.media .copy h4 {
+.media .copy h4,
+.media-heading {
   margin: 0;
 }
 
+.media-image,
 .media img,
 .media .library-news-link {
-  display: inline-block;
   float: left;
-  margin-right: 10px;
+  margin-right: 0.5em;
+}
+
+.media-body {
+  display: block;
+  overflow: hidden;
 }
