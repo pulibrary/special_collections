@@ -38,11 +38,12 @@ function rbsc_basic_node_search_index_default_search_api_index() {
               "page" : "page",
               "collection" : "collection",
               "database" : "database",
-              "digital_humanities" : "digital_humanities",
               "online_collections" : "online_collections",
+              "digital_humanities" : "digital_humanities",
               "division" : "division",
               "exhibition" : "exhibition",
               "faq" : "faq",
+              "holdings" : "holdings",
               "location" : "location",
               "policy" : "policy",
               "publication" : "publication",
@@ -54,10 +55,34 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         },
         "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_alter_add_hierarchy" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : {
+              "source:field_related_division" : "source:field_related_division",
+              "source:field_division_holdings" : "source:field_division_holdings",
+              "source:field_see_also" : "source:field_see_also"
+            }
+          }
+        },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
+        "search_api_alter_add_aggregation" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_aggregation_1" : {
+                "name" : "Division Holdings",
+                "type" : "fulltext",
+                "fields" : [
+                  "title",
+                  "field_division_holdings",
+                  "field_division_holdings:body:value"
+                ],
+                "description" : "A Fulltext aggregation of the following fields: Title, Division Holdings, Division Holdings \\u00bb The main body text \\u00bb Text."
+              }
+            }
+          }
+        }
       },
       "processors" : {
         "search_api_case_ignore" : {
@@ -131,19 +156,52 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         "author" : { "type" : "integer", "entity_type" : "user" },
         "body:format" : { "type" : "string" },
         "body:summary" : { "type" : "text" },
-        "body:value" : { "type" : "text" },
+        "body:value" : { "type" : "text", "boost" : "2.0" },
         "changed" : { "type" : "date" },
         "created" : { "type" : "date" },
         "field_author" : {
           "type" : "list\\u003Cinteger\\u003E",
           "entity_type" : "field_collection_item"
         },
+        "field_collection_strength:body:value" : { "type" : "list\\u003Ctext\\u003E", "boost" : "2.0" },
+        "field_collection_strength:field_division" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "node"
+        },
+        "field_collection_strength:field_division_holdings" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "node"
+        },
+        "field_collection_strength:field_location" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "node"
+        },
+        "field_collection_strength:field_see_also" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "node"
+        },
+        "field_collection_strength:field_see_also:body:value" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "field_collection_strength:field_see_also:title" : { "type" : "list\\u003Clist\\u003Ctext\\u003E\\u003E" },
+        "field_collection_strength:field_service" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_collection_strength:nid" : { "type" : "list\\u003Cinteger\\u003E" },
+        "field_collection_strength:title" : { "type" : "list\\u003Ctext\\u003E" },
         "field_collection_strengths" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_core_collections" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_division:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_division_holdings" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_division_holdings:body:value" : { "type" : "list\\u003Ctext\\u003E", "boost" : "2.0" },
+        "field_division_holdings:field_see_also" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "node"
+        },
+        "field_division_holdings:nid" : { "type" : "list\\u003Cinteger\\u003E" },
+        "field_division_holdings:title" : { "type" : "list\\u003Ctext\\u003E" },
         "field_exhibition_curator" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_faqtags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_publication_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_rbsc_faq_answer:value" : { "type" : "text" },
         "field_rbsc_faq_question" : { "type" : "text", "boost" : "2.0" },
+        "field_related_division" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_see_also" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_sort_weight" : { "type" : "integer" },
         "field_staff_contact_email" : { "type" : "text" },
@@ -151,6 +209,7 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         "field_sub_title" : { "type" : "text" },
         "field_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "promote" : { "type" : "boolean" },
+        "search_api_aggregation_1" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
         "sticky" : { "type" : "boolean" },
         "title" : { "type" : "text", "boost" : "8.0" },
@@ -176,15 +235,19 @@ function rbsc_basic_node_search_index_default_search_api_server() {
     "class" : "search_api_solr_service",
     "options" : {
       "clean_ids" : true,
+      "site_hash_form" : [],
+      "site_hash" : false,
       "scheme" : "http",
       "host" : "localhost",
       "port" : "8983",
       "path" : "\\/solr\\/rbsc_drupal",
       "http_user" : "",
       "http_pass" : "",
-      "excerpt" : 0,
-      "retrieve_data" : 0,
-      "highlight_data" : 0,
+      "excerpt" : 1,
+      "retrieve_data" : 1,
+      "highlight_data" : 1,
+      "skip_schema_check" : 0,
+      "solr_version" : "4",
       "http_method" : "AUTO",
       "autocorrect_spell" : 1,
       "autocorrect_suggest_words" : 1
