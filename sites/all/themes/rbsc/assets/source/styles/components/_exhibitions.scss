@@ -16,7 +16,8 @@
   }
 }
 
-.external-link a {
+.external-link a,
+.btn {
   background-color: $blue-dark;
   border: 0;
   border-radius: 4px;
@@ -35,4 +36,8 @@
   vertical-align: middle;
   white-space: nowrap;
   width: 100%;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
