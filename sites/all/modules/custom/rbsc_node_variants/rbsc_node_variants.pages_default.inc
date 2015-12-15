@@ -3526,7 +3526,7 @@ research-account-access',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'three-nine-stacked';
+  $display->layout = 'pul-base-four-four-four-stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3547,6 +3547,7 @@ research-account-access',
       ),
       'first' => NULL,
       'second' => NULL,
+      'third' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
@@ -3560,6 +3561,55 @@ research-account-access',
   $display->uuid = '66a1854e-806f-4ad3-9511-4b86d3b36110';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
+    $pane->panel = 'bottom';
+    $pane->type = 'node_body';
+    $pane->subtype = 'node_body';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'classy',
+    );
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
+    $display->content['new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1'] = $pane;
+    $display->panels['bottom'][0] = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
+    $pane = new stdClass();
+    $pane->pid = 'new-6df0043f-7977-493e-a6ce-f7c196255546';
+    $pane->panel = 'first';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-visit-us';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '6df0043f-7977-493e-a6ce-f7c196255546';
+    $display->content['new-6df0043f-7977-493e-a6ce-f7c196255546'] = $pane;
+    $display->panels['first'][0] = 'new-6df0043f-7977-493e-a6ce-f7c196255546';
     $pane = new stdClass();
     $pane->pid = 'new-7f52f336-a643-4f60-bb94-fc702737c9ad';
     $pane->panel = 'second';
@@ -3585,7 +3635,7 @@ research-account-access',
     $display->panels['second'][0] = 'new-7f52f336-a643-4f60-bb94-fc702737c9ad';
     $pane = new stdClass();
     $pane->pid = 'new-135b09e9-8892-4623-aa6d-a1ab4d7c9fa3';
-    $pane->panel = 'second';
+    $pane->panel = 'third';
     $pane->type = 'views_panes';
     $pane->subtype = 'location_info-panel_pane_2';
     $pane->shown = TRUE;
@@ -3601,37 +3651,11 @@ research-account-access',
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '135b09e9-8892-4623-aa6d-a1ab4d7c9fa3';
     $display->content['new-135b09e9-8892-4623-aa6d-a1ab4d7c9fa3'] = $pane;
-    $display->panels['second'][1] = 'new-135b09e9-8892-4623-aa6d-a1ab4d7c9fa3';
-    $pane = new stdClass();
-    $pane->pid = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
-    $pane->panel = 'second';
-    $pane->type = 'node_body';
-    $pane->subtype = 'node_body';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => 'argument_entity_id:node_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'classy',
-    );
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = 'acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
-    $display->content['new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1'] = $pane;
-    $display->panels['second'][2] = 'new-acb0be33-bde0-47f9-a0c5-54d967d7b7b1';
+    $display->panels['third'][0] = 'new-135b09e9-8892-4623-aa6d-a1ab4d7c9fa3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
