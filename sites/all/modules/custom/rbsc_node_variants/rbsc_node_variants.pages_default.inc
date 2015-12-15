@@ -2092,7 +2092,7 @@ topics',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'pul-base-four-four-four-stacked';
+  $display->layout = 'three-six-three';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2111,18 +2111,16 @@ topics',
         'offset_size' => '0',
       ),
       'bottom' => NULL,
-      'middle' => array(
-        'column_type' => 'col-lg',
-        'column_size' => '5',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
+      'first' => NULL,
+      'second' => NULL,
+      'third' => NULL,
+      'middle' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
     ),
     'middle' => array(
-      'style' => 'bootstrap_region',
+      'style' => '-1',
     ),
     'right' => array(
       'style' => 'bootstrap_region',
@@ -2258,7 +2256,7 @@ topics',
     $display->panels['first'][4] = 'new-d4a3f37d-957e-4190-9640-8d6da8619432';
     $pane = new stdClass();
     $pane->pid = 'new-4b7eff82-9ee5-4371-90af-e003ab2eb59b';
-    $pane->panel = 'second';
+    $pane->panel = 'middle';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:body';
     $pane->shown = TRUE;
@@ -2284,10 +2282,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = '4b7eff82-9ee5-4371-90af-e003ab2eb59b';
     $display->content['new-4b7eff82-9ee5-4371-90af-e003ab2eb59b'] = $pane;
-    $display->panels['second'][0] = 'new-4b7eff82-9ee5-4371-90af-e003ab2eb59b';
+    $display->panels['middle'][0] = 'new-4b7eff82-9ee5-4371-90af-e003ab2eb59b';
     $pane = new stdClass();
     $pane->pid = 'new-166fca0c-f601-470b-90ed-e9f8e11dff51';
-    $pane->panel = 'second';
+    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'filtered_collection_list-panel_pane_8';
     $pane->shown = TRUE;
@@ -2309,10 +2307,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = '166fca0c-f601-470b-90ed-e9f8e11dff51';
     $display->content['new-166fca0c-f601-470b-90ed-e9f8e11dff51'] = $pane;
-    $display->panels['second'][1] = 'new-166fca0c-f601-470b-90ed-e9f8e11dff51';
+    $display->panels['middle'][1] = 'new-166fca0c-f601-470b-90ed-e9f8e11dff51';
     $pane = new stdClass();
     $pane->pid = 'new-77be8511-1560-419a-a004-34d18746e0ce';
-    $pane->panel = 'third';
+    $pane->panel = 'second';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -2320,8 +2318,7 @@ topics',
     $pane->configuration = array(
       'admin_title' => '',
       'title' => 'Research Tools for Printed Material (Books, Maps, Prints, etc.)',
-      'body' => '<p><a class="btn btn-primary btn-lg full-width" href="http://princeton-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&amp;vid=PRINCETON">Search in Books+</a></p>
-',
+      'body' => '<div class="external-link"><a class="btn btn-primary btn-lg full-width" href="http://princeton-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/search.do?mode=Advanced&amp;vid=PRINCETON">Search in Books+</a></div>',
       'format' => 'full_html',
       'substitute' => 1,
     );
@@ -2335,10 +2332,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = '77be8511-1560-419a-a004-34d18746e0ce';
     $display->content['new-77be8511-1560-419a-a004-34d18746e0ce'] = $pane;
-    $display->panels['third'][0] = 'new-77be8511-1560-419a-a004-34d18746e0ce';
+    $display->panels['second'][0] = 'new-77be8511-1560-419a-a004-34d18746e0ce';
     $pane = new stdClass();
     $pane->pid = 'new-0b83a882-488c-4f91-9778-c8fea2707ded';
-    $pane->panel = 'third';
+    $pane->panel = 'second';
     $pane->type = 'views_panes';
     $pane->subtype = 'filtered_collection_list-panel_pane_12';
     $pane->shown = TRUE;
@@ -2358,10 +2355,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = '0b83a882-488c-4f91-9778-c8fea2707ded';
     $display->content['new-0b83a882-488c-4f91-9778-c8fea2707ded'] = $pane;
-    $display->panels['third'][1] = 'new-0b83a882-488c-4f91-9778-c8fea2707ded';
+    $display->panels['second'][1] = 'new-0b83a882-488c-4f91-9778-c8fea2707ded';
     $pane = new stdClass();
     $pane->pid = 'new-12214fc3-51db-49aa-84f9-e3a829cf9e44';
-    $pane->panel = 'third';
+    $pane->panel = 'second';
     $pane->type = 'views_panes';
     $pane->subtype = 'online_collections-panel_pane_2';
     $pane->shown = TRUE;
@@ -2381,10 +2378,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = '12214fc3-51db-49aa-84f9-e3a829cf9e44';
     $display->content['new-12214fc3-51db-49aa-84f9-e3a829cf9e44'] = $pane;
-    $display->panels['third'][2] = 'new-12214fc3-51db-49aa-84f9-e3a829cf9e44';
+    $display->panels['second'][2] = 'new-12214fc3-51db-49aa-84f9-e3a829cf9e44';
     $pane = new stdClass();
     $pane->pid = 'new-cc89074e-9e59-4eee-82f5-daafa25eec2a';
-    $pane->panel = 'third';
+    $pane->panel = 'second';
     $pane->type = 'views_panes';
     $pane->subtype = 'digital_projects-panel_pane_2';
     $pane->shown = TRUE;
@@ -2404,10 +2401,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = 'cc89074e-9e59-4eee-82f5-daafa25eec2a';
     $display->content['new-cc89074e-9e59-4eee-82f5-daafa25eec2a'] = $pane;
-    $display->panels['third'][3] = 'new-cc89074e-9e59-4eee-82f5-daafa25eec2a';
+    $display->panels['second'][3] = 'new-cc89074e-9e59-4eee-82f5-daafa25eec2a';
     $pane = new stdClass();
     $pane->pid = 'new-06a7ebb0-5908-4732-9e21-972dbf7d5a91';
-    $pane->panel = 'third';
+    $pane->panel = 'second';
     $pane->type = 'views_panes';
     $pane->subtype = 'filtered_collection_list-panel_pane_15';
     $pane->shown = TRUE;
@@ -2427,10 +2424,10 @@ topics',
     $pane->locks = array();
     $pane->uuid = '06a7ebb0-5908-4732-9e21-972dbf7d5a91';
     $display->content['new-06a7ebb0-5908-4732-9e21-972dbf7d5a91'] = $pane;
-    $display->panels['third'][4] = 'new-06a7ebb0-5908-4732-9e21-972dbf7d5a91';
+    $display->panels['second'][4] = 'new-06a7ebb0-5908-4732-9e21-972dbf7d5a91';
     $pane = new stdClass();
     $pane->pid = 'new-f5e9af39-7f64-4b2b-9d92-880d166d856f';
-    $pane->panel = 'third';
+    $pane->panel = 'second';
     $pane->type = 'views_panes';
     $pane->subtype = 'filtered_collection_list-panel_pane_2';
     $pane->shown = TRUE;
@@ -2450,7 +2447,7 @@ topics',
     $pane->locks = array();
     $pane->uuid = 'f5e9af39-7f64-4b2b-9d92-880d166d856f';
     $display->content['new-f5e9af39-7f64-4b2b-9d92-880d166d856f'] = $pane;
-    $display->panels['third'][5] = 'new-f5e9af39-7f64-4b2b-9d92-880d166d856f';
+    $display->panels['second'][5] = 'new-f5e9af39-7f64-4b2b-9d92-880d166d856f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
