@@ -1,0 +1,46 @@
+.page-node-16326 .media-image {
+  min-width: 108px;
+
+  img {
+    margin: 0 auto;
+  }
+}
+
+.starts-with {
+  @include visually-hidden;
+}
+
+.view-topics .attachment-before {
+  margin-bottom: 2em;
+}
+
+.view-topics .attachment-after {
+  margin-top: 2em;
+}
+
+.topic-image {
+  color: $gray;
+  font-family: $font-sans;
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+
+.section-topics .three_six_three-region--second {
+  .panel-pane h2 {
+    font-size: 1.2em;
+  }
+
+  .panel-pane:first-child h2 {
+    margin-top: 0;
+  }
+}
+
+.section-topics .three_six_three-region--middle {
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.striped-list a {
+  font-family: $font-sans;
+}
