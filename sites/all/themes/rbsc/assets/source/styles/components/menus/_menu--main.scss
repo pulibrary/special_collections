@@ -206,6 +206,7 @@
       background-color: #f5f4f1;
       border-top: 1px solid #e8e6df;
       font-size: 0.8em;
+      display:block;
     }
 
     @include breakpoint($horizontal-bar-mode) {

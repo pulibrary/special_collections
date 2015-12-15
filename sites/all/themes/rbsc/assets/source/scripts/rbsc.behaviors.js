@@ -15,6 +15,7 @@
     return $('<a href="' + path + '" title="' + title + '">' + title + '</a>');
   };
 
+
   /**
    * Behaviors are Drupal's way of applying JavaScript to a page. In short, the
    * advantage of Behaviors over a simple 'document.ready()' lies in how it
@@ -54,7 +55,30 @@
         // The anchor is then appended to the current element.
         $anchor.appendTo(this);
       });
+
     }
   };
+
+  Drupal.behaviors.rbscMobileMenu = {
+    attach: function (context, settings) {
+      // By using the 'context' variable we make sure that our code only runs on
+      // the relevant HTML. Furthermore, by using jQuery.once() we make sure that
+      // we don't run the same piece of code for an HTML snippet that we already
+      // processed previously. By using .once('foo') all processed elements will
+      // get tagged with a 'foo-processed' class, causing all future invocations
+      // of this behavior to ignore them.
+
+      var subMenuToggle = $('.bigdrop').unbind();
+      $('.bigdrop ~ .menu').removeClass("show");
+
+      subMenuToggle.on('click', function (e) {
+        e.preventDefault();
+        var target = $( e.target );
+        target.siblings().slideToggle();
+      });
+
+    }
+  };
+
 
 })(jQuery);
