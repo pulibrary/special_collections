@@ -372,6 +372,7 @@ function division_collection_strengths_views_default_views() {
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
@@ -427,6 +428,27 @@ function division_collection_strengths_views_default_views() {
     'trim_length' => '300',
     'class' => '',
   );
+  /* Field: Content: Cover Image */
+  $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
+  $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
+  $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
+  $handler->display->display_options['fields']['field_cover_image']['label'] = '';
+  $handler->display->display_options['fields']['field_cover_image']['alter']['text'] = '<div class="media-image">[field_cover_image]</div>
+<div class="media-body"><h3 class="media-heading">[title]</h4> [body]</div>';
+  $handler->display->display_options['fields']['field_cover_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_cover_image']['alter']['path'] = 'topics/[nid_1]/divisions/[nid]';
+  $handler->display->display_options['fields']['field_cover_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'media-image';
+  $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['empty'] = '[field_collection_strength_image]';
+  $handler->display->display_options['fields']['field_cover_image']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
+    'image_style' => 'square_thumbnail',
+    'image_link' => '',
+    'class' => '',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -437,37 +459,28 @@ function division_collection_strengths_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['path'] = 'topics/[nid_1]/divisions/[nid]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
-  $handler->display->display_options['fields']['title']['element_class'] = '.media-heading';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'media-heading';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'media-body';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['text'] = '[title]
+[body]';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['body']['element_wrapper_class'] = 'media-body';
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['empty'] = '[body_1]';
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
-    'class' => '',
-  );
-  /* Field: Content: Cover Image */
-  $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
-  $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
-  $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
-  $handler->display->display_options['fields']['field_cover_image']['label'] = '';
-  $handler->display->display_options['fields']['field_cover_image']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_cover_image']['alter']['path'] = 'topics/[nid_1]/divisions/[nid]';
-  $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_cover_image']['empty'] = '[field_collection_strength_image]';
-  $handler->display->display_options['fields']['field_cover_image']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
-    'image_style' => 'square_thumbnail',
-    'image_link' => '',
     'class' => '',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;

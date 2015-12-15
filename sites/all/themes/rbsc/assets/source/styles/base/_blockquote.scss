@@ -4,6 +4,7 @@ blockquote {
   margin: 1.5em 10px;
   padding: 0.5em 10px;
 }
+
 blockquote:before {
   color: $gray-light;
   font-size: 4em;
@@ -11,6 +12,7 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
+
 blockquote p {
   display: inline;
 }

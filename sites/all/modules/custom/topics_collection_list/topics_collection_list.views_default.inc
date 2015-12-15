@@ -32,7 +32,11 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['row_class'] = '[sticky]';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_collection_strength_target_id']['id'] = 'field_collection_strength_target_id';
   $handler->display->display_options['relationships']['field_collection_strength_target_id']['table'] = 'field_data_field_collection_strength';
@@ -696,11 +700,15 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['display_description'] = 'A list of Exhibitions that feature content from a given collection.';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
-  $handler->display->display_options['style_options']['row_class'] = 'image-title-teaser';
+  $handler->display->display_options['style_options']['row_class'] = 'media';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
@@ -714,19 +722,22 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_type'] = 'div';
-  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'cover-image';
+  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'media-image';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'square_thumbnail',
     'image_link' => 'content',
+    'class' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['label'] = '';
-  $handler->display->display_options['fields']['title_1']['element_class'] = 'related-content-title';
+  $handler->display->display_options['fields']['title_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['title_1']['element_class'] = 'media-body';
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
