@@ -56,17 +56,30 @@ function synonyms_autocomplete($field_name, $entity_type, $bundle, $tags_typed =
     exit;
   }
 
+  $widget = $instance['widget']['type'] == 'synonyms_autocomplete' ? $instance['widget']['settings'] : field_info_widget_settings('synonyms_autocomplete');
+
   // How many suggestions maximum we are able to output.
-  $max_suggestions = $instance['widget']['settings']['suggestion_size'];
+  $max_suggestions = $widget['suggestion_size'];
 
   // Whether we are allowed to suggest more than one entry per term, shall that
   // entry be either term name itself or one of its synonyms.
-  $suggest_only_unique = $instance['widget']['settings']['suggest_only_unique'];
+  $suggest_only_unique = $widget['suggest_only_unique'];
 
   // The user enters a comma-separated list of tags. We only autocomplete the
   // last tag.
   $tags_typed = drupal_explode_tags($tags_typed);
   $tag_last = drupal_strtolower(array_pop($tags_typed));
+
+  $tags_typed_tids = array();
+  if (!empty($tags_typed)) {
+    $efq = new EntityFieldQuery();
+    $efq->entityCondition('entity_type', 'taxonomy_term');
+    $efq->propertyCondition('name', $tags_typed);
+    $tags_typed_tids = $efq->execute();
+    if (isset($tags_typed_tids['taxonomy_term'])) {
+      $tags_typed_tids = array_keys($tags_typed_tids['taxonomy_term']);
+    }
+  }
 
   $term_matches = array();
   if ($tag_last != '') {
@@ -79,14 +92,11 @@ function synonyms_autocomplete($field_name, $entity_type, $bundle, $tags_typed =
     $vocabularies = taxonomy_vocabulary_load_multiple(array_keys($vocabularies));
 
     // Array of found suggestions. Each subarray of this array will represent
-    // a single suggestion entry. The sub array must at least contain the
-    // following keys:
-    //   tid - tid of the suggested term
-    //   name - name of the suggested term
-    // And optionally, if the term is suggested based on its synonym, the sub
-    // array should also include the additional key:
-    //   synonym - string representation of the synonym based on which the
-    //     suggested term was included.
+    // a single suggestion entry. The sub array must contain the following keys:
+    // - tid: (int) tid of the suggested term
+    // - name: (string) name of the suggested term
+    // - wording: (string) human friendly XSS escaped text of the suggestion
+    //   entry
     $tags_return = array();
 
     // Firstly getting a list of tids that match by $term->name.
@@ -95,8 +105,8 @@ function synonyms_autocomplete($field_name, $entity_type, $bundle, $tags_typed =
     $query->addTag('term_access');
 
     // Do not select already entered terms.
-    if (!empty($tags_typed)) {
-      $query->condition('t.name', $tags_typed, 'NOT IN');
+    if (!empty($tags_typed_tids)) {
+      $query->condition('t.tid', $tags_typed_tids, 'NOT IN');
     }
     // Select rows that match by term name.
     $result = $query
@@ -104,78 +114,67 @@ function synonyms_autocomplete($field_name, $entity_type, $bundle, $tags_typed =
       ->condition('t.vid', array_keys($vocabularies))
       ->condition('t.name', '%' . db_like($tag_last) . '%', 'LIKE')
       ->range(0, $max_suggestions)
-      ->execute()
-      ->fetchAllKeyed();
-
-    // Converting results into another format.
-    foreach ($result as $tid => $name) {
-      $tags_return[] = array(
-        'name' => $name,
-        'tid' => $tid,
-      );
+      ->execute();
+    foreach ($result as $v) {
+      $v = (array) $v;
+      $v['wording'] = check_plain($v['name']);
+      $tags_return[] = $v;
     }
 
-    $synonym_tids = array();
     // Now we go vocabulary by vocabulary looking through synonym fields.
     foreach ($vocabularies as $vocabulary) {
       // Now we go a synonym field by synonym field gathering suggestions.
-      // Since officially EntityFieldQuery doesn't support OR conditions
-      // we are enforced to go a field by field querying multiple times the DB.
       $bundle = field_extract_bundle('taxonomy_term', $vocabulary);
-      foreach (synonyms_synonyms_fields($vocabulary) as $field) {
-        $field = field_info_field($field);
-        $instance = field_info_instance('taxonomy_term', $field['field_name'], $bundle);
-        $query = new EntityFieldQuery();
-        $query->entityCondition('entity_type', 'taxonomy_term')
-          ->entityCondition('bundle', $bundle);
 
-        // We let the class that defines this field type as a source of synonyms
-        // filter out and provide its suggestions based on this field.
-        $class = synonyms_extractor_info($field['type']);
-        call_user_func(array($class, 'processEntityFieldQuery'), $tag_last, $query, $field, $instance);
+      $behavior_implementations = synonyms_behavior_get('autocomplete', 'taxonomy_term', $bundle, TRUE);
+      foreach ($behavior_implementations as $implementation) {
+        $condition = db_and();
+        $condition->condition(AbstractSynonymsSynonymsBehavior::COLUMN_PLACEHOLDER, '%' . db_like($tag_last) . '%', 'LIKE');
 
-        if (!empty($tags_typed)) {
-          $query->propertyCondition('name', $tags_typed, 'NOT IN');
+        if (!empty($tags_typed_tids)) {
+          $condition->condition('entity_id', $tags_typed_tids, 'NOT IN');
         }
         if ($suggest_only_unique && !empty($tags_return)) {
           $tmp = array();
           foreach ($tags_return as $tag_return) {
             $tmp[] = $tag_return['tid'];
           }
-          // We don't want to search among the terms already found by term name.
-          $query->entityCondition('entity_id', $tmp, 'NOT IN');
+          $condition->condition('entity_id', $tmp, 'NOT IN');
         }
-        if ($suggest_only_unique && !empty($synonym_tids)) {
-          // We also don't want to search among the terms already matched by
-          // previous synonym fields.
-          $query->entityCondition('entity_id', $synonym_tids, 'NOT IN');
-        }
-        $tmp = $query->execute();
-        if (!empty($tmp)) {
-          // Merging the results.
-          $tmp = array_keys($tmp['taxonomy_term']);
-          $synonym_tids = array_merge($synonym_tids, $tmp);
+
+        $new_tids = array();
+        foreach (synonyms_synonyms_find_behavior($condition, $implementation) as $synonym) {
+          if (!$suggest_only_unique || !in_array($synonym->entity_id, $new_tids)) {
+            $tags_return[] = array(
+              'tid' => $synonym->entity_id,
+              'name' => '',
+              'synonym' => $synonym->synonym,
+              'implementation' => $implementation,
+            );
+            $new_tids[] = $synonym->entity_id;
+          }
         }
       }
     }
 
-    if (!empty($synonym_tids)) {
-      foreach (taxonomy_term_load_multiple($synonym_tids) as $synonym_term) {
-        $tmp = array(
-          'name' => $synonym_term->name,
-          'tid' => $synonym_term->tid,
-        );
-        // Additionally we have to find out which synonym triggered inclusion of
-        // this term.
-        foreach (synonyms_get_sanitized($synonym_term) as $item) {
-          if (strpos(mb_strtoupper($item, 'UTF-8'), mb_strtoupper($tag_last, 'UTF-8')) !== FALSE) {
-            $tags_return[] = array('synonym' => $item) + $tmp;
-            if ($suggest_only_unique) {
-              // We just want to output 1 single suggestion entry per term, so
-              // one synonym is enough.
-              break;
-            }
-          }
+    $synonym_terms = array();
+    foreach ($tags_return as $v) {
+      if (isset($v['synonym'])) {
+        $synonym_terms[] = $v['tid'];
+      }
+    }
+
+    if (!empty($synonym_terms)) {
+      $synonym_terms = taxonomy_term_load_multiple($synonym_terms);
+      foreach ($tags_return as &$v) {
+        if (isset($v['synonym'])) {
+          $instance = field_info_instance($v['implementation']['entity_type'], $v['implementation']['field_name'], $v['implementation']['bundle']);
+          $v['name'] = $synonym_terms[$v['tid']]->name;
+          $v['wording'] = format_string(filter_xss($v['implementation']['settings']['wording']), array(
+            '@synonym' => $v['synonym'],
+            '@term' => $v['name'],
+            '@field_name' => drupal_strtolower($instance['label']),
+          ));
         }
       }
     }
@@ -192,98 +191,50 @@ function synonyms_autocomplete($field_name, $entity_type, $bundle, $tags_typed =
       if (strpos($info['name'], ',') !== FALSE || strpos($info['name'], '"') !== FALSE) {
         $n = '"' . str_replace('"', '""', $info['name']) . '"';
       }
-
-      if (isset($info['synonym'])) {
-        $display_name = t('@synonym, synonym of %term', array('@synonym' => $info['synonym'], '%term' => $info['name']));
-      }
-      else {
-        $display_name = check_plain($info['name']);
-      }
       while (isset($term_matches[$prefix . $n])) {
         $n .= ' ';
       }
-      $term_matches[$prefix . $n] = $display_name;
+      $term_matches[$prefix . $n] = $info['wording'];
     }
   }
   drupal_json_output($term_matches);
 }
 
 /**
- * Mark nodes that reference specific terms for search re-indexing.
- *
- * This is particularly useful, when the terms in question have been changed.
- *
- * @param $tids array
- *   Array of tids of the terms
+ * Default theme implementation for behavior settings form element.
  */
-function synonyms_reindex_nodes_by_terms($tids) {
-  // In order to speed up the process, we will query DB for nid's that reference
-  // handled to us tids, and at the end we'll trigger their re-indexing in just
-  // a single SQL query. Probably it is better to use search_touch_node(), but
-  // that would imply a big amount of SQL queries on some websites.
-  $found_nids = array();
-  foreach (field_info_field_map() as $field_name => $v) {
-    if ($v['type'] == 'taxonomy_term_reference' && isset($v['bundles']['node'])) {
-      // This field is taxonomy term reference and it is attached to nodes, so
-      // we will run EntityFieldQuery on it.
-      $query = new EntityFieldQuery();
-      $result = $query->entityCondition('entity_type', 'node')
-        ->fieldCondition($field_name, 'tid', $tids, 'IN')
-        ->execute();
-      if (isset($result['node'])) {
-        $found_nids = array_merge($found_nids, array_keys($result['node']));
+function theme_synonyms_behaviors_settings($variables) {
+  drupal_add_css(drupal_get_path('module', 'synonyms') . '/synonyms.css');
+
+  $element = &$variables['element'];
+
+  $table = array(
+    'header' => array(t('Field')),
+    'rows' => array(),
+    'empty' => t('Seems like there are no fields for which synonyms functionality is available. Try adding a text field to get started.'),
+  );
+
+  $instance_ids = array();
+  foreach (element_children($element) as $behavior) {
+    $table['header'][] = check_plain($element[$behavior]['#title']);
+    $instance_ids = array_unique(array_merge($instance_ids, element_children($element[$behavior])));
+  }
+
+  foreach ($instance_ids as $instance_id) {
+    $row = array();
+    $row_title = '';
+    foreach (element_children($element) as $behavior) {
+      if (isset($element[$behavior][$instance_id]['#title']) && !$row_title) {
+        $row_title = check_plain($element[$behavior][$instance_id]['#title']);
       }
+      $row[] = array(
+        'data' => isset($element[$behavior][$instance_id]) ? drupal_render($element[$behavior][$instance_id]) : t('Not implemented'),
+        'class' => array('synonyms-behavior-settings', 'synonyms-behavior-settings-' . $behavior),
+      );
     }
+    array_unshift($row, $row_title);
+    $table['rows'][] = $row;
   }
-  if (!empty($found_nids)) {
-    db_update('search_dataset')
-      ->fields(array('reindex' => REQUEST_TIME))
-      ->condition('type', 'node')
-      ->condition('sid', $found_nids, 'IN')
-      ->execute();
-  }
-}
 
-/**
- * Mark nodes that reference terms from a vocabulary for search re-indexing.
- *
- * @param $vocabulary object
- *   Fully loaded vocabulary object
- */
-function synonyms_reindex_nodes_by_vocabulary($vocabulary) {
-  $tids = db_select('taxonomy_term_data', 't')
-    ->fields('t', array('tid'))
-    ->condition('vid', $vocabulary->vid)
-    ->execute()
-    ->fetchCol();
-  if (!empty($tids)) {
-    synonyms_reindex_nodes_by_terms($tids);
-  }
-}
-
-/**
- * Submit handler for Taxonomy vocabulary edit form.
- *
- * Store extra values attached to form in this module.
- */
-function synonyms_taxonomy_form_vocabulary_submit($form, &$form_state) {
-  $values = $form_state['values'];
-
-  if ($values['op'] == $form['actions']['submit']['#value']) {
-    if (isset($form['#vocabulary']->vid)) {
-      $vocabulary = taxonomy_vocabulary_load($form['#vocabulary']->vid);
-    }
-    else {
-      // As a fallback, if this is a just created vocabulary, we try to pull it
-      // up by the just submitted machine name.
-      $vocabulary = taxonomy_vocabulary_machine_name_load($values['machine_name']);
-    }
-
-    // Preprocessing values keeping only field names of the checked fields.
-    $values['synonyms']['synonyms'] = array_values(array_filter($values['synonyms']['synonyms']));
-
-    $settings = synonyms_vocabulary_settings($vocabulary);
-    $settings = $values['synonyms'] + $settings;
-    synonyms_vocabulary_settings_save($vocabulary, $settings);
-  }
+  return '<div id="' . $element['#id'] . '">' . theme('table', $table) . drupal_render_children($element) . '</div>';
 }

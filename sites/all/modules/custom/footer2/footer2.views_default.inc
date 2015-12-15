@@ -22,7 +22,7 @@ function footer2_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Locations (Footer)';
+  $handler->display->display_options['title'] = 'Locations';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -106,7 +106,7 @@ function footer2_views_default_views() {
   $handler->display->display_options['filters']['field_code_value']['table'] = 'field_data_field_code';
   $handler->display->display_options['filters']['field_code_value']['field'] = 'field_code_value';
   $handler->display->display_options['filters']['field_code_value']['operator'] = 'not empty';
-  $handler->display->display_options['block_description'] = 'Location (Footer)';
+  $handler->display->display_options['block_description'] = 'Locations';
   $export['locations_footer_'] = $view;
 
   return $export;

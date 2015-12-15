@@ -1,0 +1,67 @@
+/* Footer.scss */
+
+@include breakpoint($tab) {
+  .block--views-locations-footer-block {
+    @include span(first 3 of 12);
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .block--menu-menu-help-footer- {
+    @include span(2);
+    margin-right: 0;
+  }
+
+  .block--menu-menu-footer-services {
+    @include span(2);
+    margin-right: 0;
+  }
+
+  .block--menu-menu-information-for-footer- {
+    @include span(2);
+    margin-right: 0;
+  }
+
+  .block--block-1 {
+    @include span(last 3);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+.svg {
+  
+  .rbscblogs-logo img {
+    display: none;
+  }
+
+  .rbscblogs-logo {
+    background-size: contain;
+    display: inline-block;
+    height: 24px;
+    line-height: 11px;
+
+    @include breakpoint($tab) {
+      margin-left: 0.5em;
+    }
+
+
+    &:before {
+      /* create a full-height inline block pseudo=element */
+      content: " ";
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+
+      /* vertical alignment of the inline element */
+    }
+  }
+
+  .rbscblogs-logo {
+    background-image: url("/sites/all/themes/rbsc/assets/public/images/wordpress.svg");
+    margin: 0 0.2em 0.75em;
+    width: 24px;
+  }
+}
+

@@ -6,149 +6,124 @@
  */
 
 /**
- * Provide Synonyms module with names of synonyms extractor classes.
+ * Hook to collect info about available synonyms behavior implementations.
  *
- * Provide Synonyms module with names of classes that are able to extract
- * synonyms from fields. Each of the provided classes should extend
- * AbstractSynonymsExtractor base class.
+ * Hook to collect info about what PHP classes implement provided synonyms
+ * behavior for different field types.
+ *
+ * @param string $behavior
+ *   Name of a synonyms behavior. This string will always be among the keys
+ *   of the return of synonyms_behaviors(), i.e. name of a ctools plugin
  *
  * @return array
- *   Array of strings, where each value is a name of synonyms extractor class
+ *   Array of information about what synonyms behavior implementations your
+ *   module supplies. The return array must contain field types as keys, whereas
+ *   corresponding values should be names of PHP classes that implement the
+ *   provided behavior for that field type. Read more about how to implement a
+ *   specific behavior in the advanced help of this module. In a few words: you
+ *   will have to implement an interface that is defined in the behavior
+ *   definition. Do not forget to make sure your PHP class is visible to Drupal
+ *   auto discovery mechanism
  */
-function hook_synonyms_extractor_info() {
-  return array(
-    // Please see below the definition of ApiSynonymsSynonymsExtractor class
-    // for your reference.
-    'ApiSynonymsSynonymsExtractor',
-  );
+function hook_synonyms_behavior_implementation_info($behavior) {
+  switch ($behavior) {
+    case 'autocomplete':
+      return array(
+        'my-field-type' => 'MyFieldTypeAutocompleteSynonymsBehavior',
+      );
+      break;
+
+    case 'another-behavior':
+      return array(
+        'my-field-type-or-yet-another-field-type' => 'MyFieldTypeAnotherBehaviorSynonymsBehavior',
+      );
+      break;
+  }
+
+  return array();
 }
 
 /**
- * Dummy synonyms extractor class for documentation purposes.
+ * Hook to alter info about available synonyms behavior implementations.
  *
- * This is a copy of SynonymsSynonymsExtractor class providing an example of
- * how to write your own synonyms extractor class. See the definition of
- * AbstractSynonymsExtractor for reference and in code comments. For more
- * complicated examples take a look at EntityReferenceSynonymsExtractor class.
+ * This hook is invoked right after hook_synonyms_behavior_implementation_info()
+ * and is designed to let modules overwrite implementation info from some other
+ * modules. For example, if module A provides implementation for some field
+ * type, but your module has a better version of that implementation, you would
+ * need to implement this hook and to overwrite the implementation info.
+ *
+ * @param array $info
+ *   Array of information about existing synonyms behavior implementations that
+ *   was collected from modules
+ * @param string $behavior
+ *   Name of the behavior for which the info about implementation is being
+ *   generated
  */
-class ApiSynonymsSynonymsExtractor extends AbstractSynonymsExtractor {
-
-  /**
-   * Return array of supported field types for synonyms extraction.
-   *
-   * @return array
-   *   Array of Field API field types from which this class is able to extract
-   *   synonyms
-   */
-  static public function fieldTypesSupported() {
-    return array('text', 'number_integer', 'number_float', 'number_decimal');
+function hook_synonyms_behavior_implementation_info_alter(&$info, $behavior) {
+  switch ($behavior) {
+    case 'the-behavior-i-want':
+      $info['the-field-type-i-want'] = 'MyFieldTypeAutocompleteSynonymsBehavior';
+      break;
   }
+}
 
-  /**
-   * Extract synonyms from a field attached to an entity.
-   *
-   * We try to pass as many info about context as possible, however, normally
-   * you will only need $items to extract the synonyms.
-   *
-   * @param array $items
-   *   Array of items
-   * @param array $field
-   *   Array of field definition according to Field API
-   * @param array $instance
-   *   Array of instance definition according to Field API
-   * @param object $entity
-   *   Fully loaded entity object to which the $field and $instance with $item
-   *   values is attached to
-   * @param string $entity_type
-   *   Type of the entity $entity according to Field API definition of entity
-   *   types
-   *
-   * @return array
-   *   Array of synonyms extracted from $items
-   */
-  static public function synonymsExtract($items, $field, $instance, $entity, $entity_type) {
+/**
+ * Example of how to implement a synonyms behavior for an arbitrary field type.
+ */
+class MyFieldTypeAutocompleteSynonymsBehavior extends AbstractSynonymsSynonymsBehavior implements AutocompleteSynonymsBehavior {
+
+  public function extractSynonyms($items, $field, $instance, $entity, $entity_type) {
+    // Let's say our synonyms is stored in the 'foo' column of the field.
     $synonyms = array();
-
     foreach ($items as $item) {
-      $synonyms[] = $item['value'];
+      $synonyms[] = $item['foo'];
     }
-
     return $synonyms;
   }
 
-  /**
-   * Allow you to hook in during autocomplete suggestions generation.
-   *
-   * Allow you to include entities for autocomplete suggestion that are possible
-   * candidates based on your field as a source of synonyms. This method is
-   * void, however, you have to alter and add your condition to $query
-   * parameter.
-   *
-   * @param string $tag
-   *   What user has typed in into autocomplete widget. Normally you would
-   *   run LIKE '%$tag%' on your column
-   * @param EntityFieldQuery $query
-   *   EntityFieldQuery object where you should add your conditions to
-   * @param array $field
-   *   Array of field definition according to Field API, autocomplete on which
-   *   is fired
-   * @param array $instance
-   *   Array of instance definition according to Field API, autocomplete on
-   *   which is fired
-   */
-  static public function processEntityFieldQuery($tag, EntityFieldQuery $query, $field, $instance) {
-    $query->fieldCondition($field, 'value', '%' . $tag . '%', 'LIKE');
+  public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
+    // Let's say we keep the synonyms as strings and under the 'foo' column, to
+    // keep it consistent with the extractSynonyms() method.
+    $label = entity_label($synonym_entity_type, $synonym_entity);
+    return array(array(
+      'foo' => $label,
+    ));
   }
 
-  /**
-   * Add an entity as a synonym into a field of another entity.
-   *
-   * Basically this method should be called when you want to add some entity
-   * as a synonym to another entity (for example when you merge one entity
-   * into another and besides merging want to add synonym of the merging
-   * entity into the trunk entity). You should extract synonym value (according
-   * to what value is expected in this field) and return it. We try to provide
-   * you with as much context as possible, but normally you would only need
-   * $synonym_entity and $synonym_entity_type parameters. Return an empty array
-   * if entity of type $synonym_entity_type cannot be converted into a format
-   * expected by $field.
-   *
-   * @param array $items
-   *   Array items that already exist in the field into which new synonyms is to
-   *   be added
-   * @param array $field
-   *   Field array definition according to Field API of the field into which new
-   *   synonym is to be added
-   * @param array $instance
-   *   Instance array definition according to Field API of the instance into
-   *   which new synonym is to be added
-   * @param object $synonym_entity
-   *   Fully loaded entity object which has to be added as synonym
-   * @param string $synonym_entity_type
-   *   Entity type of $synonym_entity
-   *
-   * @return array
-   *   Array of extra items to be merged into the items that already exist in
-   *   field values
-   */
-  static public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
-    $synonym = entity_label($synonym_entity_type, $synonym_entity);
-    switch ($field['type']) {
-      case 'text':
-        break;
+  public function synonymItemHash($item, $field, $instance) {
+    // Since we've agreed that the column that stores data in our imaginary
+    // field type is "foo". Then it suffices just to implement the hash function
+    // as the value of foo column.
+    return $item['foo'];
+  }
 
-      // We add synonyms for numbers only if $synonym is a number.
-      case 'number_integer':
-      case 'number_float':
-      case 'number_decimal':
-        if (!is_numeric($synonym)) {
-          return array();
-        }
-        break;
-
+  public function synonymsFind(QueryConditionInterface $condition, $field, $instance) {
+    // We only can find synonyms in SQL storage. If this field is not one, then
+    // we have full right to throw an exception.
+    if ($field['storage']['type'] != 'field_sql_storage') {
+      throw new SynonymsSynonymsBehaviorException(t('Not supported storage engine %type in synonymsFind() method.', array(
+        '%type' => $field['storage']['type'],
+      )));
     }
-    return array(array(
-      'value' => $synonym,
-    ));
+    // Now we will figure out in what table $field is stored. We want to
+    // condition the 'foo' column within that field table.
+    $table = array_keys($field['storage']['details']['sql'][FIELD_LOAD_CURRENT]);
+    $table = reset($table);
+    $column = $field['storage']['details']['sql'][FIELD_LOAD_CURRENT][$table]['foo'];
+
+    // Once we know full path to the column that stores synonyms as plain text,
+    // we can use a supplementary method from AbstractSynonymsSynonymsBehavior,
+    // which helps us to convert a column placeholder into its real value within
+    // the condition we have received from outside.
+    $this->synonymsFindProcessCondition($condition, $column);
+
+    // Now we are all set to build a SELECT query and return its result set.
+    $query = db_select($table);
+    $query->fields($table, array('entity_id'));
+    $query->addField($table, $column, 'synonym');
+    return $query->condition($condition)
+      ->condition('entity_type', $instance['entity_type'])
+      ->condition('bundle', $instance['bundle'])
+      ->execute();
   }
 }

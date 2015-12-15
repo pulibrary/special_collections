@@ -466,6 +466,31 @@ function rbsc_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'collections-image';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Division Image */
+  $handler->display->display_options['fields']['field_division_image']['id'] = 'field_division_image';
+  $handler->display->display_options['fields']['field_division_image']['table'] = 'field_data_field_division_image';
+  $handler->display->display_options['fields']['field_division_image']['field'] = 'field_division_image';
+  $handler->display->display_options['fields']['field_division_image']['label'] = '';
+  $handler->display->display_options['fields']['field_division_image']['element_class'] = 'img-thumbnail';
+  $handler->display->display_options['fields']['field_division_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_division_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_division_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_division_image']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+    'class' => '',
+  );
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -568,6 +593,16 @@ function rbsc_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['separator'] = '<br/>';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -1259,10 +1294,13 @@ function rbsc_views_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Book Cover', 'panel_pane_1');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Book Cover */
@@ -1270,11 +1308,15 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_book_cover']['table'] = 'field_data_field_book_cover';
   $handler->display->display_options['fields']['field_book_cover']['field'] = 'field_book_cover';
   $handler->display->display_options['fields']['field_book_cover']['label'] = '';
+  $handler->display->display_options['fields']['field_book_cover']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_book_cover']['element_class'] = 'exhibition-image';
   $handler->display->display_options['fields']['field_book_cover']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_cover']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_book_cover']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_book_cover']['settings'] = array(
     'image_style' => 'book_cover_fixed-width__300px_wide_',
     'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: View Catalog Record */
   $handler->display->display_options['fields']['field_view_catalog_record']['id'] = 'field_view_catalog_record';
@@ -1287,6 +1329,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_view_catalog_record']['alter']['path'] = '[field_view_catalog_record-url]';
   $handler->display->display_options['fields']['field_view_catalog_record']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_view_catalog_record']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['field_view_catalog_record']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_view_catalog_record']['element_class'] = 'external-link';
   $handler->display->display_options['fields']['field_view_catalog_record']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_view_catalog_record']['element_default_classes'] = FALSE;
@@ -1305,6 +1348,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_purchase_link']['alter']['path'] = '[field_purchase_link-url]';
   $handler->display->display_options['fields']['field_purchase_link']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_purchase_link']['alter']['external'] = TRUE;
+  $handler->display->display_options['fields']['field_purchase_link']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_purchase_link']['element_class'] = 'external-link';
   $handler->display->display_options['fields']['field_purchase_link']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_purchase_link']['click_sort_column'] = 'url';
@@ -1335,6 +1379,8 @@ function rbsc_views_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Publication Description', 'panel_pane_2');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1346,6 +1392,7 @@ function rbsc_views_views_default_views() {
   );
   $handler->display->display_options['row_options']['separator'] = '<span class="smaller">|</span>';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Author */
@@ -1354,9 +1401,13 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_author']['field'] = 'field_author';
   $handler->display->display_options['fields']['field_author']['label'] = '';
   $handler->display->display_options['fields']['field_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_author']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_author']['element_wrapper_class'] = 'publication-authors';
+  $handler->display->display_options['fields']['field_author']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_author']['type'] = 'field_collection_fields';
   $handler->display->display_options['fields']['field_author']['settings'] = array(
     'view_mode' => 'full',
+    'class' => '',
   );
   $handler->display->display_options['fields']['field_author']['delta_offset'] = '0';
   /* Field: Content: Digital Facsimile Link */
@@ -1365,37 +1416,75 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_digital_facsimile_link']['field'] = 'field_digital_facsimile_link';
   $handler->display->display_options['fields']['field_digital_facsimile_link']['label'] = 'View online';
   $handler->display->display_options['fields']['field_digital_facsimile_link']['element_class'] = 'document';
+  $handler->display->display_options['fields']['field_digital_facsimile_link']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_digital_facsimile_link']['element_wrapper_class'] = 'publication-link';
+  $handler->display->display_options['fields']['field_digital_facsimile_link']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_digital_facsimile_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_digital_facsimile_link']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Publisher */
   $handler->display->display_options['fields']['field_publisher']['id'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['table'] = 'field_data_field_publisher';
   $handler->display->display_options['fields']['field_publisher']['field'] = 'field_publisher';
   $handler->display->display_options['fields']['field_publisher']['label'] = '';
+  $handler->display->display_options['fields']['field_publisher']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_publisher']['element_class'] = 'publication-publisher';
   $handler->display->display_options['fields']['field_publisher']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_publisher']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_publisher']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Place of Publication */
   $handler->display->display_options['fields']['field_place_of_publication']['id'] = 'field_place_of_publication';
   $handler->display->display_options['fields']['field_place_of_publication']['table'] = 'field_data_field_place_of_publication';
   $handler->display->display_options['fields']['field_place_of_publication']['field'] = 'field_place_of_publication';
   $handler->display->display_options['fields']['field_place_of_publication']['label'] = '';
+  $handler->display->display_options['fields']['field_place_of_publication']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_place_of_publication']['element_class'] = 'publication-place';
   $handler->display->display_options['fields']['field_place_of_publication']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_place_of_publication']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_place_of_publication']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Year */
   $handler->display->display_options['fields']['field_year']['id'] = 'field_year';
   $handler->display->display_options['fields']['field_year']['table'] = 'field_data_field_year';
   $handler->display->display_options['fields']['field_year']['field'] = 'field_year';
   $handler->display->display_options['fields']['field_year']['label'] = '';
+  $handler->display->display_options['fields']['field_year']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_year']['element_class'] = 'publication-year';
   $handler->display->display_options['fields']['field_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_year']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_year']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: ISBN/ISSN */
   $handler->display->display_options['fields']['field_isbn']['id'] = 'field_isbn';
   $handler->display->display_options['fields']['field_isbn']['table'] = 'field_data_field_isbn';
   $handler->display->display_options['fields']['field_isbn']['field'] = 'field_isbn';
   $handler->display->display_options['fields']['field_isbn']['label'] = 'ISBN';
+  $handler->display->display_options['fields']['field_isbn']['alter']['text'] = '[field_publisher] [field_place_of_publication] [field_year] [field_isbn]';
+  $handler->display->display_options['fields']['field_isbn']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_isbn']['element_class'] = 'publication-isbn';
+  $handler->display->display_options['fields']['field_isbn']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_isbn']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Publication Type */
   $handler->display->display_options['fields']['field_publication_type']['id'] = 'field_publication_type';
   $handler->display->display_options['fields']['field_publication_type']['table'] = 'field_data_field_publication_type';
   $handler->display->display_options['fields']['field_publication_type']['field'] = 'field_publication_type';
   $handler->display->display_options['fields']['field_publication_type']['label'] = '';
+  $handler->display->display_options['fields']['field_publication_type']['element_type'] = 'div';
   $handler->display->display_options['fields']['field_publication_type']['element_class'] = 'label label-default';
   $handler->display->display_options['fields']['field_publication_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_publication_type']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_publication_type']['element_wrapper_class'] = 'publication-type';
+  $handler->display->display_options['fields']['field_publication_type']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_publication_type']['settings'] = array(
+    'class' => '',
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';

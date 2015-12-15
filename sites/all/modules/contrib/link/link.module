@@ -207,7 +207,7 @@ function link_field_instance_settings_form($field, $instance) {
   $form['attributes']['class'] = array(
     '#type' => 'textfield',
     '#title' => t('Additional CSS Class'),
-    '#description' => t('When output, this link will have this class attribute. Multiple classes should be separated by spaces.'),
+    '#description' => t('When output, this link will have this class attribute. Multiple classes should be separated by spaces. Only alphanumeric characters and hyphens are allowed'),
     '#default_value' => empty($instance['settings']['attributes']['class']) ? '' : $instance['settings']['attributes']['class'],
   );
   $form['attributes']['configurable_title'] = array(
@@ -420,7 +420,6 @@ function _link_process(&$item, $delta, $field, $entity, $instance) {
 function _link_validate(&$item, $delta, $field, $entity, $instance, $langcode, &$optional_field_found, &$errors) {
   if ($item['url'] && !(isset($instance['default_value'][$delta]['url']) && $item['url'] === $instance['default_value'][$delta]['url'] && !$instance['required'])) {
     // Validate the link.
-    $langcode = !empty($entity) ? field_language($instance['entity_type'], $entity, $instance['field_name']) : LANGUAGE_NONE;
     if (!link_validate_url(trim($item['url']), $langcode)) {
       $errors[$field['field_name']][$langcode][$delta][] = array(
         'error' => 'link_required',
@@ -726,6 +725,9 @@ function link_theme() {
     'link_formatter_link_plain' => array(
       'variables' => array('element' => NULL, 'field' => NULL),
     ),
+    'link_formatter_link_host' => array(
+      'variables' => array('element' => NULL),
+    ),
     'link_formatter_link_absolute' => array(
       'variables' => array('element' => NULL, 'field' => NULL),
     ),
@@ -911,6 +913,11 @@ function link_field_formatter_info() {
       'field types' => array('link_field'),
       'multiple values' => FIELD_BEHAVIOR_DEFAULT,
     ),
+    'link_host' => array(
+      'label' => t('Host, as plain text'),
+      'field types' => array('link_field'),
+      'multiple values' => FIELD_BEHAVIOR_DEFAULT,
+    ),
     'link_url' => array(
       'label' => t('URL, as link'),
       'field types' => array('link_field'),
@@ -1039,6 +1046,14 @@ function theme_link_formatter_link_plain($vars) {
   }
   unset($link_options['url']);
   return empty($vars['element']['url']) ? check_plain($vars['element']['title']) : url($vars['element']['url'], $link_options);
+}
+
+/**
+ * Theme function for 'host' text field formatter.
+ */
+function theme_link_formatter_link_host($vars) {
+  $host = @parse_url($vars['element']['url']);
+  return isset($host['host']) ? check_plain($host['host']) : '';
 }
 
 /**

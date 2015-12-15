@@ -1,0 +1,19 @@
+.views-exposed-form {
+  margin-bottom: 2em;
+
+  .views-exposed-widget label {
+    display: inline;
+    float: left;
+    margin: 4px 10px 0 0;
+  }
+
+  .views-exposed-widget .form-select {
+    display: inline;
+  }
+
+  .views-exposed-widget .form-submit {
+    font-weight: bold;
+    margin-top: 0;
+    padding: 0.3em 0.5em;
+  }
+}
