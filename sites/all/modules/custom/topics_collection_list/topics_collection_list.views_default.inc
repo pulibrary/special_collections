@@ -266,6 +266,17 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = '[sticky]';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_collection_strength_target_id']['id'] = 'field_collection_strength_target_id';
@@ -1211,7 +1222,10 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['guid']['alter']['path'] = 'http://findingaids.princeton.edu/collections/[field_finding_aids_id]';
   $handler->display->display_options['fields']['guid']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['guid']['alter']['link_class'] = 'btn btn-primary full-width';
+  $handler->display->display_options['fields']['guid']['element_type'] = 'div';
+  $handler->display->display_options['fields']['guid']['element_class'] = 'external-link';
   $handler->display->display_options['fields']['guid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['guid']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Sticky */
   $handler->display->display_options['sorts']['sticky']['id'] = 'sticky';
@@ -1351,10 +1365,14 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['row_class'] = '[sticky]';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referencing entity */
@@ -1740,6 +1758,16 @@ function topics_collection_list_views_default_views() {
   /* Display: Topic Image */
   $handler = $view->new_display('panel_pane', 'Topic Image', 'panel_pane_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'topic-image';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -2105,31 +2133,32 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Field: Content: image */
-  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_wrapper_class'] = 'media-image';
-  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => '',
-    'class' => '',
-  );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: image */
+  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
+  $handler->display->display_options['fields']['field_collection_strength_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['alter']['text'] = '<div class="media-image">[field_collection_strength_image]</div>
+<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => '',
     'class' => '',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
