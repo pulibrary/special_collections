@@ -466,6 +466,31 @@ function rbsc_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'collections-image';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Division Image */
+  $handler->display->display_options['fields']['field_division_image']['id'] = 'field_division_image';
+  $handler->display->display_options['fields']['field_division_image']['table'] = 'field_data_field_division_image';
+  $handler->display->display_options['fields']['field_division_image']['field'] = 'field_division_image';
+  $handler->display->display_options['fields']['field_division_image']['label'] = '';
+  $handler->display->display_options['fields']['field_division_image']['element_class'] = 'img-thumbnail';
+  $handler->display->display_options['fields']['field_division_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_division_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_division_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_division_image']['settings'] = array(
+    'image_style' => 'medium',
+    'image_link' => '',
+    'class' => '',
+  );
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -568,6 +593,16 @@ function rbsc_views_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['separator'] = '<br/>';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
