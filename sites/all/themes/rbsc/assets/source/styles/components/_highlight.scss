@@ -1,6 +1,6 @@
 .wrapper--highlighted {
-  background-color: #f5f4f1;
-  border-color: #e7e7e7;
+  background-color: $gray-lightest;
+  border-color: $gray-light;
 }
 
 img.bookmark {
@@ -12,7 +12,7 @@ img.bookmark {
   margin-top: 0.15em;
 
   a:hover {
-    text-decoration: none !important;
+    text-decoration: none;
   }
 
 }
@@ -23,7 +23,7 @@ img.bookmark {
   margin-top: 0.75em;
 
   span {
-    color: #666;
+    color: $gray;
     display: block;
     font-family: $font-sans;
     font-size: 0.6em;
@@ -35,7 +35,7 @@ img.bookmark {
 
 .navbar-brand {
   background-color: transparent;
-  color: #000;
+  color: $black;
   display: inline-block;
   font-size: 1.75em;
   margin-bottom: -0.6em;

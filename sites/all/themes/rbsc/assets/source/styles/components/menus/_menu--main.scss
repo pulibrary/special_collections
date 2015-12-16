@@ -7,7 +7,7 @@
   $centered-navigation-logo-height: 2em;
   $centered-navigation-background: $gray-lightest;
   $centered-navigation-color: transparentize($base-font-color, 0.3);
-  $centered-navigation-color-hover: $orange;
+  $centered-navigation-color-hover: $princeton-orange;
   $centered-navigation-height: 50px;
   $centered-navigation-item-padding: 1em;
   $centered-navigation-submenu-padding: 1em;
@@ -203,14 +203,14 @@
     padding-left: 0;
 
     ul.menu {
-      background-color: #f5f4f1;
-      border-top: 1px solid #e8e6df;
+      background-color: $gray-lightest;
+      border-top: 1px solid $gray-light;
       display: block;
       font-size: 0.8em;
     }
 
     @include breakpoint($horizontal-bar-mode) {
-      box-shadow: 0 3px 8px rgb(100, 100, 100);
+      box-shadow: 0 3px 8px $gray;
       left: -2em;
       margin-left: 2em;
       position: absolute;
