@@ -1,0 +1,11 @@
+.section-visit-us .location-info {
+  margin-bottom: 2em;
+
+  &:first-child {
+    @include span(first 6);
+  }
+
+  &:nth-child(2) {
+    @include span(last 6);
+  }
+}
