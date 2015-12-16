@@ -22,7 +22,7 @@ function blog_search_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Blog Search Results';
+  $handler->display->display_options['title'] = '<i class="icon-databases"></i> Blog Search Results';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'See All Blog Search Results';
@@ -31,6 +31,9 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['search_api_bypass_access'] = 0;
+  $handler->display->display_options['query']['options']['entity_access'] = 0;
+  $handler->display->display_options['query']['options']['parse_mode'] = 'direct';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
@@ -38,6 +41,11 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  /* Sort criterion: Search: Relevance */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_blog';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
   /* Contextual filter: Search: Fulltext search */
   $handler->display->display_options['arguments']['search_api_views_fulltext']['id'] = 'search_api_views_fulltext';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['table'] = 'search_api_index_blog';
@@ -81,28 +89,27 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['link_display'] = 'custom_url';
   $handler->display->display_options['link_url'] = 'find/blogs/!1';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'allblogs';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Indexed Node: Blog Post URL */
+  /* Field: Indexed Content: Blog Post URL */
   $handler->display->display_options['fields']['field_blog_post_url']['id'] = 'field_blog_post_url';
   $handler->display->display_options['fields']['field_blog_post_url']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_blog_post_url']['field'] = 'field_blog_post_url';
   $handler->display->display_options['fields']['field_blog_post_url']['label'] = '';
   $handler->display->display_options['fields']['field_blog_post_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_blog_post_url']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Source Blog URL */
+  /* Field: Indexed Content: Source Blog URL */
   $handler->display->display_options['fields']['field_source_blog_url']['id'] = 'field_source_blog_url';
   $handler->display->display_options['fields']['field_source_blog_url']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_source_blog_url']['field'] = 'field_source_blog_url';
   $handler->display->display_options['fields']['field_source_blog_url']['label'] = '';
   $handler->display->display_options['fields']['field_source_blog_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_source_blog_url']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Title */
+  /* Field: Indexed Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -113,7 +120,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Date created */
+  /* Field: Indexed Content: Date created */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -122,7 +129,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['fields']['created']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Source Blog URL */
+  /* Field: Indexed Content: Source Blog URL */
   $handler->display->display_options['fields']['field_source_blog_url_1']['id'] = 'field_source_blog_url_1';
   $handler->display->display_options['fields']['field_source_blog_url_1']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_source_blog_url_1']['field'] = 'field_source_blog_url';
@@ -132,7 +139,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['field_source_blog_url_1']['alter']['path'] = '[field_source_blog_url]';
   $handler->display->display_options['fields']['field_source_blog_url_1']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_source_blog_url_1']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Source Blog Title */
+  /* Field: Indexed Content: Source Blog Title */
   $handler->display->display_options['fields']['field_source_blog_title']['id'] = 'field_source_blog_title';
   $handler->display->display_options['fields']['field_source_blog_title']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_source_blog_title']['field'] = 'field_source_blog_title';
@@ -176,7 +183,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Indexed Node: Title */
+  /* Field: Indexed Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -187,7 +194,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Content type */
+  /* Field: Indexed Content: Content type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['type']['field'] = 'type';
@@ -278,21 +285,21 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Indexed Node: Blog Post URL */
+  /* Field: Indexed Content: Blog Post URL */
   $handler->display->display_options['fields']['field_blog_post_url']['id'] = 'field_blog_post_url';
   $handler->display->display_options['fields']['field_blog_post_url']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_blog_post_url']['field'] = 'field_blog_post_url';
   $handler->display->display_options['fields']['field_blog_post_url']['label'] = '';
   $handler->display->display_options['fields']['field_blog_post_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_blog_post_url']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Source Blog URL */
+  /* Field: Indexed Content: Source Blog URL */
   $handler->display->display_options['fields']['field_source_blog_url']['id'] = 'field_source_blog_url';
   $handler->display->display_options['fields']['field_source_blog_url']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_source_blog_url']['field'] = 'field_source_blog_url';
   $handler->display->display_options['fields']['field_source_blog_url']['label'] = '';
   $handler->display->display_options['fields']['field_source_blog_url']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_source_blog_url']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Title */
+  /* Field: Indexed Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -303,7 +310,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Date created */
+  /* Field: Indexed Content: Date created */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -312,7 +319,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
   $handler->display->display_options['fields']['created']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Source Blog URL */
+  /* Field: Indexed Content: Source Blog URL */
   $handler->display->display_options['fields']['field_source_blog_url_1']['id'] = 'field_source_blog_url_1';
   $handler->display->display_options['fields']['field_source_blog_url_1']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_source_blog_url_1']['field'] = 'field_source_blog_url';
@@ -322,7 +329,7 @@ function blog_search_views_views_default_views() {
   $handler->display->display_options['fields']['field_source_blog_url_1']['alter']['path'] = '[field_source_blog_url]';
   $handler->display->display_options['fields']['field_source_blog_url_1']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_source_blog_url_1']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: Source Blog Title */
+  /* Field: Indexed Content: Source Blog Title */
   $handler->display->display_options['fields']['field_source_blog_title']['id'] = 'field_source_blog_title';
   $handler->display->display_options['fields']['field_source_blog_title']['table'] = 'search_api_index_blog';
   $handler->display->display_options['fields']['field_source_blog_title']['field'] = 'field_source_blog_title';
