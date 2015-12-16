@@ -7,7 +7,8 @@
 .media-image img,
 .exhibition-image img,
 .topic-image img,
-.collections-image img {
+.collections-image img,
+.cover-image img {
   border: 1px solid $gray-light;
   border-radius: 4px;
   display: inline-block;
@@ -16,7 +17,6 @@
 
 .views-field-field-location-image img {
   margin: 0.7em 0 1em;
-  // width: 100%;
 }
 
 .current-exhibition.media img {

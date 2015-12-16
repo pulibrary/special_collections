@@ -21,6 +21,7 @@
 @import "base/images";
 @import "base/typography";
 
+@import "components/ask-question";
 @import "components/branding";
 @import "components/collections";
 @import "components/exhibitions";
@@ -30,11 +31,12 @@
 @import "components/gallery";
 @import "components/highlight";
 @import "components/landing--menu-grid";
+@import "components/menus/menu--main";
+@import "components/menus/menu--sidebar";
 @import "components/page-filter";
 @import "components/publications";
-@import "components/striped-rows";
-@import "components/topics";
-@import "components/tabs";
-
-@import "components/menus/menu--main";
+@import "components/research";
 @import "components/search/search--results";
+@import "components/striped-rows";
+@import "components/tabs";
+@import "components/topics";

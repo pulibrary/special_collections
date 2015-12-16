@@ -1,0 +1,46 @@
+.page-node-340 .three_nine-region--second {
+  .panel-pane {
+    @include span(6);
+    @include last;
+
+    &:nth-child(2) h2 {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+
+  .forms--ask-question {
+    @include span(first 6 of 12);
+    font-family: $font-sans;
+    padding-right: 1em;
+
+    header {
+      @include hidden;
+    }
+
+    label {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      font-family: $font-serif;
+    }
+
+    select,
+    .mollom-privacy {
+      margin-bottom: 1.5em;
+    }
+
+    .mollom-privacy {
+      font-family: $font-serif;
+      font-size: 0.9em;
+      margin-top: 1em;
+    }
+  }
+}
