@@ -1,13 +1,13 @@
 .accordion-tabs {
-  $base-border-color: gainsboro !default;
+  $base-border-color: #e8e6df !default;
   $base-border-radius: 3px !default;
-  $base-background-color: white !default;
+  $base-background-color: #fff !default;
   $base-spacing: 1.5em !default;
-  $action-color: #477DCA !default;
-  $dark-gray: #333 !default;
-  $light-gray: #DDD !default;
+  $action-color: #477dca !default;
+  $dark-gray: $gray-dark !default;
+  $light-gray: $gray-light !default;
   $medium-screen: em(640) !default;
-  $tab-border: 1px solid $base-border-color;
+  $tab-border: 0px solid $base-border-color;
   $tab-content-background: lighten($light-gray, 10);
   $tab-active-background: $tab-content-background;
   $tab-inactive-color: $base-background-color;
@@ -17,11 +17,12 @@
   @include clearfix;
   line-height: 1.5;
   margin-bottom: $base-spacing;
+  margin-left: 0 !important;
   padding: 0;
 
   @include breakpoint(max-width $tab-mode) {
-    border-radius: $base-border-radius;
     border: $tab-border;
+    border-radius: $base-border-radius;
   }
 
   .tab-header-and-content {
@@ -51,18 +52,23 @@
   .tab-link {
     background-color: $tab-inactive-color;
     border-top: $tab-border;
-    color: $dark-gray;
     display: block;
+    font-size: 1.2em;
     font-weight: bold;
+    margin: 0;
     padding: 1em; // $base-spacing/2 $gutter/2;
     text-decoration: none;
-    margin:0;
 
     @include breakpoint($tab-mode) {
       @include inline-block;
+      border-top: 0;
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
-      border-top: 0;
+    }
+
+    a {
+      color: $dark-gray;
+      text-decoration: none;
     }
 
     &:hover {
@@ -92,10 +98,10 @@
     width: 100%;
 
     @include breakpoint($tab-mode) {
+      border: $tab-border;
       border-bottom-left-radius: $base-border-radius;
       border-bottom-right-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
-      border: $tab-border;
       float: left;
     }
   }
