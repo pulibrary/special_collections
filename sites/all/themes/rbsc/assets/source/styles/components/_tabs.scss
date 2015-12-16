@@ -17,7 +17,7 @@
   @include clearfix;
   line-height: 1.5;
   margin-bottom: $base-spacing;
-  margin-left: 0 !important;
+  margin-left: 0;
   padding: 0;
 
   @include breakpoint(max-width $tab-mode) {
@@ -60,10 +60,10 @@
     text-decoration: none;
 
     @include breakpoint($tab-mode) {
-      @include inline-block;
       border-top: 0;
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
+      display: inline-block;
     }
 
     a {

@@ -46,19 +46,25 @@ rules:
     - 2
     - max-depth: 4
   no-color-keyword: 2
+  no-color-literals:
+    - 2
+    - allow-rgba: true
   no-css-comments: 0
   no-debug: 2
   no-duplicate-properties: 2
   no-empty-rulesets: 2
   no-ids: 2
+  no-important: 2
   no-invalid-hex: 2
   no-mergeable-selectors: 0
+  no-misspelled-properties: 2
   no-qualifying-elements: 0
   no-trailing-zero: 2
   no-vendor-prefixes:
     - 2
     - additional-identifiers: []
       excluded-identifiers: []
+  one-declaration-per-line: 2
   placeholder-in-extend: 0
   placeholder-name-format:
     - 2
