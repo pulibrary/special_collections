@@ -212,7 +212,7 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         "search_api_aggregation_1" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
         "sticky" : { "type" : "boolean" },
-        "title" : { "type" : "text", "boost" : "8.0" },
+        "title" : { "type" : "text", "boost" : "21.0" },
         "type" : { "type" : "string" }
       }
     },

@@ -9,6 +9,29 @@
  */
 function rbsc_content_types_taxonomy_default_vocabularies() {
   return array(
+    'division' => array(
+      'name' => 'Division',
+      'machine_name' => 'division',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'exhibition_types' => array(
       'name' => 'Domain Location',
       'machine_name' => 'exhibition_types',
@@ -59,6 +82,52 @@ function rbsc_content_types_taxonomy_default_vocabularies() {
       'name' => 'Source',
       'machine_name' => 'source',
       'description' => 'A tag to identify where data comes from.',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'staff_section' => array(
+      'name' => 'Section',
+      'machine_name' => 'staff_section',
+      'description' => 'From PUL Staff List ',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'staff_unit' => array(
+      'name' => 'Unit',
+      'machine_name' => 'staff_unit',
+      'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,

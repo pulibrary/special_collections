@@ -177,11 +177,11 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['fields']['type']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['type']['format_name'] = 1;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Indexed Content: Sort Weight */
-  $handler->display->display_options['sorts']['field_sort_weight']['id'] = 'field_sort_weight';
-  $handler->display->display_options['sorts']['field_sort_weight']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['sorts']['field_sort_weight']['field'] = 'field_sort_weight';
-  $handler->display->display_options['sorts']['field_sort_weight']['order'] = 'DESC';
+  /* Sort criterion: Search: Relevance */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Indexed Content: Content type */
@@ -244,11 +244,11 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['expose']['items_per_page'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Indexed Content: Sort Weight */
-  $handler->display->display_options['sorts']['field_sort_weight']['id'] = 'field_sort_weight';
-  $handler->display->display_options['sorts']['field_sort_weight']['table'] = 'search_api_index_default_node_index';
-  $handler->display->display_options['sorts']['field_sort_weight']['field'] = 'field_sort_weight';
-  $handler->display->display_options['sorts']['field_sort_weight']['order'] = 'DESC';
+  /* Sort criterion: Search: Relevance */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;

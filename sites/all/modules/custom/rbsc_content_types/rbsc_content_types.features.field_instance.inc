@@ -5221,6 +5221,135 @@ function rbsc_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_division'.
+  $field_instances['node-rbsc_staff_member-field_staff_division'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_division',
+    'label' => 'Division',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 45,
+    ),
+  );
+
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_first_name'.
+  $field_instances['node-rbsc_staff_member-field_staff_first_name'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_first_name',
+    'label' => 'First Name',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 38,
+    ),
+  );
+
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_last_name'.
+  $field_instances['node-rbsc_staff_member-field_staff_last_name'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_last_name',
+    'label' => 'Last Name',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 39,
+    ),
+  );
+
   // Exported field_instance:
   // 'node-rbsc_staff_member-field_staff_member_picture'.
   $field_instances['node-rbsc_staff_member-field_staff_member_picture'] = array(
@@ -5286,6 +5415,135 @@ function rbsc_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_netid'.
+  $field_instances['node-rbsc_staff_member-field_staff_netid'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_netid',
+    'label' => 'netid',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_nick_name'.
+  $field_instances['node-rbsc_staff_member-field_staff_nick_name'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_nick_name',
+    'label' => 'Nick Name',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 40,
+    ),
+  );
+
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_office'.
+  $field_instances['node-rbsc_staff_member-field_staff_office'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_office',
+    'label' => 'Office',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 42,
+    ),
+  );
+
   // Exported field_instance: 'node-rbsc_staff_member-field_staff_phone'.
   $field_instances['node-rbsc_staff_member-field_staff_phone'] = array(
     'bundle' => 'rbsc_staff_member',
@@ -5334,6 +5592,46 @@ function rbsc_content_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_section'.
+  $field_instances['node-rbsc_staff_member-field_staff_section'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_section',
+    'label' => 'Section',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 43,
+    ),
+  );
+
   // Exported field_instance: 'node-rbsc_staff_member-field_staff_title'.
   $field_instances['node-rbsc_staff_member-field_staff_title'] = array(
     'bundle' => 'rbsc_staff_member',
@@ -5372,6 +5670,46 @@ function rbsc_content_types_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance: 'node-rbsc_staff_member-field_staff_unit'.
+  $field_instances['node-rbsc_staff_member-field_staff_unit'] = array(
+    'bundle' => 'rbsc_staff_member',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_staff_unit',
+    'label' => 'Unit',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 44,
     ),
   );
 
@@ -5718,6 +6056,8 @@ function rbsc_content_types_field_default_field_instances() {
   t('Main phone number for this location.');
   t('Media');
   t('Most likely exhibition catalog, but could refer to any publication we have that\'s related to an exhibition, such as a Library Chronicle issue.');
+  t('Nick Name');
+  t('Office');
   t('Online Content');
   t('Parent Topic');
   t('Phone');
@@ -5735,6 +6075,7 @@ function rbsc_content_types_field_default_field_instances() {
   t('Related division');
   t('Representative Cover Image');
   t('Research Guides');
+  t('Section');
   t('See Also');
   t('Select any collections this Digital Humanities Project references.');
   t('Sort Weight');
@@ -5755,12 +6096,14 @@ function rbsc_content_types_field_default_field_instances() {
   t('Topics');
   t('URL');
   t('URL of Exhibition');
+  t('Unit');
   t('Use to add/remove the Finding Aids Link Button.  For example, when no content for this topic exists in the Finding Aids site, uncheck this box so as not to confuse users by sending them to a dead end.');
   t('View Catalog Record');
   t('What type of publication is this?');
   t('Who is authoring this guide?');
   t('Year');
   t('image');
+  t('netid');
 
   return $field_instances;
 }
