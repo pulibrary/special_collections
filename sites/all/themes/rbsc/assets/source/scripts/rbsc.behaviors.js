@@ -45,5 +45,31 @@
     }
   };
 
+  Drupal.behaviors.rbscTabs = {
+    attach: function (context, settings) {
+      $(document).ready(function () {
+          var path = '-' + document.referrer.substr(document.referrer.lastIndexOf('/') + 1);
+          console.log(path);
+
+          $('.accordion-tabs').each(function(index) {
+            $(this).children('li').first().children('h2').addClass('is-active').next().addClass('is-open').show();
+          });
+
+          $('.accordion-tabs').on('click', 'li > h2.tab-link', function(event) {
+            event.preventDefault();
+            if (!$(this).hasClass('is-active')) {
+              var accordionTabs = $(this).closest('.accordion-tabs');
+              accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+              $(this).next().toggleClass('is-open').toggle();
+              accordionTabs.find('.is-active').removeClass('is-active');
+              $(this).addClass('is-active');
+            }
+
+          });
+        });
+    }
+  }
+
 
 })(jQuery);
