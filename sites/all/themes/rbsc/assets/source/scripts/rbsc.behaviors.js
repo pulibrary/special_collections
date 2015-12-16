@@ -75,4 +75,78 @@
   }
 
 
+ Drupal.behaviors.rbscTrackFooterMenuUsage = {
+   attach: function (context) {
+     $('.l-region--footer', context).once('rbsc', function () {
+       $('.l-region--footer .block a').each(function () {
+         $(this).addClass('footer-link');
+         $(this).click(function () {
+           console.log('trackFooter fired!');
+           ga('send', 'event', 'Footer Menu', 'click', $(this).text(),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackTopicUsage = {
+   attach: function (context) {
+     $('.view-topics', context).once('rbsc', function () {
+       $('.view-topics li a').each(function () {
+         $(this).addClass('topic-link');
+         $(this).click(function () {
+           console.log('topic fired!');
+           ga('send', 'event', 'Topic Link', 'click', $(this).text(),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackAllSearchUsage = {
+    attach: function (context) {
+
+      $('.page-find-all').once('rbsc', function () {
+
+        // for website content block
+        $('#rbsc_basic_node_search-panel_pane_1 .item-list .rbsc-local-content-title').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+            ga('send', 'event', 'All Search', 'Website Search', 'Position ' + result_position);
+            console.log('Website Content Search Result fired! ' + result_position);
+          });
+        });
+
+        // for blogs block
+        $('#pane-blog-search-panel-pane-2 .item-list .field-content').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+            ga('send', 'event', 'All Search', 'Blog Search', 'Position ' + result_position);
+            console.log('Blog Search Result fired! ' + result_position);
+          });
+        });
+
+
+        $('#rbsc_basic_node_search-panel_pane_1 .more-link a').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+              ga('send', 'event', 'Expand All Search', 'Website Search', 'Bottom');
+            });
+        });
+
+        $('#pane-blog-search-panel-pane-2 .more-link a').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+              ga('send', 'event', 'Expand All Search', 'Blog Search', 'Bottom');
+            });
+        });
+
+
+      });
+    }
+  };
+
+
 })(jQuery);
