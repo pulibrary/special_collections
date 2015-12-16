@@ -68,6 +68,7 @@ gulp.task('lint:scss', function() {
   return gulp.src(config.styles.files)
     .pipe(scsslint())
     .pipe(scsslint.format())
+    .pipe(sassLint.failOnError())
 });
 
 /**
