@@ -66,7 +66,7 @@ function rbsc_basic_node_search_index_default_search_api_index() {
           }
         },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
-        "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_add_aggregation" : {
           "status" : 1,
           "weight" : "0",
@@ -86,7 +86,7 @@ function rbsc_basic_node_search_index_default_search_api_index() {
       },
       "processors" : {
         "search_api_case_ignore" : {
-          "status" : 1,
+          "status" : 0,
           "weight" : "0",
           "settings" : { "fields" : {
               "title" : true,
@@ -104,7 +104,8 @@ function rbsc_basic_node_search_index_default_search_api_index() {
               "title" : true,
               "field_rbsc_faq_question" : true,
               "body:value" : true,
-              "body:summary" : true
+              "body:summary" : true,
+              "field_division_holdings:body:value" : true
             },
             "title" : 0,
             "alt" : 1,
@@ -112,7 +113,7 @@ function rbsc_basic_node_search_index_default_search_api_index() {
           }
         },
         "search_api_tokenizer" : {
-          "status" : 1,
+          "status" : 0,
           "weight" : "20",
           "settings" : {
             "fields" : {
@@ -140,7 +141,7 @@ function rbsc_basic_node_search_index_default_search_api_index() {
           }
         },
         "search_api_highlighting" : {
-          "status" : 1,
+          "status" : 0,
           "weight" : "35",
           "settings" : {
             "prefix" : "\\u003Cstrong\\u003E",
@@ -205,12 +206,25 @@ function rbsc_basic_node_search_index_default_search_api_index() {
         "field_see_also" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_sort_weight" : { "type" : "integer" },
         "field_staff_contact_email" : { "type" : "text" },
+        "field_staff_division" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_staff_division:name" : { "type" : "text", "boost" : "2.0" },
+        "field_staff_first_name" : { "type" : "text", "boost" : "8.0" },
+        "field_staff_last_name" : { "type" : "text", "boost" : "8.0" },
+        "field_staff_netid" : { "type" : "string" },
+        "field_staff_nick_name" : { "type" : "text", "boost" : "8.0" },
+        "field_staff_office" : { "type" : "string" },
+        "field_staff_phone" : { "type" : "string" },
+        "field_staff_section" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_staff_section:name" : { "type" : "text", "boost" : "2.0" },
         "field_staff_title" : { "type" : "text" },
+        "field_staff_unit" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_staff_unit:name" : { "type" : "text", "boost" : "2.0" },
         "field_sub_title" : { "type" : "text" },
         "field_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "promote" : { "type" : "boolean" },
         "search_api_aggregation_1" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
+        "search_api_url" : { "type" : "uri" },
         "sticky" : { "type" : "boolean" },
         "title" : { "type" : "text", "boost" : "8.0" },
         "type" : { "type" : "string" }

@@ -13,6 +13,27 @@ function rbsc_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'auto_entitylabel_node_rbsc_staff_member';
+  $strongarm->value = '2';
+  $export['auto_entitylabel_node_rbsc_staff_member'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'auto_entitylabel_pattern_node_rbsc_staff_member';
+  $strongarm->value = '[node:field-staff-nick-name] [node:field-staff-last-name]  ';
+  $export['auto_entitylabel_pattern_node_rbsc_staff_member'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'auto_entitylabel_php_node_rbsc_staff_member';
+  $strongarm->value = 0;
+  $export['auto_entitylabel_php_node_rbsc_staff_member'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_collection';
   $strongarm->value = 0;
   $export['comment_anonymous_collection'] = $strongarm;
@@ -1184,6 +1205,12 @@ function rbsc_content_types_strongarm() {
         'path' => array(
           'weight' => '30',
         ),
+        'redirect' => array(
+          'weight' => '30',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(),
     ),
@@ -1819,6 +1846,125 @@ function rbsc_content_types_strongarm() {
   $strongarm->name = 'node_submitted_search_interface';
   $strongarm->value = 0;
   $export['node_submitted_search_interface'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_collection_pattern';
+  $strongarm->value = 'collections/[node:title]';
+  $export['pathauto_node_collection_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_collection_strength_pattern';
+  $strongarm->value = 'topics/[node:title]';
+  $export['pathauto_node_collection_strength_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_digital_humanities_pattern';
+  $strongarm->value = 'projects/[node:title]';
+  $export['pathauto_node_digital_humanities_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_division_history_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_division_history_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_exhibition_pattern';
+  $strongarm->value = 'exhibitions/[node:title]';
+  $export['pathauto_node_exhibition_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_holdings_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_holdings_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_location_pattern';
+  $strongarm->value = 'locations/[node:title]';
+  $export['pathauto_node_location_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_media_group_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_media_group_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_online_collections_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_online_collections_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_publication_pattern';
+  $strongarm->value = 'publications/[node:title]';
+  $export['pathauto_node_publication_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_rbsc_rare_books_topics_importer_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_rbsc_rare_books_topics_importer_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_rbsc_staff_member_pattern';
+  $strongarm->value = 'staff/[node:title]';
+  $export['pathauto_node_rbsc_staff_member_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_research_guides_pattern';
+  $strongarm->value = 'guides/[node:title]';
+  $export['pathauto_node_research_guides_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_exhibition_types_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_exhibition_types_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_publication_types_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_publication_types_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_source_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_source_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_topics_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_topics_pattern'] = $strongarm;
 
   return $export;
 }
