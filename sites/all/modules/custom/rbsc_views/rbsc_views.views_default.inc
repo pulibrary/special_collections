@@ -2616,7 +2616,10 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
+  $handler->display->display_options['fields']['field_cover_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'cover-image';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
