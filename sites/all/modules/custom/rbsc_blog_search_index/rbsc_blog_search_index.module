@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the RBSC Blog Search Index feature.
+ */
+
+include_once 'rbsc_blog_search_index.features.inc';
