@@ -48,11 +48,14 @@
   Drupal.behaviors.rbscTabs = {
     attach: function (context, settings) {
       $(document).ready(function () {
-          var path = '-' + document.referrer.substr(document.referrer.lastIndexOf('/') + 1);
-          console.log(path);
+          var refClassName = '.-divisions-' + document.referrer.substr(document.referrer.lastIndexOf('/') + 1);
 
           $('.accordion-tabs').each(function(index) {
-            $(this).children('li').first().children('h2').addClass('is-active').next().addClass('is-open').show();
+            if ($(refClassName).length) {
+              $(refClassName).addClass('is-active').next().addClass('is-open').show();
+            } else {
+              $(this).children('li').first().children('h2').addClass('is-active').next().addClass('is-open').show();
+            }
           });
 
           $('.accordion-tabs').on('click', 'li > h2.tab-link', function(event) {
