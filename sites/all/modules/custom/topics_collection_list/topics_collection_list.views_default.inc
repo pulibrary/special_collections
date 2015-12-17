@@ -1247,6 +1247,7 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['guid']['id'] = 'guid';
   $handler->display->display_options['fields']['guid']['table'] = 'feeds_item';
   $handler->display->display_options['fields']['guid']['field'] = 'guid';
+  $handler->display->display_options['fields']['guid']['relationship'] = 'field_collection_strength_target_id';
   $handler->display->display_options['fields']['guid']['label'] = '';
   $handler->display->display_options['fields']['guid']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['guid']['alter']['text'] = 'View Finding Aid Collections';
@@ -1690,17 +1691,61 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = 'media';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_wrapper_type'] = 'p';
+  $handler->display->display_options['fields']['body']['element_wrapper_class'] = 'pull-right';
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'class' => '',
+  );
+  /* Field: Content: image */
+  $handler->display->display_options['fields']['field_collection_strength_image']['id'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['table'] = 'field_data_field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['field'] = 'field_collection_strength_image';
+  $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
+  $handler->display->display_options['fields']['field_collection_strength_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['alter']['text'] = '<div class="media-image">[field_collection_strength_image]</div>
+<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_wrapper_class'] = 'pull-left';
+  $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_collection_strength_image']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => '',
+    'class' => '',
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Title */
   $handler->display->display_options['arguments']['title']['id'] = 'title';
   $handler->display->display_options['arguments']['title']['table'] = 'node';
   $handler->display->display_options['arguments']['title']['field'] = 'title';
   $handler->display->display_options['arguments']['title']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['title']['exception']['value'] = '';
   $handler->display->display_options['arguments']['title']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['title']['default_argument_options']['argument'] = 'a';
   $handler->display->display_options['arguments']['title']['summary']['number_of_records'] = '0';
@@ -1711,7 +1756,7 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['arguments']['title']['limit'] = '1';
   $handler->display->display_options['arguments']['title']['case'] = 'upper';
   $handler->display->display_options['arguments']['title']['path_case'] = 'lower';
-  $handler->display->display_options['path'] = 'topics';
+  $handler->display->display_options['path'] = 'topics/%';
 
   /* Display: Topic */
   $handler = $view->new_display('panel_pane', 'Topic', 'panel_pane_1');
@@ -1898,11 +1943,13 @@ function topics_collection_list_views_default_views() {
     ),
   );
 
-  /* Display: Attachment */
-  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
+  /* Display: Topic A to Z List */
+  $handler = $view->new_display('attachment', 'Topic A to Z List', 'attachment_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Browse Topics';
   $handler->display->display_options['defaults']['link_display'] = FALSE;
-  $handler->display->display_options['link_display'] = 'page';
-  $handler->display->display_options['link_url'] = 'guide-topics';
+  $handler->display->display_options['link_display'] = 'custom_url';
+  $handler->display->display_options['link_url'] = 'topics/!1';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
@@ -2139,7 +2186,7 @@ function topics_collection_list_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Topic Menu Page', 'panel_pane_6');
   $handler->display->display_options['defaults']['link_display'] = FALSE;
   $handler->display->display_options['link_display'] = 'custom_url';
-  $handler->display->display_options['link_url'] = 'topics/!1';
+  $handler->display->display_options['link_url'] = '!1';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -2214,11 +2261,23 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
   $handler->display->display_options['allow']['link_to_view'] = 0;
-  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 'more_link';
   $handler->display->display_options['allow']['path_override'] = 0;
   $handler->display->display_options['allow']['title_override'] = 'title_override';
   $handler->display->display_options['allow']['exposed_form'] = 0;
   $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['argument_input'] = array(
+    'title' => array(
+      'type' => 'panel',
+      'context' => 'entity:node.field-address',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Title',
+    ),
+  );
+  $handler->display->display_options['link_to_view'] = '1';
+  $handler->display->display_options['inherit_panels_path'] = '1';
   $export['topics'] = $view;
 
   return $export;
