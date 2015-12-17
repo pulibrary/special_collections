@@ -681,3 +681,115 @@ function rbsc_layouts_default_page_manager_handlers() {
 
   return $export;
 }
+
+/**
+ * Implements hook_default_page_manager_pages().
+ */
+function rbsc_layouts_default_page_manager_pages() {
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'topics_a_to_z_listings';
+  $page->task = 'page';
+  $page->admin_title = 'Topics A to Z Listings';
+  $page->admin_description = 'The Topics A to Z List';
+  $page->path = 'topics/!letter';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array(
+    'letter' => array(
+      'id' => '',
+      'identifier' => '',
+      'argument' => '',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_topics_a_to_z_listings__panel';
+  $handler->task = 'page';
+  $handler->subtask = 'topics_a_to_z_listings';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => 'panel',
+  );
+  $display = new panels_display();
+  $display->layout = 'single';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'first' => NULL,
+      'second' => NULL,
+      'top' => NULL,
+      'middle' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '3bdc17ba-90ca-4e32-b80c-80195cb90222';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-d79d9884-2afc-4840-ab0b-4e132936cda7';
+    $pane->panel = 'middle';
+    $pane->type = 'views';
+    $pane->subtype = 'topics';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'page',
+      'context' => array(
+        0 => 'argument_string_1.raw',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'd79d9884-2afc-4840-ab0b-4e132936cda7';
+    $display->content['new-d79d9884-2afc-4840-ab0b-4e132936cda7'] = $pane;
+    $display->panels['middle'][0] = 'new-d79d9884-2afc-4840-ab0b-4e132936cda7';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['topics_a_to_z_listings'] = $page;
+
+  return $pages;
+
+}
