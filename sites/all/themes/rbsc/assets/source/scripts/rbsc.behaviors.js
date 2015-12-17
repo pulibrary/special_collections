@@ -81,7 +81,7 @@
        $('.l-region--footer .block a').each(function () {
          $(this).addClass('footer-link');
          $(this).click(function () {
-           console.log('trackFooter fired!');
+           console.log('Footer fired!');
            ga('send', 'event', 'Footer Menu', 'click', $(this).text(),
              {'page': window.location.pathname});
          });
@@ -96,8 +96,35 @@
        $('.view-topics li a').each(function () {
          $(this).addClass('topic-link');
          $(this).click(function () {
-           console.log('topic fired!');
            ga('send', 'event', 'Topic Link', 'click', $(this).text(),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackGridMenusUsage = {
+   attach: function (context) {
+     $('.menu-grid', context).once('rbsc', function () {
+       $('.menu-grid .pane-node a').each(function () {
+         $(this).addClass('menu-grid-link');
+         $(this).click(function () {
+           ga('send', 'event', 'Grid Menu Link', 'click', $(this).attr('href'),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackMainMenuUsage = {
+   attach: function (context) {
+     $('.l-region--navigation', context).once('rbsc', function () {
+       $('.l-region--navigation .menu a').each(function () {
+         $(this).addClass('main-menu-link');
+         $(this).click(function () {
+           ga('send', 'event', 'Main Menu Link', 'click', $(this).attr('href'),
              {'page': window.location.pathname});
          });
        });
@@ -115,7 +142,6 @@
           var result_position = parseInt(index, 10) + 1;
           $(this).click(function () {
             ga('send', 'event', 'All Search', 'Website Search', 'Position ' + result_position);
-            console.log('Website Content Search Result fired! ' + result_position);
           });
         });
 
@@ -124,7 +150,6 @@
           var result_position = parseInt(index, 10) + 1;
           $(this).click(function () {
             ga('send', 'event', 'All Search', 'Blog Search', 'Position ' + result_position);
-            console.log('Blog Search Result fired! ' + result_position);
           });
         });
 
