@@ -3,35 +3,21 @@
 @include breakpoint($tab) {
   .block--views-locations-footer-block {
     @include span(first 3 of 12);
-    margin-left: 0;
-    margin-right: 0;
   }
 
-  .block--menu-menu-help-footer- {
-    @include span(2);
-    margin-right: 0;
-  }
-
-  .block--menu-menu-footer-services {
-    @include span(2);
-    margin-right: 0;
-  }
-
+  .block--menu-menu-help-footer-,
+  .block--menu-menu-footer-services,
   .block--menu-menu-information-for-footer- {
     @include span(2);
-    margin-right: 0;
   }
 
   .block--block-1 {
     @include span(last 3);
-    margin-left: 0;
-    margin-right: 0;
   }
 }
 
-
 .svg {
-  
+
   .rbscblogs-logo img {
     display: none;
   }

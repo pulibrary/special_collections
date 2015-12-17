@@ -1,9 +1,3 @@
-.l-footer {
-  background-color: $gray-lightest;
-  font-size: $font-size-smaller;
-  margin: 2em 0;
-}
-
 .l-region--footer {
   clear: both;
   // padding: 1em;
@@ -12,6 +6,22 @@
     nav ul {
       display: none;
     }
+  }
+
+  nav,
+  .block--block-1 {
+
+    @include breakpoint($tab) {
+      @include span(3);
+    }
+  }
+
+  nav:first-child {
+    margin-left: 0;
+  }
+
+  .block--block-1 {
+    margin-right: 0;
   }
 
   address,
