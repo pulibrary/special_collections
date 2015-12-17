@@ -75,4 +75,103 @@
   }
 
 
+ Drupal.behaviors.rbscTrackFooterMenuUsage = {
+   attach: function (context) {
+     $('.l-region--footer', context).once('rbsc', function () {
+       $('.l-region--footer .block a').each(function () {
+         $(this).addClass('footer-link');
+         $(this).click(function () {
+           console.log('Footer fired!');
+           ga('send', 'event', 'Footer Menu', 'click', $(this).text(),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackTopicUsage = {
+   attach: function (context) {
+     $('.view-topics', context).once('rbsc', function () {
+       $('.view-topics li a').each(function () {
+         $(this).addClass('topic-link');
+         $(this).click(function () {
+           ga('send', 'event', 'Topic Link', 'click', $(this).text(),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackGridMenusUsage = {
+   attach: function (context) {
+     $('.menu-grid', context).once('rbsc', function () {
+       $('.menu-grid .pane-node a').each(function () {
+         $(this).addClass('menu-grid-link');
+         $(this).click(function () {
+           ga('send', 'event', 'Grid Menu Link', 'click', $(this).attr('href'),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackMainMenuUsage = {
+   attach: function (context) {
+     $('.l-region--navigation', context).once('rbsc', function () {
+       $('.l-region--navigation .menu a').each(function () {
+         $(this).addClass('main-menu-link');
+         $(this).click(function () {
+           ga('send', 'event', 'Main Menu Link', 'click', $(this).attr('href'),
+             {'page': window.location.pathname});
+         });
+       });
+     });
+   }
+ };
+
+ Drupal.behaviors.rbscTrackAllSearchUsage = {
+    attach: function (context) {
+
+      $('.page-find-all').once('rbsc', function () {
+
+        // for website content block
+        $('#rbsc_basic_node_search-panel_pane_1 .item-list .rbsc-local-content-title').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+            ga('send', 'event', 'All Search', 'Website Search', 'Position ' + result_position);
+          });
+        });
+
+        // for blogs block
+        $('#pane-blog-search-panel-pane-2 .item-list .field-content').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+            ga('send', 'event', 'All Search', 'Blog Search', 'Position ' + result_position);
+          });
+        });
+
+
+        $('#rbsc_basic_node_search-panel_pane_1 .more-link a').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+              ga('send', 'event', 'Expand All Search', 'Website Search', 'Bottom');
+            });
+        });
+
+        $('#pane-blog-search-panel-pane-2 .more-link a').each(function (index, value) {
+          var result_position = parseInt(index, 10) + 1;
+          $(this).click(function () {
+              ga('send', 'event', 'Expand All Search', 'Blog Search', 'Bottom');
+            });
+        });
+
+
+      });
+    }
+  };
+
+
 })(jQuery);
