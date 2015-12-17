@@ -1,9 +1,9 @@
-.page-node-16326 .media-image {
+.page-topics .media-image {
   min-width: 108px;
+}
 
-  img {
-    margin: 0 auto;
-  }
+.page-topics .media {
+  margin-bottom: 1em;
 }
 
 .starts-with {
@@ -23,6 +23,11 @@
   font-family: $font-sans;
   font-size: 0.8em;
   line-height: 1.2em;
+
+  img {
+    display: block;
+    margin: 0 auto 1em;
+  }
 }
 
 .section-topics .three_six_three-region--second {
@@ -43,4 +48,8 @@
 
 .striped-list a {
   font-family: $font-sans;
+}
+
+.section-topics .view-id-collection ul {
+  margin-left: 1em;
 }

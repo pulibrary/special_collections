@@ -19,6 +19,8 @@
   margin: 0.7em 0 1em;
 }
 
-.current-exhibition.media img {
-  margin-right: 1.5em;
+@include breakpoint($tab) {
+  .current-exhibition.media img {
+    margin-right: 1.5em;
+  }
 }
