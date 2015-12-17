@@ -341,6 +341,51 @@ function front_page_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-page-field_division'.
+  $field_instances['node-page-field_division'] = array(
+    'bundle' => 'page',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Selecting Division allows Basic Pages to exist within the context of a "Division".',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
+      ),
+      'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_division',
+    'label' => 'Division',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 36,
+    ),
+  );
+
   // Exported field_instance: 'node-page-field_page_attach_files'.
   $field_instances['node-page-field_page_attach_files'] = array(
     'bundle' => 'page',
@@ -506,9 +551,11 @@ function front_page_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Body');
   t('Cover Image');
+  t('Division');
   t('Files');
   t('Files to be attached as inline image.');
   t('Images');
+  t('Selecting Division allows Basic Pages to exist within the context of a "Division".');
   t('Upload images here if you want to insert them easily into the "body" text of the page.');
 
   return $field_instances;
