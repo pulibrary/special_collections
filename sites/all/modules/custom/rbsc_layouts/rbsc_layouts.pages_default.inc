@@ -13,6 +13,167 @@ function rbsc_layouts_default_page_manager_handlers() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_24ce433e-d881-4354-a39f-6d02ed28b570';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 6;
+  $handler->conf = array(
+    'title' => 'RBSC Form Template',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'webform' => 'webform',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'single';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'middle' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '2f53d73c-30ee-40f3-a00b-4cc5194671ff';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-68b56cca-2a39-46b8-8ca3-1fa24619039e';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field_extra';
+    $pane->subtype = 'node:webform';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '68b56cca-2a39-46b8-8ca3-1fa24619039e';
+    $display->content['new-68b56cca-2a39-46b8-8ca3-1fa24619039e'] = $pane;
+    $display->panels['middle'][0] = 'new-68b56cca-2a39-46b8-8ca3-1fa24619039e';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-68b56cca-2a39-46b8-8ca3-1fa24619039e';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_24ce433e-d881-4354-a39f-6d02ed28b570'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_35f7038b-cd25-4e7f-ac13-a7e1af065381';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 7;
+  $handler->conf = array(
+    'title' => 'RBSC Staff Member',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'entity_bundle:node',
+          'settings' => array(
+            'type' => array(
+              'rbsc_staff_member' => 'rbsc_staff_member',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'pul-base-nine-three';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'first' => NULL,
+      'second' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = '7907195c-17ba-4ba3-a058-b12395c65ad0';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-f67d9c37-1631-4b97-962f-86c8c53b879a';
+    $pane->panel = 'first';
+    $pane->type = 'entity_view';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'view_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f67d9c37-1631-4b97-962f-86c8c53b879a';
+    $display->content['new-f67d9c37-1631-4b97-962f-86c8c53b879a'] = $pane;
+    $display->panels['first'][0] = 'new-f67d9c37-1631-4b97-962f-86c8c53b879a';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-f67d9c37-1631-4b97-962f-86c8c53b879a';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_35f7038b-cd25-4e7f-ac13-a7e1af065381'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_29';
   $handler->task = 'node_view';
   $handler->subtask = '';

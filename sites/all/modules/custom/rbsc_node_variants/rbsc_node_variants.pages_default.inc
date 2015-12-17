@@ -4331,7 +4331,7 @@ catalogs-databases',
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'six-six-stacked';
+  $display->layout = 'three-nine';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
