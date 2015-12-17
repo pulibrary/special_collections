@@ -8,6 +8,7 @@ dependencies[] = page_manager
 features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:2
 features[page_manager_handlers][] = node_view__panel_context_062ffb1c-c9c7-47a4-94e4-520f7ac51a22
+features[page_manager_handlers][] = node_view__panel_context_be8dca39-20f6-4ea7-bfeb-75acf49d22ad
 features[page_manager_handlers][] = node_view_panel_context_10
 features[page_manager_handlers][] = node_view_panel_context_11
 features[page_manager_handlers][] = node_view_panel_context_12
