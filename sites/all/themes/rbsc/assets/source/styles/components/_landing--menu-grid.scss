@@ -109,6 +109,15 @@
 
 .menu-grid .six_six_stacked-region--top .panel-pane,
 .menu-grid .landingpage-region--second > .panel-pane {
+  background: $black;
+  border-radius: $global-border-radius;
+  height: 120px;
+  margin-bottom: 0.4em;
+
+  @include breakpoint($tab) {
+    max-height: 180px;
+  }
+
   h2 {
     font-size: 1.75em;
     left: 10px;
@@ -121,6 +130,8 @@
   }
 
   @include breakpoint($bp-small-2) {
+    height: 130px;
+
     h2 {
       font-size: 2em;
     }
@@ -139,12 +150,16 @@
   }
 
   @include breakpoint($tab-desk) {
+    height: 140px;
+
     h2 {
-      font-size: 2.2em;
+      font-size: 2.15em;
     }
   }
 
   @include breakpoint($desk) {
+    height: 160px;
+
     h2 {
       font-size: 2.4em;
     }
@@ -163,15 +178,23 @@
     border-radius: $global-border-radius;
 
     a {
-      background: $black;
+      // background: $black;
       border-radius: $global-border-radius;
       display: inline-block;
-      max-height: 130px;
+      height: 120px;
       padding: 0;
       width: 100%;
 
-      @include breakpoint($tab) {
-        max-height: 180px;
+      @include breakpoint($bp-small-2) {
+        height: 130px;
+      }
+
+      @include breakpoint($tab-desk) {
+        height: 140px;
+      }
+
+      @include breakpoint($desk) {
+        height: 160px;
       }
     }
 
@@ -182,13 +205,21 @@
     img {
       border-radius: $global-border-radius;
       display: block;
-      max-height: 130px;
-      opacity: 0.6;
+      height: 120px;
+      opacity: 0.4;
       transition: all 0.1s linear;
       width: 100%;
 
-      @include breakpoint($tab) {
-        max-height: 180px;
+      @include breakpoint($bp-small-2) {
+        height: 130px;
+      }
+
+      @include breakpoint($tab-desk) {
+        height: 140px;
+      }
+
+      @include breakpoint($desk) {
+        height: 160px;
       }
     }
   }
@@ -202,6 +233,8 @@
   font-size: 1.2em;
 }
 
+.menu-grid .landingpage-region--second > .panel-pane,
+.menu-grid .landingpage-region--second > .panel-pane .field__item,
 .menu-grid .landingpage-region--second > .panel-pane .field__item a,
 .menu-grid .landingpage-region--second > .panel-pane .field__item img {
   max-height: 110px;
@@ -209,4 +242,9 @@
   @include breakpoint($tab) {
     max-height: 130px;
   }
+}
+
+.menu-gird .landingpage-region--second > .panel-pane {
+  background: $black;
+  border-radius: $global-border-radius;
 }
