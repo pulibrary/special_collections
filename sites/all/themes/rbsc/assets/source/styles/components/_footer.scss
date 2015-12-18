@@ -1,5 +1,19 @@
+.l-region--footer {
+  font-family: $font-sans;
+  font-size: 0.9em;
+}
+
 .l-region--footer nav ul {
   display: block;
+}
+
+.l-region--footer h3 {
+  font-size: 1em;
+  font-weight: bold;
+
+  a {
+    color: $black;
+  }
 }
 
 @include breakpoint($tab) {
