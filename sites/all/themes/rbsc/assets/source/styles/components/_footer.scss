@@ -1,4 +1,6 @@
-/* Footer.scss */
+.l-region--footer nav ul {
+  display: block;
+}
 
 @include breakpoint($tab) {
   .block--views-locations-footer-block {

@@ -16,6 +16,19 @@
   }
 }
 
+.current-exhibition.media img {
+  float: none;
+
+  @include breakpoint($tab) {
+    float: left;
+  }
+}
+
+.exhibition-image img {
+  display: block;
+  margin: 0 auto;
+}
+
 .external-link a,
 .btn {
   background-color: $blue-dark;

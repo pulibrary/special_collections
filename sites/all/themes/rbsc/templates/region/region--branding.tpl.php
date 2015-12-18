@@ -30,6 +30,5 @@
  */
 ?>
 <?php if ($content): ?>
-  <h2><a href="<?php print $front_page; ?>" title="<?php print t('Princeton University Library - Home'); ?>"  class="site-logo"><img src="/sites/all/themes/pul_base/assets/public/images/logo.svg" alt="<?php print t('Home'); ?>" /><span class="site-name"><?php print $site_name; ?></span></a></h2>
-  <?php print $content; ?>
+  <h2><a href="https://library.princeton.edu" title="Princeton University Library - Home"  class="site-logo"><img src="/sites/all/themes/pul_base/assets/public/images/logo-txt.png" alt="Princeton University Library" /><span class="site-name">Princeton University Library</span></a></h2>
 <?php endif; ?>

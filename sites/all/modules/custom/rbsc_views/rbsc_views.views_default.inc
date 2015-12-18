@@ -211,6 +211,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['style_options']['row_class'] = 'media';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = 'striped-list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -227,12 +228,14 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
-  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'cover-image';
+  $handler->display->display_options['fields']['field_cover_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'media-image';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'square_thumbnail',
     'image_link' => 'content',
+    'class' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -1153,7 +1156,8 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['style_options']['class'] = 'nav nav-pills nav-stacked';
+  $handler->display->display_options['style_options']['class'] = 'menu';
+  $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
