@@ -1747,7 +1747,7 @@ function topics_collection_list_views_default_views() {
   $handler->display->display_options['fields']['field_collection_strength_image']['label'] = '';
   $handler->display->display_options['fields']['field_collection_strength_image']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_collection_strength_image']['alter']['text'] = '<div class="media-image">[field_collection_strength_image]</div>
-<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
+<div class="media-body"><h3 class="media-heading">[title]</h3> [body]</div>';
   $handler->display->display_options['fields']['field_collection_strength_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_collection_strength_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_collection_strength_image']['click_sort_column'] = 'fid';
