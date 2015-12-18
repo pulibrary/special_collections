@@ -82,14 +82,19 @@
     <?php print render($page['header']); ?>
     <div class="wrapper wrapper--highlighted">
       <div class="l-region l-region--highlighted">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"  class="rbsc-logo">
-          <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
-          <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>">
-            <div class="dept-name">
-            <span>THE DEPARTMENT OF</span>
-            <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
-          </div>
-        </a>
+        <div class="site-branding">
+          <a href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"  class="rbsc-logo">
+            <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
+            <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>">
+              <div class="dept-name">
+              <span>THE DEPARTMENT OF</span>
+              <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+            </div>
+          </a>
+        </div>
+        <div class="site-search">
+          <?php print render($page['highlighted']); ?>
+        </div>
       </div>
     </div>
     <div class="wrapper wrapper--navigation">
@@ -127,7 +132,9 @@
   </section>
 
   <footer class="l-footer" role="contentinfo">
-    <?php print render($page['footer']); ?>
-    <a href="#l-page" class="cd-top">Top</a>
+    <div class="wrapper wrapper--footer">
+      <?php print render($page['footer']); ?>
+      <a href="#l-page" class="cd-top">Top</a>
+    </div>
   </footer>
 </div>
