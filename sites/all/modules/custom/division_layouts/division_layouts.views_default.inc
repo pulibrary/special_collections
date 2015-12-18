@@ -284,14 +284,15 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = '[field_blog_post_url]';
   $handler->display->display_options['fields']['field_blog_image']['alter']['external'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_image']['element_type'] = '0';
-  $handler->display->display_options['fields']['field_blog_image']['element_class'] = 'pull-left thumbnail';
+  $handler->display->display_options['fields']['field_blog_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_blog_image']['element_class'] = 'media-image';
   $handler->display->display_options['fields']['field_blog_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_blog_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_blog_image']['settings'] = array(
     'image_style' => 'square_thumbnail',
     'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -327,8 +328,8 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="copy">
-<h4><a href="[field_blog_post_url]">[title]</a></h4>
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="media-body">
+<h3 class="media-heading"><a href="[field_blog_post_url]">[title]</a></h3>
 <span class="byline">Posted [created] in the [field_source_blog_title]</span>
 </div>';
   $handler->display->display_options['fields']['title']['alter']['path'] = '[field_blog_post_url]';

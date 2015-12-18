@@ -2,7 +2,7 @@
 .wrapper--branding {
   background-color: $gray-darkest;
   border-top: 5px solid $princeton-orange;
-  min-height: 50px;
+  min-height: 40px;
 
   .site-name {
     display: none;
@@ -12,7 +12,9 @@
 .l-region--branding {
 
   h2 {
+    height: 40px;
     margin: 0;
+    position: relative;
   }
 
   .homepage-tab-form-message {
@@ -23,7 +25,7 @@
 // non-SVG logo
 .site-logo {
   clear: both;
-  height: 50px;
+  height: 40px;
   line-height: 21px;
   margin-left: -0.7em;
 
@@ -59,12 +61,21 @@
   }
 
   .site-logo {
+    @include vertical-align();
     background: url("/sites/all/themes/pul_base/assets/public/images/logo.svg") center center no-repeat;
     background-size: contain;
     display: block;
+    margin-left: 0;
+    max-height: 18px;
 
     @include breakpoint($tab) {
-      margin-left: 0;
+      background: url("/sites/all/themes/pul_base/assets/public/images/logo.svg") center left no-repeat;
+      background-size: contain;
+      // max-height: 25px;
+    }
+
+    @include breakpoint($bp-large) {
+      max-height: 25px;
     }
   }
 }

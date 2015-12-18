@@ -1641,10 +1641,13 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Database Link';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Cover Image */
@@ -1670,6 +1673,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['field_direct_database_link']['alter']['path'] = '[field_direct_database_link-url]';
   $handler->display->display_options['fields']['field_direct_database_link']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_direct_database_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_direct_database_link']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_direct_database_link']['element_wrapper_class'] = 'external-link';
   $handler->display->display_options['fields']['field_direct_database_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_direct_database_link']['settings'] = array(
@@ -1716,10 +1720,13 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['title'] = 'Database Description';
   $handler->display->display_options['display_description'] = 'Description and optional Search Form';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
@@ -1736,12 +1743,6 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'class' => '',
   );
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['field_custom_search_form']['id'] = 'field_custom_search_form';
-  $handler->display->display_options['fields']['field_custom_search_form']['table'] = 'field_data_field_custom_search_form';
-  $handler->display->display_options['fields']['field_custom_search_form']['field'] = 'field_custom_search_form';
-  $handler->display->display_options['fields']['field_custom_search_form']['label'] = '';
-  $handler->display->display_options['fields']['field_custom_search_form']['element_label_colon'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body_1']['id'] = 'body_1';
   $handler->display->display_options['fields']['body_1']['table'] = 'field_data_body';
@@ -1749,6 +1750,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['body_1']['relationship'] = 'field_search_interface_form_target_id';
   $handler->display->display_options['fields']['body_1']['label'] = '';
   $handler->display->display_options['fields']['body_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body_1']['settings'] = array(
     'class' => '',
   );
@@ -1836,7 +1838,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h3 class="media-heading">[title]</h3> [body]</div>';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
@@ -1933,7 +1935,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h3 class="media-heading">[title]</h3> [body]</div>';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
@@ -2596,7 +2598,7 @@ function rbsc_views_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h4 class="media-heading">[title]</h4> [body]</div>';
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h3 class="media-heading">[title]</h3> [body]</div>';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(

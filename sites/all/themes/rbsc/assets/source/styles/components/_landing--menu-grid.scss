@@ -120,12 +120,14 @@
 
   h2 {
     font-size: 1.75em;
+    height: 0;
     left: 10px;
     margin: 0;
     padding-right: 0.2em;
     position: absolute;
     text-shadow: 2px 2px $gray-darkest;
     top: 10px;
+    width: 99%;
     z-index: 1;
   }
 

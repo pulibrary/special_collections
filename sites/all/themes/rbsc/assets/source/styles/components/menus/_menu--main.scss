@@ -17,12 +17,20 @@
 
   background-color: $centered-navigation-background;
   border-bottom: 1px solid darken($centered-navigation-background, 6);
-  font-family: $font-serif;
+  font-family: $font-sans;
   height: $centered-navigation-height;
   overflow: visible;
   position: relative;
   width: 100%;
   z-index: 101; //4
+
+  nav > ul.menu {
+    @include breakpoint($max-tab-desk) {
+      padding: 0;
+    }
+
+    padding-left: 35px;
+  }
 
   // Mobile view
 
@@ -234,17 +242,18 @@
 
     li {
       display: block;
+      margin-top: -2px;
       padding-right: 0;
 
       @include breakpoint($horizontal-bar-mode) {
         line-height: $centered-navigation-height / 1.3;
       }
 
-      // scss-lint:disable SelectorDepth
-
       a {
-        background-color: darken($centered-navigation-background, 3);
+        background-color: inherit;
         display: inline-block;
+        font-size: 0.85em;
+        padding-left: 1em;
         text-align: left;
         width: 100%;
 
