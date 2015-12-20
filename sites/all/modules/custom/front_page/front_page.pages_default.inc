@@ -17,7 +17,7 @@ function front_page_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Front Page',
     'no_blocks' => 0,
@@ -332,7 +332,7 @@ function front_page_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -24;
+  $handler->weight = -23;
   $handler->conf = array(
     'title' => 'Homepage',
     'no_blocks' => 0,

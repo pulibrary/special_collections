@@ -17,7 +17,7 @@ function rbsc_node_variants_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -9;
+  $handler->weight = -8;
   $handler->conf = array(
     'title' => 'Policy Book',
     'no_blocks' => 0,
@@ -236,7 +236,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 6;
+  $handler->weight = 8;
   $handler->conf = array(
     'title' => 'Divisional Basic Page',
     'no_blocks' => 0,
@@ -406,7 +406,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Service',
     'no_blocks' => 0,
@@ -539,7 +539,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -20;
+  $handler->weight = -19;
   $handler->conf = array(
     'title' => 'FAQ',
     'no_blocks' => 0,
@@ -712,7 +712,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -19;
+  $handler->weight = -18;
   $handler->conf = array(
     'title' => 'Division Topics',
     'no_blocks' => 1,
@@ -1022,7 +1022,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -18;
+  $handler->weight = -17;
   $handler->conf = array(
     'title' => 'Division Collection',
     'no_blocks' => 1,
@@ -1298,7 +1298,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -17;
+  $handler->weight = -16;
   $handler->conf = array(
     'title' => 'Collection',
     'no_blocks' => 0,
@@ -1710,7 +1710,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -16;
+  $handler->weight = -15;
   $handler->conf = array(
     'title' => 'Location - Firestone',
     'no_blocks' => 0,
@@ -1934,7 +1934,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -15;
+  $handler->weight = -14;
   $handler->conf = array(
     'title' => 'Databases',
     'no_blocks' => 0,
@@ -2114,7 +2114,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -14;
+  $handler->weight = -13;
   $handler->conf = array(
     'title' => 'Topic',
     'no_blocks' => 1,
@@ -2533,7 +2533,7 @@ topics',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -13;
+  $handler->weight = -12;
   $handler->conf = array(
     'title' => 'Collections Menu Page',
     'no_blocks' => 0,
@@ -2659,7 +2659,7 @@ topics',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -12;
+  $handler->weight = -11;
   $handler->conf = array(
     'title' => 'Projects',
     'no_blocks' => 0,
@@ -2780,7 +2780,7 @@ topics',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -11;
+  $handler->weight = -10;
   $handler->conf = array(
     'title' => 'Project',
     'no_blocks' => 1,
@@ -2940,7 +2940,7 @@ projects',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -10;
+  $handler->weight = -9;
   $handler->conf = array(
     'title' => 'Publications',
     'no_blocks' => 0,
@@ -3060,7 +3060,7 @@ projects',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -8;
+  $handler->weight = -7;
   $handler->conf = array(
     'title' => 'Policy',
     'no_blocks' => 0,
@@ -3276,7 +3276,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -7;
+  $handler->weight = -6;
   $handler->conf = array(
     'title' => 'Conducting Research',
     'no_blocks' => 0,
@@ -3399,7 +3399,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -6;
+  $handler->weight = -5;
   $handler->conf = array(
     'title' => 'Conducting Research Children',
     'no_blocks' => 0,
@@ -3550,7 +3550,7 @@ research-account-access',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -5;
+  $handler->weight = -4;
   $handler->conf = array(
     'title' => 'Visit Us',
     'no_blocks' => 0,
@@ -3731,7 +3731,7 @@ research-account-access',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -4;
+  $handler->weight = -3;
   $handler->conf = array(
     'title' => 'Visit Us Children',
     'no_blocks' => 0,
@@ -3881,7 +3881,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -3;
+  $handler->weight = -2;
   $handler->conf = array(
     'title' => 'News',
     'no_blocks' => 0,
@@ -4000,7 +4000,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -2;
+  $handler->weight = -1;
   $handler->conf = array(
     'title' => 'Publication',
     'no_blocks' => 0,
@@ -4153,7 +4153,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = 1;
   $handler->conf = array(
     'title' => 'Digital Highlights',
     'no_blocks' => 0,
@@ -4274,7 +4274,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 1;
+  $handler->weight = 2;
   $handler->conf = array(
     'title' => 'Digital Highlight',
     'no_blocks' => 1,
@@ -4434,7 +4434,7 @@ digital-highlights',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 2;
+  $handler->weight = 3;
   $handler->conf = array(
     'title' => 'Database',
     'no_blocks' => 1,
@@ -4596,7 +4596,7 @@ catalogs-databases',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 4;
+  $handler->weight = 5;
   $handler->conf = array(
     'title' => 'Guide to Topics',
     'no_blocks' => 0,
@@ -4691,7 +4691,7 @@ catalogs-databases',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -21;
   $handler->conf = array(
     'title' => 'Services',
     'no_blocks' => 0,
