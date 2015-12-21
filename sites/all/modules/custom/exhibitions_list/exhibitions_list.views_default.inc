@@ -1059,7 +1059,6 @@ function exhibitions_list_views_default_views() {
   /* Display: Digital Highlights */
   $handler = $view->new_display('panel_pane', 'Digital Highlights', 'panel_pane_7');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Digital Highlights';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'gallery-item';
