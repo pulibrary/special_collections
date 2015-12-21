@@ -1,0 +1,41 @@
+<?php
+
+# RBSC Hours 
+
+
+function rbsc_hours_contents() {
+  return drupal_get_form('allsearch_block_form'); // must define a function 
+}
+
+
+/**
+ * Implements hook_block_info()
+ * 
+ */
+
+function rbsc_hours_block_info() {
+  
+  $blocks['rbsc_hours'] = array(
+      'info' => t('RBSC Hours'),
+      'cache' => DRUPAL_NO_CACHE, 
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+   );
+   
+   return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function rbsc_hours_block_view($delta = '') {
+  //The $delta parameter tells us which block is being requested.
+  if ($delta == 'rbsc_hours') {
+  
+    $block['subject'] = t('RBSC Hours');
+    $block['content'] = rbsc_hours_contents($delta);
+  }
+ 
+  return $block;
+}

@@ -502,7 +502,7 @@ services-policies
     ),
   );
   $display->cache = array();
-  $display->title = '';
+  $display->title = '%node:title';
   $display->uuid = '66a1854e-806f-4ad3-9511-4b86d3b36110';
   $display->content = array();
   $display->panels = array();
@@ -4748,7 +4748,7 @@ catalogs-databases',
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'services-policies',
+            'paths' => 'library-services',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -4779,7 +4779,7 @@ catalogs-databases',
     ),
   );
   $display->cache = array();
-  $display->title = 'Services & Policies';
+  $display->title = 'Library Services';
   $display->uuid = '66a1854e-806f-4ad3-9511-4b86d3b36110';
   $display->content = array();
   $display->panels = array();

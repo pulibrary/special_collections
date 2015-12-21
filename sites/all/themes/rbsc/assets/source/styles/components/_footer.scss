@@ -22,9 +22,8 @@
   }
 
   .block--menu-menu-help-footer-,
-  .block--menu-menu-footer-services,
-  .block--menu-menu-information-for-footer- {
-    @include span(2);
+  .block--menu-menu-footer-services {
+    @include span(3);
   }
 
   .block--block-1 {
