@@ -394,6 +394,36 @@ services-policies
     $pane->uuid = '64b1d0b3-73d9-41fb-a981-bb5265a40bc6';
     $display->content['new-64b1d0b3-73d9-41fb-a981-bb5265a40bc6'] = $pane;
     $display->panels['second'][0] = 'new-64b1d0b3-73d9-41fb-a981-bb5265a40bc6';
+    $pane = new stdClass();
+    $pane->pid = 'new-e539fbf9-6518-49fb-91c1-7f0933cb0531';
+    $pane->panel = 'second';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_downloadable_document';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'file_default',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'e539fbf9-6518-49fb-91c1-7f0933cb0531';
+    $display->content['new-e539fbf9-6518-49fb-91c1-7f0933cb0531'] = $pane;
+    $display->panels['second'][1] = 'new-e539fbf9-6518-49fb-91c1-7f0933cb0531';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
