@@ -25,17 +25,17 @@ function footer2_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -50,
+    'weight' => -48,
     'customized' => 1,
   );
-  // Exported menu link: menu-footer-services_imaging--publication-services:node/5817.
-  $menu_links['menu-footer-services_imaging--publication-services:node/5817'] = array(
+  // Exported menu link: menu-footer-services_imaging--publication:node/5817.
+  $menu_links['menu-footer-services_imaging--publication:node/5817'] = array(
     'menu_name' => 'menu-footer-services',
     'link_path' => 'node/5817',
     'router_path' => 'node/%',
-    'link_title' => 'Imaging & Publication Services',
+    'link_title' => 'Imaging & Publication',
     'options' => array(
-      'identifier' => 'menu-footer-services_imaging--publication-services:node/5817',
+      'identifier' => 'menu-footer-services_imaging--publication:node/5817',
       'attributes' => array(),
       'item_attributes' => array(
         'id' => '',
@@ -48,25 +48,7 @@ function footer2_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-footer-services_research-assistance:node/285.
-  $menu_links['menu-footer-services_research-assistance:node/285'] = array(
-    'menu_name' => 'menu-footer-services',
-    'link_path' => 'node/285',
-    'router_path' => 'node/%',
-    'link_title' => 'Research Assistance',
-    'options' => array(
-      'attributes' => array(),
-      'identifier' => 'menu-footer-services_research-assistance:node/285',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
+    'weight' => -47,
     'customized' => 1,
   );
   // Exported menu link: menu-footer-services_schedule-a-class-visit:node/5799.
@@ -128,9 +110,8 @@ function footer2_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Access to Collections');
   t('Getting Started');
-  t('Imaging & Publication Services');
+  t('Imaging & Publication');
   t('Research Account');
-  t('Research Assistance');
   t('Schedule a Class Visit');
 
   return $menu_links;

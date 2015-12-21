@@ -13,14 +13,14 @@ function footer2_menu_default_menu_custom() {
   // Exported menu: menu-footer-services.
   $menus['menu-footer-services'] = array(
     'menu_name' => 'menu-footer-services',
-    'title' => 'Services',
+    'title' => 'Services and Resources',
     'description' => 'These are RBSC Services that are listed in the footer.',
   );
   // Exported menu: menu-help-footer-.
   $menus['menu-help-footer-'] = array(
     'menu_name' => 'menu-help-footer-',
-    'title' => 'Help',
-    'description' => 'Helpful footer links to address common questions.',
+    'title' => 'About the Department',
+    'description' => 'About links',
   );
   // Exported menu: menu-information-for-footer-.
   $menus['menu-information-for-footer-'] = array(
@@ -30,11 +30,11 @@ function footer2_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('About links');
+  t('About the Department');
   t('Footer menu that allows specific groups of users to locate information relevant to their goals. ');
-  t('Help');
-  t('Helpful footer links to address common questions.');
   t('Information For');
-  t('Services');
+  t('Services and Resources');
   t('These are RBSC Services that are listed in the footer.');
 
   return $menus;
