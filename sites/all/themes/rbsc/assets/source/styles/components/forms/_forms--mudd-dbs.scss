@@ -1,19 +1,23 @@
-/*
-.view-rbsc-databases select {
-    height: 100%;
-    margin-top: -20px;
-}
 
-.view-rbsc-databases input {
-    width: 300px;
-    margin-top: -20px;
+.view-rbsc-databases select {
+  height: 100%;
+  min-width: 200px;
 }
 
 .view-rbsc-databases button {
-    width: 300px;
+  width: 300px;
 }
 
-.view-rbsc-databases label {
-    font-weight: bold;
+.help-block,
+.help-inline {
+  color: $gray;
+  display: block;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  margin: 5px 0 10px;
+  padding: 0;
 }
-*/
+
+.form-group {
+  margin-bottom: 1.5em;
+}
