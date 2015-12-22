@@ -12,7 +12,7 @@ should be more specific.
 /* image styles for file field instances */
 
 .file-image {
-  border-bottom: 1px solid $white;
+  border-bottom: 1px solid $gray-light;
   color: $gray-dark;
   font-family: $font-sans;
   font-size: 0.8em;
@@ -22,7 +22,7 @@ should be more specific.
 
   img {
     background-color: $white;
-    border: 1px solid $gray;
+    border: 1px solid $gray-light;
     border-radius: 4px;
     display: block;
     margin: 0 auto 1em;
@@ -30,16 +30,16 @@ should be more specific.
   }
 }
 
-.field--name-field-file-image-caption, 
-.field--name-field-file-image-citation, 
+.field--name-field-file-image-caption,
+.field--name-field-file-image-citation,
 .field--name-field-citation-with-link {
-  color: $black;
+  color: $gray;
   font-family: $font-sans;
   font-size: 12px;
   margin-top: 5px;
 }
 
-.field--name-field-file-image-citation, 
+.field--name-field-file-image-citation,
 .field--name-field-citation-with-link {
   font-style: italic;
 }
