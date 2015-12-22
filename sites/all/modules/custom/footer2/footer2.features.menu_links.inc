@@ -10,47 +10,6 @@
 function footer2_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-footer-services_access-to-collections:node/280.
-  $menu_links['menu-footer-services_access-to-collections:node/280'] = array(
-    'menu_name' => 'menu-footer-services',
-    'link_path' => 'node/280',
-    'router_path' => 'node/%',
-    'link_title' => 'Access to Collections',
-    'options' => array(
-      'attributes' => array(),
-      'identifier' => 'menu-footer-services_access-to-collections:node/280',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-footer-services_imaging--publication:node/5817.
-  $menu_links['menu-footer-services_imaging--publication:node/5817'] = array(
-    'menu_name' => 'menu-footer-services',
-    'link_path' => 'node/5817',
-    'router_path' => 'node/%',
-    'link_title' => 'Imaging & Publication',
-    'options' => array(
-      'identifier' => 'menu-footer-services_imaging--publication:node/5817',
-      'attributes' => array(),
-      'item_attributes' => array(
-        'id' => '',
-        'class' => '',
-        'style' => '',
-      ),
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -47,
-    'customized' => 1,
-  );
   // Exported menu link: menu-footer-services_schedule-a-class-visit:node/5799.
   $menu_links['menu-footer-services_schedule-a-class-visit:node/5799'] = array(
     'menu_name' => 'menu-footer-services',
@@ -66,36 +25,23 @@ function footer2_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -46,
+    'weight' => -45,
     'customized' => 1,
   );
-  // Exported menu link: menu-help-footer-_getting-started:node/10.
-  $menu_links['menu-help-footer-_getting-started:node/10'] = array(
+  // Exported menu link: menu-help-footer-_exhibitions:node/12.
+  $menu_links['menu-help-footer-_exhibitions:node/12'] = array(
     'menu_name' => 'menu-help-footer-',
-    'link_path' => 'node/10',
+    'link_path' => 'node/12',
     'router_path' => 'node/%',
-    'link_title' => 'Getting Started',
+    'link_title' => 'Exhibitions',
     'options' => array(
+      'identifier' => 'menu-help-footer-_exhibitions:node/12',
       'attributes' => array(),
-      'identifier' => 'menu-help-footer-_getting-started:node/10',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-  );
-  // Exported menu link: menu-help-footer-_research-account:node/5801.
-  $menu_links['menu-help-footer-_research-account:node/5801'] = array(
-    'menu_name' => 'menu-help-footer-',
-    'link_path' => 'node/5801',
-    'router_path' => 'node/%',
-    'link_title' => 'Research Account',
-    'options' => array(
-      'attributes' => array(),
-      'identifier' => 'menu-help-footer-_research-account:node/5801',
+      'item_attributes' => array(
+        'id' => '',
+        'class' => '',
+        'style' => '',
+      ),
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -108,10 +54,7 @@ function footer2_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Access to Collections');
-  t('Getting Started');
-  t('Imaging & Publication');
-  t('Research Account');
+  t('Exhibitions');
   t('Schedule a Class Visit');
 
   return $menu_links;

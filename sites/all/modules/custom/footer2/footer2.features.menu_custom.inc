@@ -13,7 +13,7 @@ function footer2_menu_default_menu_custom() {
   // Exported menu: menu-footer-services.
   $menus['menu-footer-services'] = array(
     'menu_name' => 'menu-footer-services',
-    'title' => 'Services and Resources',
+    'title' => 'Where to ',
     'description' => 'These are RBSC Services that are listed in the footer.',
   );
   // Exported menu: menu-help-footer-.
@@ -34,8 +34,8 @@ function footer2_menu_default_menu_custom() {
   t('About the Department');
   t('Footer menu that allows specific groups of users to locate information relevant to their goals. ');
   t('Information For');
-  t('Services and Resources');
   t('These are RBSC Services that are listed in the footer.');
+  t('Where to ');
 
   return $menus;
 }
