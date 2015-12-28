@@ -925,6 +925,10 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -934,20 +938,22 @@ function division_layouts_views_default_views() {
     'field_collection_strength_image' => 'field_collection_strength_image',
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['id'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['table'] = 'field_data_field_collection_strength';
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['field'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['relationships']['field_collection_strength_target_id']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Topics */
-  $handler->display->display_options['fields']['field_collection_strength']['id'] = 'field_collection_strength';
-  $handler->display->display_options['fields']['field_collection_strength']['table'] = 'field_data_field_collection_strength';
-  $handler->display->display_options['fields']['field_collection_strength']['field'] = 'field_collection_strength';
-  $handler->display->display_options['fields']['field_collection_strength']['label'] = '';
-  $handler->display->display_options['fields']['field_collection_strength']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_collection_strength']['settings'] = array(
-    'link' => 1,
-  );
-  $handler->display->display_options['fields']['field_collection_strength']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_collection_strength']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_collection_strength']['multi_type'] = 'ul';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_collection_strength_target_id';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
