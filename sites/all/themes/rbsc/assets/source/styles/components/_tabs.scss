@@ -52,6 +52,7 @@
   .tab-link {
     background-color: $tab-inactive-color;
     border-top: $tab-border;
+    cursor: pointer;
     display: block;
     font-size: 1.2em;
     font-weight: bold;
@@ -105,4 +106,8 @@
       float: left;
     }
   }
+}
+
+.three_six_three-region--middle ul.accordion-tabs {
+  margin-left: 0;
 }

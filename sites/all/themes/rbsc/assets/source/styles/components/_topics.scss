@@ -18,7 +18,9 @@
   margin-top: 2em;
 }
 
-.section-topics .three_six_three-region--second {
+.section-topics .three_six_three-region--second,
+.section-collections .three_six_three-region--second,
+.section-collections .three_six_three-region--first {
   .panel-pane h2 {
     font-size: 1.2em;
   }
@@ -28,7 +30,8 @@
   }
 }
 
-.section-topics .three_six_three-region--middle {
+.section-topics .three_six_three-region--middle,
+.section-collections .three_six_three-region--middle {
   p:first-child {
     margin-top: 0;
   }
