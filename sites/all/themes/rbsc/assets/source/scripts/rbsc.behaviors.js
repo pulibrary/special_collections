@@ -45,6 +45,27 @@
   //   }
   // };
 
+  Drupal.behaviors.rbscHours = {
+    attach: function (context, settings) {
+      $('.hours--library-status').once('rbsc', function() {
+        var hours_base = "/utils/hours/rbsc";
+        $.ajax({
+          url: hours_base,
+          async: true,
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            $('.hours--library-status').replaceWith("<span class='hours--library-status'>Open Hours Today: " + data['mudd-hours'] + "</span>");
+          },
+          error: function(data) {
+            $('.hours--library-status').replaceWith("<span class='hours--library-status'>Hours Not Available</span>");
+          },
+          timeout: 5000
+        });
+      });
+    } 
+  };
+
   Drupal.behaviors.rbscTabs = {
     attach: function (context, settings) {
       $(document).ready(function () {

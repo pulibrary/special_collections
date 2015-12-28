@@ -37,13 +37,13 @@ function footer2_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['label'] = 'Hours Today';
-  $handler->display->display_options['header']['area']['content'] = '<div class="hours--daily-listing"><span class="hours--library-status">Open Today</span> 9:00 a.m. to 5:00 p.m.</dvi>';
+  $handler->display->display_options['header']['area']['content'] = '<div class="hours--daily-listing"><span class="hours--library-status"></span></dvi>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<div class="hours--calendar-links"><span class="label--library-hours-details">Calendars:  <a href="http://library.princeton.edu/hours/rbsc">RBSC</a> | <a href="http://library.princeton.edu/hours/mudd">Mudd</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="hours--calendar-links"><span class="label--library-hours-details">Calendars:  <a href="https://library.princeton.edu/hours/rbsc">RBSC</a> | <a href="https://library.princeton.edu/hours/mudd">Mudd</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
