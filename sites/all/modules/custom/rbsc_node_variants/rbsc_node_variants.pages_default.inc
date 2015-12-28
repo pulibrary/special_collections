@@ -1381,7 +1381,7 @@ collections
     'panels_breadcrumbs_home' => 1,
   );
   $display = new panels_display();
-  $display->layout = 'three-six-three-stacked';
+  $display->layout = 'three-six-three';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1390,12 +1390,6 @@ collections
       'left' => array(
         'column_type' => 'col-lg',
         'column_size' => '3',
-        'offset_type' => 'col-lg-offset',
-        'offset_size' => '0',
-      ),
-      'middle' => array(
-        'column_type' => 'col-lg',
-        'column_size' => '5',
         'offset_type' => 'col-lg-offset',
         'offset_size' => '0',
       ),
@@ -1408,12 +1402,13 @@ collections
       'bottom' => NULL,
       'first' => NULL,
       'second' => NULL,
+      'middle' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
     ),
     'middle' => array(
-      'style' => 'bootstrap_region',
+      'style' => '-1',
     ),
     'right' => array(
       'style' => 'bootstrap_region',
@@ -1449,7 +1444,10 @@ collections
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'topic-image',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -1542,6 +1540,7 @@ collections
       'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
