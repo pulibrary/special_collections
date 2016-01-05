@@ -17,7 +17,7 @@ function rbsc_node_variants_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -8;
+  $handler->weight = -6;
   $handler->conf = array(
     'title' => 'Policy Book',
     'no_blocks' => 0,
@@ -232,11 +232,105 @@ services-policies
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_0be78063-37f0-4f14-bbcd-974559ec5a7d';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -18;
+  $handler->conf = array(
+    'title' => 'Frequently Asked Question',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'faq' => 'faq',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'single';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'middle' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = '42ec4113-988b-44ef-b65d-616b2eaa2edf';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-43262908-aba5-45b8-86cd-fbbdbd212d17';
+    $pane->panel = 'middle';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_rbsc_faq_answer';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'expandText' => 'Expand »',
+        'expandPrefix' => '...',
+        'collapseTimer' => '',
+        'slicePoint' => '50',
+        'userCollapseText' => 'Collapse',
+        'userCollapsePrefix' => '',
+        'class' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '43262908-aba5-45b8-86cd-fbbdbd212d17';
+    $display->content['new-43262908-aba5-45b8-86cd-fbbdbd212d17'] = $pane;
+    $display->panels['middle'][0] = 'new-43262908-aba5-45b8-86cd-fbbdbd212d17';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-43262908-aba5-45b8-86cd-fbbdbd212d17';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_0be78063-37f0-4f14-bbcd-974559ec5a7d'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view__panel_context_be8dca39-20f6-4ea7-bfeb-75acf49d22ad';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 8;
+  $handler->weight = 10;
   $handler->conf = array(
     'title' => 'Divisional Basic Page',
     'no_blocks' => 0,
@@ -432,11 +526,178 @@ services-policies
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__panel_context_e6e1a36d-4830-489c-a0d0-474ceb47c329';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -21;
+  $handler->conf = array(
+    'title' => 'Blog Post',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'name' => '',
+    'access' => array(
+      'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'feed_item' => 'feed_item',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'pul-base-nine-three';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'top' => NULL,
+      'middle' => NULL,
+      'bottom' => NULL,
+      'first' => NULL,
+      'second' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = '7ebafceb-6dc8-4274-a4de-5fdf004fb60b';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-df7a8d3a-893e-48b3-96f1-0429eefe98e4';
+    $pane->panel = 'first';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_feed_item_description';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'expandText' => 'Expand »',
+        'expandPrefix' => '...',
+        'collapseTimer' => '',
+        'slicePoint' => '50',
+        'userCollapseText' => 'Collapse',
+        'userCollapsePrefix' => '',
+        'class' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'df7a8d3a-893e-48b3-96f1-0429eefe98e4';
+    $display->content['new-df7a8d3a-893e-48b3-96f1-0429eefe98e4'] = $pane;
+    $display->panels['first'][0] = 'new-df7a8d3a-893e-48b3-96f1-0429eefe98e4';
+    $pane = new stdClass();
+    $pane->pid = 'new-777531be-90cf-4001-b149-6a984224ada2';
+    $pane->panel = 'first';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_source_blog_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'inline',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'expandText' => 'Expand »',
+        'expandPrefix' => '...',
+        'collapseTimer' => '',
+        'slicePoint' => '50',
+        'userCollapseText' => 'Collapse',
+        'userCollapsePrefix' => '',
+        'class' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => 'Appeared in',
+      'override_title_heading' => 'span',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '777531be-90cf-4001-b149-6a984224ada2';
+    $display->content['new-777531be-90cf-4001-b149-6a984224ada2'] = $pane;
+    $display->panels['first'][1] = 'new-777531be-90cf-4001-b149-6a984224ada2';
+    $pane = new stdClass();
+    $pane->pid = 'new-286cb4eb-ff5d-4e52-aa50-5c4be9dc5ca6';
+    $pane->panel = 'second';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_blog_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'file_rendered',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(
+        'file_view_mode' => 'default',
+        'class' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '286cb4eb-ff5d-4e52-aa50-5c4be9dc5ca6';
+    $display->content['new-286cb4eb-ff5d-4e52-aa50-5c4be9dc5ca6'] = $pane;
+    $display->panels['second'][0] = 'new-286cb4eb-ff5d-4e52-aa50-5c4be9dc5ca6';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view__panel_context_e6e1a36d-4830-489c-a0d0-474ceb47c329'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_10';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -20;
+  $handler->weight = -19;
   $handler->conf = array(
     'title' => 'Service',
     'no_blocks' => 0,
@@ -569,7 +830,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -19;
+  $handler->weight = -17;
   $handler->conf = array(
     'title' => 'FAQ',
     'no_blocks' => 0,
@@ -742,7 +1003,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -18;
+  $handler->weight = -16;
   $handler->conf = array(
     'title' => 'Division Topics',
     'no_blocks' => 1,
@@ -1052,7 +1313,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -17;
+  $handler->weight = -15;
   $handler->conf = array(
     'title' => 'Division Collection',
     'no_blocks' => 1,
@@ -1328,7 +1589,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -16;
+  $handler->weight = -14;
   $handler->conf = array(
     'title' => 'Collection',
     'no_blocks' => 0,
@@ -1739,7 +2000,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -15;
+  $handler->weight = -13;
   $handler->conf = array(
     'title' => 'Location - Firestone',
     'no_blocks' => 0,
@@ -1963,7 +2224,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -14;
+  $handler->weight = -12;
   $handler->conf = array(
     'title' => 'Databases',
     'no_blocks' => 0,
@@ -2143,7 +2404,7 @@ collections
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -13;
+  $handler->weight = -11;
   $handler->conf = array(
     'title' => 'Topic',
     'no_blocks' => 1,
@@ -2562,7 +2823,7 @@ topics',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -12;
+  $handler->weight = -10;
   $handler->conf = array(
     'title' => 'Collections Menu Page',
     'no_blocks' => 0,
@@ -2688,7 +2949,7 @@ topics',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -11;
+  $handler->weight = -9;
   $handler->conf = array(
     'title' => 'Projects',
     'no_blocks' => 0,
@@ -2809,7 +3070,7 @@ topics',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -10;
+  $handler->weight = -8;
   $handler->conf = array(
     'title' => 'Project',
     'no_blocks' => 1,
@@ -2969,7 +3230,7 @@ projects',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -9;
+  $handler->weight = -7;
   $handler->conf = array(
     'title' => 'Publications',
     'no_blocks' => 0,
@@ -3089,7 +3350,7 @@ projects',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -7;
+  $handler->weight = -5;
   $handler->conf = array(
     'title' => 'Policy',
     'no_blocks' => 0,
@@ -3305,7 +3566,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -6;
+  $handler->weight = -4;
   $handler->conf = array(
     'title' => 'Conducting Research',
     'no_blocks' => 0,
@@ -3428,7 +3689,7 @@ services-policies
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -5;
+  $handler->weight = -3;
   $handler->conf = array(
     'title' => 'Conducting Research Children',
     'no_blocks' => 0,
@@ -3579,7 +3840,7 @@ research-account-access',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -4;
+  $handler->weight = -2;
   $handler->conf = array(
     'title' => 'Visit Us',
     'no_blocks' => 0,
@@ -3760,7 +4021,7 @@ research-account-access',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -3;
+  $handler->weight = -1;
   $handler->conf = array(
     'title' => 'Visit Us Children',
     'no_blocks' => 0,
@@ -3910,7 +4171,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -2;
+  $handler->weight = 0;
   $handler->conf = array(
     'title' => 'News',
     'no_blocks' => 0,
@@ -4029,7 +4290,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -1;
+  $handler->weight = 1;
   $handler->conf = array(
     'title' => 'Publication',
     'no_blocks' => 0,
@@ -4182,7 +4443,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 1;
+  $handler->weight = 3;
   $handler->conf = array(
     'title' => 'Digital Highlights',
     'no_blocks' => 0,
@@ -4303,7 +4564,7 @@ class-visits',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 2;
+  $handler->weight = 4;
   $handler->conf = array(
     'title' => 'Digital Highlight',
     'no_blocks' => 1,
@@ -4463,7 +4724,7 @@ digital-highlights',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 3;
+  $handler->weight = 5;
   $handler->conf = array(
     'title' => 'Database',
     'no_blocks' => 1,
@@ -4625,7 +4886,7 @@ catalogs-databases',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 5;
+  $handler->weight = 8;
   $handler->conf = array(
     'title' => 'Guide to Topics',
     'no_blocks' => 0,
@@ -4720,7 +4981,7 @@ catalogs-databases',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -21;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'Services',
     'no_blocks' => 0,

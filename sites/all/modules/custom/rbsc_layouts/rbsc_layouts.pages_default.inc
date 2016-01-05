@@ -17,7 +17,7 @@ function rbsc_layouts_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 7;
+  $handler->weight = 9;
   $handler->conf = array(
     'title' => 'RBSC Form Template',
     'no_blocks' => 0,
@@ -178,7 +178,7 @@ function rbsc_layouts_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = 2;
   $handler->conf = array(
     'title' => 'For Children',
     'no_blocks' => 0,
@@ -402,7 +402,7 @@ function rbsc_layouts_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 4;
+  $handler->weight = 6;
   $handler->conf = array(
     'title' => 'Explore Grid',
     'no_blocks' => 0,
