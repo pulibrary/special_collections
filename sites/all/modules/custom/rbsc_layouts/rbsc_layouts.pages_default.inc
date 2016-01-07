@@ -86,6 +86,36 @@ function rbsc_layouts_default_page_manager_handlers() {
     $pane->uuid = '68b56cca-2a39-46b8-8ca3-1fa24619039e';
     $display->content['new-68b56cca-2a39-46b8-8ca3-1fa24619039e'] = $pane;
     $display->panels['middle'][0] = 'new-68b56cca-2a39-46b8-8ca3-1fa24619039e';
+    $pane = new stdClass();
+    $pane->pid = 'new-c8ca3e29-6f2a-42b0-866e-6ff366789958';
+    $pane->panel = 'top';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:body';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'delta_limit' => 0,
+      'delta_offset' => '0',
+      'delta_reversed' => FALSE,
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c8ca3e29-6f2a-42b0-866e-6ff366789958';
+    $display->content['new-c8ca3e29-6f2a-42b0-866e-6ff366789958'] = $pane;
+    $display->panels['top'][0] = 'new-c8ca3e29-6f2a-42b0-866e-6ff366789958';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-68b56cca-2a39-46b8-8ca3-1fa24619039e';
   $handler->conf['display'] = $display;
