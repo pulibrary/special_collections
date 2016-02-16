@@ -510,37 +510,13 @@ function login_destination_edit_form_validate($form, &$form_state) {
   if (url_is_external($destination)) {
     return;
   }
-  $roles = array_filter($form_state['values']['roles']);
-  // If roles are not selected, check that at least the current user has access to the path.
-  if (empty($roles)) {
-    if (!drupal_valid_path($destination)) {
-      form_set_error('destination', t('Incorrect path, please enter a valid path'));
-    }
-    else {
-      // Show message that user possibly does not have access to the entered path.
-      drupal_set_message(t('Entered path (destination) could be not accessible by some user roles, choose a specific role to check if that role has access to that path.'));
-    }
-    return;
+  // Get source path if an alias entered.
+  $source_path = drupal_lookup_path('source', $destination);
+  if (!empty($source_path)) {
+    $destination = $source_path;
   }
-  /** @var array $item */
-  $item = menu_get_item($destination);
-  if (empty($item)) {
-    form_set_error('destination', t('Incorrect path, please enter a valid path'));
-  }
-  $item_access = unserialize($item['access_arguments']);
-  if (!$item_access) {
-    form_set_error('destination', t('Incorrect path, please enter a valid path'));
-    return;
-  }
-  $role_permissions = user_role_permissions($roles);
-  foreach ($role_permissions as $key => $role) {
-    $permissions = array_keys($role);
-    $intersect = array_intersect($permissions, $item_access);
-    if (empty($intersect)) {
-      $user_role = user_role_load($key);
-      form_set_error('destination', t('Role "@role_name" does not have access to the path.', array('@role_name' => $user_role->name)));
-      break;
-    }
+  if (!drupal_valid_path($destination)) {
+    form_set_error('destination', t('Incorrect path, please enter a valid path.'));
   }
 }
 
