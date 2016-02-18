@@ -29,9 +29,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Field: Content: Cover Image */
   $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
@@ -96,13 +99,15 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
+  $handler->display->display_options['fields']['field_cover_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_cover_image']['element_class'] = 'exhibition-image';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_cover_image']['element_wrapper_class'] = 'exhibition-image ';
   $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'large',
     'image_link' => '',
+    'class' => '',
   );
   /* Field: Content: URL */
   $handler->display->display_options['fields']['field_exhibition_url']['id'] = 'field_exhibition_url';
@@ -113,10 +118,14 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_exhibition_url']['alter']['text'] = 'VIEW THE EXHIBIT ONLINE';
   $handler->display->display_options['fields']['field_exhibition_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_exhibition_url']['alter']['path'] = '[field_exhibition_url-url]';
+  $handler->display->display_options['fields']['field_exhibition_url']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_exhibition_url']['element_class'] = 'external-link';
   $handler->display->display_options['fields']['field_exhibition_url']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_exhibition_url']['element_wrapper_class'] = 'external-link';
   $handler->display->display_options['fields']['field_exhibition_url']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_exhibition_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_exhibition_url']['settings'] = array(
+    'class' => '',
+  );
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -132,8 +141,9 @@ function exhibitions_list_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Description', 'panel_pane_2');
   $handler->display->display_options['display_description'] = 'Exhibition Description';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_grid_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -193,6 +203,10 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'class' => '',
+  );
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -214,6 +228,7 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_cover_image']['element_wrapper_class'] = 'exhibition-image ';
   $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
@@ -232,9 +247,13 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_exhibition_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_exhibition_url']['alter']['path'] = '[field_exhibition_url-url]';
   $handler->display->display_options['fields']['field_exhibition_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_exhibition_url']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_exhibition_url']['element_wrapper_class'] = 'external-link';
   $handler->display->display_options['fields']['field_exhibition_url']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_exhibition_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_exhibition_url']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: URL */
   $handler->display->display_options['fields']['field_url']['id'] = 'field_url';
   $handler->display->display_options['fields']['field_url']['table'] = 'field_data_field_url';
@@ -245,8 +264,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_url']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_url']['alter']['path'] = '[field_url-url]';
   $handler->display->display_options['fields']['field_url']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_url']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_url']['element_wrapper_class'] = 'external-link';
   $handler->display->display_options['fields']['field_url']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_url']['settings'] = array(
+    'class' => '',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -277,6 +300,15 @@ function exhibitions_list_views_default_views() {
   /* Display: Project Description */
   $handler = $view->new_display('panel_pane', 'Project Description', 'panel_pane_4');
   $handler->display->display_options['display_description'] = 'Exhibition Description';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: URL */
   $handler->display->display_options['fields']['field_exhibition_url']['id'] = 'field_exhibition_url';
@@ -334,6 +366,7 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_cover_image']['element_wrapper_class'] = 'exhibition-image ';
   $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
@@ -353,6 +386,7 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_digital_collection_link']['alter']['path'] = '[field_digital_collection_link-url] ';
   $handler->display->display_options['fields']['field_digital_collection_link']['alter']['external'] = TRUE;
   $handler->display->display_options['fields']['field_digital_collection_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_digital_collection_link']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_digital_collection_link']['element_wrapper_class'] = 'external-link';
   $handler->display->display_options['fields']['field_digital_collection_link']['click_sort_column'] = 'url';
   $handler->display->display_options['fields']['field_digital_collection_link']['settings'] = array(
@@ -389,6 +423,15 @@ function exhibitions_list_views_default_views() {
   /* Display: Digital Highlights Description */
   $handler = $view->new_display('panel_pane', 'Digital Highlights Description', 'panel_pane_6');
   $handler->display->display_options['display_description'] = 'Digital Highlights Description';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: URL */
   $handler->display->display_options['fields']['field_exhibition_url']['id'] = 'field_exhibition_url';
@@ -409,6 +452,10 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['body']['settings'] = array(
+    'class' => '',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -460,12 +507,9 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_thumbnail_plugin_style';
-  $handler->display->display_options['style_options']['columns'] = '4';
-  $handler->display->display_options['style_options']['columns_xs'] = '12';
-  $handler->display->display_options['style_options']['columns_sm'] = '6';
-  $handler->display->display_options['style_options']['columns_md'] = '4';
-  $handler->display->display_options['style_options']['columns_lg'] = '3';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Cover Image */
   $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
@@ -512,6 +556,16 @@ function exhibitions_list_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Past Exhibitions', 'panel_pane_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Past Exhibitions';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'gallery-item';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Sub-Title */
   $handler->display->display_options['fields']['field_sub_title']['id'] = 'field_sub_title';
@@ -520,18 +574,24 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_sub_title']['label'] = '';
   $handler->display->display_options['fields']['field_sub_title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_sub_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_sub_title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_sub_title']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_sub_title']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_sub_title']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Cover Image */
   $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'square_medium',
     'image_link' => 'content',
+    'class' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -542,16 +602,45 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['text'] = '[title] <br/> <span class="subtitle">[field_sub_title]</span>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_class'] = 'gallery-item--title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'gallery-item--overlay';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Dates On Display -  start date (field_start_date) */
   $handler->display->display_options['sorts']['field_start_date_value']['id'] = 'field_start_date_value';
   $handler->display->display_options['sorts']['field_start_date_value']['table'] = 'field_data_field_start_date';
   $handler->display->display_options['sorts']['field_start_date_value']['field'] = 'field_start_date_value';
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['field_start_date_value']['order'] = 'DESC';
+  /* Sort criterion: Content: Gallery Location (field_exhibition_gallery) */
+  $handler->display->display_options['sorts']['field_exhibition_gallery_target_id']['id'] = 'field_exhibition_gallery_target_id';
+  $handler->display->display_options['sorts']['field_exhibition_gallery_target_id']['table'] = 'field_data_field_exhibition_gallery';
+  $handler->display->display_options['sorts']['field_exhibition_gallery_target_id']['field'] = 'field_exhibition_gallery_target_id';
+  $handler->display->display_options['sorts']['field_exhibition_gallery_target_id']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'exhibition' => 'exhibition',
+  );
+  /* Filter criterion: Content: Dates On Display - end date (field_start_date:value2) */
+  $handler->display->display_options['filters']['field_start_date_value2']['id'] = 'field_start_date_value2';
+  $handler->display->display_options['filters']['field_start_date_value2']['table'] = 'field_data_field_start_date';
+  $handler->display->display_options['filters']['field_start_date_value2']['field'] = 'field_start_date_value2';
+  $handler->display->display_options['filters']['field_start_date_value2']['operator'] = '<';
+  $handler->display->display_options['filters']['field_start_date_value2']['default_date'] = 'now';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
@@ -567,6 +656,16 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Collections and Divisions';
   $handler->display->display_options['display_description'] = 'A list of Collections and Divisions';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'gallery-item';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -575,12 +674,19 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_class'] = 'gallery-item--title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'gallery-item--overlay';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Division Image */
   $handler->display->display_options['fields']['field_division_image']['id'] = 'field_division_image';
   $handler->display->display_options['fields']['field_division_image']['table'] = 'field_data_field_division_image';
   $handler->display->display_options['fields']['field_division_image']['field'] = 'field_division_image';
   $handler->display->display_options['fields']['field_division_image']['label'] = '';
   $handler->display->display_options['fields']['field_division_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_division_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_division_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_division_image']['settings'] = array(
     'image_style' => 'square_medium',
@@ -622,6 +728,16 @@ function exhibitions_list_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Digital Humanities', 'panel_pane_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Digital Humanities';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'gallery-item';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Cover Image */
   $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
@@ -629,10 +745,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'square_medium',
     'image_link' => 'content',
+    'class' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -641,6 +759,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_class'] = 'gallery-item--title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'gallery-item--overlay';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -724,13 +848,15 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'List view of publications';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_book_cover';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = 'body';
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['row_class'] = 'media';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['wrapper_class'] = '';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
@@ -738,31 +864,39 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'div';
-  $handler->display->display_options['fields']['title']['element_class'] = 'teaser-text';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Book Cover */
   $handler->display->display_options['fields']['field_book_cover']['id'] = 'field_book_cover';
   $handler->display->display_options['fields']['field_book_cover']['table'] = 'field_data_field_book_cover';
   $handler->display->display_options['fields']['field_book_cover']['field'] = 'field_book_cover';
   $handler->display->display_options['fields']['field_book_cover']['label'] = '';
+  $handler->display->display_options['fields']['field_book_cover']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_book_cover']['element_class'] = 'media-image';
   $handler->display->display_options['fields']['field_book_cover']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_cover']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_book_cover']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_book_cover']['settings'] = array(
     'image_style' => 'fixed-width_medium__220px_wide_',
     'image_link' => 'content',
+    'class' => '',
   );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h3 class="media-heading">[title]</h3> [body]</div>';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
+    'class' => '',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Year (field_year) */
@@ -802,13 +936,14 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['title'] = 'Current Exhibitions';
   $handler->display->display_options['display_description'] = 'On display now.';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_cover_image';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = 'body';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'current-exhibition media';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Sub-Title */
@@ -818,14 +953,19 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_sub_title']['label'] = '';
   $handler->display->display_options['fields']['field_sub_title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_sub_title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_sub_title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_sub_title']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_sub_title']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['field_sub_title']['settings'] = array(
+    'class' => '',
+  );
   /* Field: Content: Cover Image */
   $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['table'] = 'field_data_field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'square_medium',
@@ -837,11 +977,13 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = '[title] <br/> <span class="subtitle">[field_sub_title]</span>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Content: Dates On Display */
   $handler->display->display_options['fields']['field_start_date']['id'] = 'field_start_date';
   $handler->display->display_options['fields']['field_start_date']['table'] = 'field_data_field_start_date';
@@ -849,8 +991,6 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_start_date']['label'] = 'On display from ';
   $handler->display->display_options['fields']['field_start_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_start_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_start_date']['element_wrapper_type'] = 'p';
-  $handler->display->display_options['fields']['field_start_date']['element_wrapper_class'] = 'classy';
   $handler->display->display_options['fields']['field_start_date']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_start_date']['settings'] = array(
     'format_type' => 'short',
@@ -858,6 +998,7 @@ function exhibitions_list_views_default_views() {
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
     'class' => '',
   );
   /* Field: Content: Body */
@@ -866,9 +1007,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['text'] = '<p>On display from [field_start_date]</p>
-<p>[body] </p>';
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="media-body"><h3 class="media-heading">[title]</h3>
+<p>On display from [field_start_date]</p>
+<p>[body] </p>
+</div>';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
@@ -915,7 +1059,15 @@ function exhibitions_list_views_default_views() {
   /* Display: Digital Highlights */
   $handler = $view->new_display('panel_pane', 'Digital Highlights', 'panel_pane_7');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Digital Highlights';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'gallery-item';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Cover Image */
   $handler->display->display_options['fields']['field_cover_image']['id'] = 'field_cover_image';
@@ -923,10 +1075,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_cover_image']['field'] = 'field_cover_image';
   $handler->display->display_options['fields']['field_cover_image']['label'] = '';
   $handler->display->display_options['fields']['field_cover_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_cover_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_cover_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_cover_image']['settings'] = array(
     'image_style' => 'square_medium',
     'image_link' => 'content',
+    'class' => '',
   );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -935,6 +1089,12 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_class'] = 'gallery-item--title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'gallery-item--overlay';
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -957,10 +1117,7 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'List the most recent additions to the Explore category.';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'views_bootstrap_media_plugin_style';
-  $handler->display->display_options['style_options']['image_field'] = 'field_book_cover';
-  $handler->display->display_options['style_options']['heading_field'] = 'title';
-  $handler->display->display_options['style_options']['body_field'] = 'body';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';

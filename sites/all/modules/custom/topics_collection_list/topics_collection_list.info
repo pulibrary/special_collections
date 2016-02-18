@@ -6,7 +6,6 @@ version = 7.x-1.1-beta
 project = topics_collection_list
 dependencies[] = page_manager
 dependencies[] = views
-dependencies[] = views_bootstrap
 dependencies[] = views_content
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = views:views_default:3.0

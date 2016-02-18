@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the RBSC Layouts feature.
+ */
+
+include_once 'rbsc_layouts.features.inc';

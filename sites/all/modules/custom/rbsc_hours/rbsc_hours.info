@@ -1,0 +1,5 @@
+name = RBSC Hours Block
+description = Creates a Block with RBSC Hours
+package = RBSC Features
+core = 7.x
+dependencies[] = block

@@ -16,7 +16,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
   $page->admin_title = 'RBSC Find All Page';
   $page->admin_description = '';
   $page->path = 'find/all/%query';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array(
     'query' => array(
@@ -52,7 +55,7 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'bootstrap_threecol_stacked';
+  $display->layout = 'pul-base-four-four-four-stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -77,6 +80,9 @@ function rbsc_basic_find_all_default_page_manager_pages() {
         'offset_size' => '0',
       ),
       'bottom' => NULL,
+      'first' => NULL,
+      'second' => NULL,
+      'third' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
@@ -94,37 +100,16 @@ function rbsc_basic_find_all_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-33fca980-0474-4bf8-9f2b-a7fba113e19b';
-    $pane->panel = 'left';
+    $pane->pid = 'new-1c88a244-059b-44b8-8c3f-54809cb0df2c';
+    $pane->panel = 'first';
     $pane->type = 'block';
-    $pane->subtype = 'allsearch_block-allsearch_catalog_results';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '33fca980-0474-4bf8-9f2b-a7fba113e19b';
-    $display->content['new-33fca980-0474-4bf8-9f2b-a7fba113e19b'] = $pane;
-    $display->panels['left'][0] = 'new-33fca980-0474-4bf8-9f2b-a7fba113e19b';
-    $pane = new stdClass();
-    $pane->pid = 'new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
-    $pane->panel = 'middle';
-    $pane->type = 'block';
-    $pane->subtype = 'allsearch_block-allsearch_pulfa_results';
+    $pane->subtype = 'catalog_block-catalog_search_results';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Finding Aids Results',
+      'override_title_text' => '<i class="icon-books"></i> Books+ Search Results',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -134,19 +119,43 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
-    $display->content['new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44'] = $pane;
-    $display->panels['middle'][0] = 'new-20956ac6-7b55-4240-ad35-b7a7b7d8fa44';
+    $pane->uuid = '1c88a244-059b-44b8-8c3f-54809cb0df2c';
+    $display->content['new-1c88a244-059b-44b8-8c3f-54809cb0df2c'] = $pane;
+    $display->panels['first'][0] = 'new-1c88a244-059b-44b8-8c3f-54809cb0df2c';
     $pane = new stdClass();
-    $pane->pid = 'new-f569005e-1227-43b6-a27a-1c88e437fe67';
-    $pane->panel = 'middle';
+    $pane->pid = 'new-86d51c41-1e1f-4414-b602-8e133b2fa81f';
+    $pane->panel = 'second';
     $pane->type = 'block';
-    $pane->subtype = 'allsearch_block-allsearch_pudl_results';
+    $pane->subtype = 'catalog_block-catalog_pulfa_results';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => '<i class="icon-archives"></i> Library Archives Results',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '86d51c41-1e1f-4414-b602-8e133b2fa81f';
+    $display->content['new-86d51c41-1e1f-4414-b602-8e133b2fa81f'] = $pane;
+    $display->panels['second'][0] = 'new-86d51c41-1e1f-4414-b602-8e133b2fa81f';
+    $pane = new stdClass();
+    $pane->pid = 'new-773fb7a7-5690-48e3-a287-db5aae80e4a5';
+    $pane->panel = 'second';
+    $pane->type = 'block';
+    $pane->subtype = 'catalog_block-catalog_pudl_results';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '<i class="icon-digital"></i> Digital Library Results',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -156,12 +165,12 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = 'f569005e-1227-43b6-a27a-1c88e437fe67';
-    $display->content['new-f569005e-1227-43b6-a27a-1c88e437fe67'] = $pane;
-    $display->panels['middle'][1] = 'new-f569005e-1227-43b6-a27a-1c88e437fe67';
+    $pane->uuid = '773fb7a7-5690-48e3-a287-db5aae80e4a5';
+    $display->content['new-773fb7a7-5690-48e3-a287-db5aae80e4a5'] = $pane;
+    $display->panels['second'][1] = 'new-773fb7a7-5690-48e3-a287-db5aae80e4a5';
     $pane = new stdClass();
     $pane->pid = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
-    $pane->panel = 'right';
+    $pane->panel = 'third';
     $pane->type = 'views_panes';
     $pane->subtype = 'rbsc_basic_node_search-panel_pane_1';
     $pane->shown = TRUE;
@@ -180,10 +189,10 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '195df564-b077-4925-9bf0-2cd6dc9603bf';
     $display->content['new-195df564-b077-4925-9bf0-2cd6dc9603bf'] = $pane;
-    $display->panels['right'][0] = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
+    $display->panels['third'][0] = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
     $pane = new stdClass();
     $pane->pid = 'new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
-    $pane->panel = 'right';
+    $pane->panel = 'third';
     $pane->type = 'views_panes';
     $pane->subtype = 'blog_search-panel_pane_2';
     $pane->shown = TRUE;
@@ -199,48 +208,7 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'd58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
     $display->content['new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b'] = $pane;
-    $display->panels['right'][1] = 'new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
-    $pane = new stdClass();
-    $pane->pid = 'new-8b216e91-9307-464f-a5dd-0cc0d8d565cb';
-    $pane->panel = 'right';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'topics_search-panel_pane_1';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '8b216e91-9307-464f-a5dd-0cc0d8d565cb';
-    $display->content['new-8b216e91-9307-464f-a5dd-0cc0d8d565cb'] = $pane;
-    $display->panels['right'][2] = 'new-8b216e91-9307-464f-a5dd-0cc0d8d565cb';
-    $pane = new stdClass();
-    $pane->pid = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
-    $pane->panel = 'right';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-zIH8EsYFkvWKeMtTZTGLEm1GrYlAarmk';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = 'd19eecce-dc83-4bc1-85f5-37631e31121e';
-    $display->content['new-d19eecce-dc83-4bc1-85f5-37631e31121e'] = $pane;
-    $display->panels['right'][3] = 'new-d19eecce-dc83-4bc1-85f5-37631e31121e';
+    $display->panels['third'][1] = 'new-d58c3f4b-8b6b-4ae1-914a-04b354ca6d9b';
     $pane = new stdClass();
     $pane->pid = 'new-a6c9677f-190b-492c-8361-85dd52325230';
     $pane->panel = 'top';
@@ -263,6 +231,31 @@ function rbsc_basic_find_all_default_page_manager_pages() {
     $pane->uuid = 'a6c9677f-190b-492c-8361-85dd52325230';
     $display->content['new-a6c9677f-190b-492c-8361-85dd52325230'] = $pane;
     $display->panels['top'][0] = 'new-a6c9677f-190b-492c-8361-85dd52325230';
+    $pane = new stdClass();
+    $pane->pid = 'new-0e6d25d8-5dc8-4b64-8284-612db426a58d';
+    $pane->panel = 'top';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Results section anchor links',
+      'title' => '',
+      'body' => '<div class="results-section"><label class="show-result-section-menu" for="show-result-section-menu">Skip to Section</label><input id="show-result-section-menu" type="checkbox" /><ul id="result-section-menu" class="result-section-menu"><li><a href="#catalog_block-catalog_search_results">Books+</a></li><li><a href="#catalog_block-catalog_pulfa_results"> Library Archives</a></li><li><a href="#catalog_block-catalog_pudl_results"> Digital Library</a></li><li><a href="#rbsc_basic_node_search-panel_pane_1">RBSC Site Content</a></li><li><a href="#blog_search-panel_pane_2">Blogs</a></li></ul></div>',
+      'format' => 'full_html',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '0e6d25d8-5dc8-4b64-8284-612db426a58d';
+    $display->content['new-0e6d25d8-5dc8-4b64-8284-612db426a58d'] = $pane;
+    $display->panels['top'][1] = 'new-0e6d25d8-5dc8-4b64-8284-612db426a58d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-195df564-b077-4925-9bf0-2cd6dc9603bf';
   $handler->conf['display'] = $display;

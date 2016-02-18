@@ -10,7 +10,7 @@
 function division_layouts_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_downloadable_document'
+  // Exported field_base: 'field_downloadable_document'.
   $field_bases['field_downloadable_document'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -33,7 +33,7 @@ function division_layouts_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_location'
+  // Exported field_base: 'field_location'.
   $field_bases['field_location'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -68,7 +68,7 @@ function division_layouts_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_policy_form'
+  // Exported field_base: 'field_policy_form'.
   $field_bases['field_policy_form'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -101,7 +101,7 @@ function division_layouts_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_policy_web_form'
+  // Exported field_base: 'field_policy_web_form'.
   $field_bases['field_policy_web_form'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -138,7 +138,7 @@ function division_layouts_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_service'
+  // Exported field_base: 'field_service'.
   $field_bases['field_service'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -171,21 +171,6 @@ function division_layouts_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'entityreference',
-  );
-
-  // Exported field_base: 'field_sort_weight'
-  $field_bases['field_sort_weight'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_sort_weight',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
   );
 
   return $field_bases;

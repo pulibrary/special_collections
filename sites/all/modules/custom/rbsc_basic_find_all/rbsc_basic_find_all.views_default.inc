@@ -22,7 +22,7 @@ function rbsc_basic_find_all_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'RBSC Site Content';
+  $handler->display->display_options['title'] = '<i class="icon-windows"></i>RBSC Site Content';
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'See All RBSC Site Results';
@@ -30,6 +30,9 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['search_api_bypass_access'] = 0;
+  $handler->display->display_options['query']['options']['entity_access'] = 0;
+  $handler->display->display_options['query']['options']['parse_mode'] = 'direct';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
@@ -37,10 +40,17 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['total_pages'] = '1';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'allblogs site-search-results';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Indexed Node: Title */
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'Empty Search Results';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = '<p>No Results Available</p>';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  /* Field: Indexed Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -48,7 +58,7 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Sub-Title */
+  /* Field: Indexed Content: Sub-Title */
   $handler->display->display_options['fields']['field_sub_title']['id'] = 'field_sub_title';
   $handler->display->display_options['fields']['field_sub_title']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['field_sub_title']['field'] = 'field_sub_title';
@@ -59,7 +69,7 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['fields']['field_sub_title']['settings'] = array(
     'class' => '',
   );
-  /* Field: Indexed Node: The main body text */
+  /* Field: Indexed Content: The main body text */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -70,7 +80,7 @@ function rbsc_basic_find_all_views_default_views() {
     'trim_length' => '300',
     'class' => '',
   );
-  /* Field: Indexed Node: Content type */
+  /* Field: Indexed Content: Content type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['type']['field'] = 'type';
@@ -80,7 +90,7 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['type']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['type']['format_name'] = 1;
-  /* Sort criterion: Indexed Node: Sort Weight */
+  /* Sort criterion: Indexed Content: Sort Weight */
   $handler->display->display_options['sorts']['field_sort_weight']['id'] = 'field_sort_weight';
   $handler->display->display_options['sorts']['field_sort_weight']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['sorts']['field_sort_weight']['field'] = 'field_sort_weight';
@@ -94,6 +104,29 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['arguments']['search_api_views_fulltext']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['search_api_views_fulltext']['not'] = 0;
+  $handler->display->display_options['arguments']['search_api_views_fulltext']['conjunction'] = 'OR';
+  /* Filter criterion: Indexed Content: Content type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
+    'page' => 'page',
+    'collection' => 'collection',
+    'database' => 'database',
+    'online_collections' => 'online_collections',
+    'digital_humanities' => 'digital_humanities',
+    'division' => 'division',
+    'exhibition' => 'exhibition',
+    'faq' => 'faq',
+    'location' => 'location',
+    'policy' => 'policy',
+    'publication' => 'publication',
+    'rbsc_staff_member' => 'rbsc_staff_member',
+    'services' => 'services',
+    'collection_strength' => 'collection_strength',
+    'webform' => 'webform',
+  );
 
   /* Display: Basic Node Search */
   $handler = $view->new_display('panel_pane', 'Basic Node Search', 'panel_pane_1');
@@ -103,22 +136,23 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Indexed Node: Title */
+  /* Field: Indexed Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['element_type'] = 'h2';
+  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title']['element_class'] = 'rbsc-local-content-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Sub-Title */
+  /* Field: Indexed Content: Sub-Title */
   $handler->display->display_options['fields']['field_sub_title']['id'] = 'field_sub_title';
   $handler->display->display_options['fields']['field_sub_title']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['field_sub_title']['field'] = 'field_sub_title';
   $handler->display->display_options['fields']['field_sub_title']['label'] = '';
   $handler->display->display_options['fields']['field_sub_title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['field_sub_title']['element_label_colon'] = FALSE;
-  /* Field: Indexed Node: The main body text */
+  /* Field: Indexed Content: The main body text */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -130,7 +164,7 @@ function rbsc_basic_find_all_views_default_views() {
     'trim_length' => '200',
     'class' => '',
   );
-  /* Field: Indexed Node: Content type */
+  /* Field: Indexed Content: Content type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'search_api_index_default_node_index';
   $handler->display->display_options['fields']['type']['field'] = 'type';
@@ -142,6 +176,36 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['type']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['type']['format_name'] = 1;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Search: Relevance */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Indexed Content: Content type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'article' => 'article',
+    'page' => 'page',
+    'collection' => 'collection',
+    'database' => 'database',
+    'online_collections' => 'online_collections',
+    'digital_humanities' => 'digital_humanities',
+    'division' => 'division',
+    'exhibition' => 'exhibition',
+    'faq' => 'faq',
+    'location' => 'location',
+    'policy' => 'policy',
+    'publication' => 'publication',
+    'rbsc_staff_member' => 'rbsc_staff_member',
+    'services' => 'services',
+    'collection_strength' => 'collection_strength',
+    'webform' => 'webform',
+  );
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;
@@ -180,6 +244,11 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['pager']['options']['expose']['items_per_page'] = TRUE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Search: Relevance */
+  $handler->display->display_options['sorts']['search_api_relevance']['id'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['sorts']['search_api_relevance']['field'] = 'search_api_relevance';
+  $handler->display->display_options['sorts']['search_api_relevance']['order'] = 'DESC';
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
   $handler->display->display_options['allow']['offset'] = 0;

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the RBSC Custom Pages feature.
+ */
+
+include_once 'rbsc_custom_pages.features.inc';

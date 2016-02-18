@@ -1,0 +1,14 @@
+name = RBSC Layouts
+description = Panel layouts
+core = 7.x
+package = RBSC
+version = 7.x-1.0-alpha2
+dependencies[] = ctools
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_handlers][] = node_view__panel_context_24ce433e-d881-4354-a39f-6d02ed28b570
+features[page_manager_handlers][] = node_view__panel_context_35f7038b-cd25-4e7f-ac13-a7e1af065381
+features[page_manager_handlers][] = node_view_panel_context_29
+features[page_manager_handlers][] = node_view_panel_context_34
+features[page_manager_pages][] = topics_a_to_z_listings

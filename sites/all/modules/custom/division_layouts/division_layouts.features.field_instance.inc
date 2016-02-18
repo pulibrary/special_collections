@@ -10,7 +10,7 @@
 function division_layouts_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-policy-body'
+  // Exported field_instance: 'node-policy-body'.
   $field_instances['node-policy-body'] = array(
     'bundle' => 'policy',
     'default_value' => NULL,
@@ -54,7 +54,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-policy-field_downloadable_document'
+  // Exported field_instance: 'node-policy-field_downloadable_document'.
   $field_instances['node-policy-field_downloadable_document'] = array(
     'bundle' => 'policy',
     'deleted' => 0,
@@ -109,7 +109,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-policy-field_location'
+  // Exported field_instance: 'node-policy-field_location'.
   $field_instances['node-policy-field_location'] = array(
     'bundle' => 'policy',
     'default_value' => NULL,
@@ -148,7 +148,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-policy-field_policy_form'
+  // Exported field_instance: 'node-policy-field_policy_form'.
   $field_instances['node-policy-field_policy_form'] = array(
     'bundle' => 'policy',
     'default_value' => array(),
@@ -187,7 +187,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-policy-field_policy_web_form'
+  // Exported field_instance: 'node-policy-field_policy_web_form'.
   $field_instances['node-policy-field_policy_web_form'] = array(
     'bundle' => 'policy',
     'default_value' => NULL,
@@ -226,7 +226,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-policy-field_service'
+  // Exported field_instance: 'node-policy-field_service'.
   $field_instances['node-policy-field_service'] = array(
     'bundle' => 'policy',
     'default_value' => NULL,
@@ -265,7 +265,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-policy-field_sort_weight'
+  // Exported field_instance: 'node-policy-field_sort_weight'.
   $field_instances['node-policy-field_sort_weight'] = array(
     'bundle' => 'policy',
     'default_value' => array(
@@ -315,7 +315,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-services-body'
+  // Exported field_instance: 'node-services-body'.
   $field_instances['node-services-body'] = array(
     'bundle' => 'services',
     'default_value' => NULL,
@@ -355,12 +355,9 @@ function division_layouts_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -383,7 +380,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-services-field_cover_image'
+  // Exported field_instance: 'node-services-field_cover_image'.
   $field_instances['node-services-field_cover_image'] = array(
     'bundle' => 'services',
     'deleted' => 0,
@@ -412,9 +409,14 @@ function division_layouts_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'class' => 'img-responsive darken',
+          'image_link' => 'content',
+          'image_style' => 'feature',
+        ),
+        'type' => 'image',
         'weight' => 0,
       ),
     ),
@@ -457,7 +459,7 @@ function division_layouts_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-services-field_sort_weight'
+  // Exported field_instance: 'node-services-field_sort_weight'.
   $field_instances['node-services-field_sort_weight'] = array(
     'bundle' => 'services',
     'default_value' => array(
@@ -490,7 +492,7 @@ function division_layouts_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',

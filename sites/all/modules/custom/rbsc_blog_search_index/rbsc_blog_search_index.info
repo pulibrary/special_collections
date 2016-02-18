@@ -1,0 +1,8 @@
+name = RBSC Blog Search Index
+core = 7.x
+package = RBSC
+version = 7.x-1.0-dev
+dependencies[] = entity
+dependencies[] = search_api
+features[features_api][] = api:2
+features[search_api_index][] = blog
