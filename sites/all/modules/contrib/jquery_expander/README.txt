@@ -7,7 +7,7 @@ by the user if he or she wishes. By default, the expanded text is followed by a
 
 INSTALL
 =======
-- Download plugin from http://plugins.learningjquery.com/expander/
+- Download plugin from https://kswedberg.github.io/jquery-expander/
   and place under libraries/jquery.expander, so you will have file in
   libraries/jquery.expander/jquery.expander.js
 - Download Libraries API and enable modules
