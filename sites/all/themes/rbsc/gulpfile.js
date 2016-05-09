@@ -21,6 +21,20 @@ var scsslint = require('gulp-sass-lint');
 // Gulp 4 will have this native, we need to use an external module for now
 var runSequence = require('run-sequence');
 
+// Growl-like Notifier
+var notify = require('gulp-notify');
+
+// Error handling
+var onError = function(err) {
+  notify.onError({
+    title:    "Gulp",
+    subtitle: "Error!",
+    message:  "<%= error.message %>",
+    sound:    "Frog"
+  })(err);
+  this.emit('end');
+};
+
 /**
  * Gulp task: clean
  * Removes asset files before running other tasks
@@ -40,7 +54,7 @@ gulp.task('clean', function(){
  */
 gulp.task('styles', function(){
   gulp.src(config.styles.files)
-    .pipe(p.plumber())
+    .pipe(p.plumber({ errorHandler: onError }))
     .pipe(p.sourcemaps.init())
     .pipe(p.sass({
       includePaths: [
@@ -66,6 +80,7 @@ gulp.task('styles', function(){
  */
 gulp.task('lint:scss', function() {
   return gulp.src(config.styles.files)
+    .pipe(p.plumber({ errorHandler: onError }))
     .pipe(scsslint())
     .pipe(scsslint.format())
     .pipe(scsslint.failOnError())
@@ -133,7 +148,11 @@ gulp.task('fonts', function(){
  */
 gulp.task('images', function(){
   gulp.src(config.images.files)
-    .pipe(p.imagemin())
+    .pipe(p.imagemin({
+      progressive: true,
+      optimizationLevel: 5,
+      interlaced: true
+    }))
     .pipe(gulp.dest(config.images.dest))
     .pipe(reload({stream:true}));
 });
