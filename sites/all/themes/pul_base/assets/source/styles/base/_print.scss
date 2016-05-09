@@ -1,15 +1,4 @@
 @media print {
-  *,
-  *:before,
-  *:after,
-  *:first-letter,
-  *:first-line {
-    background: transparent;
-    box-shadow: none;
-    color: $black;
-    text-shadow: none;
-  }
-
   a,
   a:visited {
     text-decoration: underline;
