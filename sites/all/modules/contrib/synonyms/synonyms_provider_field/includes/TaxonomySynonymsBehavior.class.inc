@@ -8,13 +8,13 @@
 /**
  * Definition of TaxonomySynonymsBehavior class.
  */
-class TaxonomySynonymsBehavior extends AbstractSynonymsSynonymsBehavior implements SynonymsSynonymsBehavior, AutocompleteSynonymsBehavior, SelectSynonymsBehavior {
+class TaxonomySynonymsBehavior extends AbstractFieldSynonymsBehavior implements AutocompleteSynonymsBehavior, SelectSynonymsBehavior {
 
-  public function extractSynonyms($items, $field, $instance, $entity, $entity_type) {
+  public function extractSynonyms($entity) {
     $synonyms = array();
 
     $terms = array();
-    foreach ($items as $item) {
+    foreach ($this->entityItems($entity) as $item) {
       $terms[] = $item['tid'];
     }
     $terms = taxonomy_term_load_multiple($terms);
@@ -24,16 +24,19 @@ class TaxonomySynonymsBehavior extends AbstractSynonymsSynonymsBehavior implemen
     return $synonyms;
   }
 
-  public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
+  public function mergeEntityAsSynonym($trunk_entity, $synonym_entity, $synonym_entity_type) {
     // Taxonomy term reference supports only referencing of entity types
     // 'taxonomy_term'.. duh.
     if ($synonym_entity_type != 'taxonomy_term') {
-      return array();
+      return;
     }
+
+    $items = $this->entityItems($trunk_entity);
+
     // Checking that $field is configured to reference the vocabulary of
     // $synonym_entity term.
     $is_allowed = FALSE;
-    foreach ($field['settings']['allowed_values'] as $setting) {
+    foreach ($this->field['settings']['allowed_values'] as $setting) {
       if ($synonym_entity->vocabulary_machine_name == $setting['vocabulary']) {
         if ($setting['parent'] == 0) {
           // No need to check parent property as there is no limitation on it.
@@ -53,35 +56,33 @@ class TaxonomySynonymsBehavior extends AbstractSynonymsSynonymsBehavior implemen
     if (!$is_allowed) {
       // Synonym term is from a vocabulary that is not expected by this field,
       // or under unexpected parent.
-      return array();
+      return;
     }
-    return array(array(
+    $items[] = array(
       'tid' => $synonym_entity->tid,
-    ));
+    );
+    $trunk_entity->{$this->field['field_name']}[LANGUAGE_NONE] = $this->uniqueItems($items, array('tid'));
   }
 
-  public function synonymItemHash($item, $field, $instance) {
-    return $item['tid'];
-  }
-
-  public function synonymsFind(QueryConditionInterface $condition, $field, $instance) {
-    if ($field['storage']['type'] != 'field_sql_storage') {
-      throw new SynonymsSynonymsBehaviorException(t('Not supported storage engine %type in synonymsFind() method.', array(
-        '%type' => $field['storage']['type'],
+  public function synonymsFind(QueryConditionInterface $condition) {
+    if ($this->field['storage']['type'] != 'field_sql_storage') {
+      throw new SynonymsBehaviorException(t('Not supported storage engine %type in @method() method.', array(
+        '%type' => $this->field['storage']['type'],
+        '@method' => __METHOD__,
       )));
     }
-    $table = array_keys($field['storage']['details']['sql'][FIELD_LOAD_CURRENT]);
+    $table = array_keys($this->field['storage']['details']['sql'][FIELD_LOAD_CURRENT]);
     $table = reset($table);
-    $column = $field['storage']['details']['sql'][FIELD_LOAD_CURRENT][$table]['tid'];
+    $column = $this->field['storage']['details']['sql'][FIELD_LOAD_CURRENT][$table]['tid'];
 
     $query = db_select($table, 'field');
     $term_alias = $query->innerJoin('taxonomy_term_data', 'term', 'field.' . $column . ' = term.tid');
     $query->addField($term_alias, 'name', 'synonym');
     $query->fields('field', array('entity_id'));
-    $query->condition('field.entity_type', $instance['entity_type']);
-    $query->condition('field.bundle', $instance['bundle']);
+    $query->condition('field.entity_type', $this->instance['entity_type']);
+    $query->condition('field.bundle', $this->instance['bundle']);
 
-    $this->synonymsFindProcessCondition($condition, $term_alias . '.name');
+    $this->synonymsFindProcessCondition($condition, $term_alias . '.name', 'field.entity_id');
     $query->condition($condition);
     return $query->execute();
   }

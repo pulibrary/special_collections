@@ -24,7 +24,7 @@ function synonyms_behavior_select_settings_form($form, &$form_state, $settings) 
     '#type' => 'textfield',
     '#title' => t('Select wording'),
     '#default_value' => isset($settings['wording']) ? $settings['wording'] : '@synonym',
-    '#description' => t('Specify with what wording the synonyms should be placed in the select form element. You may use: <ul><li><em>@synonym</em> to denote value of the synonym</li><li><em>@term</em> to denote term name</li><li><em>@field_name</em> to denote lowercase label of the field from where the synonym originates</li></ul>'),
+    '#description' => t('Specify with what wording the synonyms should be placed in the select form element. You may use: <ul><li><em>@synonym</em> to denote value of the synonym</li><li><em>@entity</em> to denote entity name</li><li><em>@field_name</em> to denote lowercase label of the field from where the synonym originates</li></ul>'),
     '#required' => TRUE,
   );
 

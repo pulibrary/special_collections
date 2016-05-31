@@ -34,8 +34,8 @@ function synonyms_search_taxonomy_term_update($term) {
     $previous_search_synonyms = array();
 
     foreach  ($behavior_implementations as $behavior_implementation) {
-      $current_search_synonyms = array_merge($current_search_synonyms, synonyms_extract_synonyms($term, $behavior_implementation));
-      $previous_search_synonyms = array_merge($previous_search_synonyms, synonyms_extract_synonyms($term->original, $behavior_implementation));
+      $current_search_synonyms = array_merge($current_search_synonyms, $behavior_implementation['object']->extractSynonyms($term));
+      $previous_search_synonyms = array_merge($previous_search_synonyms, $behavior_implementation['object']->extractSynonyms($term->original));
     }
     $diff = array_diff($current_search_synonyms, $previous_search_synonyms);
     if (!empty($diff) || count($current_search_synonyms) != count($previous_search_synonyms)) {
@@ -51,15 +51,25 @@ function synonyms_search_taxonomy_term_update($term) {
 function synonyms_search_node_update_index($node) {
   $output = array();
   foreach (field_info_instances('node', $node->type) as $instance) {
-    // We go a field by field looking for taxonomy term reference and if that
-    // vocabulary has enabled search synonyms, we add them to the search index.
+    // We go a field by field looking for taxonomy term reference or entity
+    // reference of taxonomy term type and if that vocabulary has enabled search
+    // synonyms, we add them to the search index.
+    // TODO: implement this through foreign keys information. See
+    // term_merge_fields_with_foreign_key() function.
     $field_info = field_info_field($instance['field_name']);
     if ($field_info['type'] == 'taxonomy_term_reference') {
-      // For each term referenced in this node we have to add synonyms.
       $terms = field_get_items('node', $node, $instance['field_name']);
       if (is_array($terms) && !empty($terms)) {
         foreach ($terms as $v) {
           $output[] = $v['tid'];
+        }
+      }
+    }
+    if ($field_info['type'] == 'entityreference' && $field_info['settings']['target_type'] == 'taxonomy_term') {
+      $terms = field_get_items('node', $node, $instance['field_name']);
+      if (is_array($terms) && !empty($terms)) {
+        foreach ($terms as $v) {
+          $output[] = $v['target_id'];
         }
       }
     }
@@ -72,7 +82,7 @@ function synonyms_search_node_update_index($node) {
       $bundle = field_extract_bundle('taxonomy_term', $term);
       $behavior_implementations = synonyms_behavior_get('search', 'taxonomy_term', $bundle, TRUE);
       foreach ($behavior_implementations as $implementation) {
-        $output = array_merge($output, synonyms_extract_synonyms($term, $implementation));
+        $output = array_merge($output, $implementation['object']->extractSynonyms($term));
       }
     }
   }
@@ -90,15 +100,15 @@ function synonyms_search_term_update_index($term) {
 
   $synonyms = array();
   foreach ($behavior_implementations as $implementation) {
-    $synonyms = array_merge($synonyms, synonyms_extract_synonyms($term, $implementation));
+    $synonyms = array_merge($synonyms, $implementation['object']->extractSynonyms($term));
   }
   return implode(', ', $synonyms);
 }
 
 /**
- * Implements hook_synonyms_behavior_implementation_info().
+ * Implements hook_synonyms_provider_field_behavior_implementation_info().
  */
-function synonyms_search_synonyms_behavior_implementation_info($behavior) {
+function synonyms_search_synonyms_provider_field_behavior_implementation_info($behavior) {
   switch ($behavior) {
     case 'search':
       return array(
@@ -108,6 +118,7 @@ function synonyms_search_synonyms_behavior_implementation_info($behavior) {
         'text' => 'SearchTextSynonymsBehavior',
         'taxonomy_term_reference' => 'SearchTaxonomySynonymsBehavior',
         'entityreference' => 'SearchEntityReferenceSynonymsBehavior',
+        'commerce_product_reference' => 'SearchCommerceProductReferenceSynonymsBehavior',
       );
       break;
   }

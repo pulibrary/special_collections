@@ -57,18 +57,18 @@ class synonyms_views_plugin_argument_validate_taxonomy_term extends views_plugin
         if (empty($vocabularies)) {
           // At this point we want to convert an empty $vocabularies (implicitly
           // meaning "all") into actually a list of all vocabularies.
-          $bundles = array_keys(taxonomy_vocabulary_get_names());
+          $bundles = synonyms_bundle_normalize('taxonomy_term', $vocabularies);
         }
 
         foreach ($bundles as $bundle) {
           $condition = db_and();
           if ($transform) {
-            $condition->where("REPLACE(" . AbstractSynonymsSynonymsBehavior::COLUMN_PLACEHOLDER . ", ' ', '-') = :argument", array(
+            $condition->where("REPLACE(" . AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER . ", ' ', '-') = :argument", array(
               ':argument' => $argument,
             ));
           }
           else {
-            $condition->condition(AbstractSynonymsSynonymsBehavior::COLUMN_PLACEHOLDER, $argument);
+            $condition->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $argument);
           }
           $synonyms = synonyms_synonyms_find($condition, 'taxonomy_term', $bundle);
           if (!empty($synonyms)) {

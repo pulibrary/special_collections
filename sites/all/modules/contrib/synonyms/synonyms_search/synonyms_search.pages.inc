@@ -20,15 +20,27 @@ function synonyms_search_reindex_nodes_by_terms($tids) {
   // that would imply a big amount of SQL queries on some websites.
   $found_nids = array();
   foreach (field_info_field_map() as $field_name => $v) {
+    // TODO: explore possibility of using foreign keys instead of hard coding
+    // fields types in here.
     if ($v['type'] == 'taxonomy_term_reference' && isset($v['bundles']['node'])) {
-      // This field is taxonomy term reference and it is attached to nodes, so
-      // we will run EntityFieldQuery on it.
       $query = new EntityFieldQuery();
       $result = $query->entityCondition('entity_type', 'node')
         ->fieldCondition($field_name, 'tid', $tids, 'IN')
         ->execute();
       if (isset($result['node'])) {
         $found_nids = array_merge($found_nids, array_keys($result['node']));
+      }
+    }
+    if ($v['type'] == 'entityreference' && isset($v['bundles']['node'])) {
+      $field = field_info_field($field_name);
+      if ($field['settings']['target_type'] == 'taxonomy_term') {
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition('entity_type', 'node')
+          ->fieldCondition($field_name, 'target_id', $tids, 'IN')
+          ->execute();
+        if (isset($result['node'])) {
+          $found_nids = array_merge($found_nids, array_keys($result['node']));
+        }
       }
     }
   }
