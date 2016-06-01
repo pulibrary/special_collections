@@ -1,27 +1,29 @@
-At this point you must possess good technical knowledge about what synonyms behaviors are. In this article we will show how you can implement an arbitrary behavior for an arbitrary field type.
+<p>At this point you must possess good technical knowledge about what synonyms behaviors are. In this article we will show how you can implement an arbitrary behavior for an arbitrary storage.</p>
 
-By implementing I mean to provide integration between a field type (between how that field type stores and encodes synonyms data in the database) and a synonym behavior (how that behavior requires to work with synonyms data). It must sound a bit too baked, but the ongoing paragraphs should shed more light onto it.
+<p>By implementing I mean to provide integration between your storage and a synonym behavior (how that behavior requires to work with synonyms data). It must sound a bit too baked, but the ongoing paragraphs should shed more light onto it.</p>
 
-Throughout writing your own synonyms behavior implementation you can always look into Synonyms module source code to get better understanding. You will find the behavior implementatios in <em>synonyms/includes/*SynonymsBehavior.class.inc</em> files.
+<p>Throughout writing your own synonyms behavior implementation you can always look into Synonyms module source code to get better understanding. You will find the behavior implementations in <em>synonyms/synonyms_provider_{property,field}/includes/*SynonymsBehavior.class.inc</em> files.</p>
 
-Creating a new implementation pretty much consists of 2 steps:
+<p>Just one last question before we dive into technical details: is your storage eventually comes from a field? In case it does, you might benefit from reading <a href="&topic:synonyms/synonyms_behavior_implementation_field_based&">this page</a> as it narrates about implementing behaviors based on fields. You can leverage some abstractions from synonyms_provider_field submodule to make your life easier.</p>
+
+<p>In case your storage is not field-based or you just happen to be Chuck Norris, read on! Creating a new implementation pretty much consists of 2 steps:</p>
 <ol>
-    <li>Implementing behavior interface for a particular field type.</li>
-    <li>Notifying Synonyms module about your new PHP class and what field types and what behavior that PHP class is responsible for.</li>
+    <li>Implementing behavior interface for a particular storage type.</li>
+    <li>Notifying Synonyms module about your new behavior implementation, that is... for what behavior and what entity type and bundle you have implemented it.</li>
 </ol>
 
-Now let us see each of the steps in further details.
+<p>Now let us see each of the steps in further details.</p>
 
 <h2>Implementing behavior interface</h2>
 
-Look up in behavior cTools plugin definition of your interest what interface it declares. The cTools plugin must be of type "behavior" owned by "synonyms" module. The interface is declared under the "interface" property. Read the documentation for that interface and write a PHP class that implements this interface. We cannot give more precise instructions about this step, because it all depends on the interface of the behavior.
+<p>Look up in behavior cTools plugin definition of your interest what interface it declares. The cTools plugin must be of type <em>behavior</em> owned by <em>synonyms</em> module. The interface is declared under the <em>interface</em> property of the plugin definition. Read the documentation for that interface and write a PHP class that implements this interface for your particular storage. We cannot give more precise instructions about this step, because it all depends on the interface of the behavior.</p>
 
 <h2>Notifying Synonyms module about your new implementation</h2>
 
-For the purposes of such notification we have 2 hooks in Synonyms module:
+<p>For the purposes of such notification we have the following hook in Synonyms module:</p>
+
 <ul>
-    <li>hook_synonyms_behavior_implementation_info() to collect info from modules about existing behavior implementations</li>
-    <li>hook_synonyms_behavior_implementation_info_alter() to alter info about existing behavior implementations, for example, if you want to overwrite behavior implementation introduced in another module.</li>
+    <li><em>hook_synonyms_behavior_implementation_info()</em> to collect info from modules about existing behavior implementations</li>
 </ul>
 
-Implementing either of the 2 hooks is highly straight forward, you will just inform the Synonyms module for requested behavior for what field types you have implementations in what PHP classes. For more details, refer to synonyms.api.php file or look into synonyms_synonyms_behavior_implementation_info() function.
+<p>Implementing the hook is highly straight forward, you will just inform the Synonyms module about what behavior implementations your module has to offer for a given behavior, entity type, and bundle. For more details, refer to <b>synonyms.api.php</b> file.</p>

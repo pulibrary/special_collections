@@ -6,124 +6,170 @@
  */
 
 /**
- * Hook to collect info about available synonyms behavior implementations.
+ * Collect info about available synonyms behavior implementations.
  *
- * Hook to collect info about what PHP classes implement provided synonyms
- * behavior for different field types.
+ * If your module ships a synonyms behavior implementation you probably want to
+ * implement this hook. However, exercise caution, if your synonyms behavior
+ * implementation is a field-based one, you might be better off implementing
+ * hook_synonyms_field_behavior_implementation_info().
  *
+ * @param string $entity_type
+ *   Entity type whose synonyms behavior implementations are requested
+ * @param string $bundle
+ *   Bundle name whose synonyms behavior implementations are requested
  * @param string $behavior
- *   Name of a synonyms behavior. This string will always be among the keys
- *   of the return of synonyms_behaviors(), i.e. name of a ctools plugin
+ *   Behavior name whose implementations are requested
  *
  * @return array
- *   Array of information about what synonyms behavior implementations your
- *   module supplies. The return array must contain field types as keys, whereas
- *   corresponding values should be names of PHP classes that implement the
- *   provided behavior for that field type. Read more about how to implement a
- *   specific behavior in the advanced help of this module. In a few words: you
- *   will have to implement an interface that is defined in the behavior
- *   definition. Do not forget to make sure your PHP class is visible to Drupal
- *   auto discovery mechanism
+ *   Array of information about synonyms behavior implementations your module
+ *   exposes. Each sub array will represent a single synonyms behavior
+ *   implementation and should have the following structure:
+ *   - provider: (string) machine name of your synonyms behavior implementation.
+ *     Prefix it with your module name to make sure no name collision happens.
+ *     Also, provider must be unique within the namespace of behavior, entity
+ *     type and bundle. Basically, this is what distinguishes one behavior
+ *     implementation from another
+ *   - label: (string) Human friendly translated name of your synonyms behavior
+ *     implementation
+ *   - class: (string) Name of PHP class that implements synonyms behavior
+ *     interface, which is stated in synonyms behavior definition. This class
+ *     will do all the synonyms work. This hook serves pure declarative function
+ *     to map entity types, bundles with their synonym behavior implementations
+ *     whereas real "synonyms-related" work is implemented in your class
  */
-function hook_synonyms_behavior_implementation_info($behavior) {
-  switch ($behavior) {
-    case 'autocomplete':
-      return array(
-        'my-field-type' => 'MyFieldTypeAutocompleteSynonymsBehavior',
-      );
-      break;
+function hook_synonyms_behavior_implementation_info($entity_type, $bundle, $behavior) {
+  $providers = array();
 
-    case 'another-behavior':
-      return array(
-        'my-field-type-or-yet-another-field-type' => 'MyFieldTypeAnotherBehaviorSynonymsBehavior',
-      );
+  switch ($entity_type) {
+    case 'entity_type_i_want':
+      switch ($bundle) {
+        case 'bundle_i_want':
+          switch ($behavior) {
+            case 'behavior_i_want':
+              $providers[] = array(
+                'provider' => 'my_module_synonyms_behavior_implementation_machine_name',
+                'label' => t('This is human friendly name of my synonyms behavior implementation. Put something meaningful here'),
+                'class' => 'MySynonymsSynonymsBehavior',
+              );
+              break;
+          }
+          break;
+      }
+
       break;
   }
 
-  return array();
+  return $providers;
 }
 
 /**
- * Hook to alter info about available synonyms behavior implementations.
+ * Example of synonyms behavior implementation class.
  *
- * This hook is invoked right after hook_synonyms_behavior_implementation_info()
- * and is designed to let modules overwrite implementation info from some other
- * modules. For example, if module A provides implementation for some field
- * type, but your module has a better version of that implementation, you would
- * need to implement this hook and to overwrite the implementation info.
- *
- * @param array $info
- *   Array of information about existing synonyms behavior implementations that
- *   was collected from modules
- * @param string $behavior
- *   Name of the behavior for which the info about implementation is being
- *   generated
+ * You are encouraged to extend AbstractSynonymsBehavior class as that one
+ * contains a few heuristic that make your implementation easier.
  */
-function hook_synonyms_behavior_implementation_info_alter(&$info, $behavior) {
-  switch ($behavior) {
-    case 'the-behavior-i-want':
-      $info['the-field-type-i-want'] = 'MyFieldTypeAutocompleteSynonymsBehavior';
-      break;
-  }
-}
+class MySynonymsSynonymsBehavior extends AbstractSynonymsBehavior implements AutocompleteSynonymsBehavior {
 
-/**
- * Example of how to implement a synonyms behavior for an arbitrary field type.
- */
-class MyFieldTypeAutocompleteSynonymsBehavior extends AbstractSynonymsSynonymsBehavior implements AutocompleteSynonymsBehavior {
-
-  public function extractSynonyms($items, $field, $instance, $entity, $entity_type) {
-    // Let's say our synonyms is stored in the 'foo' column of the field.
+  /**
+   * Extract synonyms from an entity within a specific behavior implementation.
+   *
+   * @param object $entity
+   *   Entity from which to extract synonyms
+   *
+   * @return array
+   *   Array of synonyms extracted from $entity
+   */
+  public function extractSynonyms($entity) {
     $synonyms = array();
-    foreach ($items as $item) {
-      $synonyms[] = $item['foo'];
-    }
+
+    // Do something with $entity in order to extract synonyms from it. Add all
+    // those synonyms into your $synonyms array.
+
     return $synonyms;
   }
 
-  public function mergeEntityAsSynonym($items, $field, $instance, $synonym_entity, $synonym_entity_type) {
-    // Let's say we keep the synonyms as strings and under the 'foo' column, to
-    // keep it consistent with the extractSynonyms() method.
-    $label = entity_label($synonym_entity_type, $synonym_entity);
-    return array(array(
-      'foo' => $label,
-    ));
+  /**
+   * Add an entity as a synonym into another entity.
+   *
+   * Basically this method should be called when you want to add some entity
+   * as a synonym to another entity (for example when you merge one entity
+   * into another and besides merging want to add synonym of the merged entity
+   * into the trunk entity). You should update $trunk_entity in such a way that
+   * it holds $synonym_entity as a synonym (it all depends on how data is stored
+   * in your behavior implementation, but probably you will store entity label
+   * or its ID as you cannot literaly store an entity inside of another entity).
+   * If entity of type $synonym_entity_type cannot be converted into a format
+   * expected by your behavior implementation, just do nothing.
+   *
+   * @param object $trunk_entity
+   *   Entity into which another one should be added as synonym
+   * @param object $synonym_entity
+   *   Fully loaded entity object which has to be added as synonym
+   * @param string $synonym_entity_type
+   *   Entity type of $synonym_entity
+   */
+  public function mergeEntityAsSynonym($trunk_entity, $synonym_entity, $synonym_entity_type) {
+    // If you can add $synonym_entity into $trunk_entity, then do so.
+    // For example:
+    $trunk_entity->synonym_storage[] = $synonym_entity;
   }
 
-  public function synonymItemHash($item, $field, $instance) {
-    // Since we've agreed that the column that stores data in our imaginary
-    // field type is "foo". Then it suffices just to implement the hash function
-    // as the value of foo column.
-    return $item['foo'];
+  /**
+   * Look up entities by their synonyms within a behavior implementation.
+   *
+   * You are provided with a SQL condition that you should apply to the storage
+   * of synonyms within the provided behavior implementation. And then return
+   * result: what entities match by the provided condition through what
+   * synonyms.
+   *
+   * @param QueryConditionInterface $condition
+   *   Condition that defines what to search for. Apart from normal SQL
+   *   conditions as known in Drupal, it may contain the following placeholders:
+   *   - AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER: to denote
+   *     synonyms column which you should replace with the actual column name
+   *     where the synonyms data for your provider is stored in plain text.
+   *   - AbstractSynonymsBehavior::COLUMN_ENTITY_ID_PLACEHOLDER: to denote
+   *     column that holds entity ID. You are supposed to replace this placeholder
+   *     with actual column name that holds entity ID in your case.
+   *   For ease of work with these placeholders, you may extend the
+   *   AbstractSynonymsBehavior class and then just invoke the
+   *   AbstractSynonymsBehavior->synonymsFindProcessCondition() method, so you
+   *   won't have to worry much about it
+   *
+   * @return Traversable
+   *   Traversable result set of found synonyms and entity IDs to which those
+   *   belong. Each element in the result set should be an object and will have
+   *   the following structure:
+   *   - synonym: (string) Synonym that was found and which satisfies the
+   *     provided condition
+   *   - entity_id: (int) ID of the entity to which the found synonym belongs
+   */
+  public function synonymsFind(QueryConditionInterface $condition) {
+    // Here, as an example, we'll query an imaginary table where your module
+    // supposedly keeps synonyms. We'll also use helpful
+    // AbstractSynonymsBehavior::synonymsFindProcessCondition() to normalize
+    // $condition argument.
+    $query = db_select('my_synonyms_storage_table', 'table');
+    $query->addField('table', 'entity_id', 'entity_id');
+    $query->addField('table', 'synonym', 'synonym');
+    $this->synonymsFindProcessCondition($condition, 'table.synonym', 'table.entity_id');
+    $query->condition($condition);
+    return $query->execute();
   }
 
-  public function synonymsFind(QueryConditionInterface $condition, $field, $instance) {
-    // We only can find synonyms in SQL storage. If this field is not one, then
-    // we have full right to throw an exception.
-    if ($field['storage']['type'] != 'field_sql_storage') {
-      throw new SynonymsSynonymsBehaviorException(t('Not supported storage engine %type in synonymsFind() method.', array(
-        '%type' => $field['storage']['type'],
-      )));
-    }
-    // Now we will figure out in what table $field is stored. We want to
-    // condition the 'foo' column within that field table.
-    $table = array_keys($field['storage']['details']['sql'][FIELD_LOAD_CURRENT]);
-    $table = reset($table);
-    $column = $field['storage']['details']['sql'][FIELD_LOAD_CURRENT][$table]['foo'];
-
-    // Once we know full path to the column that stores synonyms as plain text,
-    // we can use a supplementary method from AbstractSynonymsSynonymsBehavior,
-    // which helps us to convert a column placeholder into its real value within
-    // the condition we have received from outside.
-    $this->synonymsFindProcessCondition($condition, $column);
-
-    // Now we are all set to build a SELECT query and return its result set.
-    $query = db_select($table);
-    $query->fields($table, array('entity_id'));
-    $query->addField($table, $column, 'synonym');
-    return $query->condition($condition)
-      ->condition('entity_type', $instance['entity_type'])
-      ->condition('bundle', $instance['bundle'])
-      ->execute();
+  /**
+   * Collect info on features pipe during invocation of hook_features_export().
+   *
+   * If your synonyms provider depends on some other features components, this
+   * method should return them.
+   *
+   * @return array
+   *   Array of features pipe as per hook_features_export() specification
+   */
+  public function featuresExportPipe() {
+    $pipe = parent::featuresExportPipe();
+    // Here you can add any additional features components your provider
+    // depends on.
+    return $pipe;
   }
 }

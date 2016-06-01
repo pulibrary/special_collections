@@ -5,16 +5,18 @@
  * Plugin to provide a synonyms-friendly argument handler for a Taxonomy term.
  */
 
-$plugin = array(
-  'title' => t("Taxonomy term: ID (synonyms-friendly)"),
-  'keyword' => 'term',
-  'description' => t('Creates a single taxonomy term from a taxonomy term name or one of its synonyms.'),
-  'context' => 'synonyms_term_synonyms_context',
-  'default' => array('breadcrumb' => TRUE, 'transform' => FALSE),
-  'settings form' => 'synonyms_term_synonyms_settings_form',
-  'placeholder form' => 'synonyms_term_synonyms_ctools_argument_placeholder',
-  'breadcrumb' => 'synonyms_term_synonyms_breadcrumb',
-);
+if (module_exists('taxonomy')) {
+  $plugin = array(
+    'title' => t("Taxonomy term: ID (synonyms-friendly)"),
+    'keyword' => 'term',
+    'description' => t('Creates a single taxonomy term from a taxonomy term name or one of its synonyms.'),
+    'context' => 'synonyms_term_synonyms_context',
+    'default' => array('breadcrumb' => TRUE, 'transform' => FALSE),
+    'settings form' => 'synonyms_term_synonyms_settings_form',
+    'placeholder form' => 'synonyms_term_synonyms_ctools_argument_placeholder',
+    'breadcrumb' => 'synonyms_term_synonyms_breadcrumb',
+  );
+}
 
 /**
  * Discover if this argument gives us the term we crave.
@@ -66,12 +68,12 @@ function synonyms_term_synonyms_context($arg = NULL, $conf = NULL, $empty = FALS
       foreach ($vocabularies as $vocabulary) {
         $condition = db_and();
         if ($conf['transform']) {
-          $condition->where("REPLACE(" . AbstractSynonymsSynonymsBehavior::COLUMN_PLACEHOLDER . ", ' ', '-') = :argument", array(
+          $condition->where("REPLACE(" . AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER . ", ' ', '-') = :argument", array(
             ':argument' => $arg,
           ));
         }
         else {
-          $condition->condition(AbstractSynonymsSynonymsBehavior::COLUMN_PLACEHOLDER, $arg);
+          $condition->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $arg);
         }
         $rows = synonyms_synonyms_find($condition, 'taxonomy_term', $vocabulary->machine_name);
         if (!empty($rows)) {
