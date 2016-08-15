@@ -45,7 +45,7 @@ rules:
   nesting-depth:
     - 2
     - max-depth: 4
-  no-color-keyword: 2
+  no-color-keyword: 0
   no-color-literals:
     - 2
     - allow-rgba: true

@@ -49,12 +49,12 @@
       font-family: $font-sans;
       font-size: 1em;
       height: 3em;
-      width: auto;
       line-height: 1.2em;
       overflow: hidden;
       padding: 0.5em;
       position: initial;
       text-align: center;
+      width: auto;
     }
   }
 
@@ -85,26 +85,26 @@
     .gallery-item--subtitle {
       font-family: $font-serif;
       font-size: 0.8em;
-      line-height: 1.2em;
       height: 115px;
+      line-height: 1.2em;
       overflow: hidden;
     }
 
     .gallery-item--link {
       bottom: 1em;
+      left: 50%;
       position: absolute;
       width: auto;
-      left: 50%;
 
       a:first-child {
         display: none;
       }
 
       a {
-        left: -50%;
-        position: relative;
         height: auto;
+        left: -50%;
         max-height: initial;
+        position: relative;
         width: auto;
       }
     }
