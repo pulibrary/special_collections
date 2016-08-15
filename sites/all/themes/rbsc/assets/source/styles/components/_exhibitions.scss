@@ -30,7 +30,8 @@
 }
 
 .external-link a,
-.btn {
+.btn,
+.gallery-item .gallery-item--link a {
   background-color: $blue-dark;
   border: 0;
   border-radius: 4px;
