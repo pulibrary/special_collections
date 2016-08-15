@@ -10,7 +10,7 @@
 .flip-container,
 .gallery-item--front,
 .gallery-item--back {
-  height: 290px;
+  height: 278px;
   width: 220px;
 }
 
@@ -46,10 +46,12 @@
 
     .gallery-item--title {
       background: transparent;
+      font-family: $font-sans;
       font-size: 1em;
-      height: auto;
+      height: 3em;
       width: auto;
       line-height: 1.2em;
+      overflow: hidden;
       padding: 0.5em;
       position: initial;
       text-align: center;
@@ -57,12 +59,21 @@
   }
 
   .gallery-item--back {
-    padding: 1em;
     transform: rotateY(180deg);
+
+    > a {
+      color: initial;
+      height: 278px;
+      max-height: initial;
+      padding: 1em;
+      text-shadow: none;
+      width: 220px;
+    }
 
     .gallery-item--title {
       background: transparent;
       border-bottom: 1px solid $gray-light;
+      font-family: $font-sans;
       font-size: 1em;
       height: auto;
       margin-bottom: 0.5em;
@@ -72,8 +83,11 @@
     }
 
     .gallery-item--subtitle {
+      font-family: $font-serif;
       font-size: 0.8em;
       line-height: 1.2em;
+      height: 122px;
+      overflow: hidden;
     }
 
     .gallery-item--link {
@@ -81,6 +95,10 @@
       position: absolute;
       width: auto;
       left: 50%;
+
+      a:first-child {
+        display: none;
+      }
 
       a {
         left: -50%;
