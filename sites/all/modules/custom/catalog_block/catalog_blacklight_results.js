@@ -7,9 +7,9 @@
         var music_icon = 'icon-musical-score';
         var image_icon = 'icon-visual-material';
         var map_icon = 'icon-map';
-        var refine_hint = 'PUL Search';
+        var refine_hint = 'Books and More';
         var refine_icon = '';
-        var refine_message = "Blacklight Results";
+        var refine_message = "Books and More Results";
         if (query_url === "" || query_url == undefined) {
             $('<div class="message">Please supply search terms</div>').appendTo('#blacklight-search-results');
         } else {
@@ -61,19 +61,31 @@
                             var holdings = "";
                             if (result['holdings']) {
                                 holding_locations = JSON && JSON.parse(result['holdings']) || $.parseJSON(result['holdings']);
-                                holdings = holdings + "<div class='pulsearch-availability' data-record-id='" + id + "'>"
+                                holdings = holdings + "<div class='pulsearch-availability' data-record-id='" + id + "'>";
                                 for (var key in holding_locations) {
                                     if (holding_locations.hasOwnProperty(key)) {
-                                        holdings = holdings + "<div class='holding' data-mfhd='" + key +"' data-loc='" + holding_locations[key]['location_code'] + "'>" + holding_locations[key]['library'] + " " + holding_locations[key]['location'] + holding_locations[key]['library'] + " " + holding_locations[key]['call_number'] + "</div>";
+                                        holdings = holdings + "<div class='holding' data-mfhd='" + key +"' data-loc='" + holding_locations[key]['location_code'] + "'>" + holding_locations[key]['location'] + " " + holding_locations[key]['library'] + " " + holding_locations[key]['call_number'] + "</div>";
                                     }
                                 }
                                 holdings = holdings + "</div>";
+                            }
+                            var online_access = "";
+                            var online_span = '<span class="button--external-link availability-icon label label-primary" title="" data-toggle="tooltip" data-original-title="Electronic access" aria-describedby="tooltip552370">Online</span>';
+                            if (result['online']) {
+                                var online_links = JSON && JSON.parse(result['online']) || $.parseJSON(result['online']);
+                                online_access = online_access + "<div class='pulsearch-online-access'>";
+                                for (var key in online_links) {
+                                    if(online_links.hasOwnProperty(key)) {
+                                        online_access = online_access + online_span + " " + "<a href='" + key + "'>" + online_links[key] + "</a>";
+                                    }
+                                }
+                                online_access = online_access + "</div>";
                             }
                             var result_position = parseInt(index) + 1;
                             items.push('<li class="' + row_class + '"><h3><a target="_blank" href="' + result['url'] + '" target="_blank">' + result['title'] + '</a></h3>' +
                                 '<div class="all-format-type"><i class="' + icon_type + '"></i>' +
                                 result['type'] +
-                                '</div>' + author + publisher + '<div class="holdings" data-ol-id="' +id+ '"">' + holdings + '</div></li>');
+                                '</div>' + author + publisher + online_access + '<div class="holdings" data-ol-id="' +id+ '"">' + holdings + '</div></li>');
                         });
                         $('#blacklight-search-results-spinner').hide();
                         $('<ul/>', {
@@ -83,10 +95,10 @@
                         // $('<div class="puld-search refine-link">'+refine_icon+'<a target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#blacklight-search-results');
                         $('#catalog_block-catalog_blacklight_results h2').replaceWith(function() {
                             var url = $.trim($(this).text());
-                            return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>PUL Search Results</a></h2>';
+                            return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>Books and More Results</a></h2>';
                         });
                         if (data.number > 3) {
-                            $('<div class="puld-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all Catalog results</a></div>"').appendTo('#blacklight-search-results');
+                            $('<div class="puld-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all Books and More results</a></div>"').appendTo('#blacklight-search-results');
                         }
                         var section_heading = "blacklight"; // Should be in Drupal Settings
                         $('#catalog_block-catalog_blacklight_results h2 a').each(function(index, value) {
@@ -115,12 +127,12 @@
 
                     } else {
                         $('#blacklight-search-results-spinner').hide();
-                        $('<div class="no-results">No Catalog Results Found. Try searching for another topic.</div>"').appendTo('#blacklight-search-results');
+                        $('<div class="no-results">No Books and More Results Found. Try searching for another topic.</div>"').appendTo('#blacklight-search-results');
                     }
                 },
                 error: function(data) {
                     $('#blacklight-search-results-spinner').hide();
-                    $('<div class="all-fail-to-load-results">Princeton Library Catalog results are not available at this time.</div>"').appendTo('#blacklight-search-results');
+                    $('<div class="all-fail-to-load-results">Princeton Books and More results are not available at this time.</div>"').appendTo('#blacklight-search-results');
                 },
                 timeout: 5000
             });
