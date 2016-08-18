@@ -600,18 +600,6 @@ function exhibitions_list_views_default_views() {
   $handler->display->display_options['fields']['field_sub_title']['settings'] = array(
     'class' => '',
   );
-  /* Field: Content: Link */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['view_node']['element_type'] = '0';
-  $handler->display->display_options['fields']['view_node']['element_label_type'] = '0';
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['element_wrapper_type'] = '0';
-  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'View exhibit';
   /* Field: Content: Path */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
@@ -634,7 +622,7 @@ function exhibitions_list_views_default_views() {
     <a href="[path]">
     <div class="gallery-item--title">[title]</div> 
     <div class="gallery-item--subtitle">[field_sub_title]</div>
-    <div class="gallery-item--link"><a href="[path]">View exhibit</a></div>
+    <div class="gallery-item--link"><span class="btn">View exhibit</span></div>
     </a>
   </div>
 </div>';
@@ -766,7 +754,7 @@ function exhibitions_list_views_default_views() {
     <a href="[path]">
     <div class="gallery-item--title">[title]</div> 
     <div class="gallery-item--subtitle">[body]</div>
-    <div class="gallery-item--link"><a href="[path]">View collection</a></div>
+    <div class="gallery-item--link"><span class="btn">View collection</span></div>
     </a>
   </div>
 </div>';
@@ -884,7 +872,7 @@ function exhibitions_list_views_default_views() {
     <a href="[path]">
     <div class="gallery-item--title">[title]</div> 
     <div class="gallery-item--subtitle">[body]</div>
-    <div class="gallery-item--link"><a href="[path]">View project</a></div>
+    <div class="gallery-item--link"><span class="btn">View project</span></div>
     </a>
   </div>
 </div>';
@@ -1261,7 +1249,7 @@ function exhibitions_list_views_default_views() {
     <a href="[path]">
     <div class="gallery-item--title">[title]</div> 
     <div class="gallery-item--subtitle">[body]</div>
-    <div class="gallery-item--link"><a href="[path]">View collection</a></div>
+    <div class="gallery-item--link"><span class="btn">View collection</span></div>
     </a>
   </div>
 </div>';
