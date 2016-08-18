@@ -96,11 +96,7 @@
       position: absolute;
       width: auto;
 
-      a:first-child {
-        display: none;
-      }
-
-      a {
+      .btn {
         height: auto;
         left: -50%;
         max-height: initial;
