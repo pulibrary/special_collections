@@ -10,6 +10,7 @@
         var refine_hint = 'Books and More';
         var refine_icon = '';
         var refine_message = "Books and More Results";
+        var pul_resolver = 'http://library.princeton.edu/resolve/lookup?url=';
         if (query_url === "" || query_url == undefined) {
             $('<div class="message">Please supply search terms</div>').appendTo('#blacklight-search-results');
         } else {
@@ -59,27 +60,53 @@
                                 }
                             }
                             var holdings = "";
+                            var online_process = false;
                             if (result['holdings']) {
                                 holding_locations = JSON && JSON.parse(result['holdings']) || $.parseJSON(result['holdings']);
-                                holdings = holdings + "<div class='pulsearch-availability' data-record-id='" + id + "'>";
-                                for (var key in holding_locations) {
-                                    if (holding_locations.hasOwnProperty(key)) {
-                                        holdings = holdings + "<div class='holding' data-mfhd='" + key +"' data-loc='" + holding_locations[key]['location_code'] + "'>" + holding_locations[key]['location'] + " " + holding_locations[key]['library'] + " " + holding_locations[key]['call_number'] + "</div>";
+                                holdings = holdings + "<div class='pulsearch-availability' data-record-id='" + id + "'>"
+                                var mfhd_keys = Object.keys(holding_locations);
+                                $.each(mfhd_keys, function(index, key) {
+                                    // only display online if there is an online holding library
+                                    if (holding_locations[key]['library'] == 'Online') {
+                                            online_process = true;
                                     }
-                                }
+                                    if(index < 2) {
+                                        if (holding_locations.hasOwnProperty(key)) {
+                                            call_number = "";
+                                            if(holding_locations[key]['call_number']) {
+                                                call_number = holding_locations[key]['call_number'];
+                                            }
+                                            holdings = holdings + "<div class='holding' data-mfhd='" + key +"' data-loc='" + holding_locations[key]['location_code'] + "'>" + holding_locations[key]['location'] + " " + call_number + "</div>";
+                                        }
+                                    }
+                                    if(index == 2) {
+                                        view_all_msg = "View Record for Full Availability";
+                                        see_more_badge = "<span class='badge-default'>" + view_all_msg + "</span>";
+                                        holdings = holdings + "<div>" + see_more_badge + "</div>";
+                                    }
+                                //}
+                                });
                                 holdings = holdings + "</div>";
                             }
                             var online_access = "";
-                            var online_span = '<span class="button--external-link availability-icon label label-primary" title="" data-toggle="tooltip" data-original-title="Electronic access" aria-describedby="tooltip552370">Online</span>';
-                            if (result['online']) {
-                                var online_links = JSON && JSON.parse(result['online']) || $.parseJSON(result['online']);
-                                online_access = online_access + "<div class='pulsearch-online-access'>";
-                                for (var key in online_links) {
-                                    if(online_links.hasOwnProperty(key)) {
-                                        online_access = online_access + online_span + " " + "<a href='" + key + "'>" + online_links[key] + "</a>";
+                            var online_span = '<span class="badge-notice availability-icon label label-primary" title="" data-toggle="tooltip" data-original-title="Electronic access" aria-describedby="tooltip552370">Online</span>';
+                            if(online_process == true) { 
+                                if (result['online']) {
+                                    console.log(result['online']);
+                                    var online_links = JSON && JSON.parse(result['online']) || $.parseJSON(result['online']);
+                                    online_access = online_access + "<div class='pulsearch-online-access'>";
+                                    for (var key in online_links) {
+                                        if(online_links.hasOwnProperty(key)) {
+                                            if (online_links[key][1]) {
+                                                var link_label = online_links[key][1] + ": ";
+                                            } else {
+                                                var link_label = "";
+                                            }
+                                            online_access = online_access + online_span + " " + link_label + "<a href='" + pul_resolver + key + "'>" + online_links[key][0] + "</a>";
+                                        }
                                     }
+                                    online_access = online_access + "</div>";
                                 }
-                                online_access = online_access + "</div>";
                             }
                             var result_position = parseInt(index) + 1;
                             items.push('<li class="' + row_class + '"><h3><a target="_blank" href="' + result['url'] + '" target="_blank">' + result['title'] + '</a></h3>' +
@@ -95,14 +122,13 @@
                         // $('<div class="puld-search refine-link">'+refine_icon+'<a target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#blacklight-search-results');
                         $('#catalog_block-catalog_blacklight_results h2').replaceWith(function() {
                             var url = $.trim($(this).text());
-                            return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>Books and More Results</a></h2>';
+                            return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>Books and More</a></h2>';
                         });
                         if (data.number > 3) {
                             $('<div class="puld-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all Books and More results</a></div>"').appendTo('#blacklight-search-results');
                         }
                         var section_heading = "blacklight"; // Should be in Drupal Settings
                         $('#catalog_block-catalog_blacklight_results h2 a').each(function(index, value) {
-                            //console.log('processing header');
                             //$(this).closest('h2.pane-title').text();
                             $(this).click(function() {
                                 ga('send', 'event', 'All Search', section_heading, 'Refine Top');
@@ -135,6 +161,75 @@
                     $('<div class="all-fail-to-load-results">Princeton Books and More results are not available at this time.</div>"').appendTo('#blacklight-search-results');
                 },
                 timeout: 5000
+            }).done(function() {
+                var ids = [];
+                $('#blacklight-search-results .holdings').each(function() { 
+                    var pos = $(this).position();
+                    var id = $(this).data('ol-id');
+                    if (!isNaN(id))
+                    {
+                        ids.push(id);
+                    }
+                });
+                if (ids.length > 0) {
+                    var availability_base = 'https://bibdata.princeton.edu/availability?'
+                    var query_string = "&ids%5B%5D=" + ids.join('&ids%5B%5D=');
+                    var availability_url = availability_base + query_string;   
+                }
+                $.ajax({
+                     url: availability_url,
+                     async: true,
+                     type: 'GET',
+                     dataType: 'json',    
+                     success: function(data) {
+                        $.each(data, function(index, result) {
+                            var mfhd_keys = Object.keys(result);
+                            // at most there are two holdings in the availability response
+                            $.each(mfhd_keys, function(index, mfhd) {
+                                var badge_label = result[mfhd].status
+                                if(badge_label == 'Not Charged') {
+                                   var badge_class = 'success';
+                                   var badge_label = 'Available';
+                                }
+                                else if(badge_label == 'On Shelf') {
+                                    var badge_class = 'success';
+                                }
+                                else if(badge_label == 'Charged' || badge_label == 'Renewed') {
+                                  var badge_label = 'Checked out';
+                                  var badge_class = 'error';
+                                } else if (badge_label == 'On-Site') {
+                                  var badge_class = 'alert';
+                                } else if (badge_label.match(/^On-Order/)) { //.indexOf('On-order') == -1) {
+                                  var badge_class = 'default';
+                                  var badge_label = 'On-order';     
+                                } else if (badge_label.match(/^In Process/)) {
+                                  var badge_class = 'success'; 
+                                } else if(badge_label.match(/^In Transit/)) {
+                                    var badge_class = 'default';
+                                } else if(badge_label.match(/^Discharged/)) {
+                                    var badge_class = 'success';
+                                    var badge_lable = 'Returned';
+                                } else {
+                                    var badge_class = 'error';
+                                }
+                                var badge = "<span class='badge-" + badge_class + "'>" + badge_label + "</span>";
+                                var holding_note = $("*[data-mfhd='" + mfhd + "']");
+                           
+                                if (badge_label != 'Online') {
+                                    var note_text = $(holding_note).text();
+                                    $(holding_note).html(badge + " " + note_text);
+                                } else {
+                                    $(holding_note).html('');
+                                }
+                            });
+                        });
+
+                     },
+                    error: function(data) {
+                        console.log("Can't load availability data.");
+                    },
+                    timeout: 5000
+                });
             });
         }
     });
