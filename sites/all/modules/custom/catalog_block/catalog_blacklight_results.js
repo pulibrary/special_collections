@@ -92,7 +92,6 @@
                             var online_span = '<span class="badge-notice availability-icon label label-primary" title="" data-toggle="tooltip" data-original-title="Electronic access" aria-describedby="tooltip552370">Online</span>';
                             if(online_process == true) { 
                                 if (result['online']) {
-                                    console.log(result['online']);
                                     var online_links = JSON && JSON.parse(result['online']) || $.parseJSON(result['online']);
                                     online_access = online_access + "<div class='pulsearch-online-access'>";
                                     for (var key in online_links) {
@@ -184,35 +183,80 @@
                      success: function(data) {
                         $.each(data, function(index, result) {
                             var mfhd_keys = Object.keys(result);
-                            // at most there are two holdings in the availability response
+                            // at most there are two holdings in the availabilibility response per mfhd
                             $.each(mfhd_keys, function(index, mfhd) {
                                 var badge_label = result[mfhd].status
-                                if(badge_label == 'Not Charged') {
-                                   var badge_class = 'success';
-                                   var badge_label = 'Available';
-                                }
-                                else if(badge_label == 'On Shelf') {
-                                    var badge_class = 'success';
-                                }
-                                else if(badge_label == 'Charged' || badge_label == 'Renewed') {
-                                  var badge_label = 'Checked out';
-                                  var badge_class = 'error';
-                                } else if (badge_label == 'On-Site') {
-                                  var badge_class = 'alert';
-                                } else if (badge_label.match(/^On-Order/)) { //.indexOf('On-order') == -1) {
-                                  var badge_class = 'default';
-                                  var badge_label = 'On-order';     
-                                } else if (badge_label.match(/^In Process/)) {
-                                  var badge_class = 'success'; 
-                                } else if(badge_label.match(/^In Transit/)) {
-                                    var badge_class = 'default';
-                                } else if(badge_label.match(/^Discharged/)) {
-                                    var badge_class = 'success';
-                                    var badge_lable = 'Returned';
+                                // begin availability from orangelight availability.js
+                                function title_case(str) {
+                                    return str[0].toUpperCase() + str.slice(1, (str.length - 1 + 1) || 9e9).toLowerCase();
+                                };
+                                var status = title_case(badge_label);
+                                var on_site_status = 'On-site'
+                                var on_site_unavailable = 'On-site - '
+                                var circ_desk = 'Check with front desk'
+                                var available_statuses = ['Not charged', 'On shelf']
+                                var returned_statuses = ['Discharged']
+                                var in_process_statuses = ['In process']
+                                var checked_out_statuses = ['Charged', 'Renewed', 'Overdue', 'On hold',
+                                'In transit', 'In transit on hold', 'At bindery',
+                                'Remote storage request', 'Hold request', 'Recall request']
+                                var missing_statuses = ['Missing', 'Lost--library applied',
+                                'Lost--system applied', 'Claims returned', 'Withdrawn']
+                                var available_labels = ['Available', 'Returned', 'In process', 'Requestable',
+                                    'On shelf', 'All items available']
+                                var open_location_labels = ['Available', 'All items available']
+                                var unavailable_labels = ['Checked out', 'Missing']
+                                var __indexOf = Array.prototype.indexOf || function(item) {
+                                  for (var i = 0, l = this.length; i < l; i++) {
+                                    if (this[i] === item) return i;
+                                  }
+                                  return -1;
+                                };
+                                var label;
+                                label = (function() {
+                                  switch (false) {
+                                    case __indexOf.call(available_statuses, status) < 0:
+                                      return 'Available';
+                                    case __indexOf.call(returned_statuses, status) < 0:
+                                      return 'Returned';
+                                    case status !== 'In transit discharged':
+                                      return 'In transit';
+                                    case __indexOf.call(in_process_statuses, status) < 0:
+                                      return 'In process';
+                                    case __indexOf.call(checked_out_statuses, status) < 0:
+                                      return 'Checked out';
+                                    case __indexOf.call(missing_statuses, status) < 0:
+                                      return 'Missing';
+                                    case !status.match(on_site_unavailable):
+                                      return circ_desk;
+                                    case !status.match(on_site_status):
+                                      return 'On-site access';
+                                    case !status.match('Order received'):
+                                      return 'Order received';
+                                    case !status.match('Pending order'):
+                                      return 'Pending order';
+                                    case !status.match('On-order'):
+                                      return 'On-order';
+                                    default:
+                                      return status;
+                                  }
+                                })();
+                                var label_class;
+                                if (__indexOf.call(unavailable_labels, label) >= 0) {
+                                  label_class = "error";
+                                } else if (__indexOf.call(available_labels, label) >= 0) {
+                                  label_class = "success";
+                                } else if (label === 'On-site access') {
+                                  label_class = "alert";
+                                } else if (label === circ_desk) {
+                                  label_class = "alert";
+                                } else if (label === 'Online') {
+                                  label_class = "notice";
                                 } else {
-                                    var badge_class = 'error';
+                                  label_class = "default";
                                 }
-                                var badge = "<span class='badge-" + badge_class + "'>" + badge_label + "</span>";
+                                // End Availability Block from Orangelight
+                                var badge = "<span class='badge-" + label_class + "'>" + label + "</span>";
                                 var holding_note = $("*[data-mfhd='" + mfhd + "']");
                            
                                 if (badge_label != 'Online') {
