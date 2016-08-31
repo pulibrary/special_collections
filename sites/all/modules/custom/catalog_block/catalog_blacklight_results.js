@@ -7,9 +7,9 @@
         var music_icon = 'icon-musical-score';
         var image_icon = 'icon-visual-material';
         var map_icon = 'icon-map';
-        var refine_hint = 'Books and More';
+        var refine_hint = 'New Catalog';
         var refine_icon = '';
-        var refine_message = "Books and More Results";
+        var refine_message = "Expand your search to explore all New Catalog results.";
         var pul_resolver = 'http://library.princeton.edu/resolve/lookup?url=';
         if (query_url === "" || query_url == undefined) {
             $('<div class="message">Please supply search terms</div>').appendTo('#blacklight-search-results');
@@ -117,14 +117,20 @@
                         $('<ul/>', {
                             'class': 'all-search-results-list',
                             html: items.join('')
-                        }).appendTo('#blacklight-search-results');  
-                        // $('<div class="puld-search refine-link">'+refine_icon+'<a target="_blank" title="'+refine_message+'" href="'+data.more+'">'+refine_message+'</a><div>').insertBefore('#blacklight-search-results');
+                        }).appendTo('#blacklight-search-results');
                         $('#catalog_block-catalog_blacklight_results h2').replaceWith(function() {
                             var url = $.trim($(this).text());
-                            return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>Books and More</a></h2>';
+                            return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>New Catalog</a></h2>';
                         });
                         if (data.number > 3) {
-                            $('<div class="puld-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all Books and More results</a></div>"').appendTo('#blacklight-search-results');
+                            $('<div class="puld-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all New Catalog results</a></div>"').appendTo('#blacklight-search-results');
+                        }
+                        // update preview button with hit count
+                        var preview = $("a[href='#catalog_block-catalog_blacklight_results']");
+                        if (data.number > 0) {
+                            $(preview).append(" ("+data.number+")");
+                        } else {
+                            $(preview).parent().hide();
                         }
                         var section_heading = "blacklight"; // Should be in Drupal Settings
                         $('#catalog_block-catalog_blacklight_results h2 a').each(function(index, value) {
@@ -152,12 +158,12 @@
 
                     } else {
                         $('#blacklight-search-results-spinner').hide();
-                        $('<div class="no-results">No Books and More Results Found. Try searching for another topic.</div>"').appendTo('#blacklight-search-results');
+                        $('<div class="no-results">No New Catalog results found. Try searching for another topic.</div>"').appendTo('#blacklight-search-results');
                     }
                 },
                 error: function(data) {
                     $('#blacklight-search-results-spinner').hide();
-                    $('<div class="all-fail-to-load-results">Princeton Books and More results are not available at this time.</div>"').appendTo('#blacklight-search-results');
+                    $('<div class="all-fail-to-load-results">New Catalog results are not available at this time.</div>"').appendTo('#blacklight-search-results');
                 },
                 timeout: 5000
             }).done(function() {
