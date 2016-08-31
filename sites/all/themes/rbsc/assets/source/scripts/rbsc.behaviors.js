@@ -95,6 +95,25 @@
     }
   }
 
+  Drupal.behaviors.rbscSearchLocalTabBehavior = {
+    attach: function (context) {
+      var basic_preview = $("a[href='#rbsc_basic_node_search-panel_pane_1']");
+      var basic_query_total = $("span[data-search-service='rbsc_basic_node_search-panel_pane_1']").attr('data-hit-count');
+      if(basic_query_total > 0) {
+        $(basic_preview).append(" ("+basic_query_total+")");
+      } else {
+        $(basic_preview).parent().hide();
+      }
+      var blog_preview = $("a[href='#blog_search-panel_pane_2']");
+      var blog_query_total = $("span[data-search-service='blog_search-panel_pane_2']").attr('data-hit-count');
+      if(blog_query_total > 0) {
+        $(blog_preview).append(" ("+blog_query_total+")");
+      } else {
+        $(blog_preview).parent().hide();
+      }
+    }
+  };
+
 
  Drupal.behaviors.rbscTrackFooterMenuUsage = {
    attach: function (context) {
