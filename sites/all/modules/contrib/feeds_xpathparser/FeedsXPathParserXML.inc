@@ -38,10 +38,10 @@ class FeedsXPathParserXML extends FeedsXPathParserBase {
     $use = $this->errorStart();
 
     $success = $document->loadXML($raw, $options);
-    feeds_dbg("Dom Doc Success");
-    feeds_dbg($success);
+    #feeds_dbg("Dom Doc Success");
+    #feeds_dbg($success);
     #feeds_dbg("My XML");
-    feeds_dbg($document->saveXML());
+    #feeds_dbg($document->saveXML());
     $this->errorStop($use, $source_config['exp']['errors']);
 
     if (!$success) {

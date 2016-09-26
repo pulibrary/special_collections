@@ -116,8 +116,16 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
   public function namespacedQuery($query, $context, $source) {
     $this->addDefaultNamespace($query);
 
+    feeds_dbg('trying namespacedQuery');
+    $this->namespaces[''] = '';
+    feeds_dbg($this->namespaces);
+    feeds_dbg($query);
+    feeds_dbg($context);
+
     $results = $this->executeQuery($query, $context);
 
+    feeds_dbg("Results are: ");
+    feeds_dbg($results);
     if (in_array($source, $this->config['debug'])) {
       $this->debug($results, $source);
     }
@@ -163,25 +171,26 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    *   An XPath query string
    */
   protected function addDefaultNamespace(&$query) {
-    foreach ($this->namespaces as $prefix => $namespace) {
-      if ($prefix === '') {
-        $this->registerNamespace('__default__', $namespace);
-
-        // Replace all the elements without prefix by the default prefix.
-        if (!isset($this->modifiedQueries[$query])) {
-          $parser = new FeedsXPathParserQueryParser($query);
-          $mod_query = $parser->getQuery();
-          $this->modifiedQueries[$query] = $mod_query;
-          $query = $mod_query;
-        }
-        else {
-          $query = $this->modifiedQueries[$query];
-        }
-      }
-      else {
-        $this->registerNamespace($prefix, $namespace);
-      }
-    }
+    // foreach ($this->namespaces as $prefix => $namespace) {
+    //   if ($prefix === '') {
+    //     $this->registerNamespace('__default__', $namespace);
+    //
+    //     // Replace all the elements without prefix by the default prefix.
+    //     if (!isset($this->modifiedQueries[$query])) {
+    //       $parser = new FeedsXPathParserQueryParser($query);
+    //       $mod_query = $parser->getQuery();
+    //       $this->modifiedQueries[$query] = $mod_query;
+    //       $query = $mod_query;
+    //     }
+    //     else {
+    //       $query = $this->modifiedQueries[$query];
+    //     }
+    //   }
+    //   else {
+    //     $this->registerNamespace($prefix, $namespace);
+    //   }
+    // }
+    $this->registerNamespace($prefix, $namespace);
   }
 
   /**
@@ -201,7 +210,9 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    */
   protected function executeQuery($query, DOMNode $context = NULL) {
     $use_errors = libxml_use_internal_errors(TRUE);
+    feeds_dbg('query execute');
     feeds_dbg($query);
+    feeds_dbg($context);
     // Perfom XPath query.
     // So, grrr. FALSE is returned when there is an error. However, FALSE is
     // also a valid return value from DOMXPath::evaluate(). Ex: '1 = 2'
