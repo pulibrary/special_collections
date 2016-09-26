@@ -163,6 +163,8 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    *   An XPath query string
    */
   protected function addDefaultNamespace(&$query) {
+    $this->registerNamespace($prefix, $namespace);
+    /*
     foreach ($this->namespaces as $prefix => $namespace) {
       if ($prefix === '') {
         $this->registerNamespace('__default__', $namespace);
@@ -182,6 +184,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
         $this->registerNamespace($prefix, $namespace);
       }
     }
+    */
   }
 
   /**
