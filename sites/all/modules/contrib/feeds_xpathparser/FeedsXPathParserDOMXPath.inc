@@ -201,7 +201,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    */
   protected function executeQuery($query, DOMNode $context = NULL) {
     $use_errors = libxml_use_internal_errors(TRUE);
-
+    feeds_dbg($query);
     // Perfom XPath query.
     // So, grrr. FALSE is returned when there is an error. However, FALSE is
     // also a valid return value from DOMXPath::evaluate(). Ex: '1 = 2'
@@ -211,7 +211,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
     else {
       $results = $this->query($query);
     }
-
+    feeds_dbg($results);
     $this->error = libxml_get_last_error();
     libxml_clear_errors();
     libxml_use_internal_errors($use_errors);

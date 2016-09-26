@@ -28,7 +28,7 @@ class FeedsHTTPFetcherResult extends FeedsFetcherResult {
 
   /**
    *
-   * Whether to ignore SSL validation errors.
+   * Whether to ignore SSL element_validatetion errors.
    *
    * @var bool
    */
@@ -91,6 +91,7 @@ class FeedsHTTPFetcher extends FeedsFetcher {
       return new FeedsFetcherResult($raw);
     }
     $fetcher_result = new FeedsHTTPFetcherResult($source_config['source']);
+    feeds_dbg($fetcher_result);
     // When request_timeout is empty, the global value is used.
     $fetcher_result->setTimeout($this->config['request_timeout']);
     $fetcher_result->setAcceptInvalidCert($this->config['accept_invalid_cert']);

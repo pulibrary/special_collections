@@ -27,7 +27,6 @@ class FeedsXPathParserXML extends FeedsXPathParserBase {
     else {
       $raw = $fetcher_result->getRaw();
     }
-
     $options = LIBXML_NONET;
     $options |= defined('LIBXML_COMPACT') ? LIBXML_COMPACT : 0;
     $options |= defined('LIBXML_PARSEHUGE') ? LIBXML_PARSEHUGE : 0;
@@ -39,7 +38,10 @@ class FeedsXPathParserXML extends FeedsXPathParserBase {
     $use = $this->errorStart();
 
     $success = $document->loadXML($raw, $options);
-
+    feeds_dbg("Dom Doc Success");
+    feeds_dbg($success);
+    #feeds_dbg("My XML");
+    feeds_dbg($document->saveXML());
     $this->errorStop($use, $source_config['exp']['errors']);
 
     if (!$success) {
