@@ -163,25 +163,30 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    *   An XPath query string
    */
   protected function addDefaultNamespace(&$query) {
-    foreach ($this->namespaces as $prefix => $namespace) {
-      if ($prefix === '') {
-        $this->registerNamespace('__default__', $namespace);
-
-        // Replace all the elements without prefix by the default prefix.
-        if (!isset($this->modifiedQueries[$query])) {
-          $parser = new FeedsXPathParserQueryParser($query);
-          $mod_query = $parser->getQuery();
-          $this->modifiedQueries[$query] = $mod_query;
-          $query = $mod_query;
-        }
-        else {
-          $query = $this->modifiedQueries[$query];
-        }
-      }
-      else {
-        $this->registerNamespace($prefix, $namespace);
-      }
-    }
+    // Bug with empty namespace from wordpress feeds. Example problem tag
+    // #<site xmlns="com-wordpress:feed-additions:1">55355009</site>
+    // see https://graphicarts.princeton.edu/feed/ for a 'live example'
+    // 
+    // foreach ($this->namespaces as $prefix => $namespace) {
+    //   if ($prefix === '') {
+    //     $this->registerNamespace('__default__', $namespace);
+    //
+    //     // Replace all the elements without prefix by the default prefix.
+    //     if (!isset($this->modifiedQueries[$query])) {
+    //       $parser = new FeedsXPathParserQueryParser($query);
+    //       $mod_query = $parser->getQuery();
+    //       $this->modifiedQueries[$query] = $mod_query;
+    //       $query = $mod_query;
+    //     }
+    //     else {
+    //       $query = $this->modifiedQueries[$query];
+    //     }
+    //   }
+    //   else {
+    //     $this->registerNamespace($prefix, $namespace);
+    //   }
+    // }
+    $this->registerNamespace($prefix, $namespace);
   }
 
   /**
