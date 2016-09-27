@@ -116,16 +116,8 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
   public function namespacedQuery($query, $context, $source) {
     $this->addDefaultNamespace($query);
 
-    feeds_dbg('trying namespacedQuery');
-    $this->namespaces[''] = '';
-    feeds_dbg($this->namespaces);
-    feeds_dbg($query);
-    feeds_dbg($context);
-
     $results = $this->executeQuery($query, $context);
 
-    feeds_dbg("Results are: ");
-    feeds_dbg($results);
     if (in_array($source, $this->config['debug'])) {
       $this->debug($results, $source);
     }
@@ -171,6 +163,10 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    *   An XPath query string
    */
   protected function addDefaultNamespace(&$query) {
+    // Bug with empty namespace from wordpress feeds. Example problem tag
+    // #<site xmlns="com-wordpress:feed-additions:1">55355009</site>
+    // see https://graphicarts.princeton.edu/feed/ for a 'live example'
+    // 
     // foreach ($this->namespaces as $prefix => $namespace) {
     //   if ($prefix === '') {
     //     $this->registerNamespace('__default__', $namespace);
@@ -210,9 +206,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
    */
   protected function executeQuery($query, DOMNode $context = NULL) {
     $use_errors = libxml_use_internal_errors(TRUE);
-    feeds_dbg('query execute');
-    feeds_dbg($query);
-    feeds_dbg($context);
+
     // Perfom XPath query.
     // So, grrr. FALSE is returned when there is an error. However, FALSE is
     // also a valid return value from DOMXPath::evaluate(). Ex: '1 = 2'
@@ -222,7 +216,7 @@ class FeedsXPathParserDOMXPath extends DOMXPath {
     else {
       $results = $this->query($query);
     }
-    feeds_dbg($results);
+
     $this->error = libxml_get_last_error();
     libxml_clear_errors();
     libxml_use_internal_errors($use_errors);

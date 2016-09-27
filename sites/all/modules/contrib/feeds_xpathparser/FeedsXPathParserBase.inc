@@ -67,22 +67,16 @@ abstract class FeedsXPathParserBase extends FeedsParser {
    */
   public function parse(FeedsSource $source, FeedsFetcherResult $fetcher_result) {
     $source_config = $source->getConfigFor($this);
-    feeds_dbg("The configuration");
-    feeds_dbg($source_config);
+
     $state = $source->state(FEEDS_PARSE);
 
     if (empty($source_config)) {
       $source_config = $this->getConfig();
     }
 
-    #feeds_dbg("the data");
-    #feeds_dbg($fetcher_result);
     $this->doc = $this->setup($source_config, $fetcher_result);
-    #feeds_dbg("The document is this");
-    #feeds_dbg($this->doc->saveXML());
+   
     $parser_result = new FeedsParserResult();
-    feeds_dbg("parser result.");
-    feeds_dbg($parser_result);
     $mappings = $this->getOwnMappings();
     $this->rawXML = array_keys(array_filter($source_config['rawXML']));
     // Set link.
@@ -93,20 +87,14 @@ abstract class FeedsXPathParserBase extends FeedsParser {
     $config = array();
     $config['debug'] = array_keys(array_filter($source_config['exp']['debug']));
     $config['errors'] = $source_config['exp']['errors'];
-    feeds_dbg("link from parser");
-    feeds_dbg($parser_result);
     $this->xpath->setConfig($config);
 
     $context_query = '(' . $source_config['context'] . ')';
-    // feeds_dbg('Context Query used is:');
-    // feeds_dbg($context_query);
+
     if (empty($state->total)) {
-      feeds_dbg('parsing');
       $state->total = $this->xpath->namespacedQuery('count(' . $context_query . ')', $this->doc, 'count');
     }
 
-    feeds_dbg('state count is');
-    feeds_dbg($state_total);
     $start = $state->pointer ? $state->pointer : 0;
     $limit = $start + $source->importer->getLimit();
     $end = ($limit > $state->total) ? $state->total : $limit;
@@ -116,16 +104,8 @@ abstract class FeedsXPathParserBase extends FeedsParser {
 
     $progress = $state->pointer ? $state->pointer : 0;
 
-    feeds_dbg('xpath context id');
-    feeds_dbg($this->xpath);
-    #feeds_dbg('my documnet');
-    #feeds_dbg($this->doc->saveXML());
-    // feeds_dbg("Context Query");
-    // feeds_dbg($context_query);
-    #
     $all_nodes = $this->xpath->namespacedQuery($context_query, NULL, 'context');
-    feeds_dbg("Matching Nodes");
-    feeds_dbg($all_nodes->length);
+    
     // The source config could have old values that don't exist in the importer.
     $sources = array_intersect_key($source_config['sources'], $mappings);
 
@@ -154,7 +134,7 @@ abstract class FeedsXPathParserBase extends FeedsParser {
     $state->progress($state->total, $progress);
     unset($this->doc);
     unset($this->xpath);
-    feeds_dbg($parser_result);
+
     return $parser_result;
   }
 

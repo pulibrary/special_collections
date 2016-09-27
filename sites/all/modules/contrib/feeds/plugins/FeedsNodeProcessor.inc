@@ -45,8 +45,6 @@ class FeedsNodeProcessor extends FeedsProcessor {
     // Populate properties that are set by node_object_prepare().
     $node->log = 'Created by FeedsNodeProcessor';
     $node->uid = $this->config['author'];
-    feeds_dbg("Feeds entity");
-    feeds_dbg($node);
     return $node;
   }
 

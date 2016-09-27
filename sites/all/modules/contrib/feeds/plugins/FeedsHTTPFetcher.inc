@@ -91,7 +91,6 @@ class FeedsHTTPFetcher extends FeedsFetcher {
       return new FeedsFetcherResult($raw);
     }
     $fetcher_result = new FeedsHTTPFetcherResult($source_config['source']);
-    feeds_dbg($fetcher_result);
     // When request_timeout is empty, the global value is used.
     $fetcher_result->setTimeout($this->config['request_timeout']);
     $fetcher_result->setAcceptInvalidCert($this->config['accept_invalid_cert']);
@@ -112,7 +111,6 @@ class FeedsHTTPFetcher extends FeedsFetcher {
    * Implements FeedsFetcher::request().
    */
   public function request($feed_nid = 0) {
-    feeds_dbg($_GET);
     @feeds_dbg(file_get_contents('php://input'));
     // A subscription verification has been sent, verify.
     if (isset($_GET['hub_challenge'])) {
@@ -418,7 +416,6 @@ class PuSHEnvironment implements PuSHSubscriberEnvironmentInterface {
         $severity = WATCHDOG_NOTICE;
         break;
     }
-    feeds_dbg($msg);
     watchdog('FeedsHTTPFetcher', $msg, array(), $severity);
   }
 }
