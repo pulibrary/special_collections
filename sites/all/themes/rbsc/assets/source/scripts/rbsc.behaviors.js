@@ -63,16 +63,24 @@
           timeout: 5000
         });
       });
-    } 
+    }
   };
 
   Drupal.behaviors.rbscTabs = {
     attach: function (context, settings) {
       $(document).ready(function () {
-          var refClassName = '.-divisions-' + document.referrer.substr(document.referrer.lastIndexOf('/') + 1);
+          var url_parts = document.referrer.replace(/\/\s*$/,'').split('/');
+          var divisionString = url_parts[url_parts.length-1].toString().toLowerCase().trim()
+                .replace(/\s+/g, '-')           // Replace spaces with -
+                .replace(/&/g, '-and-')         // Replace & with 'and'
+                .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+                .replace(/\-\-+/g, '-');        // Replace multiple - with single -
+
+          var parentString = url_parts[url_parts.length-2];
+          var refClassName = '.-divisions-' + divisionString;
 
           $('.accordion-tabs').each(function(index) {
-            if ($(refClassName).length) {
+            if ($(refClassName).length && parentString === 'divisions') {
               $(refClassName).addClass('is-active').next().addClass('is-open').show();
             } else {
               $(this).children('li').first().children('h2').addClass('is-active').next().addClass('is-open').show();
