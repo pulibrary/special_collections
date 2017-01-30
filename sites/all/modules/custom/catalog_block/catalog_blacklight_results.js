@@ -90,7 +90,7 @@
                             }
                             var online_access = "";
                             var online_span = '<span class="badge-notice availability-icon label label-primary" title="" data-toggle="tooltip" data-original-title="Electronic access" aria-describedby="tooltip552370">Online</span>';
-                            if(online_process == true) { 
+                            if(online_process == true) {
                                 if (result['online']) {
                                     var online_links = JSON && JSON.parse(result['online']) || $.parseJSON(result['online']);
                                     online_access = online_access + "<div class='pulsearch-online-access'>";
@@ -168,7 +168,7 @@
                 timeout: 5000
             }).done(function() {
                 var ids = [];
-                $('#blacklight-search-results .holdings').each(function() { 
+                $('#blacklight-search-results .holdings').each(function() {
                     var pos = $(this).position();
                     var id = $(this).data('ol-id');
                     if (!isNaN(id))
@@ -179,13 +179,13 @@
                 if (ids.length > 0) {
                     var availability_base = 'https://bibdata.princeton.edu/availability?'
                     var query_string = "&ids%5B%5D=" + ids.join('&ids%5B%5D=');
-                    var availability_url = availability_base + query_string;   
+                    var availability_url = availability_base + query_string;
                 }
                 $.ajax({
                      url: availability_url,
                      async: true,
                      type: 'GET',
-                     dataType: 'json',    
+                     dataType: 'json',
                      success: function(data) {
                         $.each(data, function(index, result) {
                             var mfhd_keys = Object.keys(result);
@@ -263,8 +263,8 @@
                                 }
                                 // End Availability Block from Orangelight
                                 var badge = "<span class='badge-" + label_class + "'>" + label + "</span>";
-                                var holding_note = $("*[data-mfhd='" + mfhd + "']");
-                           
+                                var holding_note = $("*[data-mfhd='" + mfhd + "']").first();
+
                                 if (badge_label != 'Online') {
                                     var note_text = $(holding_note).text();
                                     $(holding_note).html(badge + " " + note_text);
