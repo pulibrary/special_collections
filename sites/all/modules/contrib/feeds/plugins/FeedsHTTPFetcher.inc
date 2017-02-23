@@ -28,7 +28,7 @@ class FeedsHTTPFetcherResult extends FeedsFetcherResult {
 
   /**
    *
-   * Whether to ignore SSL element_validatetion errors.
+   * Whether to ignore SSL validation errors.
    *
    * @var bool
    */
@@ -111,6 +111,7 @@ class FeedsHTTPFetcher extends FeedsFetcher {
    * Implements FeedsFetcher::request().
    */
   public function request($feed_nid = 0) {
+    feeds_dbg($_GET);
     @feeds_dbg(file_get_contents('php://input'));
     // A subscription verification has been sent, verify.
     if (isset($_GET['hub_challenge'])) {
@@ -416,6 +417,7 @@ class PuSHEnvironment implements PuSHSubscriberEnvironmentInterface {
         $severity = WATCHDOG_NOTICE;
         break;
     }
+    feeds_dbg($msg);
     watchdog('FeedsHTTPFetcher', $msg, array(), $severity);
   }
 }
