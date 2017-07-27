@@ -55,7 +55,7 @@
           type: 'GET',
           dataType: 'json',
           success: function(data) {
-            $('.hours--library-status').replaceWith("<span class='hours--library-status'>" + data['mudd'] + " Today: " + data['mudd-hours'] + "</span>");
+            $('.hours--library-status').replaceWith("<span class='hours--library-status'>" + "Today: " + data['mudd-hours'] + "</span>");
           },
           error: function(data) {
             $('.hours--library-status').replaceWith("<span class='hours--library-status'>Hours Not Available</span>");
