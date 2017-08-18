@@ -117,7 +117,9 @@ function synonyms_commerce_autocomplete($field_name, $entity_type, $bundle) {
       $synonym_entities = commerce_product_load_multiple($synonym_entities);
       foreach ($matches as $k => $match) {
         if (!isset($match['name']) && isset($match['synonym'])) {
+          $entity_ids = entity_extract_ids('commerce_product', $synonym_entities[$match['target_id']]);
           $matches[$k]['name'] = entity_label('commerce_product', $synonym_entities[$match['target_id']]);
+          $matches[$k]['bundle'] = $entity_ids[2];
         }
       }
       $matches = array_values($matches);

@@ -105,6 +105,13 @@ function synonyms_ctools_plugin_directory($owner, $plugin_type) {
           return 'plugins/' . $plugin_type;
       }
       break;
+
+    case 'feeds_tamper':
+      switch ($plugin_type) {
+        case 'plugins':
+          return 'plugins/feeds_tamper';
+      }
+      break;
   }
 }
 
@@ -137,6 +144,7 @@ function synonyms_entity_property_info() {
         'computed' => TRUE,
         'sanitized' => TRUE,
         'raw getter callback' => 'synonyms_get_raw',
+        'translatable' => TRUE,
       );
     }
   }
@@ -477,12 +485,16 @@ function synonyms_autocomplete_entity_validate($element, &$form_state) {
     $field = field_info_field($element['#field_name']);
     $instance = field_info_instance($element['#entity_type'], $field['field_name'], $element['#bundle']);
     $handler = entityreference_get_selection_handler($field, $instance);
-    $matches = $handler->getReferencableEntities($input, 'IN');
 
-    foreach ($matches as $bundle => $entity_ids) {
-      foreach ($entity_ids as $entity_id => $label) {
-        $value[] = $entity_id;
-        unset($input[drupal_strtolower($label)]);
+    foreach ($input as $k => $v) {
+      $matches = $handler->getReferencableEntities($v, '=');
+
+      foreach ($matches as $bundle => $entity_ids) {
+        $entities = entity_load($field['settings']['target_type'], array_keys($entity_ids));
+        foreach ($entity_ids as $entity_id => $label) {
+          $value[] = $entity_id;
+          unset($input[drupal_strtolower(entity_label($field['settings']['target_type'], $entities[$entity_id]))]);
+        }
       }
     }
 
@@ -491,7 +503,7 @@ function synonyms_autocomplete_entity_validate($element, &$form_state) {
       foreach ($behavior_implementations as $implementation) {
         $condition = db_and();
         $condition->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $input, 'IN');
-        foreach ($implementation['object']->synonymsFind($condition) as $synonym) {
+        foreach ($implementation['object']->synonymsFind(clone $condition) as $synonym) {
           $value[] = $synonym->entity_id;
           unset($input[drupal_strtolower($synonym->synonym)]);
           if (empty($input)) {
@@ -687,11 +699,16 @@ function synonyms_get_raw($entity, array $options, $name, $entity_type, &$contex
   $bundle = entity_extract_ids($entity_type, $entity);
   $bundle = $bundle[2];
 
+  $langcode = NULL;
+  if (isset($options['language']) && $options['language']) {
+    $langcode = $options['language']->language;
+  }
+
   $behavior_implementations = synonyms_behavior_get_all_enabled($entity_type, $bundle);
   $providers = array();
   foreach ($behavior_implementations as $implementation) {
     if (!in_array($implementation['provider'], $providers)) {
-      $synonyms = array_merge($synonyms, $implementation['object']->extractSynonyms($entity));
+      $synonyms = array_merge($synonyms, $implementation['object']->extractSynonyms($entity, $langcode));
       $providers[] = $implementation['provider'];
     }
   }
@@ -742,12 +759,16 @@ function synonyms_get_term_synonyms($term) {
  *
  * @param QueryConditionInterface $condition
  *   Object of QueryConditionInterface that specifies conditions by which you
- *   want to find synonyms. When building this condition object, use
- *   AbstractSynonymsBehavior::COLUMN_PLACEHOLDER as a placeholder for real
- *   column name that contains synonym as text. For example, if you were to find
- *   all entities with synonyms that begin with "synonym-come-here" substring,
- *   case insensitive and replacing all spaces in original synonym string by a
- *   dash sign, then you would have to create the following condition object:
+ *   want to find synonyms. When building this condition object, you can use
+ *   the following column placeholders:
+ *   - AbstractSynonymsBehavior::COLUMN_PLACEHOLDER: as a placeholder for real
+ *     column name that contains synonym as text
+ *   - AbstractSynonymsBehavior::COLUMN_ENTITY_ID_PLACEHOLDER: as a placeholder
+ *     for real column name that holds entity ID
+ *   For example, if you were to find all entities with synonyms that begin with
+ *   "synonym-come-here" substring,  case insensitive and replacing all spaces
+ *   in original synonym string by a dash sign, then you would have to create
+ *   the following condition object:
  *   db_and()
  *     ->where("LOWER(REPLACE(" . AbstractSynonymsBehavior::COLUMN_PLACEHOLDER . ", ' ', '-')) LIKE :synonym", array(
  *       ':synonym' => '%' . db_like($some-var) . '%'
@@ -772,7 +793,7 @@ function synonyms_synonyms_find(QueryConditionInterface $condition, $entity_type
 
   $behavior_implementations = synonyms_behavior_get_all_enabled($entity_type, $bundle);
   foreach ($behavior_implementations as $behavior_implementation) {
-    foreach ($behavior_implementation['object']->synonymsFind($condition) as $row) {
+    foreach ($behavior_implementation['object']->synonymsFind(clone $condition) as $row) {
       $rows[] = $row;
     }
   }

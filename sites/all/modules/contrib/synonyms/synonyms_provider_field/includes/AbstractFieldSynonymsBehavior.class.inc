@@ -45,13 +45,16 @@ abstract class AbstractFieldSynonymsBehavior extends AbstractSynonymsBehavior {
    *
    * @param object $entity
    *   Entity whose items should be retrieved
+   * @param string $langcode
+   *   Language code for which to retrieve items from the entity, if one is
+   *   known
    *
    * @return array
    *   Array of items that provided entity has in the field on which behavior
    *   implementation is set up
    */
-  protected function entityItems($entity) {
-    $items = field_get_items($this->instance['entity_type'], $entity, $this->field['field_name']);
+  protected function entityItems($entity, $langcode = NULL) {
+    $items = field_get_items($this->instance['entity_type'], $entity, $this->field['field_name'], $langcode);
     return is_array($items) ? $items : array();
   }
 

@@ -17,9 +17,9 @@ files[] = includes/SearchTaxonomySynonymsBehavior.class.inc
 files[] = includes/SearchEntityReferenceSynonymsBehavior.class.inc
 files[] = includes/SearchCommerceProductReferenceSynonymsBehavior.class.inc
 
-; Information added by Drupal.org packaging script on 2016-05-07
-version = "7.x-1.5"
+; Information added by Drupal.org packaging script on 2017-06-30
+version = "7.x-1.6"
 core = "7.x"
 project = "synonyms"
-datestamp = "1462586641"
+datestamp = "1498833845"
 

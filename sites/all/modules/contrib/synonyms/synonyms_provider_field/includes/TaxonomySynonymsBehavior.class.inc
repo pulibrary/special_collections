@@ -10,11 +10,11 @@
  */
 class TaxonomySynonymsBehavior extends AbstractFieldSynonymsBehavior implements AutocompleteSynonymsBehavior, SelectSynonymsBehavior {
 
-  public function extractSynonyms($entity) {
+  public function extractSynonyms($entity, $langcode = NULL) {
     $synonyms = array();
 
     $terms = array();
-    foreach ($this->entityItems($entity) as $item) {
+    foreach ($this->entityItems($entity, $langcode) as $item) {
       $terms[] = $item['tid'];
     }
     $terms = taxonomy_term_load_multiple($terms);

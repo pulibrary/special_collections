@@ -10,11 +10,11 @@
  */
 class CommerceProductReferenceSynonymsBehavior extends AbstractFieldSynonymsBehavior {
 
-  public function extractSynonyms($entity) {
+  public function extractSynonyms($entity, $langcode = NULL) {
     $synonyms = array();
 
     $product_ids = array();
-    foreach ($this->entityItems($entity) as $item) {
+    foreach ($this->entityItems($entity, $langcode) as $item) {
       $product_ids[] = $item['product_id'];
     }
     $entities = commerce_product_load_multiple($product_ids);

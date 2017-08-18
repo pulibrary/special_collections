@@ -75,11 +75,14 @@ class MySynonymsSynonymsBehavior extends AbstractSynonymsBehavior implements Aut
    *
    * @param object $entity
    *   Entity from which to extract synonyms
+   * @param string $langcode
+   *   Language code for which to extract synonyms from the entity, if one is
+   *   known
    *
    * @return array
    *   Array of synonyms extracted from $entity
    */
-  public function extractSynonyms($entity) {
+  public function extractSynonyms($entity, $langcode = NULL) {
     $synonyms = array();
 
     // Do something with $entity in order to extract synonyms from it. Add all
@@ -129,12 +132,16 @@ class MySynonymsSynonymsBehavior extends AbstractSynonymsBehavior implements Aut
    *     synonyms column which you should replace with the actual column name
    *     where the synonyms data for your provider is stored in plain text.
    *   - AbstractSynonymsBehavior::COLUMN_ENTITY_ID_PLACEHOLDER: to denote
-   *     column that holds entity ID. You are supposed to replace this placeholder
-   *     with actual column name that holds entity ID in your case.
+   *     column that holds entity ID. You are supposed to replace this
+   *     placeholder with actual column name that holds entity ID in your case.
    *   For ease of work with these placeholders, you may extend the
    *   AbstractSynonymsBehavior class and then just invoke the
    *   AbstractSynonymsBehavior->synonymsFindProcessCondition() method, so you
-   *   won't have to worry much about it
+   *   won't have to worry much about it. Important note: if you plan on
+   *   re-using the same $condition object for multiple invocations of this
+   *   method you must pass in here a clone of your condition object, since the
+   *   internal implementation of this method will change the condition (will
+   *   swap the aforementioned placeholders with actual column names)
    *
    * @return Traversable
    *   Traversable result set of found synonyms and entity IDs to which those

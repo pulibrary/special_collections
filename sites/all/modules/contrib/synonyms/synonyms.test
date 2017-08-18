@@ -323,6 +323,23 @@ class SynonymsSynonymsWebTestCase extends SynonymsWebTestCase {
 
     $entity_id = synonyms_get_entity_by_synonym('taxonomy_term', $term_parent->{$this->fields['disabled']['field']['field_name']}[LANGUAGE_NONE][0]['value']);
     $this->assertEqual($entity_id, 0, 'synonyms_get_entity_by_synonym() returns 0 if a non-synonym field value is supplied.');
+
+    // Testing the function synonyms_synonyms_find().
+    // Adding one more behavior implementation and making sure 2 of them work
+    // as expected.
+    $behavior_implementation = array(
+      'entity_type' => $this->behavior_implementation['entity_type'],
+      'bundle' => $this->behavior_implementation['bundle'],
+      'provider' => synonyms_provider_field_provider_name($this->fields['disabled']['field']),
+      'behavior' => $this->behavior_implementation['behavior'],
+      'settings' => $this->behavior_implementation['settings'],
+    );
+    synonyms_behavior_implementation_save($behavior_implementation);
+    $condition = db_and();
+    $condition->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $parent_synonym);
+    $found_synonyms = synonyms_synonyms_find($condition, $this->behavior_implementation['entity_type'], $this->behavior_implementation['bundle']);
+    $this->assertEqual(count($found_synonyms), 1, 'Function synonyms_synonyms_find() returns only 1 found synonym for the case when 2 synonym behaviors are enabled.');
+    $this->assertTrue($found_synonyms[0]->synonym == $parent_synonym && $found_synonyms[0]->entity_id = $term_parent->tid, 'Function synonyms_synonyms_find() returns corret synonym information when 2 synonym behaviors are enabled.');
   }
 }
 
@@ -374,7 +391,7 @@ abstract class AbstractAutocompleteSynonymsWebTestCase extends SynonymsWebTestCa
   public function setUp($modules = array()) {
     $this->behavior_implementation['behavior'] = 'autocomplete';
     $this->behavior_implementation['settings'] = array(
-      'wording' => '@synonym @field_name @entity',
+      'wording' => '@synonym @field_name @entity @bundle',
     );
     $modules[] = 'synonyms_provider_property';
     parent::setUp($modules);
@@ -634,10 +651,14 @@ abstract class AbstractAutocompleteSynonymsWebTestCase extends SynonymsWebTestCa
     }
     $provider = synonyms_behavior_implementation_info($behavior_implementation['entity_type'], $behavior_implementation['bundle'], $behavior_implementation['behavior']);
     $provider = $provider[$behavior_implementation['provider']];
+    $entity_ids = entity_extract_ids($behavior_implementation['entity_type'], $entity);
+    $entity_info = entity_get_info($behavior_implementation['entity_type']);
+
     return format_string($behavior_implementation['settings']['wording'], array(
       '@synonym' => $synonym,
       '@entity' => entity_label($behavior_implementation['entity_type'], $entity),
       '@field_name' => drupal_strtolower($provider['label']),
+      '@bundle' => $entity_info['bundles'][$entity_ids[2]]['label'],
     ));
   }
 

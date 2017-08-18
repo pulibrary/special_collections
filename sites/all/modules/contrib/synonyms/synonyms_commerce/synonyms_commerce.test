@@ -847,3 +847,248 @@ class CommerceProductReferenceSynonymsBehaviorWebTestCase extends AbstractSynony
     return $entity;
   }
 }
+
+/**
+ * Test CommercePriceSynonymsBehavior class.
+ */
+class CommercePriceSynonymsBehaviorWebTestCase extends AbstractSynonymsProviderFieldWebTestCase {
+
+  /**
+   * GetInfo method.
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'CommercePriceSynonymsBehavior',
+      'description' => 'Ensure that the synonyms module extracts synonyms from commerce price fields correctly.',
+      'group' => 'Synonyms',
+    );
+  }
+
+  /**
+   * SetUp method.
+   */
+  public function setUp($modules = array()) {
+    $modules[] = 'commerce_price';
+    $modules[] = 'commerce_product_reference';
+    $modules[] = 'commerce_product_ui';
+    $modules[] = 'synonyms_commerce';
+
+    $this->fields['enabled']['field'] = array(
+      'field_name' => 'synonyms_commerce_price',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'type' => 'commerce_price',
+    );
+
+    parent::setUp($modules);
+  }
+
+  /**
+   * Test synonyms extraction for 'commerce_price' field type.
+   */
+  public function testCommercePrice() {
+    // Testing synonymsExtract().
+    $this->assertSynonymsExtract(array(), array(), 'on empty field.');
+
+    $this->assertSynonymsExtract(array(
+      LANGUAGE_NONE => array(
+        0 => array(
+          'amount' => 1000,
+          'currency_code' => 'USD',
+        ),
+      ),
+    ), array(commerce_currency_format(1000, 'USD')), 'on a field that holds one value.');
+
+    // Testing synonymFind() method.
+    $this->assertSynonymsFind(array(), db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $this->randomName()), 'on empty field');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(),
+      'found_synonyms' => array(),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $this->randomName()), 'on a field without values');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, $this->randomName()), 'on a field with a value but searching for another string');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(commerce_currency_format(1000, 'USD')),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 1000), 'on a field with a single value searching for that string');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 2000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(commerce_currency_format(1000, 'USD')),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 1000), 'on a field with 2 values searching for one of those 2 values');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 2000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(commerce_currency_format(1000, 'USD')),
+    );
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 100,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 200,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 1000), 'on 2 fields with 2 values each searching for one of those values');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(commerce_currency_format(1000, 'USD')),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, '%' . db_like(10) . '%', 'LIKE'), 'on a field with a value searching for a string LIKE the %value%');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 100,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(
+        commerce_currency_format(1000, 'USD'),
+        commerce_currency_format(100, 'USD'),
+      ),
+    );
+    $this->assertSynonymsFind($meta_data, db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, db_like(100) . '%', 'LIKE'), 'on a field with 2 similar values searching a string like %both values%');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 2000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(
+        commerce_currency_format(1000, 'USD'),
+        commerce_currency_format(2000, 'USD'),
+      ),
+    );
+    $condition = db_or()
+      ->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 1000)
+      ->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 2000);
+    $this->assertSynonymsFind($meta_data, $condition, 'on a field with 2 values searching for value1 or value2');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 2000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(commerce_currency_format(1000, 'USD')),
+    );
+    $condition = db_and()
+      ->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 1000)
+      ->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, '%' . db_like(10) . '%', 'LIKE');
+    $this->assertSynonymsFind($meta_data, $condition, 'on a field with 2 values searching for value1 and LIKE value1%');
+
+    $meta_data = array();
+    $meta_data[] = array(
+      'items' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'amount' => 1000,
+            'currency_code' => 'USD',
+          ),
+          array(
+            'amount' => 2000,
+            'currency_code' => 'USD',
+          ),
+        ),
+      ),
+      'found_synonyms' => array(
+        commerce_currency_format(1000, 'USD'),
+        commerce_currency_format(2000, 'USD'),
+      ),
+    );
+    $condition = db_or()
+      ->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 1000)
+      ->condition(db_and()->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, 2000)->condition(AbstractSynonymsBehavior::COLUMN_SYNONYM_PLACEHOLDER, '%' . db_like(20) . '%', 'LIKE'));
+    $this->assertSynonymsFind($meta_data, $condition, 'on a field with 2 values searching for (value1 or (value2 AND value2%))');
+  }
+}
