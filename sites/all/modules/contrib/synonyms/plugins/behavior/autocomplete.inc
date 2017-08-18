@@ -24,7 +24,7 @@ function synonyms_behavior_autocomplete_settings_form($form, &$form_state, $sett
     '#type' => 'textfield',
     '#title' => t('Autocomplete wording'),
     '#default_value' => isset($settings['wording']) ? $settings['wording'] : '@synonym is a synonym of @entity',
-    '#description' => t('Specify with what wording the synonyms should be suggested in the autocomplete feature. You may use: <ul><li><em>@synonym</em> to denote value of the synonym</li><li><em>@entity</em> to denote entity name</li><li><em>@field_name</em> to denote lowercase label of the field from where the synonym originates</li></ul>'),
+    '#description' => t('Specify with what wording the synonyms should be suggested in the autocomplete feature. You may use: <ul><li><em>@synonym</em> to denote value of the synonym</li><li><em>@entity</em> to denote entity name</li><li><em>@field_name</em> to denote lowercase label of the field from where the synonym originates</li><li><em>@bundle</em> to denote bundle name of the suggested entity</li></ul>'),
     '#required' => TRUE,
   );
 

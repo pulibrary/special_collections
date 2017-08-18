@@ -31,7 +31,7 @@ class AbstractPropertySynonymsBehavior extends AbstractSynonymsBehavior implemen
     $this->entity_info = entity_get_info($this->behavior_implementation['entity_type']);
   }
 
-  public function extractSynonyms($entity) {
+  public function extractSynonyms($entity, $langcode = NULL) {
     $synonyms = array();
 
     if (isset($entity->{$this->property}) && $entity->{$this->property}) {

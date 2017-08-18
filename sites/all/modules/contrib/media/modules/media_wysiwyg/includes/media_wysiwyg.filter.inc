@@ -146,7 +146,6 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE, $langcode = NUL
     }
 
     $tag_info = drupal_json_decode($tag);
-
     if (!isset($tag_info['fid'])) {
       throw new Exception('No file Id');
     }
@@ -216,7 +215,9 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE, $langcode = NUL
     $attribute_whitelist = media_wysiwyg_allowed_attributes();
     $settings['attributes'] = array_intersect_key($attributes, array_flip($attribute_whitelist));
     $settings['fields'] = $fields;
-
+    if (isset($tag_info['fields']['external_url'])) {
+      $settings['fields']['external_url'] = $tag_info['fields']['external_url'];
+    }
     if (!empty($tag_info['attributes']) && is_array($tag_info['attributes'])) {
       $settings['attributes'] = array_intersect_key($tag_info['attributes'], array_flip($attribute_whitelist));
 
@@ -341,6 +342,10 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE, $langcode = NUL
         'media-element-container',
         'media-' . $element['content']['file']['#view_mode'],
       );
+      if (variable_get('media_wysiwyg_remove_media_class', FALSE)) {
+        $classes = $element['content']['#attributes']['class'];
+        $element['content']['#attributes']['class'] = array_diff($classes, array('media'));
+      }
     }
 
     // Conditionally add a pre-render if the media filter output is be cached.
@@ -450,7 +455,7 @@ function _media_wysiwyg_generate_tagMap($text) {
   // between function calls. Since media_process_form is multiple times
   // with same form, this function is also called multiple times.
   static $tagmap = array();
-  preg_match_all("/\[\[.*?\]\]/s", $text, $matches, PREG_SET_ORDER);
+  preg_match_all("/\[\[(?!nid:).*?\]\]/s", $text, $matches, PREG_SET_ORDER);
   foreach ($matches as $match) {
     // We see if tagContent is already in $tagMap, if not we add it
     // to $tagmap.  If we return an empty array, we break embeddings of the same

@@ -17,13 +17,13 @@ function synonyms_schema() {
       'entity_type' => array(
         'description' => 'Entity type whose behavior implementation is stored in this row.',
         'type' => 'varchar',
-        'length' => 255,
+        'length' => 128,
         'not null' => TRUE,
       ),
       'bundle' => array(
         'description' => 'Bundle name whose behavior implementation is stored in this row.',
         'type' => 'varchar',
-        'length' => 255,
+        'length' => 128,
         'not null' => TRUE,
       ),
       'provider' => array(
@@ -310,4 +310,64 @@ function synonyms_update_7103() {
       }
     }
   }
+}
+
+/**
+ * Truncating 'entity_type' and 'bundle' columns to 128 length.
+ */
+function synonyms_update_7104() {
+  $table = 'synonyms_settings';
+
+  $indexes = array(
+    'unique keys' => array(
+      // We build 2 different indexes on the same column set because there are
+      // 2 different functions that may query this table and the columns they
+      // filter on may vary.
+      'behavior_implementation' => array('behavior', 'entity_type', 'bundle', 'provider'),
+      'all_enabled' => array('entity_type', 'bundle', 'provider', 'behavior'),
+    ),
+  );
+
+  $fields = array(
+    'entity_type' => array(
+      'description' => 'Entity type whose behavior implementation is stored in this row.',
+      'type' => 'varchar',
+      'length' => 128,
+      'not null' => TRUE,
+    ),
+    'bundle' => array(
+      'description' => 'Bundle name whose behavior implementation is stored in this row.',
+      'type' => 'varchar',
+      'length' => 128,
+      'not null' => TRUE,
+    ),
+  );
+
+  foreach ($fields as $field => $schema) {
+    foreach ($indexes['unique keys'] as $index_name => $index_specification) {
+      db_drop_unique_key($table, $index_name);
+    }
+
+    db_change_field($table, $field, $field, $schema, $indexes);
+  }
+}
+
+/**
+ * Making actual module tables follow the declared schema.
+ */
+function synonyms_update_7105() {
+  db_drop_unique_key('synonyms_settings', 'behavior_implementation');
+  db_drop_unique_key('synonyms_settings', 'all_enabled');
+
+  db_change_field('synonyms_settings', 'provider', 'provider', array(
+    'description' => 'Provider name whose behavior implementation is stored in this row.',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => TRUE,
+  ), array(
+    'unique keys' => array(
+      'behavior_implementation' => array('behavior', 'entity_type', 'bundle', 'provider'),
+      'all_enabled' => array('entity_type', 'bundle', 'provider', 'behavior'),
+    ),
+  ));
 }

@@ -48,6 +48,7 @@ Module ships with ability to provide synonyms from the following locations:
 * "Taxonomy Term Reference" field type
 * "Entity Reference" field type
 * "Commerce Product Reference" field type
+* "Commerce price" field type
 * "Number" field type
 * "Float" field type
 * "Decimal" field type

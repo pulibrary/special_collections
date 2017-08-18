@@ -17,11 +17,14 @@ interface SynonymsBehavior {
    *
    * @param object $entity
    *   Entity from which to extract synonyms
+   * @param string $langcode
+   *   Language code for which to extract synonyms from the entity, if one is
+   *   known
    *
-   * @return array
-   *   Array of synonyms extracted from $entity
+   * @return array Array of synonyms extracted from $entity
+   * Array of synonyms extracted from $entity
    */
-  public function extractSynonyms($entity);
+  public function extractSynonyms($entity, $langcode = NULL);
 
   /**
    * Add an entity as a synonym into another entity.
@@ -65,7 +68,11 @@ interface SynonymsBehavior {
    *   For ease of work with these placeholders, you may extend the
    *   AbstractSynonymsBehavior class and then just invoke the
    *   AbstractSynonymsBehavior->synonymsFindProcessCondition() method, so you
-   *   won't have to worry much about it
+   *   won't have to worry much about it. Important note: if you plan on
+   *   re-using the same $condition object for multiple invocations of this
+   *   method you must pass in here a clone of your condition object, since the
+   *   internal implementation of this method will change the condition (will
+   *   swap the aforementioned placeholders with actual column names)
    *
    * @return Traversable
    *   Traversable result set of found synonyms and entity IDs to which those

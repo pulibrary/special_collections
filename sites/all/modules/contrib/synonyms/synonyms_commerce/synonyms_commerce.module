@@ -154,6 +154,7 @@ function synonyms_commerce_synonyms_provider_field_behavior_implementation_info(
     case 'autocomplete':
       return array(
         'commerce_product_reference' => 'CommerceProductReferenceSynonymsBehavior',
+        'commerce_price' => 'CommercePriceSynonymsBehavior',
       );
       break;
   }

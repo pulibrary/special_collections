@@ -10,10 +10,10 @@
  */
 class TextSynonymsBehavior extends AbstractFieldSynonymsBehavior implements AutocompleteSynonymsBehavior, SelectSynonymsBehavior {
 
-  public function extractSynonyms($entity) {
+  public function extractSynonyms($entity, $langcode = NULL) {
     $synonyms = array();
 
-    foreach ($this->entityItems($entity) as $item) {
+    foreach ($this->entityItems($entity, $langcode) as $item) {
       $synonyms[] = $item['value'];
     }
 
