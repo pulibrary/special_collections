@@ -108,7 +108,10 @@
 }
 
 .menu-grid .six_six_stacked-region--top .panel-pane,
-.menu-grid .landingpage-region--second > .panel-pane {
+.menu-grid .landingpage-region--second > .panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--first > .panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--second > .panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--third > .panel-pane {
   background: $black;
   border-radius: $global-border-radius;
   height: 120px;
@@ -155,7 +158,7 @@
     height: 140px;
 
     h2 {
-      font-size: 2.15em;
+      font-size: 2em;
     }
   }
 
@@ -163,7 +166,7 @@
     height: 160px;
 
     h2 {
-      font-size: 2.4em;
+      font-size: 2em;
     }
   }
 
@@ -244,9 +247,4 @@
   @include breakpoint($tab) {
     max-height: 130px;
   }
-}
-
-.menu-gird .landingpage-region--second > .panel-pane {
-  background: $black;
-  border-radius: $global-border-radius;
 }

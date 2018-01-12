@@ -29,11 +29,6 @@
   line-height: 21px;
   margin-left: -0.7em;
 
-  @include breakpoint($tab) {
-    // @include span(6 of 12);
-  }
-
-
   &:before { /* create a full-height inline block pseudo=element */
     content: " ";
     display: inline-block;
