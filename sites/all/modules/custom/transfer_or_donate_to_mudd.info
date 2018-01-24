@@ -1,0 +1,11 @@
+name = Transfer or Donate to Mudd
+description = Landing page and subpage panels
+core = 7.x
+package = RBSC
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:2
+features[page_manager_handlers][] = node_view__panel_context_c69a3805-a5d0-412c-bc81-8b8fa74d52ca
+features[page_manager_handlers][] = node_view__transfer-or-donate-to-mudd-sub-page
