@@ -357,6 +357,41 @@ services/transfer-or-donate-records-mudd-library/oral-history-projects/*',
   $display->content['new-7e0eaddf-7f82-4334-a047-4a955df71433'] = $pane;
   $display->panels['first'][2] = 'new-7e0eaddf-7f82-4334-a047-4a955df71433';
   $pane = new stdClass();
+  $pane->pid = 'new-74522a6b-26f2-4fe0-b734-9c46956a49c1';
+  $pane->panel = 'first';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_downloadable_document';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'file_download_link',
+    'delta_limit' => '0',
+    'delta_offset' => '0',
+    'delta_reversed' => 0,
+    'formatter_settings' => array(
+      'text' => 'Download [file:name]',
+    ),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => 'Downloadable Documents',
+    'override_title_heading' => 'h3',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'downloadable-heading',
+  );
+  $pane->extras = array();
+  $pane->position = 3;
+  $pane->locks = array();
+  $pane->uuid = '74522a6b-26f2-4fe0-b734-9c46956a49c1';
+  $display->content['new-74522a6b-26f2-4fe0-b734-9c46956a49c1'] = $pane;
+  $display->panels['first'][3] = 'new-74522a6b-26f2-4fe0-b734-9c46956a49c1';
+  $pane = new stdClass();
   $pane->pid = 'new-0f50360c-7163-4bf0-8d48-42633af5b1c4';
   $pane->panel = 'second';
   $pane->type = 'entity_field';
