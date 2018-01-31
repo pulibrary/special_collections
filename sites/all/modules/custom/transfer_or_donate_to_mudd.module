@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Transfer or Donate to Mudd feature.
+ */
+
+include_once 'transfer_or_donate_to_mudd.features.inc';
