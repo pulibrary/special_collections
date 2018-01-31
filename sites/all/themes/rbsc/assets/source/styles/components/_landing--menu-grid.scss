@@ -45,7 +45,7 @@
   }
 }
 
-.menu-grid .landingpage-region--second > .panel-pane {
+.menu-grid .landingpage-region--second>.panel-pane {
   &:nth-child(even) {
     @include span(first 6);
   }
@@ -108,10 +108,11 @@
 }
 
 .menu-grid .six_six_stacked-region--top .panel-pane,
-.menu-grid .landingpage-region--second > .panel-pane,
-.menu-grid .pul_base_four_four_four_stacked-region--first > .panel-pane,
-.menu-grid .pul_base_four_four_four_stacked-region--second > .panel-pane,
-.menu-grid .pul_base_four_four_four_stacked-region--third > .panel-pane, {
+.menu-grid .landingpage-region--second>.panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--first>.panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--second>.panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--third>.panel-pane,
+{
   background: $black;
   border-radius: $global-border-radius;
   height: 120px;
@@ -231,18 +232,34 @@
   }
 }
 
-.menu-grid .landingpage-region--second > .panel-pane h2 {
+.menu-grid .pul_base_four_four_four_stacked-region--first>.panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--second>.panel-pane,
+.menu-grid .pul_base_four_four_four_stacked-region--third>.panel-pane {
+  height: 200px;
+  max-height: 200px;
+
+  .field__item {
+    height: 200px;
+
+    img,
+    a {
+      height: 200px;
+    }
+  }
+}
+
+.menu-grid .landingpage-region--second>.panel-pane h2 {
   font-size: 1.75em;
 }
 
-.menu-grid .landingpage-region--second > .panel-pane:nth-child(n+3) h2 {
+.menu-grid .landingpage-region--second>.panel-pane:nth-child(n+3) h2 {
   font-size: 1.2em;
 }
 
-.menu-grid .landingpage-region--second > .panel-pane,
-.menu-grid .landingpage-region--second > .panel-pane .field__item,
-.menu-grid .landingpage-region--second > .panel-pane .field__item a,
-.menu-grid .landingpage-region--second > .panel-pane .field__item img {
+.menu-grid .landingpage-region--second>.panel-pane,
+.menu-grid .landingpage-region--second>.panel-pane .field__item,
+.menu-grid .landingpage-region--second>.panel-pane .field__item a,
+.menu-grid .landingpage-region--second>.panel-pane .field__item img {
   max-height: 110px;
 
   @include breakpoint($tab) {
@@ -250,7 +267,7 @@
   }
 }
 
-.menu-gird .landingpage-region--second > .panel-pane {
+.menu-gird .landingpage-region--second>.panel-pane {
   background: $black;
   border-radius: $global-border-radius;
 }
