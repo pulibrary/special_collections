@@ -746,6 +746,171 @@ services/transfer-or-donate-records-mudd-library/*',
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view__workflow-page';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = 10;
+  $handler->conf = array(
+    'title' => 'Workflow Page',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'Content from Content (on Content: Division [field_division])',
+        'keyword' => 'division',
+        'name' => 'entity_from_field:field_division-node-node',
+        'delta' => '0',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
+    'name' => 'workflow-page',
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'workflow*',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'Workflows by Repository',
+    'panels_breadcrumbs_paths' => 'workflows
+',
+    'panels_breadcrumbs_home' => 1,
+  );
+  $display = new panels_display();
+  $display->layout = 'three-nine';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'first' => NULL,
+      'second' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = '65986597-1864-4e29-a3b3-079b7b8132e2';
+  $display->storage_type = 'page_manager';
+  $display->storage_id = 'node_view__workflow-page';
+  $display->content = array();
+  $display->panels = array();
+  $pane = new stdClass();
+  $pane->pid = 'new-90dc0901-fe50-42b1-9e43-ac2aba44661b';
+  $pane->panel = 'first';
+  $pane->type = 'block';
+  $pane->subtype = 'menu-menu-staff-workflows';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'path_visibility',
+        'settings' => array(
+          'visibility_setting' => '1',
+          'paths' => 'workflows*',
+        ),
+        'context' => 'empty',
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '90dc0901-fe50-42b1-9e43-ac2aba44661b';
+  $display->content['new-90dc0901-fe50-42b1-9e43-ac2aba44661b'] = $pane;
+  $display->panels['first'][0] = 'new-90dc0901-fe50-42b1-9e43-ac2aba44661b';
+  $pane = new stdClass();
+  $pane->pid = 'new-64b1d0b3-73d9-41fb-a981-bb5265a40bc6';
+  $pane->panel = 'second';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:body';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'title',
+    'formatter' => 'text_default',
+    'delta_limit' => 0,
+    'delta_offset' => '0',
+    'delta_reversed' => FALSE,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '64b1d0b3-73d9-41fb-a981-bb5265a40bc6';
+  $display->content['new-64b1d0b3-73d9-41fb-a981-bb5265a40bc6'] = $pane;
+  $display->panels['second'][0] = 'new-64b1d0b3-73d9-41fb-a981-bb5265a40bc6';
+  $pane = new stdClass();
+  $pane->pid = 'new-e539fbf9-6518-49fb-91c1-7f0933cb0531';
+  $pane->panel = 'second';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_downloadable_document';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'file_default',
+    'delta_limit' => '0',
+    'delta_offset' => '0',
+    'delta_reversed' => 0,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_id:node_1',
+    'override_title' => 1,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 1;
+  $pane->locks = array();
+  $pane->uuid = 'e539fbf9-6518-49fb-91c1-7f0933cb0531';
+  $display->content['new-e539fbf9-6518-49fb-91c1-7f0933cb0531'] = $pane;
+  $display->panels['second'][1] = 'new-e539fbf9-6518-49fb-91c1-7f0933cb0531';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view__workflow-page'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_10';
   $handler->task = 'node_view';
   $handler->subtask = '';
@@ -1704,10 +1869,10 @@ collections
     ),
     'panels_breadcrumbs_state' => 1,
     'panels_breadcrumbs_titles' => 'Collections
-%node_2:title
+%node:title
 ',
     'panels_breadcrumbs_paths' => 'collections
-%node_2:url
+%node:url
 ',
     'panels_breadcrumbs_home' => 1,
   );
