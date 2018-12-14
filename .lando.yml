@@ -1,0 +1,4 @@
+name: rbsc
+recipe: drupal7
+config:
+  webroot: .
