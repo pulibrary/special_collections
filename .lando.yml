@@ -1,4 +1,11 @@
 name: rbsc
 recipe: drupal7
 config:
+  php: '7.2'
   webroot: .
+services:
+  search:
+    type: solr:7.1
+    core: drupal
+    config:
+      conf: sites/all/modules/contrib/search_api_solr/solr-conf/7.x
