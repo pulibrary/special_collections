@@ -70,6 +70,10 @@
  * @see omega_preprocess_page()
  */
 ?>
+<!-- No JS for Analytics -->
+<noscript>
+    <img src="http://www.google-analytics.com/collect?v=1&t=pageview&tid=UA-15870237-19&cid=1234&dl=nojs&dt=No%20Javascript">
+</noscript>
 <div class="l-page" id="l-page">
   <header class="l-header" role="banner">
     <a href="#main-content" class="skip2main"><?php print t('Skip to main content'); ?></a>
