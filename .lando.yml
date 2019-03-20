@@ -1,16 +1,16 @@
-name: rbsc_drupal
+name: rbsc
 recipe: drupal7
 config:
   php: '7.2'
   webroot: .
 services:
   search:
-    type: solr:7.1
-    core: rbsc_drupal
+    type: solr:7
+    core: rbsc
     config:
       conf: sites/all/modules/contrib/search_api_solr/solr-conf/7.x
   node:
-    type: node:6.10
+    type: node:6.15
     globals:
       gulp-cli: "latest"
 tooling:

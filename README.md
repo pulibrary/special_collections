@@ -22,7 +22,7 @@
       ),
     );
 
-    $base_url = "http://rbscdrupal.lndo.site:8000";
+    $base_url = "http://rbsc.lndo.site:8000";
     ```
 1. `lando start`
 1. `cp drush/rbsc-example.aliases.drushrc.php drush/rbsc.aliases.drushrc.php`
