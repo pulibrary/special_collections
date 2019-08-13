@@ -54,7 +54,7 @@
 1. Adjust the config values in the  `drush/rbsc.aliases.drushrc.php` file to match the current remote drupal environment
     ```
     $aliases['prod'] = array (
-      'uri' => 'https://library.princeton.edu',
+      'uri' => 'https://rbsc.princeton.edu',
       'root' => '', // Add root
       'remote-user' => 'deploy', // Add user
       'remote-host' => 'app-server-name', // Add app server host name
@@ -84,7 +84,7 @@
     ```
     $aliases['local'] = array(
       'root' => '/app', // Path to project on local machine
-      'uri'  => 'http://library-main.lndo.site',
+      'uri'  => 'http://rbsc.lndo.site',
       'path-aliases' => array(
         '%dump-dir' => '/tmp',
         '%files' => 'sites/default/files',
