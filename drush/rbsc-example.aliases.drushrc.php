@@ -5,8 +5,8 @@
  * Set the root and site_path values to point to your local site
  */
 // $aliases['local'] = array(
-//   'root' => '', // Path to project on local machine
-//   'uri'  => 'http://rbscdrupal.lndo.site:8000',
+//   'root' => '/app', // Path to project on local machine
+//   'uri'  => 'http://rbsc.lndo.site',
 //   'path-aliases' => array(
 //     '%dump-dir' => '/tmp',
 //     '%files' => 'sites/default/files',
@@ -22,7 +22,7 @@
 //   'root' => '', // Add root
 //   'remote-user' => '', // Add user
 //   'remote-host' => '', // Add host
-//   'ssh-options' => '', // Add ssh
+//   'ssh-options' => '-o PasswordAuthentication=no -i .ssh/id_rsa', // Add ssh
 //   'path-aliases' => array(
 //     '%dump-dir' => '/tmp',
 //   ),

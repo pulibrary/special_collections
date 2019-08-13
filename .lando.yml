@@ -5,14 +5,15 @@ config:
   webroot: .
 services:
   search:
-    type: solr:7
+    type: 'solr:7'
     core: rbsc
+    portforward: 9999
     config:
-      conf: sites/all/modules/contrib/search_api_solr/solr-conf/7.x
+      dir: sites/all/modules/contrib/search_api_solr/solr-conf/7.x
   node:
-    type: node:6.15
+    type: 'node:6.15'
     globals:
-      gulp-cli: "latest"
+      gulp-cli: latest
 tooling:
   npm:
     service: node
