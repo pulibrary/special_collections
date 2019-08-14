@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * front_page.features.field_instance.inc
@@ -149,6 +150,7 @@ function front_page_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
+      'alt_field_required' => 0,
       'default_image' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
@@ -156,6 +158,7 @@ function front_page_field_default_field_instances() {
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 0,
+      'title_field_required' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -307,6 +310,7 @@ function front_page_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
+      'alt_field_required' => 0,
       'default_image' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
@@ -314,6 +318,7 @@ function front_page_field_default_field_instances() {
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 0,
+      'title_field_required' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -352,6 +357,7 @@ function front_page_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -383,6 +389,68 @@ function front_page_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 36,
+    ),
+  );
+
+  // Exported field_instance: 'node-page-field_downloadable_document'.
+  $field_instances['node-page-field_downloadable_document'] = array(
+    'bundle' => 'page',
+    'deleted' => 0,
+    'description' => 'Use this field for files that users need to download.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 5,
+      ),
+      'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_downloadable_document',
+    'label' => 'Downloadable Document',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'txt pdf doc',
+      'max_filesize' => '50 MB',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 38,
     ),
   );
 
@@ -502,6 +570,7 @@ function front_page_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 1,
+      'alt_field_required' => 0,
       'default_image' => 0,
       'file_directory' => 'images',
       'file_extensions' => 'png gif jpg jpeg',
@@ -509,6 +578,7 @@ function front_page_field_default_field_instances() {
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 1,
+      'title_field_required' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -552,11 +622,13 @@ function front_page_field_default_field_instances() {
   t('Body');
   t('Cover Image');
   t('Division');
+  t('Downloadable Document');
   t('Files');
   t('Files to be attached as inline image.');
   t('Images');
   t('Selecting Division allows Basic Pages to exist within the context of a "Division".');
   t('Upload images here if you want to insert them easily into the "body" text of the page.');
+  t('Use this field for files that users need to download.');
 
   return $field_instances;
 }
