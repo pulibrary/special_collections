@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * footer2.features.menu_links.inc
@@ -25,7 +26,7 @@ function footer2_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -45,
+    'weight' => -44,
     'customized' => 1,
   );
   // Exported menu link: menu-help-footer-_exhibitions:node/12.

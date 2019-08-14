@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_views.features.inc

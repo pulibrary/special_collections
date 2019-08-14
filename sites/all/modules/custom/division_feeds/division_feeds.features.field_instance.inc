@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * division_feeds.features.field_instance.inc
@@ -10,7 +11,7 @@
 function division_feeds_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-division-body'
+  // Exported field_instance: 'node-division-body'.
   $field_instances['node-division-body'] = array(
     'bundle' => 'division',
     'default_value' => NULL,
@@ -84,7 +85,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_blogs'
+  // Exported field_instance: 'node-division-field_blogs'.
   $field_instances['node-division-field_blogs'] = array(
     'bundle' => 'division',
     'default_value' => NULL,
@@ -95,6 +96,7 @@ function division_feeds_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -153,7 +155,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_collection_strengths'
+  // Exported field_instance: 'node-division-field_collection_strengths'.
   $field_instances['node-division-field_collection_strengths'] = array(
     'bundle' => 'division',
     'default_value' => array(),
@@ -164,6 +166,7 @@ function division_feeds_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -214,7 +217,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_curator'
+  // Exported field_instance: 'node-division-field_curator'.
   $field_instances['node-division-field_curator'] = array(
     'bundle' => 'division',
     'default_value' => NULL,
@@ -225,6 +228,7 @@ function division_feeds_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -287,7 +291,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_division_contacts'
+  // Exported field_instance: 'node-division-field_division_contacts'.
   $field_instances['node-division-field_division_contacts'] = array(
     'bundle' => 'division',
     'default_value' => NULL,
@@ -298,6 +302,7 @@ function division_feeds_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -355,7 +360,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_division_history'
+  // Exported field_instance: 'node-division-field_division_history'.
   $field_instances['node-division-field_division_history'] = array(
     'bundle' => 'division',
     'default_value' => NULL,
@@ -366,6 +371,7 @@ function division_feeds_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -406,7 +412,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_division_image'
+  // Exported field_instance: 'node-division-field_division_image'.
   $field_instances['node-division-field_division_image'] = array(
     'bundle' => 'division',
     'deleted' => 0,
@@ -453,6 +459,7 @@ function division_feeds_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 0,
+      'alt_field_required' => 0,
       'default_image' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
@@ -460,6 +467,7 @@ function division_feeds_field_default_field_instances() {
       'max_resolution' => '',
       'min_resolution' => '',
       'title_field' => 0,
+      'title_field_required' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -487,7 +495,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_division_location'
+  // Exported field_instance: 'node-division-field_division_location'.
   $field_instances['node-division-field_division_location'] = array(
     'bundle' => 'division',
     'default_value' => NULL,
@@ -498,6 +506,7 @@ function division_feeds_field_default_field_instances() {
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
+          'bypass_access' => FALSE,
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
@@ -556,7 +565,7 @@ function division_feeds_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-division-field_quick_links'
+  // Exported field_instance: 'node-division-field_quick_links'.
   $field_instances['node-division-field_quick_links'] = array(
     'bundle' => 'division',
     'default_value' => NULL,

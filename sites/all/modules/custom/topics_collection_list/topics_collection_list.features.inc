@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * topics_collection_list.features.inc

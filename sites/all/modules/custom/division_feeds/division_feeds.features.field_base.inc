@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * division_feeds.features.field_base.inc
@@ -10,7 +11,7 @@
 function division_feeds_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +32,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_blogs'
+  // Exported field_base: 'field_blogs'.
   $field_bases['field_blogs'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -66,7 +67,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_collection_strengths'
+  // Exported field_base: 'field_collection_strengths'.
   $field_bases['field_collection_strengths'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -103,7 +104,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_curator'
+  // Exported field_base: 'field_curator'.
   $field_bases['field_curator'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -138,7 +139,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_division_contacts'
+  // Exported field_base: 'field_division_contacts'.
   $field_bases['field_division_contacts'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -175,7 +176,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_division_history'
+  // Exported field_base: 'field_division_history'.
   $field_bases['field_division_history'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -212,7 +213,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_division_image'
+  // Exported field_base: 'field_division_image'.
   $field_bases['field_division_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -234,7 +235,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_division_location'
+  // Exported field_base: 'field_division_location'.
   $field_bases['field_division_location'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -269,7 +270,7 @@ function division_feeds_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_quick_links'
+  // Exported field_base: 'field_quick_links'.
   $field_bases['field_quick_links'] = array(
     'active' => 1,
     'cardinality' => -1,

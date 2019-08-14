@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * division_feeds.strongarm.inc
@@ -58,6 +59,27 @@ function division_feeds_strongarm() {
   $strongarm->name = 'comment_subject_field_division';
   $strongarm->value = 1;
   $export['comment_subject_field_division'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_division';
+  $strongarm->value = 1;
+  $export['diff_enable_revisions_page_node_division'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_show_preview_changes_node_division';
+  $strongarm->value = 1;
+  $export['diff_show_preview_changes_node_division'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_view_mode_preview_node_division';
+  $strongarm->value = 'full';
+  $export['diff_view_mode_preview_node_division'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -157,6 +179,23 @@ function division_feeds_strongarm() {
   $strongarm->name = 'node_submitted_division';
   $strongarm->value = 0;
   $export['node_submitted_division'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_division_pattern';
+  $strongarm->value = 'divisions/[node:title]';
+  $export['pathauto_node_division_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_division';
+  $strongarm->value = array(
+    'status' => '1',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_division'] = $strongarm;
 
   return $export;
 }

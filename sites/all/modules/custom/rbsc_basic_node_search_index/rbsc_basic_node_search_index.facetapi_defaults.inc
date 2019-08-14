@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_basic_node_search_index.facetapi_defaults.inc

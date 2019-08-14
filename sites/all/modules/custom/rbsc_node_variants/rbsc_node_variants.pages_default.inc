@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_node_variants.pages_default.inc
@@ -786,7 +787,7 @@ services/transfer-or-donate-records-mudd-library/*',
       'logic' => 'and',
     ),
     'panels_breadcrumbs_state' => 1,
-    'panels_breadcrumbs_titles' => 'Workflows by Repository',
+    'panels_breadcrumbs_titles' => 'Workflows by Team',
     'panels_breadcrumbs_paths' => 'workflows
 ',
     'panels_breadcrumbs_home' => 1,

@@ -2,257 +2,165 @@
 
 /**
  * @file
- * front_page.strongarm.inc
+ * feeds_news.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function front_page_strongarm() {
+function feeds_news_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_mainmenu';
+  $strongarm->name = 'comment_anonymous_feed';
   $strongarm->value = 0;
-  $export['comment_anonymous_mainmenu'] = $strongarm;
+  $export['comment_anonymous_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_page';
+  $strongarm->name = 'comment_anonymous_feed_item';
   $strongarm->value = 0;
-  $export['comment_anonymous_page'] = $strongarm;
+  $export['comment_anonymous_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_mainmenu';
+  $strongarm->name = 'comment_default_mode_feed';
   $strongarm->value = 1;
-  $export['comment_default_mode_mainmenu'] = $strongarm;
+  $export['comment_default_mode_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_page';
-  $strongarm->value = 1;
-  $export['comment_default_mode_page'] = $strongarm;
+  $strongarm->name = 'comment_default_mode_feed_item';
+  $strongarm->value = 0;
+  $export['comment_default_mode_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_mainmenu';
+  $strongarm->name = 'comment_default_per_page_feed';
   $strongarm->value = '50';
-  $export['comment_default_per_page_mainmenu'] = $strongarm;
+  $export['comment_default_per_page_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_page';
+  $strongarm->name = 'comment_default_per_page_feed_item';
   $strongarm->value = '50';
-  $export['comment_default_per_page_page'] = $strongarm;
+  $export['comment_default_per_page_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_mainmenu';
-  $strongarm->value = 1;
-  $export['comment_form_location_mainmenu'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_page';
-  $strongarm->value = 1;
-  $export['comment_form_location_page'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_mainmenu';
-  $strongarm->value = '1';
-  $export['comment_mainmenu'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_page';
+  $strongarm->name = 'comment_feed';
   $strongarm->value = '0';
-  $export['comment_page'] = $strongarm;
+  $export['comment_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_mainmenu';
+  $strongarm->name = 'comment_feed_item';
+  $strongarm->value = '0';
+  $export['comment_feed_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_feed';
+  $strongarm->value = 1;
+  $export['comment_form_location_feed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_feed_item';
+  $strongarm->value = 0;
+  $export['comment_form_location_feed_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_feed';
   $strongarm->value = '1';
-  $export['comment_preview_mainmenu'] = $strongarm;
+  $export['comment_preview_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_page';
+  $strongarm->name = 'comment_preview_feed_item';
   $strongarm->value = '1';
-  $export['comment_preview_page'] = $strongarm;
+  $export['comment_preview_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_mainmenu';
+  $strongarm->name = 'comment_subject_field_feed';
   $strongarm->value = 1;
-  $export['comment_subject_field_mainmenu'] = $strongarm;
+  $export['comment_subject_field_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_page';
+  $strongarm->name = 'comment_subject_field_feed_item';
+  $strongarm->value = 0;
+  $export['comment_subject_field_feed_item'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'diff_enable_revisions_page_node_feed';
   $strongarm->value = 1;
-  $export['comment_subject_field_page'] = $strongarm;
+  $export['diff_enable_revisions_page_node_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_enable_revisions_page_node_mainmenu';
+  $strongarm->name = 'diff_enable_revisions_page_node_feed_item';
   $strongarm->value = 1;
-  $export['diff_enable_revisions_page_node_mainmenu'] = $strongarm;
+  $export['diff_enable_revisions_page_node_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_enable_revisions_page_node_page';
+  $strongarm->name = 'diff_show_preview_changes_node_feed';
   $strongarm->value = 1;
-  $export['diff_enable_revisions_page_node_page'] = $strongarm;
+  $export['diff_show_preview_changes_node_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_show_preview_changes_node_mainmenu';
+  $strongarm->name = 'diff_show_preview_changes_node_feed_item';
   $strongarm->value = 1;
-  $export['diff_show_preview_changes_node_mainmenu'] = $strongarm;
+  $export['diff_show_preview_changes_node_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_show_preview_changes_node_page';
-  $strongarm->value = 1;
-  $export['diff_show_preview_changes_node_page'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'diff_view_mode_preview_node_mainmenu';
+  $strongarm->name = 'diff_view_mode_preview_node_feed';
   $strongarm->value = 'full';
-  $export['diff_view_mode_preview_node_mainmenu'] = $strongarm;
+  $export['diff_view_mode_preview_node_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'diff_view_mode_preview_node_page';
+  $strongarm->name = 'diff_view_mode_preview_node_feed_item';
   $strongarm->value = 'full';
-  $export['diff_view_mode_preview_node_page'] = $strongarm;
+  $export['diff_view_mode_preview_node_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__mainmenu';
+  $strongarm->name = 'field_bundle_settings_node__feed';
   $strongarm->value = array(
     'view_modes' => array(
       'double_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
         'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_index' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
-      'print' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rbsc_grid_view_small_double_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_small_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_large_feature' => array(
-        'custom_settings' => TRUE,
       ),
       'search_results' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rg_list_item' => array(
-        'custom_settings' => FALSE,
-      ),
-      'mini_teaser' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(),
-      'display' => array(),
-    ),
-  );
-  $export['field_bundle_settings_node__mainmenu'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__page';
-  $strongarm->value = array(
-    'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_index' => array(
-        'custom_settings' => FALSE,
-      ),
-      'search_result' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'double_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_small_double_feature' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rbsc_grid_view_small_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_large_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'search_results' => array(
-        'custom_settings' => FALSE,
-      ),
-      'print' => array(
         'custom_settings' => FALSE,
       ),
       'rg_list_item' => array(
@@ -264,137 +172,185 @@ function front_page_strongarm() {
     ),
     'extra_fields' => array(
       'form' => array(
+        'feeds' => array(
+          'weight' => '0',
+        ),
         'title' => array(
           'weight' => '-5',
         ),
         'path' => array(
           'weight' => '30',
         ),
-        'redirect' => array(
-          'weight' => '30',
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__feed'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__feed_item';
+  $strongarm->value = array(
+    'view_modes' => array(
+      'double_feature' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_results' => array(
+        'custom_settings' => TRUE,
+      ),
+      'rg_list_item' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
         ),
-        'xmlsitemap' => array(
+        'path' => array(
           'weight' => '30',
         ),
       ),
       'display' => array(),
     ),
   );
-  $export['field_bundle_settings_node__page'] = $strongarm;
+  $export['field_bundle_settings_node__feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_mainmenu';
+  $strongarm->name = 'menu_options_feed';
   $strongarm->value = array(
     0 => 'main-menu',
   );
-  $export['menu_options_mainmenu'] = $strongarm;
+  $export['menu_options_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_page';
+  $strongarm->name = 'menu_options_feed_item';
   $strongarm->value = array(
     0 => 'main-menu',
   );
-  $export['menu_options_page'] = $strongarm;
+  $export['menu_options_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_mainmenu';
+  $strongarm->name = 'menu_parent_feed';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_mainmenu'] = $strongarm;
+  $export['menu_parent_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_page';
+  $strongarm->name = 'menu_parent_feed_item';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_page'] = $strongarm;
+  $export['menu_parent_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_mainmenu';
+  $strongarm->name = 'node_options_feed';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'revision',
+    1 => 'promote',
   );
-  $export['node_options_mainmenu'] = $strongarm;
+  $export['node_options_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_page';
+  $strongarm->name = 'node_options_feed_item';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'revision',
+    1 => 'promote',
   );
-  $export['node_options_page'] = $strongarm;
+  $export['node_options_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_mainmenu';
+  $strongarm->name = 'node_preview_feed';
   $strongarm->value = '1';
-  $export['node_preview_mainmenu'] = $strongarm;
+  $export['node_preview_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_page';
+  $strongarm->name = 'node_preview_feed_item';
   $strongarm->value = '1';
-  $export['node_preview_page'] = $strongarm;
+  $export['node_preview_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_mainmenu';
+  $strongarm->name = 'node_submitted_feed';
   $strongarm->value = 0;
-  $export['node_submitted_mainmenu'] = $strongarm;
+  $export['node_submitted_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_page';
+  $strongarm->name = 'node_submitted_feed_item';
   $strongarm->value = 0;
-  $export['node_submitted_page'] = $strongarm;
+  $export['node_submitted_feed_item'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_mainmenu_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_mainmenu_pattern'] = $strongarm;
+  $strongarm->name = 'pathauto_node_feed_item_pattern';
+  $strongarm->value = 'blogs/[node:feed-source]/[node:title]';
+  $export['pathauto_node_feed_item_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_page_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_page_pattern'] = $strongarm;
+  $strongarm->name = 'pathauto_node_feed_pattern';
+  $strongarm->value = 'blogs/[node:title]';
+  $export['pathauto_node_feed_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_mainmenu';
+  $strongarm->name = 'xmlsitemap_settings_node_feed';
   $strongarm->value = array(
     'status' => '1',
     'priority' => '0.5',
   );
-  $export['xmlsitemap_settings_node_mainmenu'] = $strongarm;
+  $export['xmlsitemap_settings_node_feed'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_page';
+  $strongarm->name = 'xmlsitemap_settings_node_feed_item';
   $strongarm->value = array(
-    'status' => '1',
+    'status' => '0',
     'priority' => '0.5',
   );
-  $export['xmlsitemap_settings_node_page'] = $strongarm;
+  $export['xmlsitemap_settings_node_feed_item'] = $strongarm;
 
   return $export;
 }

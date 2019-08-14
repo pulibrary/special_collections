@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_content_types.features.taxonomy.inc

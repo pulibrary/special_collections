@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * front_page.features.field_base.inc

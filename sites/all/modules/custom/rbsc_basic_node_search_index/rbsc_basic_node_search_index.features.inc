@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_basic_node_search_index.features.inc
@@ -259,10 +260,12 @@ function rbsc_basic_node_search_index_default_search_api_server() {
       "http_pass" : "",
       "excerpt" : 1,
       "retrieve_data" : 1,
-      "highlight_data" : 1,
+      "highlight_data" : 0,
       "skip_schema_check" : 0,
       "solr_version" : "4",
       "http_method" : "AUTO",
+      "log_query" : 0,
+      "log_response" : 0,
       "autocorrect_spell" : 1,
       "autocorrect_suggest_words" : 1
     },

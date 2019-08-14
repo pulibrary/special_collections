@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * blog_search_views.features.inc

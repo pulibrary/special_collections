@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * location_layouts.views_default.inc
@@ -85,7 +86,7 @@ function location_layouts_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -214,8 +215,11 @@ function location_layouts_views_default_views() {
   $handler->display->display_options['fields']['field_code']['field'] = 'field_code';
   $handler->display->display_options['fields']['field_code']['label'] = '';
   $handler->display->display_options['fields']['field_code']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_code']['alter']['text'] = '<span class="[field_code]hours"><a href="http://library.princeton.edu/hours/[field_code]">Open today from <span class="[field_code]starthour">?</span> to <span class="[field_code]endhour">?</span></a></span>';
+  $handler->display->display_options['fields']['field_code']['alter']['text'] = '<span class="[field_code]hours"><a href="http://library.princeton.edu/hours/[field_code]">View Hours</a></span>';
   $handler->display->display_options['fields']['field_code']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_code']['settings'] = array(
+    'class' => '',
+  );
   $handler->display->display_options['argument_input'] = array(
     'nid' => array(
       'type' => 'user',
@@ -279,7 +283,7 @@ function location_layouts_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filter criterion: Content: Published status */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';

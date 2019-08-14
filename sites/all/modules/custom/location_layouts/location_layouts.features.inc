@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * location_layouts.features.inc
