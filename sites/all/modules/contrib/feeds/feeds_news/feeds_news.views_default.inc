@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * feeds_news.views_default.inc
