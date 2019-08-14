@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_node_variants.features.inc
