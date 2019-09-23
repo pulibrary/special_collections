@@ -71,7 +71,7 @@ jQuery( document ).ready(function() {
 
 					  //set Firestone RBSC Hours
 					  if(jQuery('.rbscstarthour').length > 0){
-							var locname = "Rare Books and Special Collections";
+							var locname = "Special Collections";
 							jQuery.each( data.locations.location, function( i, l ) {
 
 								if ( l.name == locname  ) {
