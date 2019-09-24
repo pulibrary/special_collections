@@ -98,7 +98,7 @@
             <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Special Collections - Home'); ?>">
               <div class="dept-name">
               <span>THE DEPARTMENT OF</span>
-              <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+              <h2>SPECIAL COLLECTIONS</h2>
             </div>
           </a>
         </div>
