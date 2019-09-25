@@ -1,4 +1,4 @@
-# Rare Books and Special Collections
+# Special Collections
 
 ## Local development with Lando
 

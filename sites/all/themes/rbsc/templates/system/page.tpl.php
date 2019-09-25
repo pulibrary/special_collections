@@ -93,12 +93,12 @@
     <div class="wrapper wrapper--highlighted">
       <div class="l-region l-region--highlighted">
         <div class="site-branding">
-          <a href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>"  class="rbsc-logo">
+          <a href="<?php print $front_page; ?>" title="<?php print t('Special Collections - Home'); ?>"  class="rbsc-logo">
             <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
-            <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Rare Books and Special Collections - Home'); ?>">
+            <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Special Collections - Home'); ?>">
               <div class="dept-name">
               <span>THE DEPARTMENT OF</span>
-              <h2>RARE BOOKS <small>AND</small> SPECIAL COLLECTIONS</h2>
+              <h2>SPECIAL COLLECTIONS</h2>
             </div>
           </a>
         </div>
