@@ -110,15 +110,17 @@ namespace :drupal do
   
   desc "change the owner of the directory to deploy"
   task :update_directory_owner_deploy do
-    release_paths = if  File.directory?("#{fetch(:deploy_to)}/current")
-                      current_release_path = capture 'readlink #{fetch(:deploy_to)}/current'
-                      current_release = current_release_path.split('/').last
-                      ls_results = capture 'ls #{fetch(:deploy_to)}/releases/'
-                      ls_results.split(release_paths[14])
-                    else
-                      [""]
-                    end
     on release_roles :app do
+      ls_results = capture "ls #{fetch(:deploy_to)}"
+      release_paths = if ls_results.include?('current')
+                        current_release_path = capture "readlink #{fetch(:deploy_to)}/current"
+                        current_release = current_release_path.split('/').last
+                        info current_release
+                        ls_results = capture "ls #{fetch(:deploy_to)}/releases/"
+                        ls_results.split(ls_results[14])
+                      else
+                        [""]
+                      end
       release_paths.each do |release|
         next if release == current_release
         execute :sudo, "/bin/chown -R deploy #{fetch(:deploy_to)}/releases/#{release}"
@@ -168,7 +170,7 @@ namespace :drupal do
     on release_roles :drupal_primary do
       gz_file_name = ENV["FILES_GZ"]
       tar_file_name = gz_file_name.sub('.gz','')
-      # upload! File.join(ENV['FILES_DIR'], gz_file_name), "/tmp/#{gz_file_name}"
+      upload! File.join(ENV['FILES_DIR'], gz_file_name), "/tmp/#{gz_file_name}"
       execute "sudo -u www-data cp /tmp/#{gz_file_name} #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)}"
       execute "sudo -u www-data gzip -d #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)}/#{gz_file_name}"
       execute "cd #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)} && sudo -u www-data tar -xvf #{tar_file_name}"
