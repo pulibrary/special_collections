@@ -75,7 +75,7 @@ namespace :drupal do
   desc "Set the site offline"
   task :site_offline do
       on release_roles :app do
-          execute "drush -r #{release_path} vset --exact maintenance_mode 1"
+          execute "drush -r #{release_path} vset --exact maintenance_mode 1; true"
           info "set site to offline"
       end
   end
@@ -172,7 +172,7 @@ namespace :drupal do
       tar_file_name = gz_file_name.sub('.gz','')
       upload! File.join(ENV['FILES_DIR'], gz_file_name), "/tmp/#{gz_file_name}"
       execute "sudo -u www-data cp /tmp/#{gz_file_name} #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)}"
-      execute "sudo -u www-data gzip -d #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)}/#{gz_file_name}"
+      execute "sudo -u www-data gzip -f -d #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)}/#{gz_file_name}"
       execute "cd #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)} && sudo -u www-data tar -xvf #{tar_file_name}"
       execute "sudo -u www-data rm -f #{fetch(:drupal_fileshare_mount)}/#{fetch(:files_dir)}/#{tar_file_name}"
     end
@@ -184,7 +184,7 @@ namespace :drupal do
         gz_file_name = ENV["SQL_GZ"]
         sql_file_name = gz_file_name.sub('.gz','')
         upload! File.join(ENV['SQL_DIR'], gz_file_name), "/tmp/#{gz_file_name}"
-        execute "gzip -d /tmp/#{gz_file_name}"
+        execute "gzip -f -d /tmp/#{gz_file_name}"
         execute "drush -r #{release_path} sql-cli < /tmp/#{sql_file_name}"
       end
     end
@@ -205,7 +205,7 @@ namespace :drupal do
         execute "drush -r #{release_path} vset --exact cas_cert #{fetch(:cas_cert_location)}"
         solr_host = fetch(:search_api_solr_host)
         solr_path = fetch(:search_api_solr_path)
-        sql = "update search_api_server set options='a:20:{s:14:\\\"clean_ids_form\\\";a:0:{}s:9:\\\"clean_ids\\\";b:0;s:14:\\\"site_hash_form\\\";a:0:{}s:9:\\\"site_hash\\\";b:0;s:6:\\\"scheme\\\";s:4:\\\"http\\\";s:4:\\\"host\\\";s:#{ solr_host.length }:\\\"#{ solr_host }\\\";s:4:\\\"port\\\";s:4:\\\"8983\\\";s:4:\\\"path\\\";s:#{solr_path.length}:\\\"#{ solr_path }\\\";s:9:\\\"http_user\\\";s:0:\\\"\\\";s:9:\\\"http_pass\\\";s:0:\\\"\\\";s:7:\\\"excerpt\\\";i:1;s:13:\\\"retrieve_data\\\";i:1;s:14:\\\"highlight_data\\\";i:0;s:17:\\\"skip_schema_check\\\";i:0;s:12:\\\"solr_version\\\";s:0:\\\"\\\";s:11:\\\"http_method\\\";s:4:\\\"AUTO\\\";s:9:\\\"log_query\\\";i:0;s:12:\\\"log_response\\\";i:0;s:17:\\\"autocorrect_spell\\\";i:1;s:25:\\\"autocorrect_suggest_words\\\";i:1;}' where id = 1;"
+        sql = "update search_api_server set options='a:19:{s:9:\\\"clean_ids\\\";b:1;s:14:\\\"site_hash_form\\\";a:0:{}s:9:\\\"site_hash\\\";b:0;s:6:\\\"scheme\\\";s:4:\\\"http\\\";s:4:\\\"host\\\";s:#{ solr_host.length }:\\\"#{ solr_host }\\\";s:4:\\\"port\\\";s:4:\\\"8983\\\";s:4:\\\"path\\\";s:#{solr_path.length}:\\\"#{ solr_path }\\\";s:9:\\\"http_user\\\";s:0:\\\"\\\";s:9:\\\"http_pass\\\";s:0:\\\"\\\";s:7:\\\"excerpt\\\";i:1;s:13:\\\"retrieve_data\\\";i:1;s:14:\\\"highlight_data\\\";i:0;s:17:\\\"skip_schema_check\\\";i:0;s:12:\\\"solr_version\\\";s:1:\\\"4\\\";s:11:\\\"http_method\\\";s:4:\\\"AUTO\\\";s:9:\\\"log_query\\\";i:0;s:12:\\\"log_response\\\";i:0;s:17:\\\"autocorrect_spell\\\";i:1;s:25:\\\"autocorrect_suggest_words\\\";i:1;}';"
         execute "drush -r #{release_path} sql-query \"#{sql}\""
       end
     end

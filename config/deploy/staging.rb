@@ -6,4 +6,4 @@ server "library-staging1", user: fetch(:user), roles: %w{app drupal_primary}
 server "library-staging2", user: fetch(:user), roles: %w{app drupal_secondary}
 
 set :search_api_solr_host, 'lib-solr-staging.princeton.edu'
-set :search_api_solr_path, '/solr/rbsc-staging'
+set :search_api_solr_path, '/solr/libsc-staging'
