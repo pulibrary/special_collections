@@ -20,7 +20,7 @@ function footer2_menu_default_menu_custom() {
   // Exported menu: menu-help-footer-.
   $menus['menu-help-footer-'] = array(
     'menu_name' => 'menu-help-footer-',
-    'title' => 'About the Department',
+    'title' => 'About Special Collections',
     'description' => 'About links',
   );
   // Exported menu: menu-information-for-footer-.
@@ -31,8 +31,8 @@ function footer2_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('About Special Collections');
   t('About links');
-  t('About the Department');
   t('Footer menu that allows specific groups of users to locate information relevant to their goals. ');
   t('Information For');
   t('These are RBSC Services that are listed in the footer.');

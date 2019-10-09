@@ -303,7 +303,7 @@ function division_layouts_views_default_views() {
   $handler->display->display_options['fields']['field_blog_image']['field'] = 'field_blog_image';
   $handler->display->display_options['fields']['field_blog_image']['label'] = '';
   $handler->display->display_options['fields']['field_blog_image']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_blog_image']['alter']['text'] = '<img alt="" src="special_collections/sites/default/files/styles/square_thumbnail/public/default_images/pton_shield_grey.jpg" width="64px" height="64px">';
+  $handler->display->display_options['fields']['field_blog_image']['alter']['text'] = '<img alt="Princeton shield" src="/special-collections/sites/default/files/styles/square_thumbnail/public/default_images/pton_shield_grey.jpg" width="64px" height="64px">';
   $handler->display->display_options['fields']['field_blog_image']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_blog_image']['alter']['path'] = '[field_blog_post_url]';
   $handler->display->display_options['fields']['field_blog_image']['alter']['external'] = TRUE;
