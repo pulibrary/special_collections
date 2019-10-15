@@ -167,69 +167,6 @@ function location_layouts_views_default_views() {
 
   /* Display: Big Images */
   $handler = $view->new_display('panel_pane', 'Big Images', 'panel_pane_2');
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Image */
-  $handler->display->display_options['fields']['field_location_image']['id'] = 'field_location_image';
-  $handler->display->display_options['fields']['field_location_image']['table'] = 'field_data_field_location_image';
-  $handler->display->display_options['fields']['field_location_image']['field'] = 'field_location_image';
-  $handler->display->display_options['fields']['field_location_image']['label'] = '';
-  $handler->display->display_options['fields']['field_location_image']['element_class'] = 'img-thumbnail';
-  $handler->display->display_options['fields']['field_location_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_location_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_location_image']['settings'] = array(
-    'image_style' => 'large',
-    'image_link' => '',
-    'class' => 'img-responsive',
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Address */
-  $handler->display->display_options['fields']['field_address']['id'] = 'field_address';
-  $handler->display->display_options['fields']['field_address']['table'] = 'field_data_field_address';
-  $handler->display->display_options['fields']['field_address']['field'] = 'field_address';
-  $handler->display->display_options['fields']['field_address']['label'] = '';
-  $handler->display->display_options['fields']['field_address']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_address']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_address']['settings'] = array(
-    'use_widget_handlers' => 1,
-    'format_handlers' => array(
-      'address' => 'address',
-    ),
-  );
-  /* Field: Content: Campus Map Link */
-  $handler->display->display_options['fields']['field_campus_map_link']['id'] = 'field_campus_map_link';
-  $handler->display->display_options['fields']['field_campus_map_link']['table'] = 'field_data_field_campus_map_link';
-  $handler->display->display_options['fields']['field_campus_map_link']['field'] = 'field_campus_map_link';
-  $handler->display->display_options['fields']['field_campus_map_link']['label'] = '';
-  $handler->display->display_options['fields']['field_campus_map_link']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_campus_map_link']['click_sort_column'] = 'url';
-  /* Field: Content: Code */
-  $handler->display->display_options['fields']['field_code']['id'] = 'field_code';
-  $handler->display->display_options['fields']['field_code']['table'] = 'field_data_field_code';
-  $handler->display->display_options['fields']['field_code']['field'] = 'field_code';
-  $handler->display->display_options['fields']['field_code']['label'] = '';
-  $handler->display->display_options['fields']['field_code']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_code']['alter']['text'] = '<span class="[field_code]hours"><a href="http://library.princeton.edu/hours/[field_code]">View Hours</a></span>';
-  $handler->display->display_options['fields']['field_code']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_code']['settings'] = array(
-    'class' => '',
-  );
-  $handler->display->display_options['argument_input'] = array(
-    'nid' => array(
-      'type' => 'user',
-      'context' => 'entity:comment.author',
-      'context_optional' => 0,
-      'panel' => '0',
-      'fixed' => '',
-      'label' => 'Content: Nid',
-    ),
-  );
 
   /* Display: Summary */
   $handler = $view->new_display('panel_pane', 'Summary', 'panel_pane_3');

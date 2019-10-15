@@ -943,7 +943,7 @@ function rbsc_content_types_field_default_field_instances() {
     'default_value' => array(
       0 => array(
         'title' => 'Search Finding Aids Site',
-        'url' => 'http://findingaids.princeton.edu/',
+        'url' => 'https://findingaids.princeton.edu/',
       ),
     ),
     'deleted' => 0,
