@@ -243,7 +243,7 @@ namespace :deploy do
   task :after_deploy_updated do
       invoke "drupal:link_settings"
       invoke "drupal:link_files"
-      if ( ENV["SQL_FILE"] != nil)
+      if ( ENV["SQL_GZ"] != nil)
         invoke "drupal:database:upload_and_import"
       end
       invoke "drupal:install_assets"
