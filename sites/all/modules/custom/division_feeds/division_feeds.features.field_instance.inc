@@ -81,7 +81,7 @@ function division_feeds_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => -4,
+      'weight' => 1,
     ),
   );
 
@@ -151,7 +151,7 @@ function division_feeds_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 34,
+      'weight' => 8,
     ),
   );
 
@@ -213,7 +213,7 @@ function division_feeds_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
-      'weight' => 36,
+      'weight' => 10,
     ),
   );
 
@@ -287,7 +287,7 @@ function division_feeds_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete_tags',
-      'weight' => 32,
+      'weight' => 6,
     ),
   );
 
@@ -356,7 +356,7 @@ function division_feeds_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 31,
+      'weight' => 5,
     ),
   );
 
@@ -408,7 +408,7 @@ function division_feeds_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 38,
+      'weight' => 13,
     ),
   );
 
@@ -491,7 +491,7 @@ function division_feeds_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 35,
+      'weight' => 9,
     ),
   );
 
@@ -561,7 +561,82 @@ function division_feeds_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 33,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-division-field_donor_information'.
+  $field_instances['node-division-field_donor_information'] = array(
+    'bundle' => 'division',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 9,
+      ),
+      'double_feature' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'mini_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_donor_information',
+    'label' => 'Donor Information',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'required',
+      'title_allowed_values' => '',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 12,
     ),
   );
 
@@ -629,7 +704,7 @@ function division_feeds_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 37,
+      'weight' => 11,
     ),
   );
 
@@ -642,6 +717,7 @@ function division_feeds_field_default_field_instances() {
   t('Curator');
   t('Division History');
   t('Division Image');
+  t('Donor Information');
   t('Location');
   t('Quick Links');
   t('These are topics that you may want to highlight as "Collection Strengths" for your Division.');
