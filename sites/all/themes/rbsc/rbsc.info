@@ -21,6 +21,7 @@ scripts[] = assets/public/scripts/rbsc.scripts.min.js
 regions[branding] = Branding
 regions[header] = Header
 regions[navigation] = Navigation
+regions[alert] = Alert
 regions[highlighted] = Highlighted
 regions[help] = Help
 regions[content] = Content

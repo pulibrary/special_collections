@@ -1,0 +1,27 @@
+.wrapper--alert {
+  background: #fee7ba;
+}
+
+.l-region--alert .block--block {
+  padding: 1rem;
+
+  h2 {
+    margin: initial;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: $black;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+}
