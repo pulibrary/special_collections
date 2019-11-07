@@ -14,7 +14,6 @@ img.bookmark {
   a:hover {
     text-decoration: none;
   }
-
 }
 
 .dept-name {
@@ -74,7 +73,6 @@ img.bookmark {
       padding-top: 0;
     }
   }
-
 }
 
 .navbar-brand {
@@ -101,7 +99,8 @@ img.bookmark {
   }
 
   .rbsc-logo {
-    background: url("/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg") center center no-repeat;
+    background: url("/special-collections/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.svg") center center;
+    background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
     float: left;

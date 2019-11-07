@@ -10,7 +10,6 @@
 }
 
 .l-region--branding {
-
   h2 {
     height: 40px;
     margin: 0;
@@ -29,7 +28,8 @@
   line-height: 21px;
   margin-left: -0.7em;
 
-  &:before { /* create a full-height inline block pseudo=element */
+  &:before {
+    /* create a full-height inline block pseudo=element */
     content: " ";
     display: inline-block;
     height: 100%;
@@ -57,16 +57,17 @@
 
   .site-logo {
     @include vertical-align();
-    background: url("/sites/all/themes/pul_base/assets/public/images/logo.svg") center center no-repeat;
+    background: url("/special-collections/sites/all/themes/pul_base/assets/public/images/logo.svg") center center;
+    background-repeat: no-repeat;
     background-size: contain;
     display: block;
     margin-left: 0;
     max-height: 18px;
 
     @include breakpoint($tab) {
-      background: url("/sites/all/themes/pul_base/assets/public/images/logo.svg") center left no-repeat;
+      background: url("/special-collections/sites/all/themes/pul_base/assets/public/images/logo.svg") center left;
+      background-repeat: no-repeat;
       background-size: contain;
-      // max-height: 25px;
     }
 
     @include breakpoint($bp-large) {
