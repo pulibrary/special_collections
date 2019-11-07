@@ -208,6 +208,29 @@ function division_layouts_default_page_manager_handlers() {
   $display->content['new-b8e75c3a-1d57-4a56-9d9f-6506620780c5'] = $pane;
   $display->panels['first'][3] = 'new-b8e75c3a-1d57-4a56-9d9f-6506620780c5';
   $pane = new stdClass();
+  $pane->pid = 'new-7534a361-1a1b-4a4b-9eed-959eecbaca35';
+  $pane->panel = 'first';
+  $pane->type = 'views_panes';
+  $pane->subtype = 'division_quick_links-panel_pane_2';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'arguments' => array(
+      'nid' => '%node:nid',
+    ),
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 4;
+  $pane->locks = array();
+  $pane->uuid = '7534a361-1a1b-4a4b-9eed-959eecbaca35';
+  $display->content['new-7534a361-1a1b-4a4b-9eed-959eecbaca35'] = $pane;
+  $display->panels['first'][4] = 'new-7534a361-1a1b-4a4b-9eed-959eecbaca35';
+  $pane = new stdClass();
   $pane->pid = 'new-f991112d-ff80-4ee1-9b0c-4aa4b7d1f11e';
   $pane->panel = 'middle';
   $pane->type = 'entity_field';
