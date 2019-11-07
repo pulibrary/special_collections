@@ -2335,6 +2335,16 @@ function rbsc_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_faq_importer';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_faq_importer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_holdings';
   $strongarm->value = array(
     'status' => '1',
@@ -2351,6 +2361,16 @@ function rbsc_content_types_strongarm() {
     'priority' => '0.5',
   );
   $export['xmlsitemap_settings_node_location'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_media_group';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_media_group'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -2375,9 +2395,19 @@ function rbsc_content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'xmlsitemap_settings_node_rbsc_rare_books_topics_importer';
+  $strongarm->value = array(
+    'status' => '0',
+    'priority' => '0.5',
+  );
+  $export['xmlsitemap_settings_node_rbsc_rare_books_topics_importer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_rbsc_staff_member';
   $strongarm->value = array(
-    'status' => '1',
+    'status' => '0',
     'priority' => '0.5',
   );
   $export['xmlsitemap_settings_node_rbsc_staff_member'] = $strongarm;
