@@ -81,7 +81,7 @@
       <section class="l-region l-region--branding">
          <h2>
             <a href="https://library.princeton.edu" title="Princeton University Library - Home"  class="site-logo">
-              <img src="/sites/all/themes/pul_base/assets/public/images/logo-txt.png" alt="Princeton University Library" />
+              <img src="/special-collections/sites/all/themes/pul_base/assets/public/images/logo-txt.png" alt="Princeton University Library" />
               <span class="site-name">Princeton University Library</span>
             </a>
          </h2>
@@ -94,7 +94,7 @@
       <div class="l-region l-region--highlighted">
         <div class="site-branding">
           <a href="<?php print $front_page; ?>" title="<?php print t('Special Collections - Home'); ?>"  class="rbsc-logo">
-            <img class="bookmark" src="/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
+            <img class="bookmark" src="/special-collections/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
             <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Special Collections - Home'); ?>">
               <div class="dept-name">
               <span>THE DEPARTMENT OF</span>

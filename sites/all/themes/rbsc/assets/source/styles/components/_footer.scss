@@ -32,7 +32,6 @@
 }
 
 .svg {
-
   .rbscblogs-logo img {
     display: none;
   }
@@ -47,7 +46,6 @@
       margin-left: 0.5em;
     }
 
-
     &:before {
       /* create a full-height inline block pseudo=element */
       content: " ";
@@ -60,9 +58,8 @@
   }
 
   .rbscblogs-logo {
-    background-image: url("/sites/all/themes/rbsc/assets/public/images/wordpress.svg");
+    background-image: url("/special-collections/sites/all/themes/rbsc/assets/public/images/wordpress.svg");
     margin: 0 0.2em 0.75em;
     width: 24px;
   }
 }
-
