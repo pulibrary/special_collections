@@ -97,7 +97,6 @@
             <img class="bookmark" src="/special-collections/sites/all/themes/rbsc/assets/public/images/rbsc_bookmark.png" alt="<?php print t('Home'); ?>" /></a>
             <a class="navbar-brand" href="<?php print $front_page; ?>" title="<?php print t('Special Collections - Home'); ?>">
               <div class="dept-name">
-              <span>THE DEPARTMENT OF</span>
               <h2>SPECIAL COLLECTIONS</h2>
             </div>
           </a>
