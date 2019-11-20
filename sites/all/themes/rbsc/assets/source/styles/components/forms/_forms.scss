@@ -1,3 +1,28 @@
 .form-item {
+  font-family: Muli, sans-serif;
   margin-bottom: 1em;
+}
+
+.form-item label {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.form-item .form-checkboxes,
+.form-item .form-type-radio {
+  margin-left: 1em;
+}
+
+.form-item .form-checkboxes label,
+.form-item .form-type-radio label {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.form-item .description {
+  margin-bottom: 1em;
+}
+
+.webform-component {
+  padding: 0.75em 0;
 }
