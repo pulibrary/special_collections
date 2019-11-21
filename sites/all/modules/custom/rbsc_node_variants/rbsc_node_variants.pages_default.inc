@@ -2110,7 +2110,7 @@ collections
   $pane->panel = 'second';
   $pane->type = 'views_panes';
   $pane->subtype = 'filtered_collection_list-panel_pane_5';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'arguments' => array(
@@ -2946,7 +2946,7 @@ topics',
   $pane->panel = 'second';
   $pane->type = 'views_panes';
   $pane->subtype = 'filtered_collection_list-panel_pane_12';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'arguments' => array(

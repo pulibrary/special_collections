@@ -425,7 +425,7 @@ function front_page_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'file_directory' => '',
-      'file_extensions' => 'txt pdf doc',
+      'file_extensions' => 'txt pdf doc xls xlsx',
       'max_filesize' => '50 MB',
       'user_register_form' => FALSE,
     ),
@@ -434,13 +434,14 @@ function front_page_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
+          'audio' => 'audio',
+          'document' => 'document',
           'image' => 'image',
-          'video' => 0,
+          'video' => 'video',
         ),
         'browser_plugins' => array(
           'media_default--media_browser_1' => 'media_default--media_browser_1',
