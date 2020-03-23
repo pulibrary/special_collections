@@ -149,4 +149,5 @@
       <a href="#l-page" class="cd-top">Top</a>
     </div>
   </footer>
+  <div id="libchat_b6a26755ec95a6ed065331dfb1298676"></div>
 </div>
