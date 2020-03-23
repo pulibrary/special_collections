@@ -25,3 +25,24 @@
     }
   }
 }
+
+.view-alerts {
+  padding: 1rem;
+
+  .alert--heading {
+    font-family: Muli, sans-serif;
+    font-size: 1.728em;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: $black;
+    text-decoration: underline;
+  }
+}
