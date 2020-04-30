@@ -102,11 +102,11 @@ gulp.task('lint:scss', function() {
  */
 gulp.task('scripts', function(){
   gulp.src(config.scripts.files)
-    .pipe(p.sourcemaps.init())
+    // .pipe(p.sourcemaps.init())
     .pipe(p.concat('rbsc.scripts.js'))
     .pipe(p.uglify({preserveComments: 'some'}))
     .pipe(p.rename('rbsc.scripts.min.js'))
-    .pipe(p.sourcemaps.write('.'))
+    // .pipe(p.sourcemaps.write('.'))
     .pipe(chmod(644))
     .pipe(gulp.dest(config.scripts.dest))
     .pipe(reload({stream:true}));
