@@ -167,6 +167,16 @@ function location_layouts_views_default_views() {
 
   /* Display: Big Images */
   $handler = $view->new_display('panel_pane', 'Big Images', 'panel_pane_2');
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'user',
+      'context' => 'entity:node.field_address',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
 
   /* Display: Summary */
   $handler = $view->new_display('panel_pane', 'Summary', 'panel_pane_3');
