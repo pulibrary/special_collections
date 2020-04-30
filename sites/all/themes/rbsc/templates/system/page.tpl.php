@@ -112,7 +112,6 @@
     <div class="wrapper wrapper--alert">
          <?php print render($page['alert']); ?>
       </div>
-    <script src="//api2.libanswers.com/1.0/widgets/850"></script>
   </header>
 
   <section class="l-region l-region--main" id="main-content">
