@@ -11,4 +11,9 @@ function rbsc_preprocess_html(&$variables, $hook) {
     'https://v2.libanswers.com/load_chat.php?hash=b6a26755ec95a6ed065331dfb1298676', array('type' => 'external')
   );
 
+  $node = menu_get_object();
+  if ($node && $node->nid == 340) {
+    drupal_add_js('https://api2.libanswers.com/1.0/widgets/850', array('type' => 'external'));
+  }
+
 }

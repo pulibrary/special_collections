@@ -1,12 +1,17 @@
 <?php
 
+function data_source_url_base() {
+  return '/utils/';
+  /** Uncomment the line below to connect to local lando discovery utils and comment out the line above **/
+  /** return 'http://discovery-utils.lndo.site/'; **/
+}
 
 function catalog_block_form($form, &$form_state) {
 
   $form = array();
   $path = $_GET['q'];
   if(drupal_is_front_page()) { // should keyed off <front>
-    $form_suffix = '<div class="homepage-tab-form-message"><a href="https://pulsearch.princeton.edu/advanced">Advanced Search</a></div>';
+    $form_suffix = '<div class="homepage-tab-form-message"><a href="https://catalog.princeton.edu/advanced">Advanced Search</a></div>';
   } else {
     $form_suffix = "";
   }
@@ -78,7 +83,7 @@ function catalog_search_results_content() {
   $sid = catalog_block_get_sid();
   $ajax_spinner = "<div id='catalog-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh'></i></div>";
   $block_content = array(
-    '#markup' => "<div data-source='/utils/find/any?query={$path}&sid={$sid}' id='catalog-search-results'>" . $ajax_spinner . t('') . "</div>",
+    '#markup' => "<div data-source='" . data_source_url_base() . "pulsearch/any?query={$path}&sid={$sid}' id='catalog-search-results'>" . $ajax_spinner . t('') . "</div>",
   );
   return $block_content;
 }
@@ -88,7 +93,7 @@ function catalog_journal_results_content() {
   $sid = catalog_block_get_sid();
   $ajax_spinner = "<div id='journal-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh'></i></div>";
   $block_content = array(
-    '#markup' => "<div data-source='/utils/find/any?query={$path}&limit=exact&format=journals&sid={$sid}' id='journal-search-results'>" . $ajax_spinner . t('') . "</div>",
+    '#markup' => "<div data-source='" . data_source_url_base() . "pulsearch/any?query={$path}&limit=exact&format=journals&sid={$sid}' id='journal-search-results'>" . $ajax_spinner . t('') . "</div>",
   );
   return $block_content;
 }
@@ -98,7 +103,7 @@ function catalog_pulfa_results_content() {
   $sid = catalog_block_get_sid();
   $ajax_spinner = "<div id='pulfa-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh'></i></div>";
   $block_content = array(
-    '#markup' => "<div data-source='/utils/pulfa/any?query={$path}&sid={$sid}' id='pulfa-search-results'>" . $ajax_spinner . t('') . "</div>",
+    '#markup' => "<div data-source='" . data_source_url_base() . "pulfa/any?query={$path}&sid={$sid}' id='pulfa-search-results'>" . $ajax_spinner . t('') . "</div>",
   );
   return $block_content;
 }
@@ -108,7 +113,7 @@ function catalog_pudl_results_content() {
   $sid = catalog_block_get_sid();
   $ajax_spinner = "<div id='pudl-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh icon-4x'></i></div>";
   $block_content = array(
-    '#markup' => "<div data-source='/utils/pudl/any?query={$path}&sid={$sid}' id='pudl-search-results'>" . $ajax_spinner . t('') . "</div>",
+    '#markup' => "<div data-source='" . data_source_url_base() . "dpulsearch/any?query={$path}&sid={$sid}' id='pudl-search-results'>" . $ajax_spinner . t('') . "</div>",
   );
   return $block_content;
 }
@@ -118,7 +123,7 @@ function catalog_faq_results_content() {
   $sid = catalog_block_get_sid();
   $ajax_spinner = "<div id='faq-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh icon-4x'></i></div>";
   $block_content = array(
-    '#markup' => "<div data-source='/utils/faq/$path?sid={$sid}' id='faq-search-results'>" . $ajax_spinner . t('') . "</div>",
+    '#markup' => "<div data-source='" . data_source_url_base() . "faq/get?query=$path&sid={$sid}' id='faq-search-results'>" . $ajax_spinner . t('') . "</div>",
   );
   return $block_content;
 }
@@ -128,7 +133,7 @@ function catalog_blacklight_results_content() {
   $sid = catalog_block_get_sid();
   $ajax_spinner = "<div id='blacklight-search-results-spinner' class='results-spinner-large'><i class='icon-spinner icon-spin icon-refresh icon-4x'></i></div>";
   $block_content = array(
-    '#markup' => "<div data-source='/utils/pulsearch/any?query={$path}&sid={$sid}' id='blacklight-search-results'>" . $ajax_spinner . t('') . "</div>",
+    '#markup' => "<div data-source='" . data_source_url_base() . "pulsearch/any?query={$path}&sid={$sid}' id='blacklight-search-results'>" . $ajax_spinner . t('') . "</div>",
   );
   return $block_content;
 }
@@ -156,7 +161,7 @@ function catalog_block_page() {
 
   $page = array(
     '#type' => 'markup',
-    '#markup' => t('Configure The Books and More Search Box <a href="@url">the block admin page</a>.', array('@url' => url('admin/structure/block'))),
+    '#markup' => t('Configure The Catalog Search Box <a href="@url">the block admin page</a>.', array('@url' => url('admin/structure/block'))),
   );
 
   return $page;
@@ -179,7 +184,7 @@ function catalog_block_block_info() {
    );
    $blocks['catalog_search_results'] = array(
       // block for search results from "books+" aka primo
-      'info' => t('Books and More Search Results'),
+      'info' => t('Catalog Search Results'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
    );
    $blocks['catalog_journal_results'] = array(
@@ -191,15 +196,15 @@ function catalog_block_block_info() {
       'cache' => DRUPAL_CACHE_PER_PAGE,
    );
    $blocks['catalog_pudl_results'] = array(
-      'info' => t('Princeton University Digital Library'),
+      'info' => t('Digital PUL'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
    );
    $blocks['catalog_faq_results'] = array(
-      'info' => t('FAQ Results'),
+      'info' => t('FAQ'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
    );
    $blocks['catalog_blacklight_results'] = array(
-      'info' => t('PUL Search Results'),
+      'info' => t('Books and More'),
       'cache' => DRUPAL_CACHE_PER_PAGE,
    );
    return $blocks;
@@ -226,7 +231,7 @@ function catalog_block_block_configure($delta = '') {
       '#type' => 'textfield',
       '#title' => t('Invalid Search Error'),
       '#size' => 60,
-      '#description' => t('This message will display when the user submits and empty search for the Books+ Block.'),
+      '#description' => t('This message will display when the user submits and empty search for the Catalog Block.'),
       '#default_value' => variable_get('catalog_search_error',  t('Supply a Books+ Search Term.')),
     );
   }
@@ -263,7 +268,7 @@ function catalog_block_block_view($delta = '') {
     $block['content'] = catalog_block_contents($delta);
 
   } elseif ($delta == 'catalog_search_results') {
-    $block['subject'] = t('Books and More Search Results');
+    $block['subject'] = t('Catalog');
     $block['content'] = catalog_search_results_content($delta);
     drupal_add_js(array('catalog_block' => array('request' => 'query')), 'setting');
     drupal_add_js(drupal_get_path('module', 'catalog_block') .'/catalog_search_results.js');
@@ -276,18 +281,18 @@ function catalog_block_block_view($delta = '') {
     $block['content'] = catalog_pulfa_results_content($delta);
     drupal_add_js(drupal_get_path('module', 'catalog_block') .'/catalog_pulfa_results.js');
   } elseif ($delta == 'catalog_pudl_results') {
-    $block['subject'] = t('Princeton University Digital Library');
+    $block['subject'] = t('Digital PUL');
     $block['content'] = catalog_pudl_results_content($delta);
     drupal_add_js(drupal_get_path('module', 'catalog_block') .'/catalog_pudl_results.js');
   } elseif ($delta == 'catalog_faq_results') {
-    $block['subject'] = t('FAQ Results');
+    $block['subject'] = t('FAQ');
     $block['content'] = catalog_faq_results_content($delta);
     drupal_add_js(drupal_get_path('module', 'catalog_block') .'/catalog_faq_results.js');
   } elseif ($delta == 'catalog_blacklight_results') {
-    $block['subject'] = t('Books and More Results');
+    $block['subject'] = t('Catalog Results');
     $block['content'] = catalog_blacklight_results_content($delta);
     drupal_add_js(drupal_get_path('module', 'catalog_block') .'/catalog_blacklight_results.js');
-  }
+  } 
 
   return $block;
 }

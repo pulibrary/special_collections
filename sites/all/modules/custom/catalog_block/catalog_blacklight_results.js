@@ -10,7 +10,7 @@
         var refine_hint = 'Catalog';
         var refine_icon = '';
         var refine_message = "Expand your search to explore all Catalog results.";
-        var pul_resolver = 'http://library.princeton.edu/resolve/lookup?url=';
+        var pul_resolver = 'https://library.princeton.edu/resolve/lookup?url=';
         if (query_url === "" || query_url == undefined) {
             $('<div class="message">Please supply search terms</div>').appendTo('#blacklight-search-results');
         } else {
@@ -76,7 +76,7 @@
                                             if(holding_locations[key]['call_number']) {
                                                 call_number = holding_locations[key]['call_number'];
                                             }
-                                            holdings = holdings + "<div class='holding' data-mfhd='" + key +"' data-loc='" + holding_locations[key]['location_code'] + "'>" + holding_locations[key]['location'] + " " + call_number + "</div>";
+                                            holdings = holdings + "<div class='holding' data-mfhd='" + key +"' data-loc='" + holding_locations[key]['location_code'] + "'>" + "<span class='results_location'>" + holding_locations[key]['location'] + "</span> &raquo; <span class='call-number'>" + call_number + "</span></div>";
                                         }
                                     }
                                     if(index == 2) {
@@ -92,7 +92,7 @@
                             var online_span = '<span class="badge-notice availability-icon label label-primary" title="" data-toggle="tooltip" data-original-title="Electronic access" aria-describedby="tooltip552370">Online</span>';
                             if(online_process == true) {
                                 if (result['online']) {
-                                    var online_links = result['online'];
+                                    var online_links =result['online'];
                                     online_access = online_access + "<div class='pulsearch-online-access'>";
                                     for (var key in online_links) {
                                         if(online_links.hasOwnProperty(key)) {
@@ -123,7 +123,7 @@
                             return '<h2><a title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '"><i class="icon-book"></i>Catalog</a></h2>';
                         });
                         if (data.number > 3) {
-                            $('<div class="puld-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all Catalog results</a></div>"').appendTo('#blacklight-search-results');
+                            $('<div class="blacklight-search more-link"><a target="_blank" title="' + refine_hint + ' ' + data.number + ' total results." href="' + data.more + '">See all Catalog results</a></div>"').appendTo('#blacklight-search-results');
                         }
                         // update preview button with hit count
                         var preview = $("a[href='#catalog_block-catalog_blacklight_results']");
@@ -133,6 +133,10 @@
                             $(preview).parent().hide();
                         }
                         var section_heading = "blacklight"; // Should be in Drupal Settings
+                        $(preview).click(function() {
+                            ga('send', 'event', 'All Search', 'Skip to Section',section_heading);
+                        });
+
                         $('#catalog_block-catalog_blacklight_results h2 a').each(function(index, value) {
                             //$(this).closest('h2.pane-title').text();
                             $(this).click(function() {
@@ -144,6 +148,13 @@
                             //var section_heading = $(this).closest('h2.pane-title').text();
                             $(this).click(function() {
                                 ga('send', 'event', 'All Search', section_heading, 'Refine Bottom');
+                            });
+                        });
+
+                        $('#blacklight-search-results .all-search-results-list .pulsearch-online-access a').each(function(index, value) {
+                            //var section_heading = $(this).closest('h2.pane-title').text();
+                            $(this).click(function() {
+                                ga('send', 'event', 'All Search', section_heading, 'Online Item');
                             });
                         });
 
@@ -165,7 +176,7 @@
                     $('#blacklight-search-results-spinner').hide();
                     $('<div class="all-fail-to-load-results">Catalog results are not available at this time.</div>"').appendTo('#blacklight-search-results');
                 },
-                timeout: 5000
+                timeout: 15000
             }).done(function() {
                 var ids = [];
                 $('#blacklight-search-results .holdings').each(function() {
@@ -266,8 +277,10 @@
                                 var holding_note = $("*[data-mfhd='" + mfhd + "']").first();
 
                                 if (badge_label != 'Online') {
-                                    var note_text = $(holding_note).text();
-                                    $(holding_note).html(badge + " " + note_text);
+                                    var location_label = result[mfhd].label;
+                                    var note_text = $(holding_note).html();
+                                    var results_location = $(holding_note).html(badge + " <span class='location'>" + location_label + "</span> " + note_text );
+                                    $(".location + .results_location").remove();
                                 } else {
                                     $(holding_note).html('');
                                 }
