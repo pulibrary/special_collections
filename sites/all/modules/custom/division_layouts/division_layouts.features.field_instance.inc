@@ -408,7 +408,7 @@ function division_layouts_field_default_field_instances() {
         'settings' => array(
           'class' => 'img-responsive darken',
           'image_link' => 'content',
-          'image_style' => 'feature',
+          'image_style' => 'double_feature',
         ),
         'type' => 'image',
         'weight' => 0,

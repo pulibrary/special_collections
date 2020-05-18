@@ -211,7 +211,9 @@
     img {
       border-radius: $global-border-radius;
       display: block;
+      filter: grayscale(1);
       height: 120px;
+      object-fit: cover;
       opacity: 0.4;
       transition: all 0.1s linear;
       width: 100%;
