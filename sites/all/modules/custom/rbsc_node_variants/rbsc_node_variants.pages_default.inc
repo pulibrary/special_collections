@@ -1077,7 +1077,8 @@ services-policies
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'ask-question',
+            'paths' => 'ask-question
+ask-us',
           ),
           'context' => 'empty',
           'not' => FALSE,
