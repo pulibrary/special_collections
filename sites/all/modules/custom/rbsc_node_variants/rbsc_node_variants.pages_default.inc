@@ -1077,7 +1077,8 @@ services-policies
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'ask-question',
+            'paths' => 'ask-question
+ask-us',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -1087,7 +1088,7 @@ services-policies
     ),
   );
   $display = new panels_display();
-  $display->layout = 'three-nine';
+  $display->layout = 'three-six-three-stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1109,6 +1110,7 @@ services-policies
       'first' => NULL,
       'second' => NULL,
       'middle' => NULL,
+      'third' => NULL,
     ),
     'left' => array(
       'style' => 'bootstrap_region',
@@ -1148,11 +1150,38 @@ services-policies
   $display->content['new-b88fc62e-0d31-4235-bc38-aba7399746d0'] = $pane;
   $display->panels['first'][0] = 'new-b88fc62e-0d31-4235-bc38-aba7399746d0';
   $pane = new stdClass();
+  $pane->pid = 'new-53d2ea61-a4b4-44ee-be90-e22541538233';
+  $pane->panel = 'middle';
+  $pane->type = 'custom';
+  $pane->subtype = 'custom';
+  $pane->shown = TRUE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'admin_title' => 'Special Collections - Question Form',
+    'title' => '',
+    'title_heading' => 'h2',
+    'body' => '<script src="https://api2.libanswers.com/1.0/widgets/12718"></script>
+<div id="s-la-widget-12718"></div>',
+    'format' => 'full_html',
+    'substitute' => 1,
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 0;
+  $pane->locks = array();
+  $pane->uuid = '53d2ea61-a4b4-44ee-be90-e22541538233';
+  $display->content['new-53d2ea61-a4b4-44ee-be90-e22541538233'] = $pane;
+  $display->panels['middle'][0] = 'new-53d2ea61-a4b4-44ee-be90-e22541538233';
+  $pane = new stdClass();
   $pane->pid = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
-  $pane->panel = 'second';
+  $pane->panel = 'middle';
   $pane->type = 'node';
   $pane->subtype = 'node';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
     'nid' => '16271',
@@ -1174,11 +1203,11 @@ services-policies
     'css_class' => 'forms--ask-question',
   );
   $pane->extras = array();
-  $pane->position = 0;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = 'b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
   $display->content['new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2'] = $pane;
-  $display->panels['second'][0] = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
+  $display->panels['middle'][1] = 'new-b6acd6fc-5fa9-40a3-8ba8-1712f0f2c5e2';
   $pane = new stdClass();
   $pane->pid = 'new-318d8c85-216d-4c51-b052-11717d17ea41';
   $pane->panel = 'second';
@@ -1199,11 +1228,11 @@ services-policies
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 1;
+  $pane->position = 0;
   $pane->locks = array();
   $pane->uuid = '318d8c85-216d-4c51-b052-11717d17ea41';
   $display->content['new-318d8c85-216d-4c51-b052-11717d17ea41'] = $pane;
-  $display->panels['second'][1] = 'new-318d8c85-216d-4c51-b052-11717d17ea41';
+  $display->panels['second'][0] = 'new-318d8c85-216d-4c51-b052-11717d17ea41';
   $pane = new stdClass();
   $pane->pid = 'new-65db7579-a381-458a-a90b-aeac2a7199f9';
   $pane->panel = 'second';
@@ -1218,11 +1247,11 @@ services-policies
   );
   $pane->css = array();
   $pane->extras = array();
-  $pane->position = 2;
+  $pane->position = 1;
   $pane->locks = array();
   $pane->uuid = '65db7579-a381-458a-a90b-aeac2a7199f9';
   $display->content['new-65db7579-a381-458a-a90b-aeac2a7199f9'] = $pane;
-  $display->panels['second'][2] = 'new-65db7579-a381-458a-a90b-aeac2a7199f9';
+  $display->panels['second'][1] = 'new-65db7579-a381-458a-a90b-aeac2a7199f9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
