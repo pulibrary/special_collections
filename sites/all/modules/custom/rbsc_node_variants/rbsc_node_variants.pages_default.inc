@@ -4565,7 +4565,7 @@ class-visits',
   $pane->access = array();
   $pane->configuration = array(
     'arguments' => array(
-      'feed_nid' => '15117',
+      'feed_nid' => '',
     ),
   );
   $pane->cache = array();
