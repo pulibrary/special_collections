@@ -48,19 +48,9 @@
   Drupal.behaviors.rbscHours = {
     attach: function (context, settings) {
       $('.hours--library-status').once('rbsc', function() {
-        var hours_base = "/utils/hours/rbsc";
-        $.ajax({
-          url: hours_base,
-          async: true,
-          type: 'GET',
-          dataType: 'json',
-          success: function(data) {
-            $('.hours--library-status').replaceWith("<span class='hours--library-status'>" + "Today: " + data['mudd-hours'] + "</span>");
-          },
-          error: function(data) {
-            $('.hours--library-status').replaceWith("<span class='hours--library-status'>Hours Not Available</span>");
-          },
-          timeout: 5000
+        var hours_base = "https://libcal.princeton.edu/api_hours_today.php?iid=771&lid=14275&format=json&systemTime=0&callback=?";
+        $.getJSON(hours_base, function(data) {
+          $('.hours--library-status').replaceWith("<span class='hours--library-status'>" + "Today: " + data.locations[0].rendered + data.locations[0].desc + "</span>");
         });
       });
     }
