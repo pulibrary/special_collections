@@ -156,8 +156,25 @@ function division_layouts_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__policy';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(),
+      'form' => array(
+        'path' => array(
+          'weight' => '30',
+        ),
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
+    ),
     'view_modes' => array(
       'double_feature' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rbsc_grid_view_large_feature' => array(
         'custom_settings' => FALSE,
       ),
       'rbsc_grid_view_small_double_feature' => array(
@@ -166,29 +183,12 @@ function division_layouts_strongarm() {
       'rbsc_grid_view_small_feature' => array(
         'custom_settings' => FALSE,
       ),
-      'rbsc_grid_view_large_feature' => array(
+      'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
       'search_results' => array(
         'custom_settings' => FALSE,
       ),
-      'rg_list_item' => array(
-        'custom_settings' => FALSE,
-      ),
-      'mini_teaser' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'title' => array(
-          'weight' => '-5',
-        ),
-        'path' => array(
-          'weight' => '30',
-        ),
-      ),
-      'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__policy'] = $strongarm;
@@ -198,8 +198,25 @@ function division_layouts_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__services';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(),
+      'form' => array(
+        'path' => array(
+          'weight' => '30',
+        ),
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
+    ),
     'view_modes' => array(
       'double_feature' => array(
+        'custom_settings' => TRUE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rbsc_grid_view_large_feature' => array(
         'custom_settings' => TRUE,
       ),
       'rbsc_grid_view_small_double_feature' => array(
@@ -208,29 +225,12 @@ function division_layouts_strongarm() {
       'rbsc_grid_view_small_feature' => array(
         'custom_settings' => TRUE,
       ),
-      'rbsc_grid_view_large_feature' => array(
-        'custom_settings' => TRUE,
+      'rg_list_item' => array(
+        'custom_settings' => FALSE,
       ),
       'search_results' => array(
         'custom_settings' => FALSE,
       ),
-      'rg_list_item' => array(
-        'custom_settings' => FALSE,
-      ),
-      'mini_teaser' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'title' => array(
-          'weight' => '-5',
-        ),
-        'path' => array(
-          'weight' => '30',
-        ),
-      ),
-      'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__services'] = $strongarm;
@@ -334,8 +334,8 @@ function division_layouts_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_policy';
   $strongarm->value = array(
-    'status' => '1',
     'priority' => '0.5',
+    'status' => '1',
   );
   $export['xmlsitemap_settings_node_policy'] = $strongarm;
 
@@ -344,8 +344,8 @@ function division_layouts_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_services';
   $strongarm->value = array(
-    'status' => '1',
     'priority' => '0.5',
+    'status' => '1',
   );
   $export['xmlsitemap_settings_node_services'] = $strongarm;
 
