@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * rbsc_basic_find_all.views_default.inc
@@ -108,8 +109,6 @@ function rbsc_basic_find_all_views_default_views() {
   $handler->display->display_options['arguments']['search_api_views_fulltext']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['search_api_views_fulltext']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['search_api_views_fulltext']['break_phrase'] = 0;
-  $handler->display->display_options['arguments']['search_api_views_fulltext']['not'] = 0;
   $handler->display->display_options['arguments']['search_api_views_fulltext']['conjunction'] = 'OR';
   /* Filter criterion: Indexed Content: Content type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
