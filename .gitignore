@@ -1,8 +1,6 @@
 # Ignore configuration files that may contain sensitive information.
+.DS_Store
 sites/*/settings*.php
-drush/rbsc.aliases.drushrc.php
-*.sql
-.ssh/*
 
 # Ignore paths that contain user-generated content.
 sites/*/files
