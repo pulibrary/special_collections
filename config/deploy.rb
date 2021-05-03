@@ -95,7 +95,6 @@ namespace :drupal do
           execute "drush -r #{release_path} vset --exact file_temporary_path #{fetch(:drupal_file_temporary_path)}"
           execute "drush -r #{release_path} vset --exact file_public_path #{fetch(:drupal_file_public_path)}"
           execute "drush -r #{release_path} vset --exact file_private_path #{fetch(:drupal_file_private_path)}"
-          execute "drush -r #{release_path} vset --exact cas_uri '/special-collections/cas'"
       end
   end
 
