@@ -25,6 +25,7 @@
 //   'ssh-options' => '-o PasswordAuthentication=no -i .ssh/id_rsa', // Add ssh
 //   'path-aliases' => array(
 //     '%dump-dir' => '/tmp',
+//     '%files' => 'sites/default/files',
 //   ),
 //   'source-command-specific' => array (
 //     'sql-sync' => array (
