@@ -20,50 +20,50 @@ function front_page_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -24;
   $handler->conf = array(
-    'title' => 'Front Page',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => 'menu-grid',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
           'name' => 'front',
-          'settings' => NULL,
           'not' => FALSE,
+          'settings' => NULL,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => 'menu-grid',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Front Page',
   );
   $display = new panels_display();
   $display->layout = 'six-six-stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
-      'default' => NULL,
-      'top' => NULL,
-      'left' => NULL,
-      'right' => NULL,
       'bottom' => NULL,
+      'default' => NULL,
       'featured' => NULL,
+      'fifth' => NULL,
+      'first' => NULL,
+      'fourth' => NULL,
       'grid-A' => NULL,
       'grid-B' => NULL,
       'grid-C' => NULL,
       'grid-D' => NULL,
       'grid-E' => NULL,
       'grid-F' => NULL,
+      'left' => NULL,
       'rbsc-desc' => NULL,
       'rbsc-news' => NULL,
-      'first' => NULL,
+      'right' => NULL,
       'second' => NULL,
       'third' => NULL,
-      'fourth' => NULL,
-      'fifth' => NULL,
+      'top' => NULL,
     ),
   );
   $display->cache = array();
@@ -83,8 +83,8 @@ function front_page_default_page_manager_handlers() {
   $pane->configuration = array(
     'context' => 'argument_entity_id:node_1',
     'override_title' => 1,
-    'override_title_text' => 'About Us',
     'override_title_heading' => 'h2',
+    'override_title_text' => 'About Us',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -121,22 +121,22 @@ function front_page_default_page_manager_handlers() {
   $display->content['new-80ee9efa-31bb-4d37-8bac-0723d01858cd'] = $pane;
   $display->panels['second'][0] = 'new-80ee9efa-31bb-4d37-8bac-0723d01858cd';
   $pane = new stdClass();
-  $pane->pid = 'new-9fd0b080-44b0-4deb-91e7-0c2b5f9435ac';
+  $pane->pid = 'new-45980ad9-120f-4ee6-8b5c-f5e3166e774d';
   $pane->panel = 'top';
   $pane->type = 'node';
   $pane->subtype = 'node';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '20538',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'double_feature',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '280',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -146,9 +146,9 @@ function front_page_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '9fd0b080-44b0-4deb-91e7-0c2b5f9435ac';
-  $display->content['new-9fd0b080-44b0-4deb-91e7-0c2b5f9435ac'] = $pane;
-  $display->panels['top'][0] = 'new-9fd0b080-44b0-4deb-91e7-0c2b5f9435ac';
+  $pane->uuid = '45980ad9-120f-4ee6-8b5c-f5e3166e774d';
+  $display->content['new-45980ad9-120f-4ee6-8b5c-f5e3166e774d'] = $pane;
+  $display->panels['top'][0] = 'new-45980ad9-120f-4ee6-8b5c-f5e3166e774d';
   $pane = new stdClass();
   $pane->pid = 'new-8b6a0683-32f7-4917-8639-3961e5d01422';
   $pane->panel = 'top';
@@ -157,15 +157,15 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '1',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '1',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -186,15 +186,15 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '5823',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '5823',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -215,15 +215,15 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '12',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '12',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -237,22 +237,22 @@ function front_page_default_page_manager_handlers() {
   $display->content['new-6af6966b-f921-4a8e-9ff5-750908832997'] = $pane;
   $display->panels['top'][3] = 'new-6af6966b-f921-4a8e-9ff5-750908832997';
   $pane = new stdClass();
-  $pane->pid = 'new-563ff844-6b7a-47ff-a30d-50ceb264d26f';
+  $pane->pid = 'new-ba40d0f3-0924-4060-8552-f984ff1eeb0a';
   $pane->panel = 'top';
   $pane->type = 'node';
   $pane->subtype = 'node';
-  $pane->shown = FALSE;
+  $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '14',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '350',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -262,26 +262,26 @@ function front_page_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 4;
   $pane->locks = array();
-  $pane->uuid = '563ff844-6b7a-47ff-a30d-50ceb264d26f';
-  $display->content['new-563ff844-6b7a-47ff-a30d-50ceb264d26f'] = $pane;
-  $display->panels['top'][4] = 'new-563ff844-6b7a-47ff-a30d-50ceb264d26f';
+  $pane->uuid = 'ba40d0f3-0924-4060-8552-f984ff1eeb0a';
+  $display->content['new-ba40d0f3-0924-4060-8552-f984ff1eeb0a'] = $pane;
+  $display->panels['top'][4] = 'new-ba40d0f3-0924-4060-8552-f984ff1eeb0a';
   $pane = new stdClass();
-  $pane->pid = 'new-ba40d0f3-0924-4060-8552-f984ff1eeb0a';
+  $pane->pid = 'new-f875637d-0553-442a-a447-83df7e6e839d';
   $pane->panel = 'top';
   $pane->type = 'node';
   $pane->subtype = 'node';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '350',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '340',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -291,26 +291,26 @@ function front_page_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 5;
   $pane->locks = array();
-  $pane->uuid = 'ba40d0f3-0924-4060-8552-f984ff1eeb0a';
-  $display->content['new-ba40d0f3-0924-4060-8552-f984ff1eeb0a'] = $pane;
-  $display->panels['top'][5] = 'new-ba40d0f3-0924-4060-8552-f984ff1eeb0a';
+  $pane->uuid = 'f875637d-0553-442a-a447-83df7e6e839d';
+  $display->content['new-f875637d-0553-442a-a447-83df7e6e839d'] = $pane;
+  $display->panels['top'][5] = 'new-f875637d-0553-442a-a447-83df7e6e839d';
   $pane = new stdClass();
-  $pane->pid = 'new-f875637d-0553-442a-a447-83df7e6e839d';
+  $pane->pid = 'new-fa64c375-437a-4c86-bef0-9d1702a539a1';
   $pane->panel = 'top';
   $pane->type = 'node';
   $pane->subtype = 'node';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '340',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => 'menugrid',
     'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '341',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -320,26 +320,26 @@ function front_page_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 6;
   $pane->locks = array();
-  $pane->uuid = 'f875637d-0553-442a-a447-83df7e6e839d';
-  $display->content['new-f875637d-0553-442a-a447-83df7e6e839d'] = $pane;
-  $display->panels['top'][6] = 'new-f875637d-0553-442a-a447-83df7e6e839d';
+  $pane->uuid = 'fa64c375-437a-4c86-bef0-9d1702a539a1';
+  $display->content['new-fa64c375-437a-4c86-bef0-9d1702a539a1'] = $pane;
+  $display->panels['top'][6] = 'new-fa64c375-437a-4c86-bef0-9d1702a539a1';
   $pane = new stdClass();
-  $pane->pid = 'new-fa64c375-437a-4c86-bef0-9d1702a539a1';
+  $pane->pid = 'new-9fd0b080-44b0-4deb-91e7-0c2b5f9435ac';
   $pane->panel = 'top';
   $pane->type = 'node';
   $pane->subtype = 'node';
-  $pane->shown = TRUE;
+  $pane->shown = FALSE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '341',
-    'links' => 0,
-    'leave_node_title' => 0,
+    'build_mode' => 'double_feature',
     'identifier' => 'menugrid',
-    'build_mode' => 'teaser',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '20538',
     'override_title' => 0,
-    'override_title_text' => '',
     'override_title_heading' => 'h2',
+    'override_title_text' => '',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -349,9 +349,38 @@ function front_page_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 7;
   $pane->locks = array();
-  $pane->uuid = 'fa64c375-437a-4c86-bef0-9d1702a539a1';
-  $display->content['new-fa64c375-437a-4c86-bef0-9d1702a539a1'] = $pane;
-  $display->panels['top'][7] = 'new-fa64c375-437a-4c86-bef0-9d1702a539a1';
+  $pane->uuid = '9fd0b080-44b0-4deb-91e7-0c2b5f9435ac';
+  $display->content['new-9fd0b080-44b0-4deb-91e7-0c2b5f9435ac'] = $pane;
+  $display->panels['top'][7] = 'new-9fd0b080-44b0-4deb-91e7-0c2b5f9435ac';
+  $pane = new stdClass();
+  $pane->pid = 'new-563ff844-6b7a-47ff-a30d-50ceb264d26f';
+  $pane->panel = 'top';
+  $pane->type = 'node';
+  $pane->subtype = 'node';
+  $pane->shown = FALSE;
+  $pane->access = array();
+  $pane->configuration = array(
+    'build_mode' => 'teaser',
+    'identifier' => 'menugrid',
+    'leave_node_title' => 0,
+    'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '14',
+    'override_title' => 0,
+    'override_title_heading' => 'h2',
+    'override_title_text' => '',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array();
+  $pane->extras = array();
+  $pane->position = 8;
+  $pane->locks = array();
+  $pane->uuid = '563ff844-6b7a-47ff-a30d-50ceb264d26f';
+  $display->content['new-563ff844-6b7a-47ff-a30d-50ceb264d26f'] = $pane;
+  $display->panels['top'][8] = 'new-563ff844-6b7a-47ff-a30d-50ceb264d26f';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -366,181 +395,181 @@ function front_page_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -23;
   $handler->conf = array(
-    'title' => 'Homepage',
-    'no_blocks' => 0,
-    'pipeline' => 'standard',
-    'body_classes_to_remove' => '',
-    'body_classes_to_add' => '',
-    'css_id' => '',
-    'css' => '',
-    'contexts' => array(),
-    'relationships' => array(),
     'access' => array(
+      'logic' => 'and',
       'plugins' => array(
         0 => array(
           'name' => 'front',
-          'settings' => NULL,
           'not' => FALSE,
+          'settings' => NULL,
         ),
       ),
-      'logic' => 'and',
     ),
+    'body_classes_to_add' => '',
+    'body_classes_to_remove' => '',
+    'contexts' => array(),
+    'css' => '',
+    'css_id' => '',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'relationships' => array(),
+    'title' => 'Homepage',
   );
   $display = new panels_display();
   $display->layout = 'flexible';
   $display->layout_settings = array(
     'items' => array(
       'canvas' => array(
-        'type' => 'row',
-        'contains' => 'column',
         'children' => array(
           0 => 'main',
         ),
+        'contains' => 'column',
         'parent' => NULL,
+        'type' => 'row',
+      ),
+      'grid_box_a' => array(
+        'class' => 'col-sm-12 col-md-6 img-grid',
+        'parent' => 'main-row',
+        'title' => 'Grid Box A',
+        'type' => 'region',
+        'width' => '585',
+        'width_type' => 'px',
+      ),
+      'grid_box_b' => array(
+        'class' => 'col-sm-6 col-md-3 img-grid',
+        'parent' => 'main-row',
+        'title' => 'Grid Box B',
+        'type' => 'region',
+        'width' => '292',
+        'width_type' => 'px',
+      ),
+      'grid_box_c' => array(
+        'class' => 'col-sm-6 col-md-3 img-grid',
+        'parent' => 'main-row',
+        'title' => 'Grid Box C',
+        'type' => 'region',
+        'width' => '291',
+        'width_type' => 'px',
+      ),
+      'grid_d_box' => array(
+        'class' => 'col-sm-6 col-md-3 img-grid',
+        'parent' => '1',
+        'title' => 'Grid D Box',
+        'type' => 'region',
+        'width' => '292',
+        'width_type' => 'px',
+      ),
+      'grid_e_box' => array(
+        'class' => 'col-sm-6 col-md-3 img-grid',
+        'parent' => '1',
+        'title' => 'Grid E Box',
+        'type' => 'region',
+        'width' => '292',
+        'width_type' => 'px',
+      ),
+      'grid_f_box' => array(
+        'class' => 'col-sm-6 col-md-3 img-grid',
+        'parent' => '1',
+        'title' => 'Grid F Box',
+        'type' => 'region',
+        'width' => '292',
+        'width_type' => 'px',
+      ),
+      'grid_g_box' => array(
+        'class' => 'col-sm-6 col-md-3 img-grid',
+        'parent' => '1',
+        'title' => 'Grid G Box',
+        'type' => 'region',
+        'width' => '292',
+        'width_type' => 'px',
       ),
       'main' => array(
-        'type' => 'column',
-        'width' => 100,
-        'width_type' => '%',
         'children' => array(
           0 => 'main-row',
           1 => 1,
           2 => 2,
         ),
         'parent' => 'canvas',
+        'type' => 'column',
+        'width' => 100,
+        'width_type' => '%',
       ),
       'main-row' => array(
-        'type' => 'row',
-        'contains' => 'region',
         'children' => array(
           0 => 'grid_box_a',
           1 => 'grid_box_b',
           2 => 'grid_box_c',
         ),
+        'contains' => 'region',
         'parent' => 'main',
+        'type' => 'row',
       ),
-      'grid_box_c' => array(
+      'rbsc_description' => array(
+        'class' => 'rbsc-description',
+        'parent' => '2',
+        'title' => 'RBSC Description',
         'type' => 'region',
-        'title' => 'Grid Box C',
-        'width' => '291',
-        'width_type' => 'px',
-        'parent' => 'main-row',
-        'class' => 'col-sm-6 col-md-3 img-grid',
+        'width' => 50,
+        'width_type' => '%',
       ),
-      'grid_box_b' => array(
+      'rbsc_new_and_notable' => array(
+        'class' => 'rbsc-news',
+        'parent' => '2',
+        'title' => 'RBSC New and Notable',
         'type' => 'region',
-        'title' => 'Grid Box B',
-        'width' => '292',
-        'width_type' => 'px',
-        'parent' => 'main-row',
-        'class' => 'col-sm-6 col-md-3 img-grid',
-      ),
-      'grid_box_a' => array(
-        'type' => 'region',
-        'title' => 'Grid Box A',
-        'width' => '585',
-        'width_type' => 'px',
-        'parent' => 'main-row',
-        'class' => 'col-sm-12 col-md-6 img-grid',
+        'width' => 50,
+        'width_type' => '%',
       ),
       1 => array(
-        'type' => 'row',
-        'contains' => 'region',
         'children' => array(
           0 => 'grid_d_box',
           1 => 'grid_e_box',
           2 => 'grid_f_box',
           3 => 'grid_g_box',
         ),
-        'parent' => 'main',
         'class' => '',
-      ),
-      'grid_g_box' => array(
-        'type' => 'region',
-        'title' => 'Grid G Box',
-        'width' => '292',
-        'width_type' => 'px',
-        'parent' => '1',
-        'class' => 'col-sm-6 col-md-3 img-grid',
-      ),
-      'grid_f_box' => array(
-        'type' => 'region',
-        'title' => 'Grid F Box',
-        'width' => '292',
-        'width_type' => 'px',
-        'parent' => '1',
-        'class' => 'col-sm-6 col-md-3 img-grid',
-      ),
-      'grid_e_box' => array(
-        'type' => 'region',
-        'title' => 'Grid E Box',
-        'width' => '292',
-        'width_type' => 'px',
-        'parent' => '1',
-        'class' => 'col-sm-6 col-md-3 img-grid',
-      ),
-      'grid_d_box' => array(
-        'type' => 'region',
-        'title' => 'Grid D Box',
-        'width' => '292',
-        'width_type' => 'px',
-        'parent' => '1',
-        'class' => 'col-sm-6 col-md-3 img-grid',
+        'contains' => 'region',
+        'parent' => 'main',
+        'type' => 'row',
       ),
       2 => array(
-        'type' => 'row',
-        'contains' => 'region',
         'children' => array(
           0 => 'rbsc_description',
           1 => 'rbsc_new_and_notable',
         ),
-        'parent' => 'main',
         'class' => 'sub-grid',
-      ),
-      'rbsc_description' => array(
-        'type' => 'region',
-        'title' => 'RBSC Description',
-        'width' => 50,
-        'width_type' => '%',
-        'parent' => '2',
-        'class' => 'rbsc-description',
-      ),
-      'rbsc_new_and_notable' => array(
-        'type' => 'region',
-        'title' => 'RBSC New and Notable',
-        'width' => 50,
-        'width_type' => '%',
-        'parent' => '2',
-        'class' => 'rbsc-news',
+        'contains' => 'region',
+        'parent' => 'main',
+        'type' => 'row',
       ),
     ),
   );
   $display->panel_settings = array(
-    'style_settings' => array(
-      'default' => NULL,
-      'grid_box_g' => NULL,
-      'grid_box_f' => NULL,
-      'grid_box_e' => NULL,
-      'grid_box_d' => NULL,
-      'grid_box_c' => NULL,
-      'grid_box_b' => NULL,
-      'grid_box_a' => NULL,
-      'foo' => NULL,
-      'grid_d_box' => NULL,
-      'grid_g_box' => NULL,
-      'grid_f_box' => NULL,
-      'grid_e_box' => NULL,
-      'rbsc_description' => NULL,
-      'rbsc_new_and_notable' => NULL,
+    'grid_box_a' => array(
+      'style' => '-1',
     ),
     'grid_box_c' => array(
       'style' => '-1',
     ),
-    'grid_box_a' => array(
-      'style' => '-1',
-    ),
     'grid_d_box' => array(
       'style' => '-1',
+    ),
+    'style_settings' => array(
+      'default' => NULL,
+      'foo' => NULL,
+      'grid_box_a' => NULL,
+      'grid_box_b' => NULL,
+      'grid_box_c' => NULL,
+      'grid_box_d' => NULL,
+      'grid_box_e' => NULL,
+      'grid_box_f' => NULL,
+      'grid_box_g' => NULL,
+      'grid_d_box' => NULL,
+      'grid_e_box' => NULL,
+      'grid_f_box' => NULL,
+      'grid_g_box' => NULL,
+      'rbsc_description' => NULL,
+      'rbsc_new_and_notable' => NULL,
     ),
   );
   $display->cache = array();
@@ -558,12 +587,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '12',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '12',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -586,12 +615,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '1',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '1',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -614,12 +643,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '5823',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '5823',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -642,12 +671,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '14',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '14',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -670,12 +699,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '350',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '350',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -698,12 +727,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '340',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '340',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -726,12 +755,12 @@ function front_page_default_page_manager_handlers() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'nid' => '341',
-    'links' => 0,
-    'leave_node_title' => 0,
-    'identifier' => '',
     'build_mode' => 'teaser',
+    'identifier' => '',
+    'leave_node_title' => 0,
     'link_node_title' => 1,
+    'links' => 0,
+    'nid' => '341',
     'override_title' => 0,
     'override_title_text' => '',
   );
@@ -755,19 +784,19 @@ function front_page_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'admin_title' => 'RBSC Description',
-    'title' => '',
     'body' => '<p><strong>The Department of Special Collections</strong>&nbsp;is one of the premier repositories of its kind. Its holdings span five millennia and five continents, and include around 200,000 rare or significant printed works; 30,000 linear feet of textual materials, ranging from cuneiform tablets to contemporary manuscripts; a wealth of prints, drawings, photographs, maps, coins, and other visual materials; the Cotsen Children\'s Library; and the Princeton University Archives. The privately owned Scheide Library is associated with the Department.</p>
 ',
     'format' => 'full_html',
     'substitute' => 1,
+    'title' => '',
   );
   $pane->cache = array();
   $pane->style = array(
     'settings' => NULL,
   );
   $pane->css = array(
-    'css_id' => '',
     'css_class' => 'rbsc-front-page-desc',
+    'css_id' => '',
   );
   $pane->extras = array();
   $pane->position = 0;
@@ -792,8 +821,8 @@ function front_page_default_page_manager_handlers() {
     'settings' => NULL,
   );
   $pane->css = array(
-    'css_id' => '',
     'css_class' => 'allblogs',
+    'css_id' => '',
   );
   $pane->extras = array();
   $pane->position = 0;
