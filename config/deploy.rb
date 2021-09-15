@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
+lock "~> 3.16.0"
 
 set :application, "special_collections"
-set :repo_url, "git@github.com:pulibrary/rbsc_drupal.git"
+set :repo_url, "https://github.com/pulibrary/special_collections.git"
 set :branch, ENV["BRANCH"] || "main"
 
 set :keep_releases, 5
