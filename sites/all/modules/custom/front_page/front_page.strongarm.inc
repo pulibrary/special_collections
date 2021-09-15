@@ -156,14 +156,36 @@ function front_page_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__mainmenu';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(),
+      'form' => array(),
+    ),
     'view_modes' => array(
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
       'double_feature' => array(
         'custom_settings' => TRUE,
       ),
-      'teaser' => array(
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rbsc_grid_view_large_feature' => array(
         'custom_settings' => TRUE,
       ),
-      'full' => array(
+      'rbsc_grid_view_small_double_feature' => array(
+        'custom_settings' => TRUE,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'custom_settings' => TRUE,
+      ),
+      'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
       'rss' => array(
@@ -175,37 +197,15 @@ function front_page_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'print' => array(
+      'search_results' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'rbsc_grid_view_small_double_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_small_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_large_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'search_results' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rg_list_item' => array(
-        'custom_settings' => FALSE,
-      ),
-      'mini_teaser' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(),
-      'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__mainmenu'] = $strongarm;
@@ -215,11 +215,49 @@ function front_page_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__page';
   $strongarm->value = array(
+    'extra_fields' => array(
+      'display' => array(),
+      'form' => array(
+        'path' => array(
+          'weight' => '30',
+        ),
+        'redirect' => array(
+          'weight' => '30',
+        ),
+        'title' => array(
+          'weight' => '-5',
+        ),
+        'xmlsitemap' => array(
+          'weight' => '30',
+        ),
+      ),
+    ),
     'view_modes' => array(
-      'teaser' => array(
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'double_feature' => array(
         'custom_settings' => TRUE,
       ),
       'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'mini_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rbsc_grid_view_large_feature' => array(
+        'custom_settings' => TRUE,
+      ),
+      'rbsc_grid_view_small_double_feature' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rbsc_grid_view_small_feature' => array(
+        'custom_settings' => TRUE,
+      ),
+      'rg_list_item' => array(
         'custom_settings' => FALSE,
       ),
       'rss' => array(
@@ -231,53 +269,15 @@ function front_page_strongarm() {
       'search_result' => array(
         'custom_settings' => FALSE,
       ),
-      'diff_standard' => array(
+      'search_results' => array(
         'custom_settings' => FALSE,
+      ),
+      'teaser' => array(
+        'custom_settings' => TRUE,
       ),
       'token' => array(
         'custom_settings' => FALSE,
       ),
-      'double_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_small_double_feature' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rbsc_grid_view_small_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'rbsc_grid_view_large_feature' => array(
-        'custom_settings' => TRUE,
-      ),
-      'search_results' => array(
-        'custom_settings' => FALSE,
-      ),
-      'print' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rg_list_item' => array(
-        'custom_settings' => FALSE,
-      ),
-      'mini_teaser' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'title' => array(
-          'weight' => '-5',
-        ),
-        'path' => array(
-          'weight' => '30',
-        ),
-        'redirect' => array(
-          'weight' => '30',
-        ),
-        'xmlsitemap' => array(
-          'weight' => '30',
-        ),
-      ),
-      'display' => array(),
     ),
   );
   $export['field_bundle_settings_node__page'] = $strongarm;
@@ -381,8 +381,8 @@ function front_page_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_mainmenu';
   $strongarm->value = array(
-    'status' => '1',
     'priority' => '0.5',
+    'status' => '1',
   );
   $export['xmlsitemap_settings_node_mainmenu'] = $strongarm;
 
@@ -391,8 +391,8 @@ function front_page_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_settings_node_page';
   $strongarm->value = array(
-    'status' => '1',
     'priority' => '0.5',
+    'status' => '1',
   );
   $export['xmlsitemap_settings_node_page'] = $strongarm;
 
