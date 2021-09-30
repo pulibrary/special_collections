@@ -186,7 +186,6 @@ namespace :drupal do
         sql_file_name = gz_file_name.sub('.gz','')
         upload! File.join(ENV['SQL_DIR'], gz_file_name), "/tmp/#{gz_file_name}"
         execute "gzip -f -d /tmp/#{gz_file_name}"
-        execute "/home/deploy/sql/set_permission.sh"
         execute "drush -r #{release_path} sql-cli < /tmp/#{sql_file_name}"
       end
     end
