@@ -1,11 +1,14 @@
 name: rbsc
 recipe: drupal7
 config:
-  php: '7.2'
+  php: '7.4'
   webroot: .
 services:
   search:
-    type: 'solr:7'
+    type: solr:custom
+    overrides:
+      image: pulibrary/ci-solr:8.4-v1.0.0
+      command: server/scripts/lando-start.sh
     core: rbsc
     portforward: 9999
     config:
