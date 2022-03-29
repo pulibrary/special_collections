@@ -47,14 +47,14 @@ namespace :drupal do
     end
   end
 
-  desc "Install Assets"
-  task :install_assets do
-    on roles(:app) do |host|
-      execute "cd #{release_path}/sites/all/themes/rbsc && npm install"
-      execute "cd #{release_path}/sites/all/themes/rbsc && gulp deploy"
-      info "Installed Assets"
-    end
-  end
+  # desc "Install Assets"
+  # task :install_assets do
+  #   on roles(:app) do |host|
+  #     execute "cd #{release_path}/sites/all/themes/rbsc && npm install"
+  #     execute "cd #{release_path}/sites/all/themes/rbsc && gulp deploy"
+  #     info "Installed Assets"
+  #   end
+  # end
 
   desc "Clear the drupal cache"
   task :cache_clear do
@@ -263,7 +263,7 @@ namespace :deploy do
       if ( ENV["SQL_GZ"] != nil)
         invoke "drupal:database:upload_and_import"
       end
-      invoke "drupal:install_assets"
+      # invoke "drupal:install_assets"
       invoke "drupal:set_permissions_for_runtime"
       invoke "drupal:set_file_system_variables"
       invoke "drupal:update_directory_owner"
