@@ -1,7 +1,9 @@
 # Ignore the node modules folder (created by 'npm install').
 node_modules
-assets/public/images
-assets/public/scripts
-assets/public/styles
+# We comment out public/assets because for now
+# we decided to compile them locally and commit them. 
+# assets/public/images
+# assets/public/scripts
+# assets/public/styles
 # We absolutely don't want to have the .sass-cache in git.
 .sass-cache
