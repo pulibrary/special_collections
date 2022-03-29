@@ -8,3 +8,4 @@ drush/rbsc.aliases.drushrc.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+log/capistrano.log
