@@ -1,7 +1,7 @@
 name: rbsc
 recipe: drupal7
 config:
-  php: '7.4'
+  php: '8.1'
   webroot: .
 services:
   search:
@@ -17,6 +17,8 @@ services:
     type: 'node:8'
     globals:
       gulp-cli: latest
+    overrides:
+      platform: linux/x86_64
 tooling:
   npm:
     service: node
