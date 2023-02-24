@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.16.0"
+lock "~> 3.17.0"
 
 set :application, "special_collections"
 set :repo_url, "https://github.com/pulibrary/special_collections.git"
@@ -294,4 +294,18 @@ namespace :deploy do
 
   before :finishing, "drupal:update_directory_owner_deploy"
   after 'symlink:release' , "deploy:after_release"
+end
+
+desc "Database dump"
+task :database_dump do
+  # on release_roles :db do
+  #   execute "sudo -u root -i mysqldump #{ fetch(:db_name) } | gzip > /tmp/dump.sql.gz"
+  # end
+  date = Time.now.strftime("%Y-%m-%d")
+    file_name = "backup-#{date}-#{fetch(:stage)}"
+    on release_roles :app do
+      execute "mysqldump #{ fetch(:db_name) } > /tmp/#{file_name}.sql"
+      execute "gzip -f /tmp/#{file_name}.sql"
+      download! "/tmp/#{file_name}.sql.gz", "#{file_name}.sql.gz"
+    end
 end

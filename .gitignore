@@ -3,6 +3,7 @@
 sites/*/settings*.php
 drush/rbsc.aliases.drushrc.php
 *.sql
+*.sql.gz
 .ssh/*
 
 # Ignore paths that contain user-generated content.
