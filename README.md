@@ -92,8 +92,8 @@
     );
     ```
 1. adjust the .htaccess file not to have a base path.  Edit `.htaccess` and find `RewriteBase /special-collections` and comment the line out.
-1. `lando drush @rbsc.prod sql-dump --structure-tables-list='watchdog,sessions,cas_data_login,history,captcha_sessions,cache,cache_*' --result-file=/tmp/dump.sql; scp pulsys@libraryphp:/tmp/dump.sql .` // Change @libraryphp based on your ssh alias
-1. `lando db-import dump.sql`
+1. bundle exec cap production database_dump; // this will produce a datestamped dump file in the format "backup-YYYY-MM-DD-{environment}.sql.gz".
+1. `lando db-import backup-YYYY-MM-DD-{environment}.sql.gz`
 1. `lando drush rsync @rbsc.prod:%files @rbsc.local:%files`
 1. `lando drush uli your-username`
 
