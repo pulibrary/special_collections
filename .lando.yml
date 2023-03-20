@@ -3,6 +3,7 @@ recipe: drupal7
 config:
   php: '8.0'
   webroot: .
+  drush: '8.4.12'
 services:
   search:
     type: solr:custom
