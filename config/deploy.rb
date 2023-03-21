@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.0"
+# lock "~> 3.17.0"
 
 set :application, "special_collections"
 set :repo_url, "https://github.com/pulibrary/special_collections.git"
