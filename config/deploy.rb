@@ -1,5 +1,5 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.0"
+# lock "~> 3.17.0"
 
 set :application, "special_collections"
 set :repo_url, "https://github.com/pulibrary/special_collections.git"
@@ -300,7 +300,7 @@ desc "Database dump"
 task :database_dump do
   date = Time.now.strftime("%Y-%m-%d")
   file_name = "backup-#{date}-#{fetch(:stage)}"
-  on release_roles :db do
+  on release_roles :app do
     execute "mysqldump #{ fetch(:db_name) } > /tmp/#{file_name}.sql"
     execute "gzip -f /tmp/#{file_name}.sql"
     download! "/tmp/#{file_name}.sql.gz", "#{file_name}.sql.gz"
