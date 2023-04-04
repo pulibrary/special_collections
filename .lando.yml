@@ -3,6 +3,8 @@ recipe: drupal7
 config:
   php: '8.0'
   webroot: .
+  database: mariadb
+  drush: '8.4.12'
 services:
   search:
     type: solr:custom
@@ -14,7 +16,7 @@ services:
     config:
       dir: sites/all/modules/contrib/search_api_solr/solr-conf/7.x
   node:
-    type: 'node:8'
+    type: 'node:14'
     globals:
       gulp-cli: latest
     overrides:
