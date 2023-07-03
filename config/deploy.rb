@@ -57,7 +57,7 @@ namespace :drupal do
   desc 'Clear the drupal cache'
   task :cache_clear do
     on release_roles :drupal_primary do
-      execute "sudo -u www-data /usr/local/bin/drush -r #{release_path} cc all"
+      execute "cd #{release_path} && drush cc all"
       info 'cleared the drupal cache'
     end
   end
@@ -158,7 +158,7 @@ namespace :drupal do
   desc 'Revert the features to the code'
   task :features_revert do
     on release_roles :drupal_primary do
-      execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush -y features-revert-all"
+      execute "cd #{release_path} && drush -y features-revert-all"
       info 'reverted the drupal features'
     end
   end
@@ -211,21 +211,21 @@ namespace :drupal do
     desc 'Clear the solr index'
     task :clear_search_index do
       on release_roles :drupal_primary do
-        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush search-api-clear"
+        execute "cd #{release_path} && drush search-api-clear"
       end
     end
 
     desc 'Update the solr index'
     task :update_search_index do
       on release_roles :drupal_primary do
-        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush search-api-index"
+        execute "cd #{release_path} && drush search-api-index"
       end
     end
 
     desc 'Update the drupal database'
     task :update do
       on release_roles :drupal_primary do
-        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush -y updatedb"
+        execute "cd #{release_path} && drush -y updatedb"
       end
     end
 
