@@ -225,7 +225,7 @@ namespace :drupal do
     desc 'Update the drupal database'
     task :update do
       on release_roles :drupal_primary do
-        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && sudo -u www-data drush -y updatedb"
+        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush -y updatedb"
       end
     end
 
