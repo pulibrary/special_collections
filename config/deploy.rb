@@ -158,7 +158,7 @@ namespace :drupal do
   desc 'Revert the features to the code'
   task :features_revert do
     on release_roles :drupal_primary do
-      execute "sudo -u www-data /usr/local/bin/drush -r #{release_path} -y features-revert-all"
+      execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush -y features-revert-all"
       info 'reverted the drupal features'
     end
   end
@@ -211,14 +211,14 @@ namespace :drupal do
     desc 'Clear the solr index'
     task :clear_search_index do
       on release_roles :drupal_primary do
-        execute "sudo -u www-data /usr/local/bin/drush -r #{release_path} search-api-clear"
+        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush search-api-clear"
       end
     end
 
     desc 'Update the solr index'
     task :update_search_index do
       on release_roles :drupal_primary do
-        execute "sudo -u www-data /usr/local/bin/drush -r #{release_path} search-api-index"
+        execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && drush search-api-index"
       end
     end
 
