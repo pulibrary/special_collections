@@ -31,7 +31,7 @@ namespace :drupal do
   desc 'Link settings.php'
   task :link_settings do
     on roles(:app) do |_host|
-      execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && cp #{fetch(:drupal_settings)} settings.php"
+      execute "cd #{release_path}/sites/#{fetch(:drupal_site)} && ln -sf #{fetch(:drupal_settings)} settings.php"
       info "linked settings into #{release_path}/sites/#{fetch(:drupal_site)} site"
     end
   end
