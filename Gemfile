@@ -7,4 +7,6 @@ group :development do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'byebug'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
